@@ -15,6 +15,14 @@
   src: url('/fonts/calibri/calibri-regular.ttf')
 }
 
+@font-face {
+  font-family: "Franklin Gothic Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Franklin Gothic Regular"),
+    url("/fonts/fraklin/FranklinGothic-normal.woff") format("woff");
+}
+
 
 .font-calibri{
   font-family: 'calibri';
