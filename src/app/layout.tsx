@@ -1,5 +1,6 @@
 import Header from "@/components/header/header";
 import "./globals.css";
+import "./style.css";
 import Footer from "@/components/footer/footer";
 
 import "slick-carousel/slick/slick.css";

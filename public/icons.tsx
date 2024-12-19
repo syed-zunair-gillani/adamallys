@@ -27,7 +27,7 @@ export const MenuIcon = () => {
       <path
         d="M4 6H20M4 12H20M4 18H20"
         stroke="#2E368F"
-        stroke-width="2"
+        strokeWidth="2"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
@@ -43,7 +43,7 @@ export const XIcon = () => {
       viewBox="0 0 24 24"
       fill="none"
     >
-      <g stroke="#2E368F" stroke-linecap="round" stroke-width="2">
+      <g stroke="#2E368F" stroke-linecap="round" strokeWidth="2">
         <path d="M6 18L18 6" />
         <path d="M18 18L6 6" />
       </g>
