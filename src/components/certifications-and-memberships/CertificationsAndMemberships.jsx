@@ -5,7 +5,7 @@ const CertificationsAndMemberships = () => {
   return (
     <section className="certification-gradient -mt-[6px]">
       <div className="container mx-auto px-3 py-16">
-        <h4 className="text-xl md:text-2xl text-white">
+        <h4 className="text-xl md:text-2xl text-white font_calibri">
           Certifications & Memberships
           <div className="h-[2px] w-[34px] bg-white mt-2" />
         </h4>

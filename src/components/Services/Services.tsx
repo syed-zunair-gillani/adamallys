@@ -13,7 +13,7 @@ const Services = () => {
           </h3>
         </div>
         <div className="md:w-[75%] mt-5 md:mt-0">
-            <h2 className="text-[40px] mb-10 -mt-[6px] ">Services</h2>
+            <h2 className="text-[40px] mb-10 -mt-[6px] font_franklin">Services</h2>
           <div className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-5 gap-[14px]">
             {[1, 2, 3, 4]?.map((item, idx) => {
               const fullWidthItems = [2, 3, 5, 6, 7]; // Items requiring 100% width
@@ -35,7 +35,7 @@ const Services = () => {
                     className={`h-[378px] object-cover w-full`}
                   />
                   <div className="absolute px-9 gap-3 flex justify-between w-full items-center bottom-9 ">
-                    <Link href="#" className="text-white text-[30px] font-bold">
+                    <Link href="#" className="text-white text-[30px] font-bold font_calibri">
                       Ship Supply
                     </Link>
                     <Image

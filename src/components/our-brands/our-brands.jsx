@@ -10,7 +10,7 @@ const OurBrands = () => {
     <section className="my-[54px]">
       <div className="container mx-auto px-3">
         <div className="flex justify-between items-center">
-          <h3 className="text-[30px] text-theme-main font-bold">
+          <h3 className="text-[30px] text-theme-main font_calibri font-bold">
             Our Brands
             <div className="w-10 h-[1px] bg-theme-main" />
           </h3>
@@ -33,7 +33,7 @@ const OurBrands = () => {
             />
           </div>
         </div>
-        <p className="font-light mt-3">
+        <p className="font-light mt-3 font_calibri">
           Adamallys is the authorized distributor or stockist reseller for
           numerous premium brands used in the marine and industrial sectors.
           Elevate your operations with reliable, immediate access to the UAE's

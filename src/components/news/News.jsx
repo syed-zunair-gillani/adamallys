@@ -10,14 +10,14 @@ const News = () => {
         <section className='pl-3 md:pl-10 lg:pl-20 py-20'>
             <div className='flex flex-col md:flex-row'>
                 <div className='md:w-[25%]'>
-                    <h3 className="text-[30px] text-theme-main font-bold">
+                    <h3 className="text-[30px] text-theme-main font-bold font_calibri">
                         News
                         <div className="w-10 h-[1px] bg-theme-main" />
                     </h3>
                 </div>
                 <div className='md:w-[75%] centermodeRight font_franklin'>
                     <div className='flex justify-between mb-14 items-center pr-3 md:pr-10 lg:pr-20'>
-                        <h3 className='text-[30px] font-bold'>News & Events</h3>
+                        <h3 className='text-[30px] font-bold font_franklin'>News & Events</h3>
                         <div className="flex items-center gap-2">
                             <Image
                                 src="/svg/arrow_circle_left.svg"
@@ -44,7 +44,7 @@ const News = () => {
                                     <figure>
                                         <Image src="/images/news-one.jpg" alt='' className='w-full' width={434} height={293} />
                                     </figure>
-                                    <div className='bg-theme-gray p-5 md:p-10'>
+                                    <div className='bg-theme-gray p-5 md:p-10 font_calibri'>
                                         <h6 className='text-theme-main'>25 january 2024</h6>
                                         <p className='text-[#8B8B8B] text-[17px] sm:text-[20px] md:text-[25px] font-light mt-3'>In publishing and graphic design, Lorem ipsum is a placeholder text commonly </p>
                                         <button className={`flex items-center gap-10 mt-5 text-theme-main`}>

@@ -16,7 +16,7 @@ const OurCompany = () => {
               Adamallys LLC is one of the leading ship chandlers in the UAE and
               Middle East region.
             </h2>
-            <p className="text-xl">
+            <p className="!text-xl">
               With over 50 years of experience in the UAE, Adamallys LLC is
               dedicated to sourcing and delivering high-quality technical marine
               stores and provisions with a focus on cost-efficiency,
