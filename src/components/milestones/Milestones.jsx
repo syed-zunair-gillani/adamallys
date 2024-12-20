@@ -11,7 +11,7 @@ const Milestones = () => {
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[17px] mt-10 mb-10'>
                     {
                         [1, 2, 3, 4, 5, 6]?.map((item, idx) => (
-                            <div class="flex w-full items-center p-[34px] bg-black/40 backdrop-blur-[6px] border border-white/60 text-white">
+                            <div key={idx} class="flex w-full items-center p-[34px] bg-black/40 backdrop-blur-[6px] border border-white/60 text-white">
                                 <figure class="text-5xl mb-2">
                                     <Image src="/svg/calendar_month.svg" alt="" width={81} height={81}/>
                                 </figure>
