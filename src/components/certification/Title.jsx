@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Banner({title}:any) {
+function Banner({title}) {
   return (
     <div className='container mx-auto px-4'>
        <section 

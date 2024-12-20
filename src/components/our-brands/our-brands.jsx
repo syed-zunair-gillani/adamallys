@@ -5,7 +5,7 @@ import Slider from "react-slick";
 
 const OurBrands = () => {
   const slider = React.useRef(null);
-
+ 
   return (
     <section className="my-[54px]">
       <div className="container mx-auto px-3">

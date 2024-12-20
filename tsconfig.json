@@ -38,7 +38,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "src/components/our-brands/our-brands.jsx"  ],
+, "src/components/our-brands/our-brands.jsx", "src/components/hero/main.jsx", "src/components/certifications-and-memberships/CertificationsAndMemberships.jsx", "src/components/certification/Title.jsx"  ],
   "exclude": [
     "node_modules"
   ]

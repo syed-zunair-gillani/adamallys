@@ -4,11 +4,11 @@ import Slider from "react-slick";
 import { NextArrowIcon } from "../../../public/icons";
 
 const Main = () => {
-  const slider = React.useRef<any>(null);
+  const slider = React.useRef(null);
   const [activeID, setActiveID] = useState(0);
-  const [activeSlide, setActiveSlide] = useState<any>();
+  const [activeSlide, setActiveSlide] = useState();
 
-  const handleBeforeChange = (oldIndex: number, newIndex: number) => {
+  const handleBeforeChange = (oldIndex, newIndex) => {
     setActiveID(newIndex);
   };
 

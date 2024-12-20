@@ -11,7 +11,7 @@ const CertificationsAndMemberships = () => {
         </h4>
         <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6">
           {arr.map(
-            (item: any, idx: number) => (
+            (item, idx) => (
               <React.Fragment key={idx}>
                 <figure className="flex justify-center">
                   <Image src="/images/l1.png" alt="" width={162} height={162} />
