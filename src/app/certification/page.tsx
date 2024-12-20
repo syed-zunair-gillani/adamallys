@@ -4,11 +4,12 @@ import Banner from "@/components/certification/Title";
 
 export default function Home() {
   return (
-    <section className="">
-      <Banner title="Certification"/>
+    <>
+      <div className="mb-32" />
+      <Banner title="Certification" />
       <Logocard />
-      <Banner title="Memberships"/>
+      <Banner title="Memberships" />
       <Logocard2 />
-    </section>
+    </>
   );
 }
