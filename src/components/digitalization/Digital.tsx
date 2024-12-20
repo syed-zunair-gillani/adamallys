@@ -16,11 +16,11 @@ function Digital() {
         </div>
       
         <div className="bg-[#DFE2FF] text-[#171F7C] px-6 py-10 md:px-10 md:py-16 ">
-  <h2 className="text-[28px] md:text-[40px] font-[700]">
+  <h2 className="text-[28px] md:text-[40px] font-[700] font_franklin">
     Our Vision for Digital <br /> Transformation
   </h2>
 
-  <div>
+  <div className=" font_calibri">
     <p className="py-4">
       At Adamallys, we believe that the future of marine supply lies in continuous digital innovation. Our vision includes:
     </p>

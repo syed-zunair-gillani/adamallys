@@ -8,8 +8,8 @@ function Card2() {
         
         <div className="bg-gradient-to-b from-[#a7ace3] to-[#2E368F] text-white  px-6 py-10 md:px-10 md:py-16 flex items-center h-full">
           <div>
-          <h2 className="text-[28px] md:text-[40px] font-[700]">Our Digital Advantage</h2>
-          <div>
+          <h2 className="text-[28px] md:text-[40px] font-[700] font_franklin">Our Digital Advantage</h2>
+          <div className="font_calibri">
             <p className="flex mt-7">
               <li className="text-2xl"></li>
               Advanced ERP Systems: Our powerful ERP systems leverage machine
