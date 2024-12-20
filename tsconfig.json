@@ -1,4 +1,7 @@
 {
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "off"
+},
   "compilerOptions": {
     "target": "es5",
     "lib": [
