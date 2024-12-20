@@ -4,7 +4,7 @@ import React from "react";
 import Slider from "react-slick";
 
 const OurBrands = () => {
-    const slider = React.useRef<any>(null);
+  const slider = React.useRef(null);
 
   return (
     <section className="my-[54px]">
