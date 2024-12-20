@@ -5,6 +5,7 @@ import Services from "@/components/Services/Services";
 import Milestones from "@/components/milestones/Milestones"
 import OurBrands from "@/components/our-brands/our-brands";
 import Cards from "@/components/Cards/Cards";
+import News from "@/components/news/News"
 
 export default function Home() {
   return (
@@ -15,7 +16,9 @@ export default function Home() {
       <Services/>
       <Milestones/>
       <OurBrands/>
+      <Cards dark/>
       <Cards/>
+      <News/>
     </>
   );
 }

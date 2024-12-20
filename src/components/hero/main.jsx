@@ -30,13 +30,13 @@ const Main = () => {
               <section className="fullscreen-video-content absolute inset-0">
                 <div className="container flex flex-col justify-between mx-auto px-3 h-full pb-12">
                   <div className="opacity-0"></div>
-                  <h2 className="text-2xl leading-normal md:text-[40px] lg:text-[50px] text-white max-w-[1028px] uppercase font-normal">
+                  <h2 className="text-2xl md:leading-[48px] lg:leading-[66px] md:text-[40px] font_franklin lg:text-[50px] text-white max-w-[1028px] uppercase font-normal">
                     Your Trusted Partner in Marine and Industrial Supplies Since
                     1972
                   </h2>
                   <div>
                     <div>
-                      <p className="max-w-[377px] text-white">
+                      <p className="max-w-[377px] text-white font_calibri">
                         we have over 50 years of experience in ship supply,
                         marine logistics, and industrial supply
                       </p>
@@ -54,7 +54,7 @@ const Main = () => {
           <figure>
           </figure>
           <div>
-            <h6 className="text-lg text-white">Next</h6>
+            <h6 className="text-lg text-white font_calibri">Next</h6>
             <NextArrowIcon />
           </div>
         </button>

@@ -5,15 +5,15 @@ import React from "react";
 const Services = () => {
   return (
     <section className="">
-      <div className="container pb-20 pt-5 mx-auto px-3 flex md:flex-row flex-col">
+      <div className="container pb-20 pt-5 mx-auto px-3 gap-3 flex md:flex-row flex-col">
         <div className="md:w-[25%]">
-          <h3 className="text-theme-main font-bold uppercase text-[30px]">
+          <h3 className="text-theme-main font-bold font_calibri uppercase text-[30px]">
             What we do
             <div className="w-10 mt-2 h-[1px] bg-theme-main" />
           </h3>
         </div>
         <div className="md:w-[75%] mt-5 md:mt-0">
-            <h2 className="text-[40px] mb-10 -mt-1">Services</h2>
+            <h2 className="text-[40px] mb-10 -mt-[6px] ">Services</h2>
           <div className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-5 gap-[14px]">
             {[1, 2, 3, 4]?.map((item, idx) => {
               const fullWidthItems = [2, 3, 5, 6, 7]; // Items requiring 100% width

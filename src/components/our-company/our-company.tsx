@@ -5,18 +5,18 @@ const OurCompany = () => {
     <section className="">
       <div className="container py-20 mx-auto px-3 flex md:flex-row gap-6 flex-col">
         <div className="md:w-[25%]">
-          <h3 className="text-theme-main font-bold uppercase text-[30px]">
+          <h3 className="text-theme-main font-bold font_calibri uppercase text-[30px]">
             Our Company
             <div className="w-10 mt-2 h-[1px] bg-theme-main" />
           </h3>
         </div>
         <div className="md:w-[75%]">
-          <div className="oc_content">
-            <h2>
+          <div className="oc_content font_calibri">
+            <h2 className="font_franklin">
               Adamallys LLC is one of the leading ship chandlers in the UAE and
               Middle East region.
             </h2>
-            <p>
+            <p className="text-xl">
               With over 50 years of experience in the UAE, Adamallys LLC is
               dedicated to sourcing and delivering high-quality technical marine
               stores and provisions with a focus on cost-efficiency,
@@ -54,7 +54,7 @@ const OurCompany = () => {
               to bring about greener practices and environmental stewardship for
               a brighter tomorrow.
             </p>
-            <button className="flex items-center gap-10 text-theme-main mt-6">
+            <button className="flex items-center font_calibri gap-10 text-theme-main mt-6">
               <span>Read More</span>
               <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
                 <mask
