@@ -5,7 +5,6 @@ function Card2() {
   return (
     <div className="container mx-auto px-4">
       <section className="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-1 2xl:grid-cols-2 mt-10 mx-auto   items-stretch">
-        
         <div className="bg-gradient-to-b from-[#a7ace3] to-[#2E368F] text-white  px-6 py-10 md:px-10 md:py-16 flex items-center h-full">
           <div>
           <h2 className="text-[28px] md:text-[40px] font-[700] font_franklin">Our Digital Advantage</h2>

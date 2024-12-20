@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
     <div className="mb-24"/>
-    <main className="font-calibri ">
+    <main>
       <Leadingpage />
       <Digital />
       <Card2 />

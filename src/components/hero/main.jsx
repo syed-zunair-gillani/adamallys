@@ -49,7 +49,7 @@ const Main = () => {
           </div>
         ))}
       </Slider>
-      <div className="container mx-auto absolute right-1/2 bottom-32 sm:bottom-14 translate-x-1/2 flex justify-end  px-6">
+      <div className="container mx-auto absolute right-1/2 bottom-32 sm:bottom-14 translate-x-1/2 flex justify-end px-6">
         <button onClick={() => slider?.current?.slickNext()}>
           <figure>
           </figure>
