@@ -37,12 +37,7 @@ export const MenuIcon = () => {
 
 export const XIcon = () => {
   return (
-    <svg
-      width="26px"
-      height="26px"
-      viewBox="0 0 24 24"
-      fill="none"
-    >
+    <svg width="26px" height="26px" viewBox="0 0 24 24" fill="none">
       <g stroke="#2E368F" strokeLinecap="round" strokeWidth="2">
         <path d="M6 18L18 6" />
         <path d="M18 18L6 6" />
@@ -50,3 +45,67 @@ export const XIcon = () => {
     </svg>
   );
 };
+
+export const Minimize = () => {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <mask
+        id="mask0_1102_7513"
+        maskUnits="userSpaceOnUse"
+        x="0"
+        y="0"
+        width="24"
+        height="24"
+      >
+        <rect width="24" height="24" fill="#D9D9D9" />
+      </mask>
+      <g mask="url(#mask0_1102_7513)">
+        <path d="M6 14V12H18V14H6Z" fill="#2E368F" />
+      </g>
+    </svg>
+  );
+};
+
+export const Plus = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <mask
+      id="mask0_1102_7453"
+      maskUnits="userSpaceOnUse"
+      x="0"
+      y="0"
+      width="24"
+      height="24"
+    >
+      <rect width="24" height="24" fill="#D9D9D9" />
+    </mask>
+    <g mask="url(#mask0_1102_7453)">
+      <path d="M11 13H5V11H11V5H13V11H19V13H13V19H11V13Z" fill="#2E368F" />
+    </g>
+  </svg>
+);
+
+export const CircularArrowRight = () => (
+  <svg
+    width="91"
+    height="91"
+    viewBox="0 0 91 91"
+    fill="none"
+  >
+    <mask
+      id="mask0_1076_11221"
+      maskUnits="userSpaceOnUse"
+      x="0"
+      y="0"
+      width="91"
+      height="91"
+    >
+      <rect width="90.6343" height="90.6343" fill="#D9D9D9" />
+    </mask>
+    <g mask="url(#mask0_1076_11221)">
+      <path
+        d="M45.316 57.7357L57.7348 45.317L45.316 32.8982L42.7159 35.4982L50.6464 43.4287H32.0985V47.2052H50.6464L42.7159 55.1357L45.316 57.7357ZM45.3283 79.3048C40.6285 79.3048 36.2098 78.4129 32.072 76.6292C27.935 74.8455 24.336 72.4248 21.2752 69.3671C18.2144 66.3095 15.7915 62.7137 14.0066 58.5798C12.2209 54.4465 11.3281 50.0296 11.3281 45.3292C11.3281 40.6295 12.22 36.2107 14.0037 32.073C15.7875 27.9359 18.2081 24.337 21.2658 21.2762C24.3234 18.2154 27.9192 15.7925 32.0532 14.0075C36.1865 12.2219 40.6033 11.3291 45.3037 11.3291C50.0035 11.3291 54.4222 12.221 58.5599 14.0047C62.697 15.7884 66.2959 18.2091 69.3567 21.2668C72.4175 24.3244 74.8404 27.9202 76.6254 32.0541C78.411 36.1874 79.3038 40.6043 79.3038 45.3047C79.3038 50.0044 78.412 54.4232 76.6282 58.5609C74.8445 62.698 72.4238 66.2969 69.3662 69.3577C66.3085 72.4185 62.7127 74.8414 58.5788 76.6264C54.4455 78.412 50.0286 79.3048 45.3283 79.3048Z"
+        fill="white"
+      />
+    </g>
+  </svg>
+);

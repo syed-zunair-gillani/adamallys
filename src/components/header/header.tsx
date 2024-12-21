@@ -14,7 +14,9 @@ const Header = () => {
               <Link href="#">Distributor & Stockists</Link>
               <Link href="#">Standards & Innovation</Link>
             </ul>
+            <div className="w-[20%] md:w-[10%]">
             <Logo />
+            </div>
             <div className="flex w-[45%] gap-8 justify-end">
               <ul className="flex items-center gap-8">
                 <Link href="#">Who we are</Link>

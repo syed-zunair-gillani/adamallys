@@ -4,7 +4,7 @@ import React from "react";
 
 const Logo = () => {
   return (
-    <figure className={`flex justify-center items-center w-[20%] md:w-[10%]`}>
+    <figure className={`flex justify-center items-center`}>
       <Link href="#" className="">
         <Image src="/svg/logo.svg" alt="logo" width={126} height={74} className="w-[126px]"/>
       </Link>

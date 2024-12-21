@@ -73,6 +73,9 @@
 .blue_gradient{
   background: linear-gradient(180deg, rgba(178,182,224,1) 0%, rgba(23,31,124,1) 75%);
 }
+.blue_gradient2{
+  background: linear-gradient(150deg, rgba(178,182,224,1) 0%, rgba(23,31,124,1) 100%);
+}
 
 .black_gradient{
   background: linear-gradient(180deg, rgba(17,17,17,1) 0%, rgba(17,17,17,1) 0%, rgba(17,17,17,0.2582282913165266) 100%);
