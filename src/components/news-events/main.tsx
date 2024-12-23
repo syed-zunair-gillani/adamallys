@@ -1,0 +1,93 @@
+import React from "react";
+import { MdCalendarMonth } from "react-icons/md";
+function main() {
+  return (
+    <>
+      <section className="container mx-auto px-4 xl:pt-[30px] mt-12">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0 py-4">
+          <h1 className="text-[32px] md:text-[60px] font-[700] text-[#2E368F] text-center md:text-left">
+            News & Events
+          </h1>
+          <div className="text-[#2E368F] flex items-center gap-2 border px-4 py-2 md:px-5 md:py-3 border-[#2E368F]">
+            <MdCalendarMonth />
+            <a href="#" className="text-[14px] md:text-[16px]">
+              Date by filter
+            </a>
+          </div>
+        </div>
+
+        <div className="flex flex-col xl:flex-row gap-5 items-center">
+          <div style={{
+            backgroundSize:'cover',
+            backgroundPosition:'center',
+          }} 
+          className="bg-[url('/images/1106000885-preview.svg')] h-[544px] bg-no-repeat mt-0 relative xl:basis-[70%]  w-full">
+            <div className="absolute  inset-0 bg-gradient-to-t from-black to-transparent opacity-80   mt-[222px]"></div>
+
+            <div style={{
+                display:'flex',
+                alignItems:'flex-end',
+
+            }} className="flex h-full ">
+            <div className="w-full bottom-0  inset-x-0 text-white px-4 sm:px-6 md:px-10 py-6 sm:py-8 md:py-10 z-40">
+              <h2 className="text-[20px] sm:text-[24px] md:text-[30px] font-[300] leading-tight">
+                In publishing and graphic design, Lorem ipsum is a <br /> placeholder
+              </h2>
+              <p className="text-[14px] sm:text-[16px] md:text-[18px] font-[300] py-3 mb-2">
+                In publishing and graphic design, Lorem ipsum is a
+                placeholder...
+              </p>
+              <div className="border-[0.8px]"></div>
+              <p className="text-[12px] sm:text-[14px] md:text-[16px] font-[300] py-4">
+                25 January 2024
+              </p>
+            </div>
+            </div>
+          </div>
+          
+          <div className=" grid sm:grid-cols-2 grid-cols-1 xl:grid-cols-1  gap-5 mx-auto items-center">
+            
+             <div className="bg-[url('/images/1106000885-preview.svg')] h-[262px] max-w-[500px] w-full relative mt-0">
+             <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80 mt-[22px]"></div>
+             <div style={{
+                display:'flex',
+                alignItems:'flex-end',
+
+            }} className="flex h-full ">
+             <div className="w-full bottom-0 inset-x-0 text-white px-6 sm:px-8 md:px-10 py-4 sm:py-4 md:py-4 z-30">
+              <h2 className="text-[20px] sm:text-[24px] md:text-[25px] font-[300] leading-tight">
+                In publishing and graphic design, Lorem ipsum is a placeholder
+              </h2>
+              <p className="text-[12px] sm:text-[14px] md:text-[16px] font-[300] py-4">
+                25 January 2024
+              </p>
+            </div>
+             </div>
+             </div>
+
+             <div className="bg-[url('/images/1106000885-preview.svg')] h-[262px] w-full max-w-[500px] relative ">
+             <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80   mt-[22px]"></div>
+             <div style={{
+                display:'flex',
+                alignItems:'flex-end',
+
+            }} className="flex h-full ">
+             <div className="w-full bottom-0 inset-x-0 text-white px-6 sm:px-8 md:px-10 py-4 sm:py-4 md:py-4 z-30">
+              <h2 className="text-[20px] sm:text-[24px] md:text-[25px] font-[300] leading-tight">
+                In publishing and graphic design, Lorem ipsum is a placeholder
+              </h2>
+              <p className="text-[12px] sm:text-[14px] md:text-[16px] font-[300] py-4">
+                25 January 2024
+              </p>
+            </div>
+            </div>
+             </div>
+          </div>
+        </div>
+
+      </section>
+    </>
+  );
+}
+
+export default main;
