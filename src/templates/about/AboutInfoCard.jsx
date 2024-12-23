@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import React from 'react'
+
 const cardsData = [
   {
     icon: '/svg/about/calendar_month.svg',
@@ -17,6 +17,7 @@ const cardsData = [
     caption: 'of renowned industry brands'
   }
 ]
+
 const AboutInfoCard = () => {
   return (
     <div className='flex flex-wrap gap-[8px] pt-[40px] md:pt-[80px]'>
