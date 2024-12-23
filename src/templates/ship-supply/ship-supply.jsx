@@ -19,7 +19,13 @@ const ShipSupply = () => {
 
             <section className="mt-14 container mx-auto px-3 flex flex-col sm:flex-row gap-5 md:gap-10">
                 <div className='sm:w-[30%]'>
-                    <LeftCard />
+                <h2 className='text-3xl md:text-5xl lg:text-6xl font_calibri text-theme-main font-bold'>Ship Supply</h2>
+                <div className='ship_supply_content font_calibri'>
+                    <p>Adamallys LLC is one of the largest and most trusted ship chandlers in the UAE, with over 50 years of expertise in providing premium marine and industrial supplies. As the leading ship chandler in Dubai, we offer unparalleled access to top-tier brands and a vast inventory, making us the preferred supplier for ship owners and managers throughout the region.</p>
+                    <p>Our comprehensive ship supply solutions are tailored to meet the demands of all vessel types—from tankers, container ships, LNG carriers to bulk carriers—ensuring fast, reliable service that minimizes downtime and optimizes operational efficiency. Specializing in large-scale contracts and drydock support, we guarantee that essential supplies are delivered quickly and precisely, supporting vessels to operate at their best.</p>
+                    <p>We uphold the highest global standards of quality, safety, and environmental responsibility, with each item carefully selected to meet rigorous marine-grade standards for onboard safety. With an exceptional price-to-quality ratio, Adamallys LLC provides cost-effective ship supply solutions without compromising on quality, establishing us as the go-to ship chandler in the UAE.</p>
+                    <p>Choose Adamallys LLC for all your ship supply needs and experience the reliability, quality, and value that make us a leader in the region.</p>
+                </div>
                 </div>
                 <div className='sm:w-[70%]'>
                     <h2 className='text-3xl md:text-5xl lg:text-6xl font_calibri text-theme-main font-bold'>Marine Logistics</h2>
