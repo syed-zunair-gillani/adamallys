@@ -7,7 +7,7 @@ const omanPorts = ['Sultan Qaboos Port (Muscat)', 'Salalah Port', 'Sohar Port', 
 
 const PortsTemplates = () => {
   return (
-    <main className='mt-[4rem] container mx-auto'>
+    <main className='mt-[4rem] mb-[40px] lg:mb-[73px] container mx-auto'>
       <div className="pt-[30px] md:pt-[60px]">
         <h1 className='font_calibri capitalize text-[60px] leading-[60px] text-center font-bold text-theme-main mb-[46px]'>Ports</h1>
         <div className='px-[30px] pt-[38px] pb-[45px] blue_gradient'>
