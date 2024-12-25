@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 const cardsData = [
   {
-    icon: '/svg/about/calendar_month.svg',
+    icon: '/svg/calendar_month.svg',
     title: '50+ YEARS',
     caption: 'of experience'
   },
