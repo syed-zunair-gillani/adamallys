@@ -4,8 +4,8 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer>
-      <section className="grid container mx-auto px-3 grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-10 my-14">
+    <footer className="footer_gradient pt-[63px]">
+      <section className="grid container mx-auto px-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 md:gap-10 lg:gap-[88px]">
         <div>
           <Link href="#" className="">
             <Image
@@ -23,27 +23,27 @@ const Footer = () => {
         </div>
         <div>
           <h6 className="font_calibri uppercase text-lg font-bold text-theme-main">Adamallys Group</h6>
-          <ul className="mt-3">
+          <ul className="mt-[13px]">
             {
               [1, 2, 2, 2, 2, 2].map((item, idx) => (
-                <li key={idx} className="text-[#3E3E3E] font_calibri mb-1 font-light">Who we are</li>
+                <li key={idx} className="text-[#3E3E3E] font_calibri mb-2 font-light">Who we are</li>
               ))
             }
           </ul>
         </div>
         <div>
           <h6 className="font_calibri uppercase text-lg font-bold text-theme-main">Adamallys Group</h6>
-          <ul className="mt-3">
-            <li className="text-[#3E3E3E] font_calibri mb-1 font-light">
+          <ul className="mt-[13px]">
+            <li className="text-[#3E3E3E] font_calibri mb-2 font-light">
               Address:<br />
               P.O Box 4884 Dubai UAE
             </li>
-            <li className="text-[#3E3E3E] font_calibri mb-1 font-light">
+            <li className="text-[#3E3E3E] font_calibri mb-2 font-light">
               Contact Details:<br />
               <span>Tel: +971 4 284 4848</span><br />
               <span>Fax: +971 4 284 4880 / 4882</span>
             </li>
-            <li className="text-[#3E3E3E] font_calibri mb-1 font-light">
+            <li className="text-[#3E3E3E] font_calibri mb-2 font-light">
               Email:<br />
               adamallys@adamallys-llc.com
             </li>
@@ -51,17 +51,17 @@ const Footer = () => {
         </div>
         <div>
           <h6 className="font_calibri uppercase text-lg font-bold text-theme-main">Adamallys LLC</h6>
-          <ul className="mt-3">
-            <li className="text-[#3E3E3E] font_calibri mb-1 font-light">
+          <ul className="mt-[13px]">
+            <li className="text-[#3E3E3E] font_calibri mb-2 font-light">
               Location: <br />
               <span>Umm Ramool, Old steel Mill Road, Street 5, Dubai, UAE:</span>
             </li>
-            <li className="text-[#3E3E3E] font_calibri mb-1 font-light">
+            <li className="text-[#3E3E3E] font_calibri mb-2 font-light">
               Contact Details:<br />
               <span>Tel: +971 4 284 4848</span><br />
               <span>Fax: +971 4 284 4880 / 4882</span>
             </li>
-            <li className="text-[#3E3E3E] font_calibri mb-1 font-light">
+            <li className="text-[#3E3E3E] font_calibri mb-2 font-light">
               Email:<br />
               adamallys@adamallys-llc.com
             </li>
@@ -71,29 +71,30 @@ const Footer = () => {
           <h6 className="font_calibri uppercase text-lg font-bold text-theme-main">Adamallys Marine
             Ship chandling
             services</h6>
-          <ul className="mt-3">
-            <li className="text-[#3E3E3E] font_calibri mb-1 font-light">
+          <ul className="mt-[13px]">
+            <li className="text-[#3E3E3E] font_calibri mb-2 font-light">
               Location: <br />
               <span>Umm Ramool, Dubai, UAE</span>
             </li>
-            <li className="text-[#3E3E3E] font_calibri mb-1 font-light">
+            <li className="text-[#3E3E3E] font_calibri mb-2 font-light">
               Contact Details:<br />
               <span>Tel: +971 4 284 4848</span><br />
               <span>Fax: +971 4 284 4880 / 4882</span>
             </li>
-            <li className="text-[#3E3E3E] font_calibri mb-1 font-light">
+            <li className="text-[#3E3E3E] font_calibri mb-2 font-light">
               Email:<br />
               adamallys@adamallys-llc.com
             </li>
           </ul>
         </div>
       </section>
-      <section className="flex justify-center container mx-auto px-3 flex-wrap items-center gap-2 sm:gap-4 font_calibri text-theme-main">
-        <button className="py-[6px] px-4 sm:px-[30px] border border-theme-main rounded-full">TradeNet ID: 59590</button>
-        <button className="py-[6px] px-4 sm:px-[30px] border border-theme-main rounded-full">MESPAS ID: SSM-N3X</button>
-        <button className="py-[6px] px-4 sm:px-[30px] border border-theme-main rounded-full">ProcureShip ID: 440</button>
+      
+      <section className="flex justify-center container mx-auto px-3 flex-wrap mb-[66px] mt-[23px] items-center gap-2 sm:gap-4 font_calibri text-theme-main">
+        <button className="py-[6px] px-4 sm:px-[30px] border border-theme-main leading-[32px] rounded-full">TradeNet ID: 59590</button>
+        <button className="py-[6px] px-4 sm:px-[30px] border border-theme-main leading-[32px] rounded-full">MESPAS ID: SSM-N3X</button>
+        <button className="py-[6px] px-4 sm:px-[30px] border border-theme-main leading-[32px] rounded-full">ProcureShip ID: 440</button>
       </section>
-      <section className="mt-5 md:mt-16 flex flex-col sm:flex-row gap-5 justify-between items-center container mx-auto px-3 py-10">
+      <section className=" flex flex-col sm:flex-row gap-5 justify-between items-center container mx-auto px-3 pb-[51px]">
         <ul className="flex items-center gap-5">
           {
             [1, 2, 3].map((item, idx) => (

@@ -19,14 +19,16 @@
   src: url('/fonts/calibri/calibri-light.ttf')
 }
 
-
-
 @font-face {
   font-family: "Franklin_Gothic_Regular";
   font-style: normal;
   font-weight: normal;
   src: local("Franklin Gothic Regular"),
     url("/fonts/fraklin/Franklin-Regular.ttf");
+}
+
+.container{
+  max-width: 1337px !important;
 }
 
 .font_calibri{
