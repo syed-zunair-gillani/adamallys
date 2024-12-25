@@ -7,12 +7,12 @@ const omanPorts = ['Sultan Qaboos Port (Muscat)', 'Salalah Port', 'Sohar Port', 
 
 const PortsTemplates = () => {
   return (
-    <main className='mt-[4rem]'>
-      <div className="px-[24px] md:px[42px] lg:px-[74px] py-[30px] md:py-[60px]">
+    <main className='mt-[4rem] container mx-auto'>
+      <div className="pt-[30px] md:pt-[60px]">
         <h1 className='font_calibri capitalize text-[60px] leading-[60px] text-center font-bold text-theme-main mb-[46px]'>Ports</h1>
         <div className='px-[30px] pt-[38px] pb-[45px] blue_gradient'>
           <h2 className='mb-[26px]  font_calibri text-[40px] sm:text-[60px] leading-[60px] text-theme-main font-bold'>Ports in United Arab Emirates</h2>
-          <Image style={{ objectFit: 'cover', objectPosition: 'center' }} src={'/images/ports/uae_ports.png'} alt='uae_ports' width={1240} height={700} />
+          <Image style={{ width: '100%', objectFit: 'cover', objectPosition: 'center' }} src={'/images/ports/uae_ports.png'} alt='uae_ports' width={1600} height={700} />
           <div className="mt-[45px]">
             <PortLabelGroup labels={UAEPorts} />
           </div>
@@ -20,7 +20,7 @@ const PortsTemplates = () => {
 
         <div className='px-[30px] pt-[38px] pb-[45px] blue_gradient mt-[45px]'>
           <h2 className='mb-[26px] font_calibri text-[40px] sm:text-[60px] leading-[60px] text-theme-main font-bold'>Ports in OMAN</h2>
-          <Image style={{ objectFit: 'cover', objectPosition: 'center' }} src={'/images/ports/oman_ports.png'} alt='uae_ports' width={1240} height={931} />
+          <Image style={{ objectFit: 'cover', objectPosition: 'center' }} src={'/images/ports/oman_ports.png'} alt='uae_ports' width={1600} height={931} />
           <div className="mt-[45px]">
             <PortLabelGroup labels={omanPorts} />
           </div>

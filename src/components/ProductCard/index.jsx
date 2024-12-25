@@ -5,7 +5,7 @@ import LabelGroup from '@/components/LabelGroup';
 const ProductCard = (props) => {
   const { image, title, skuCode, labels } = props;
   return (
-    <div className='bg-[#E5E7F5] basis-[18%] flex-1 rounded lg:max-w-[230px]'>
+    <div className='bg-[#E5E7F5] basis-[18%] flex-1 rounded'>
       <div className="w-full">
         <Image style={{ width: '100%', objectFit: 'cover', objectPosition: 'center' }} src={image} alt='' width={220} height={184} />
       </div>

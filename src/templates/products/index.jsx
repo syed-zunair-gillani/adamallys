@@ -11,8 +11,8 @@ const itemsPerPage = 5;
 const ProductsTemplate = () => {
   const [currentPage, setCurrentPage] = useState(1);
   return (
-    <main className='mt-[6rem]'>
-      <div className='px-[24px] md:px[42px] lg:px-[74px] py-[30px] md:py-[60px]'>
+    <main className='mt-[6rem] container mx-auto'>
+      <div className='py-[30px] md:py-[60px]'>
         <h1 className='font_calibri capitalize text-[60px] leading-[60px] text-center font-bold text-theme-main'>Products</h1>
         <div className="flex flex-wrap lg:flex-nowrap items-center gap-[12px] mt-[42px]">
           <p className='font_calibri capitalize text-lg leading-[26px] text-theme-main mr-[40px]'>
@@ -21,7 +21,7 @@ const ProductsTemplate = () => {
           <div className="relative flex items-center flex-1 lg:flex-auto min-w-[220px]">
             <input
               type="text"
-              placeholder="Search..."
+              placeholder="Search"
               className="w-full lg:max-w-[414px] h-[55px] pl-2 pr-10 py-2 border border-theme-main focus:outline-none text-theme-main focus:text-theme-main"
             />
 
