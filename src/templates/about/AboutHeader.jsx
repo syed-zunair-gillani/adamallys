@@ -1,4 +1,3 @@
-import React from 'react'
 import ArrowDownIcon from '../../../public/svg/ArrowDownIcon'
 import Image from 'next/image'
 
