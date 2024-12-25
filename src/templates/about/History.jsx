@@ -33,7 +33,7 @@ const historyData = [
 
 const History = () => {
   return (
-    <div className='flex flex-col md:flex-row gap-[82px]'>
+    <div className='flex flex-col md:flex-row gap-[82px] container mx-auto px-3'>
       <div className="basis-[45%]">
         {
           [1, 2, 3, 4, 5, 6, 7].map(count =>

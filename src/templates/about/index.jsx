@@ -8,7 +8,7 @@ import CorporateInformation from './CorporateInformation'
 const AboutTemplate = () => {
   return (
     <main
-      className='mt-[6rem] container mx-auto'
+      className='mt-[6rem]'
       style={{ overflowX: 'hidden' }}
     >
       <div className='py-[30px] md:py-[60px]'

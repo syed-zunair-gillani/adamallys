@@ -20,10 +20,10 @@ const cardsData = [
 
 const AboutInfoCard = () => {
   return (
-    <div className='flex flex-wrap gap-[8px] pt-[40px] md:pt-[80px]'>
+    <div className='flex flex-wrap gap-[8px] pt-[40px] md:pt-[80px] container mx-auto px-3'>
       {
         cardsData.map((card) =>
-          <div key={card?.title} className='flex-1 min-w-[280px] relative py-[36px] flex-1 flex flex-col items-center gap-[8px]'
+          <div key={card?.title} className='min-w-[280px] relative py-[36px] flex-1 flex flex-col items-center gap-[8px]'
             style={{
               overflow: 'hidden',
               background: 'linear-gradient(to right, #B2B6E0, #171F7C )'
