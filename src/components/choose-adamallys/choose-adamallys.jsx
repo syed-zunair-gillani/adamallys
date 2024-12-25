@@ -21,7 +21,7 @@ const ChooseAdamallys = () => {
           </div>
         </div>
         <div className='md:w-[40%]'>
-          <figure>
+          <figure className='h-full'>
             <Image src="/images/ship-on-port.png" alt="" width={530} className='w-full h-full object-cover' height={670} />
           </figure>
         </div>
