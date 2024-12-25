@@ -1,13 +1,17 @@
-.oc_content h2{
+.oc_content h2 {
     font-size: 40px;
     line-height: 49px;
 }
-.oc_content p{
+
+.oc_content p {
     margin-top: 24px;
     font-size: 16px;
     color: #3E3E3E;
 }
 
-.ship_supply_content{
-    
+.ship_supply_content {}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    /* Hide default calendar icon */
 }
