@@ -32,17 +32,28 @@ const ShipSupply = () => {
                 <div className='md:w-[70%]'>
                     <div className='flex flex-col gap-10'>
                         {
-                            [1, 2, 3]?.map((item, idx) => (
+                            [1, 2, 3, 1, 2, 3]?.map((item, idx) => (
                                 <div key={idx} className='grid grid-cols-2 gap-10'>
                                     <figure>
-                                        <Image src="/images/container.jpg" alt='' className='h-[214px] w-full object-cover' width={400} height={214}/>
+                                        <Image src="/images/container.jpg" alt='' className='h-[214px] w-full object-cover' width={400} height={214} />
                                     </figure>
                                     <div className='flex flex-col justify-between'>
                                         <div>
-                                        <h3 className='text-theme-main text-4xl mb-1 font_franklin'>Technical marine stores</h3>
-                                        <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly </p>
+                                            <h3 className='text-theme-main text-4xl mb-1 font_franklin'>Technical marine stores</h3>
+                                            <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly </p>
                                         </div>
-                                        <Link href="#" className='text-theme-main'>Read More</Link>
+                                        <Link href="#" className='text-theme-main flex gap-[29px]'>
+                                            Read More
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <mask id="mask0_550_4737" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                                                    <rect width="24" height="24" fill="#D9D9D9" />
+                                                </mask>
+                                                <g mask="url(#mask0_550_4737)">
+                                                    <path d="M16.175 13H4V11H16.175L10.575 5.4L12 4L20 12L12 20L10.575 18.6L16.175 13Z" fill="#2E368F" />
+                                                </g>
+                                            </svg>
+
+                                        </Link>
                                     </div>
                                 </div>
                             ))
