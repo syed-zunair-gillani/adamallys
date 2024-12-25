@@ -76,7 +76,7 @@ const RequestAQuoteTemplate = () => {
   }
 
   return (
-    <main className='mt-[4rem] container mx-auto'>
+    <main className='mt-[6rem] mb-[40px] lg:mb-[88px] container mx-auto'>
       <div className="pt-[30px] md:pt-[60px]">
         <h1 className='font_calibri capitalize text-[40px] leading-[40px] text-center font-bold text-theme-main mb-[8px]'>Request a Quote</h1>
         <p className='font_calibri text-center text-lg leading[26px] text-theme-main'>Inquire by emailing adamallys@adamallys-llc.com OR fill out the form below</p>
