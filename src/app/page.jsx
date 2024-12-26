@@ -7,7 +7,13 @@ import OurBrands from "@/components/our-brands/our-brands";
 import Cards from "@/components/Cards/Cards";
 import News from "@/components/news/News"
 
-export default function Home() {
+async function getPageData() {
+  
+}
+
+export default async function Home() {
+  const data = await getPageData()
+
   return (
     <>
       <Main/>
