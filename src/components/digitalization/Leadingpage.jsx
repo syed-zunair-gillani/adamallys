@@ -1,4 +1,4 @@
-const LeadingPageBanner = ({ title, content, bgImage }: any) => {
+const LeadingPageBanner = ({ title, content, bgImage }) => {
   return (
     <>
       <section>
