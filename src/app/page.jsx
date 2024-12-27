@@ -8,11 +8,11 @@ import Cards from "@/components/Cards/Cards";
 import News from "@/components/news/News"
 
 async function getPageData() {
-  
+    
 }
 
 export default async function Home() {
-  const data = await getPageData()
+  const {page} = await getPageData()
 
   return (
     <>
