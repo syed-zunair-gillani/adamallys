@@ -1,28 +1,49 @@
 import Image from 'next/image'
-import React from 'react'
 
-const TwoColumnContent = ({invert, bgGray}) => {
-    return (
-        <section className={`container mx-auto px-3 flex flex-col md:flex-row mb-4 gap-4 ${invert && "md:!flex-row-reverse"}`}>
-            <div className='md:w-[50%]'>
-                <figure className=''>
-                    <Image src="/images/container.jpg" alt='' className='w-full object-cover' width={700} height={800} />
-                </figure>
-            </div>
-            <div className={` md:w-[50%] p-8 lg:p-14 ship_supply_content ${bgGray ? "bg-[#F1F3F5] text-theme-main" : "blue_gradient2 text-white"}`}>
-                <h2>Engine Stores</h2>
-                <p>We provide the full range of engine stores, essential for maintaining the mechanical systems of a ship. This includes:</p>
-                <ul>
-                    <li>Bearings, Gaskets & Seals: A variety of high-quality bearings, gland packing, jointing sheets, and seals for leak-proof connections and secure, durable component assembly.</li>
-                    <li>Bearings, Gaskets & Seals: A variety of high-quality bearings, gland packing, jointing sheets, and seals for leak-proof connections and secure, durable component assembly.</li>
-                    <li>Bearings, Gaskets & Seals: A variety of high-quality bearings, gland packing, jointing sheets, and seals for leak-proof connections and secure, durable component assembly.</li>
-                </ul>
-                <button className='flex bg-white py-[13px] px-[24px] text-[#2E368F] font_calibri rounded-full'>
-                    View Products
-                </button>
-            </div>
-        </section>
-    )
+const TwoColumnContent = (props) => {
+  const { invert, bgColor, bgGray = '', image, title, caption, points, isCustomBasis } = props;
+
+  return (
+    <section className={`container mx-auto flex flex-col ${'md:flex-row px-3'} mb-4 gap-4 ${invert && "md:!flex-row-reverse"}`}>
+      <div
+        className={`basis-[100%] ${isCustomBasis ? 'md:basis-[65%]' : 'md:basis-[50%]'}`}
+      >
+        <figure className='w-full h-full'>
+          <Image
+            alt={title}
+            src={image}
+            width={1700}
+            height={1200}
+            className='w-full h-full object-cover'
+          />
+        </figure>
+      </div>
+      <div
+        style={{
+          backgroundColor: bgColor,
+        }}
+        className={`basis-[100%] ${isCustomBasis ? 'md:basis-[35%]' : 'md:basis-[50%]'} flex flex-col justify-between p-8 lg:p-14 ship_supply_content ${bgGray ? "bg-[#F1F3F5] text-theme-main" : "blue_gradient2 text-white"}`}
+      >
+        <div>
+          <h2>{title}</h2>
+          <p>{caption}</p>
+          {points &&
+            <ul className='flex flex-col gap-3'>
+              {points?.map((point, index) =>
+                <li key={index}>{point}</li>
+              )}
+            </ul>
+          }
+        </div>
+        <div>
+          <button className={`flex items-center gap-6 ${bgGray ? "bg-theme-main text-white" : "bg-white text-theme-main"} py-[13px] px-[24px] font_calibri rounded-full`}>
+            <span>View Products</span>
+            <Image src={bgGray ? '/svg/arrow_forward.svg' : '/svg/arrow_next.svg'} alt='arrow_next' width={16} height={16} />
+          </button>
+        </div>
+      </div>
+    </section>
+  )
 }
 
 export default TwoColumnContent
