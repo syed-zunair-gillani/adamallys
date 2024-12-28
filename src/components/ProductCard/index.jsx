@@ -1,21 +1,21 @@
 import React from 'react'
-import Image from 'next/image'
 import LabelGroup from '@/components/LabelGroup';
 
 const ProductCard = (props) => {
-  const { image, title, skuCode, labels } = props;
+  const { Image, SKU, Slug, Title, categories } = props;
+  const imageURL = `${process.env.NEXT_PUBLIC_BACKEND_PUBLIC_BASE_URL}${props?.Image?.url}`
   return (
     <div className='bg-[#E5E7F5] basis-[18%] flex-1 rounded'>
       <div className="w-full">
-        <Image style={{ width: '100%', objectFit: 'cover', objectPosition: 'center' }} src={image} alt='' width={220} height={184} />
+        <img src={imageURL} alt="" className='h-[184px]' style={{ width: '100%', objectFit: 'cover', objectPosition: 'center' }}/>
       </div>
-      <div className="p-[20px] flex flex-col justify-end">
+      <div className="p-[20px] flex flex-col justify-between">
         <div>
           <span className='font_calibri text-theme-main text-[12px] leading-[18px]'>SKU Code :</span>
-          <span className='font_calibri text-theme-main text-[12px] leading-[18px]'>{skuCode}</span>
-          <p className='pt-[10px] pb-[14px] font_calibri text-lg font-bold leading-[20px] text-theme-main'>{title}</p>
+          <span className='font_calibri text-theme-main text-[12px] leading-[18px]'>{SKU}</span>
+          <p className='pt-[10px] pb-[14px] font_calibri text-lg font-bold leading-[20px] text-theme-main'>{Title}</p>
         </div>
-        <LabelGroup labels={labels} />
+        <LabelGroup labels={categories?.slice(0,2)} />
       </div>
     </div>
   )
