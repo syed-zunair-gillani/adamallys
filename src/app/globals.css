@@ -110,3 +110,7 @@
 .banner-gradient{
   background: linear-gradient(85deg, rgba(46,54,143,1) 11%, rgba(46,54,143,1) 24%, rgba(46,54,143,1) 37%, rgba(46,54,143,0.9585084033613446) 43%, rgba(46,54,143,0.9024859943977591) 48%, rgba(46,54,143,0) 100%);
 }
+
+.map::-webkit-scrollbar {
+  display: none;
+}
