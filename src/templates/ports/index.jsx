@@ -17,8 +17,8 @@ const PortsTemplates = ({ports}) => {
         <h1 className='font_calibri capitalize text-[60px] leading-[60px] text-center font-bold text-theme-main mb-[46px]'>Ports</h1>
         <div className='px-[30px] pt-[38px] pb-[45px] blue_gradient'>
           <h2 className='mb-[26px] font_calibri text-[40px] sm:text-[60px] leading-[60px] text-theme-main font-bold'>Ports in United Arab Emirates</h2>
-          <div class="container mx-auto max-w-[1280px] map overflow-x-auto">
-            <div class="w-[1280px] relative">
+          <div className="container mx-auto max-w-[1280px] map overflow-x-auto">
+            <div className="w-[1280px] relative">
               <Image
                 className='w-[1280px] '
                 style={{ width: '100%', objectFit: 'cover', objectPosition: 'center' }}
@@ -36,8 +36,8 @@ const PortsTemplates = ({ports}) => {
 
         <div className='px-[30px] pt-[38px] pb-[45px] blue_gradient mt-[45px]'>
           <h2 className='mb-[26px] font_calibri text-[40px] sm:text-[60px] leading-[60px] text-theme-main font-bold'>Ports in OMAN</h2>
-          <div class="container mx-auto max-w-[1280px] map overflow-x-auto">
-            <div class="w-[1280px] relative">
+          <div className="container mx-auto max-w-[1280px] map overflow-x-auto">
+            <div className="w-[1280px] relative">
               <Image
                 className='w-[1280px] '
                 style={{ width: '100%', objectFit: 'cover', objectPosition: 'center' }}
