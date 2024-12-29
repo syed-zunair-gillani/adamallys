@@ -15,21 +15,23 @@ async function getProducts() {
 
 
   const responce = await Axios.get(`/products?${params}`);
+  const productLengthRes = await Axios.get(`/products`);
   const categories = await Axios.get(`/categories`);
   const specificCategorries = await Axios.get(`/specific-categories`);
 
   return {
     allProducts: responce.data,
     categories: categories?.data?.data,
-    specificCategorries: specificCategorries?.data?.data
+    specificCategorries: specificCategorries?.data?.data,
+    productLength: productLengthRes.data?.data.length
   }
 }
 
 const Products = async () => {
-  const { allProducts, categories, specificCategorries } = await getProducts()
+  const { allProducts, categories, specificCategorries, productLength } = await getProducts()
 
   return (
-    <ProductsTemplate data={allProducts} categories={categories} specificCategorries={specificCategorries}/>
+    <ProductsTemplate data={allProducts} categories={categories} specificCategorries={specificCategorries} />
   )
 }
 
