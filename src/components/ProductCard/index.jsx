@@ -7,7 +7,7 @@ const ProductCard = (props) => {
   return (
     <div className='bg-[#E5E7F5] basis-[18%] flex-1 rounded'>
       <div className="w-full">
-        <img src={imageURL} alt="" className='h-[184px]' style={{ width: '100%', objectFit: 'cover', objectPosition: 'center' }}/>
+        <img src={props?.Image?.url} alt="" className='h-[184px]' style={{ width: '100%', objectFit: 'cover', objectPosition: 'center' }}/>
       </div>
       <div className="p-[20px] flex flex-col justify-between">
         <div>
