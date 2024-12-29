@@ -5,11 +5,26 @@ import { useState } from 'react';
 
 
 const PortsTemplates = ({ports}) => {
-  console.log("🚀 ~ PortsTemplates ~ ports:", ports)
   const [activePort, setActivePort] = useState({
     uae: "Mina Zayed (Abu Dhabi)",
     oman: ""
   })
+
+  const handleActivePortOman = (port) => {
+    setActivePort({...activePort, oman: port})
+  }
+
+  const handleLeavePortOman = (port) => {
+    setActivePort({...activePort, oman: port})
+  }
+
+  const handleLeavePortUAE = (port) => {
+    setActivePort({...activePort, uae: port})
+  }
+
+  const handleActivePortUAE = (port) => {
+    setActivePort({...activePort, uae: port})
+  }
 
   return (
     <main className='mt-[4rem] mb-[40px] lg:mb-[73px] container mx-auto'>
@@ -27,10 +42,26 @@ const PortsTemplates = ({ports}) => {
                 height={700}
               />
               {handlePortSelection(activePort?.uae)}
+              <button className='h-[26px] w-[25px] bg-[#2E368E]/0 rounded-full cursor-pointer absolute bottom-[248.5px] left-[610.5px]' onMouseLeave={()=>handleLeavePortUAE("none")} onMouseEnter={()=>handleActivePortUAE("")} />
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[264.5px] left-[655.6px]' onMouseLeave={()=>handleLeavePortUAE("none")} onMouseEnter={()=>handleActivePortUAE("Mina Zayed (Abu Dhabi)")} />
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[296px] left-[720px]' onMouseLeave={()=>handleLeavePortUAE("none")} onMouseEnter={()=>handleActivePortUAE("Port Khalid (Sharjah)")} />
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[373.3px] left-[770.5px]' onMouseLeave={()=>handleLeavePortUAE("none")} onMouseEnter={()=>handleActivePortUAE("Hamriyah Port (Sharjah)")} />
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[390px] left-[811.6px]' onMouseLeave={()=>handleLeavePortUAE("none")} onMouseEnter={()=>handleActivePortUAE("Umm Al Quwain Port")} />
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[424px] left-[816.8px]' onMouseLeave={()=>handleLeavePortUAE("none")} onMouseEnter={()=>handleActivePortUAE("Ras Al Khaimah Port")} />
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[434.5px] left-[846.8px]' onMouseLeave={()=>handleLeavePortUAE("none")} onMouseEnter={()=>handleActivePortUAE("MINA SAQR (Ras Al Khaimah Port)")} />
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[460px] left-[869.6px]' onMouseLeave={()=>handleLeavePortUAE("none")} onMouseEnter={()=>handleActivePortUAE("Mubarak Al Kabeer Port (Dubai)")} />
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[480.7px] left-[893px]' onMouseLeave={()=>handleLeavePortUAE("none")} onMouseEnter={()=>handleActivePortUAE("Musaffah Port (Abu Dhabi)")} />
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[512.7px] left-[892px]' onMouseLeave={()=>handleLeavePortUAE("none")} onMouseEnter={()=>handleActivePortUAE("Fujairah Port")} />
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[512.7px] left-[924px]' onMouseLeave={()=>handleLeavePortUAE("none")} onMouseEnter={()=>handleActivePortUAE("Jebel Ali Ports (Dubai)")} />
+              <button className='h-[26px] w-[25px] bg-[#2E368E]/0 rounded-full cursor-pointer absolute bottom-[528.3px] left-[947px]' onMouseLeave={()=>handleLeavePortUAE("none")} onMouseEnter={()=>handleActivePortUAE("")} />
+              <button className='h-[26px] w-[25px] bg-[#2E368E]/0 rounded-full cursor-pointer absolute bottom-[557px] left-[968.6px]' onMouseLeave={()=>handleLeavePortUAE("none")} onMouseEnter={()=>handleActivePortUAE("")} />
+              <button className='h-[26px] w-[26px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute top-[211px] left-[1016.7px]' onMouseLeave={()=>handleLeavePortUAE("none")} onMouseEnter={()=>handleActivePortUAE("Dubai DryDocks")} />
+              <button className='h-[26px] w-[26px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute top-[282px] left-[1009.7px]' onMouseLeave={()=>handleLeavePortUAE("none")} onMouseEnter={()=>handleActivePortUAE("Port Rashid (Dubai)")} />
+
             </div>
           </div>
           <div className="mt-[45px]">
-            <PortLabelGroup labels={ports?.UAE_Ports} type="uae" activePort={activePort} setActivePort={setActivePort} />
+            <PortLabelGroup labels={ports?.UAE_Ports} type="uae" activePort={activePort} setActivePort={setActivePort}/>
           </div>
         </div>
 
@@ -45,7 +76,14 @@ const PortsTemplates = ({ports}) => {
                 width={1600}
                 height={700}
               />
-              {handlePortOman(activePort?.oman)}
+              {handlePortOman(activePort?.oman, setActivePort)}
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute top-[43.5px] left-[574.5px]' onMouseLeave={()=>handleLeavePortOman("none")} onMouseEnter={()=>handleActivePortOman("Sultan Qaboos Port (Muscat)")} />
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute top-[211.5px] left-[586.5px]' onMouseLeave={()=>handleLeavePortOman("none")} onMouseEnter={()=>handleActivePortOman("Salalah Port")} />
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute top-[271.5px] left-[728.5px]' onMouseLeave={()=>handleLeavePortOman("none")} onMouseEnter={()=>handleActivePortOman("Sohar Port")} />
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute top-[280.5px] left-[762.5px]' onMouseLeave={()=>handleLeavePortOman("none")} onMouseEnter={()=>handleActivePortOman("Duqm Port")} />
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute top-[579.1px] left-[706.5px]' onMouseLeave={()=>handleLeavePortOman("none")} onMouseEnter={()=>handleActivePortOman("Asyad Dry Dock (Duqm Dry Dock)")} />
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[90.5px] left-[507.2px]' onMouseLeave={()=>handleLeavePortOman("none")} onMouseEnter={()=>handleActivePortOman("Khasab Port (Musandam)")} />
+
             </div>
           </div>
           <div className="mt-[45px]">
@@ -62,11 +100,13 @@ export default PortsTemplates
 function handlePortOman(portName) {
   switch (portName) {
     case "Sultan Qaboos Port (Muscat)":
-      return <div className='absolute top-[95px] left-[455px] flex flex-col-reverse rounded-[15px] z-10 bg-[#D50004]'>
+      return <>
+      <div className='absolute top-[95px] left-[455px] flex flex-col-reverse rounded-[15px] z-10 bg-[#D50004]'>
         <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
         <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
         <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -top-3 left-1/2 z-[-1] -translate-x-1/2' />
       </div>
+      </>
     case "Salalah Port":
       return <div className='absolute top-[22px] left-[467px] rounded-[15px] z-10 bg-[#D50004]'>
         <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
@@ -104,7 +144,6 @@ function handlePortOman(portName) {
 }
 
 function handlePortSelection(portName) {
-  console.log("🚀 ~ handlePortSelection ~ portName:", portName)
   switch (portName) {
     case "Fujairah Port":
       return <div className='absolute top-[5px] left-[774px] rounded-[15px] z-10 bg-[#D50004]'>
