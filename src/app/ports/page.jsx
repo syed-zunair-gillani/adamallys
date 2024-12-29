@@ -18,7 +18,7 @@ async function getPorts() {
 const page = async () => {
     const { ports } = await getPorts()
     return (
-        <PortsTemplates ports={ports}/>
+        <PortsTemplates ports={ports?.attributes}/>
     )
 }
 

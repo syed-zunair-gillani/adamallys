@@ -162,25 +162,25 @@ const RightDrawer = ({ categories, specificCategorries, setProducts }) => {
               </div>
             )}
             {options?.map((option) => (
-              <div key={option?.Slug} className="flex items-center">
+              <div key={option?.attributes?.Slug} className="flex items-center">
                 <input
-                  id={option?.Slug}
+                  id={option?.attributes?.Slug}
                   type="checkbox"
-                  value={option?.Slug}
-                  checked={isGeneralCategories ? generalCheckedValues.includes(option?.Slug) : specificCheckedValues.includes(option?.Slug)}
+                  value={option?.attributes?.Slug}
+                  checked={isGeneralCategories ? generalCheckedValues.includes(option?.attributes?.Slug) : specificCheckedValues.includes(option?.attributes?.Slug)}
                   onChange={handleCheckboxChange}
                   className="hidden peer"
                 />
                 <label
-                  htmlFor={option?.Slug}
+                  htmlFor={option?.attributes?.Slug}
                   className="w-[18px] h-[18px] border-2 border-theme-main rounded-sm flex items-center justify-center cursor-pointer"
                 >
-                  {(isGeneralCategories ? generalCheckedValues : specificCheckedValues).includes(option?.Slug) && (
+                  {(isGeneralCategories ? generalCheckedValues : specificCheckedValues).includes(option?.attributes?.Slug) && (
                     <span className={`bg-theme-main w-3 h-3 text-lg opacity-1`}></span>
                   )}
                 </label>
-                <label htmlFor={option?.Slug} className='ml-2 text-lg leading-[18px] text-theme-main font_calibri cursor-pointer'>
-                  {option?.Name}
+                <label htmlFor={option?.attributes?.Slug} className='ml-2 text-lg leading-[18px] text-theme-main font_calibri cursor-pointer'>
+                  {option?.attributes?.Name}
                 </label>
               </div>
             ))}

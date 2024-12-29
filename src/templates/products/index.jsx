@@ -20,7 +20,7 @@ const ProductsTemplate = ({data, categories, specificCategorries}) => {
       return;
     }
     const searchedProducts = data?.data?.filter((item) =>
-      item.Title.toLowerCase().includes(value.toLowerCase())
+      item.attributes.Title.toLowerCase().includes(value.toLowerCase())
     );
     setProducts({ ...products, data: searchedProducts });
   };
@@ -77,7 +77,7 @@ const ProductsTemplate = ({data, categories, specificCategorries}) => {
         <div className='w-full h-[0.5px] bg-theme-main' />
         <div className='flex gap-[9px] flex-wrap mt-[30px]'>
           {products?.data?.map((product, index) =>
-            <ProductCard key={index} {...product} />
+            <ProductCard key={index} {...product.attributes} />
           )}
         </div>
         <Pagination

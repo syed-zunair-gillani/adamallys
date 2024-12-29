@@ -27,7 +27,6 @@ async function getProducts() {
 
 const Products = async () => {
   const { allProducts, categories, specificCategorries } = await getProducts()
-  console.log("🚀 ~ Products ~ allProducts:", allProducts.data[0].Image)
 
   return (
     <ProductsTemplate data={allProducts} categories={categories} specificCategorries={specificCategorries}/>
