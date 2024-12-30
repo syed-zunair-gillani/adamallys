@@ -1,9 +1,19 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import L from 'leaflet';
 import Logo from '../header/logo';
+
 import 'leaflet/dist/leaflet.css';
 
 const MapComponent = () => {
     const position = [25.22633477584369, 55.36945660323751];
+
+    const icon = new L.Icon({
+        iconUrl: '/svg/gps.png',
+        iconSize: [44, 44],
+        iconAnchor: [12, 41],
+        shadowSize: [41, 41],
+        shadowAnchor: [12, 41],
+    });
 
     return (
         <MapContainer
@@ -16,7 +26,7 @@ const MapComponent = () => {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <Marker position={position}>
+            <Marker position={position} icon={icon}>
                 <Popup>
                     <Logo />
                     <div className="mt-2">
