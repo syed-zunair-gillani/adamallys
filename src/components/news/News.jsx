@@ -3,9 +3,10 @@ import Image from 'next/image'
 import React from 'react'
 import Slider from "react-slick";
 
-const News = () => {
+const News = ({data}) => {
+    console.log("🚀 ~ News ~ data:", data)
     const slider = React.useRef(null);
-
+    
     return (
         <section className='pl-3 md:pl-10 lg:pl-20 py-20'>
             <div className='flex flex-col md:flex-row'>
@@ -39,14 +40,19 @@ const News = () => {
                     </div>
                     <Slider ref={slider} {...settings}>
                         {
-                            [1, 1, 1, 1, 1, 1]?.map((item, idx) => (
-                                <div key={idx} className='pr-3 md:pr-6'>
+                            data?.data?.map((item, idx) => {
+                                const date = new Date(item?.attributes?.createdAt);
+                                const options = { day: '2-digit', month: 'long', year: 'numeric' };
+                                const formattedDate = date.toLocaleDateString('en-GB', options);
+
+                                return(
+                                    <div key={idx} className='pr-3 md:pr-6'>
                                     <figure>
-                                        <Image src="/images/news-one.jpg" alt='' className='w-full' width={434} height={293} />
+                                        <Image src={item?.attributes?.Image?.data?.attributes?.url} alt='' className='w-full' width={434} height={293} />
                                     </figure>
                                     <div className='bg-theme-gray p-5 md:p-10 font_calibri'>
-                                        <h6 className='text-theme-main'>25 january 2024</h6>
-                                        <p className='text-[#8B8B8B] text-[17px] sm:text-[20px] md:text-[25px] font-light mt-3'>In publishing and graphic design, Lorem ipsum is a placeholder text commonly </p>
+                                        <h6 className='text-theme-main'>{formattedDate}</h6>
+                                        <p className='text-[#8B8B8B] text-[17px] sm:text-[20px] md:text-[25px] font-light mt-3'>{item?.attributes?.Excerpt}</p>
                                         <button className={`flex items-center gap-10 mt-5 text-theme-main`}>
                                             Read More
                                             <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
@@ -60,7 +66,8 @@ const News = () => {
                                         </button>
                                     </div>
                                 </div>
-                            ))
+                                )
+                            })
                         }
                     </Slider>
                 </div>

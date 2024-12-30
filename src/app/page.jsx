@@ -32,10 +32,13 @@ export default async function Home() {
       <OurCompany data={Our_Company_Content}/>
       <Services data={ServiceCard}/>
       <Milestones data={milestones} />
-      <OurBrands />
-      <Cards dark />
-      <Cards />
-      <News />
+      <OurBrands data={Icons} content={BrandContent}/>
+      {
+        ContentCard?.map((item,idx)=>(
+          <Cards dark={idx%2 === 0} data={item} key={idx}/>
+        ))
+      }
+      <News data={news_and_events}/>
     </>
   );
 }
