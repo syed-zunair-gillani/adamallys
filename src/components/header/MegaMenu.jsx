@@ -10,11 +10,15 @@ const MegaMenu = () => {
   const pathname = usePathname();
   const isActive = shipSupplyPaginationData?.find(({ link }) => link === pathname);
 
+  const isIndustrialPage = pathname === "/industrial-energy-sector-supplies"
+  const isMarineLogisticsPage = pathname === "/marine-logistics"
+
   return (
     <div className="relative">
       <div className="relative product-services">
-        <Link href="#" className={styles.product_services}>Product & Services</Link>
+        <Link href="/products-&-services" className={styles.product_services}>Product & Services</Link>
         <div className={`${styles.mega_menu} w-[125px] h-12 absolute top-1`}>
+          <Link href="/products-&-services" className={styles.mega_menu_product_services}>Product & Services</Link>
           <nav
             style={{ boxShadow: '0px 2px 12.5px 0px rgba(46, 54, 143, 0.09)' }}
             className={`absolute flex top-[36px] bg-white text-theme-main`}
@@ -23,7 +27,7 @@ const MegaMenu = () => {
               <li className="relative group">
                 <div className="flex items-center justify-between">
                   <Link
-                    href="#"
+                    href="/technical-marine-stores"
                     className={`whitespace-nowrap ${isActive ? 'font-bold' : ''} hover:font-bold`}
                   >
                     Ship Supply
@@ -34,11 +38,19 @@ const MegaMenu = () => {
               </li>
 
               <li>
-                <a href="#" className="whitespace-nowrap hover:font-bold">Marine Logistics & Warehousing</a>
+                <Link
+                  href="/marine-logistics"
+                  className={`whitespace-nowrap ${isMarineLogisticsPage ? 'font-bold' : ''} hover:font-bold`}
+                >Marine Logistics & Warehousing</Link>
+                {isMarineLogisticsPage && <div className='mt-2 w-[18px] h-[2px] bg-theme-main' />}
               </li>
 
               <li>
-                <a href="#" className="whitespace-nowrap hover:font-bold">Industrial & Energy Sector Supplies</a>
+                <Link
+                  href="/industrial-energy-sector-supplies"
+                  className={`whitespace-nowrap ${isIndustrialPage ? 'font-bold' : ''} hover:font-bold`}
+                >Industrial & Energy Sector Supplies</Link>
+                {isIndustrialPage && <div className='mt-2 w-[18px] h-[2px] bg-theme-main' />}
               </li>
             </ul>
             <div className='flex product-services-menu'>
@@ -46,15 +58,15 @@ const MegaMenu = () => {
               <div
                 className="w-full min-w-[505px] flex  w-full bg-white text-theme-main group-hover:flex">
                 <ul className="grid grid-cols-2 gap-7 py-[31px] px-[35px]">
-                  {shipSupplyPaginationData?.map((page, index) => (
+                  {shipSupplyPaginationData?.map((page) => (
                     <li
                       key={page?.link}
-                      className={`font-light ${page?.link?.includes(pathname) && "!font-bold"}`}
+                      className={`font-light ${page?.link === pathname && "!font-bold"}`}
                     >
                       <Link href={page?.link} className="whitespace-nowrap text-theme-main font_calibri">
                         {page?.label}
                       </Link>
-                      {page?.link?.includes(pathname) && <div className="mt-2 w-[18px] h-[2px] bg-theme-main" />}
+                      {page?.link === pathname && <div className="mt-2 w-[18px] h-[2px] bg-theme-main" />}
                     </li>
                   ))}
                 </ul>
