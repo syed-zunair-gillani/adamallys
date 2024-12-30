@@ -28,14 +28,14 @@ const Services = ({data}) => {
                   }`}
                 >
                   <Image
-                    src="/images/s2.png"
+                    src={item?.Image?.data?.attributes?.url}
                     alt=""
                     width={573}
                     height={378}
                     className={`h-[378px] object-cover w-full`}
                   />
                   <div className="absolute px-9 gap-3 flex justify-between w-full items-center bottom-9 ">
-                    <Link href={item?.item || "#"} className="text-white text-[30px] font-bold font_calibri">
+                    <Link href={item?.item || "#"} className={`text-white text-[30px] font-bold font_calibri ${idx ===3 && "!text-black"}`}>
                       {item?.title}
                     </Link>
                     <Image

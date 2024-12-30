@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 import Slider from "react-slick";
 
-const OurBrands = () => {
+const OurBrands = ({data, content}) => {
   const slider = React.useRef(null);
  
   return (
@@ -34,19 +34,15 @@ const OurBrands = () => {
           </div>
         </div>
         <p className="font-light mt-3 font_calibri">
-          Adamallys is the authorized distributor or stockist reseller for
-          numerous premium brands used in the marine and industrial sectors.
-          Elevate your operations with reliable, immediate access to the UAE's
-          most extensive range of top-quality marine stores, ensuring you
-          receive only the best in performance and durability.
+          {content}
         </p>
         <Slider ref={slider} {...settings}>
-          {[1, 2, 3]?.map((icon, id) => (
+          {data?.map((icon, id) => (
             <div className="!grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7" key={id}>
-              {[1, 2, 3, 4, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((item, idx) => (
+              {icon?.Icon?.data?.map((item, idx) => (
                 <div key={idx} className="flex justify-center">
                   <Image
-                    src="/images/icon.png"
+                    src={item?.attributes?.url}
                     alt="image"
                     width={165}
                     height={165}
