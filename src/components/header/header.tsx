@@ -21,7 +21,7 @@ const Header = () => {
             <div className="flex w-[45%] gap-8 justify-end">
               <ul className="flex items-center gap-8">
                 <Link href="/about">Who we are</Link>
-                <Link href="#">News & Events</Link>
+                <Link href="/news-&-events">News & Events</Link>
                 <Link href="#">Contact</Link>
               </ul>
               <Link href={'/request-a-quote'} className="text-white hidden xl:block bg-theme-main text-left px-[19px] py-[9px]">

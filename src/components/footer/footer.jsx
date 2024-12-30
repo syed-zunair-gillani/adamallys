@@ -20,7 +20,7 @@ const pagesGroup = [
     label: 'Ship Supply'
   },
   {
-    link: 'E',
+    link: '/news-&-events',
     label: 'News'
   },
   {
