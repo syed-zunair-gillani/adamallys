@@ -213,7 +213,12 @@ async function getWhyChoose() {
 }
 
 async function getPrivacyPloicy() {
-    const responce = await Axios.get(`/privacy-policy-page?populate=*`);
+    const params = qs.stringify({
+        populate: [
+            'content'
+        ],
+    })
+    const responce = await Axios.get(`/privacy-policy-page?${params}`);
     return responce.data?.data?.attributes
 }
 
