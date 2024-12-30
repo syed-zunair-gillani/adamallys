@@ -212,6 +212,11 @@ async function getWhyChoose() {
     return responce.data?.data?.attributes
 }
 
+async function getPrivacyPloicy() {
+    const responce = await Axios.get(`/privacy-policy-page?populate=*`);
+    return responce.data?.data?.attributes
+}
+
 
 export {
     getDistributorsAndStockists,
@@ -234,5 +239,6 @@ export {
     getShipSupply,
     getSustainabilityAtAdamallys,
     getTechnicalMarineStores,
-    getWhyChoose
+    getWhyChoose,
+    getPrivacyPloicy
 }

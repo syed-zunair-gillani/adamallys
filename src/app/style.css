@@ -3,6 +3,10 @@
     line-height: 49px;
 }
 
+.oc_content h3 {
+    line-height: 20px;
+}
+
 .oc_content p {
     margin-top: 24px;
     font-size: 16px;
