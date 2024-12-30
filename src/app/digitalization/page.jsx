@@ -2,12 +2,13 @@ import Card2 from "@/components/digitalization/Card2";
 import Card3 from "@/components/digitalization/Card3";
 import Digital from "@/components/digitalization/Digital";
 import LeadingPageBanner from "@/components/digitalization/Leadingpage";
-import { getCertificationsAndMemberships } from "@/services";
+import { getDigitalizationAndTechnologyAtAdamallys } from "@/services";
 
 
 export default async function Home() {
-  const page = await getCertificationsAndMemberships()
-  
+  const page = await getDigitalizationAndTechnologyAtAdamallys()
+  console.log('page', page);
+
   return (
     <>
       <div className="mb-24" />

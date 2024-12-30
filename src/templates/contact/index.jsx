@@ -11,8 +11,8 @@ const defaultValues = {
   message: ''
 }
 
-const ContactTemplate = () => {
-
+const ContactTemplate = (props) => {
+  const { AddressOne, AddressTwo, Email, Fax, MobileNumber } = props;
   const [formData, setFormData] = useState(defaultValues);
 
   const handleChange = (e) => {
@@ -50,10 +50,11 @@ const ContactTemplate = () => {
               <Image className='min-w-6 h-6' src={'/svg/location_on.svg'} alt='location_on' width={23} height={23} />
             </div>
             <div>
-              <p className='text-lg leading-[26px]'>Adamallys LLC</p>
               <p className='text-lg leading-[26px]'>
-                Umm Ramool, Old Steel Mill Road, Street 5, Dubai, United Arab Emirates</p>
-              <p className='text-lg leading-[26px] mt-[18px]'>Postal Address: P.O.Box 4684, Dubai, United Arab Emirates
+                {AddressOne}
+              </p>
+              <p className='text-lg leading-[26px] mt-[18px]'>
+                {AddressTwo}
               </p>
             </div>
           </div>
@@ -62,19 +63,19 @@ const ContactTemplate = () => {
               <div className='w-[50px] h-[46px] flex items-center justify-center bg-white rounded-[46%]'>
                 <Image src={'/svg/call-icon.svg'} alt='location_on' width={23} height={23} />
               </div>
-              <p className='text-lg leading-[26px] text-white'>+9714 284 4848</p>
+              <p className='text-lg leading-[26px] text-white'>{MobileNumber}</p>
             </div>
             <div className="w-auto border border-white h-[46px] pr-[18px] inline-flex items-center gap-[15px] rounded-[30px]">
               <div className='w-[50px] h-[46px] flex items-center justify-center bg-white rounded-[46%]'>
                 <Image src={'/svg/print.svg'} alt='location_on' width={23} height={23} />
               </div>
-              <p className='text-lg leading-[26px] text-white'>Fax: +9714 284 4880/2</p>
+              <p className='text-lg leading-[26px] text-white'>{Fax}</p>
             </div>
             <div className="w-auto border border-white h-[46px] pr-[18px] inline-flex items-center gap-[15px] rounded-[30px]">
               <div className='w-[50px] h-[46px] flex items-center justify-center bg-white rounded-[46%]'>
                 <Image src={'/svg/mail-icon.svg'} alt='location_on' width={23} height={23} />
               </div>
-              <p className='text-lg leading-[26px] text-white'>adamallys@adamallys-llc.com</p>
+              <p className='text-lg leading-[26px] text-white'>{Email}</p>
             </div>
           </div>
         </div>
