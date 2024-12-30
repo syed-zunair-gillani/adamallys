@@ -1,7 +1,6 @@
-import Image from "next/image";
 import React from "react";
 
-const CertificationsAndMemberships = () => {
+const CertificationsAndMemberships = ({data}) => {
   return (
     <section className="certification-gradient -mt-[6px]">
       <div className="container mx-auto px-3 py-16">
@@ -9,27 +8,25 @@ const CertificationsAndMemberships = () => {
           Certifications & Memberships
           <div className="h-[2px] w-[34px] bg-white mt-2" />
         </h4>
-        <div className="flex flex-wrap justify-between">
-          {arr.map(
+        <div className="flex justify-center gap-2 lg:justify-between items-center flex-wrap">
+          {data?.slice(0,6).map(
             (item, idx) => (
               <React.Fragment key={idx}>
-                <figure className="flex justify-center">
-                  <Image src="/images/l1.png" alt="" width={162} height={162} />
+                 <figure className="flex justify-center w-[162px] h-[162px]">
+                  <img src={item?.Icon?.data?.attributes?.url} alt="" className="w-[110px] md:w-[140px] lg:w-[162px] object-contain" />
                 </figure>
-                {/* {((idx + 1) % 6 === 0 && idx !== arr.length - 1) && <div className="col-span-6 pt-[1px] w-[92%] mx-auto bg-gray-700 my-6" />} */}
               </React.Fragment>
             )
           )}
         </div>
         <div className="h-[1px] w-full bg-[#5860BC] my-5"/>
-        <div className="flex flex-wrap justify-between">
-          {arr.map(
+        <div className="flex justify-center gap-2 lg:justify-between items-center flex-wrap">
+          {data?.slice(6,12).map(
             (item, idx) => (
               <React.Fragment key={idx}>
-                <figure className="flex justify-center">
-                  <Image src="/images/l1.png" alt="" width={162} height={162} />
+                <figure className="flex justify-center w-[162px] h-[162px]">
+                  <img src={item?.Icon?.data?.attributes?.url} alt="" className="w-[110px] md:w-[140px] lg:w-[162px] object-contain" />
                 </figure>
-                {/* {((idx + 1) % 6 === 0 && idx !== arr.length - 1) && <div className="col-span-6 pt-[1px] w-[92%] mx-auto bg-gray-700 my-6" />} */}
               </React.Fragment>
             )
           )}
@@ -40,6 +37,3 @@ const CertificationsAndMemberships = () => {
 };
 
 export default CertificationsAndMemberships;
-
-
-const arr = [1, 2, 3, 4, 5, 6]
