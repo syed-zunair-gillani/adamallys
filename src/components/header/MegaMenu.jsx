@@ -18,7 +18,6 @@ const MegaMenu = () => {
       <div className="relative product-services">
         <Link href="/products-&-services" className={styles.product_services}>Product & Services</Link>
         <div className={`${styles.mega_menu} w-[125px] h-12 absolute top-1`}>
-          <Link href="/products-&-services" className={styles.mega_menu_product_services}>Product & Services</Link>
           <nav
             style={{ boxShadow: '0px 2px 12.5px 0px rgba(46, 54, 143, 0.09)' }}
             className={`absolute flex top-[36px] bg-white text-theme-main`}
