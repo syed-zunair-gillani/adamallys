@@ -6,25 +6,35 @@ import Milestones from "@/components/milestones/Milestones"
 import OurBrands from "@/components/our-brands/our-brands";
 import Cards from "@/components/Cards/Cards";
 import News from "@/components/news/News"
+import { getHomePage, getMilestones } from "@/services"
 
-// async function getPageData() {
-    
-// }
 
 export default async function Home() {
-  // const {page} = await getPageData()
+  const milestones = await getMilestones()
+  const page = await getHomePage()
+  console.log("🚀 ~ Home ~ page:", page)
+  const {
+    BrandContent,
+    CertificationsMemberships,
+    ContentCard,
+    Hero,
+    Icons,
+    Our_Company_Content,
+    ServiceCard,
+    news_and_events,
+  } = page
 
   return (
     <>
-      <Main/>
-      <CertificationsAndMemberships/>
-      <OurCompany/>
-      <Services/>
-      <Milestones/>
-      <OurBrands/>
-      <Cards dark/>
-      <Cards/>
-      <News/>
+      <Main data={Hero}/>
+      <CertificationsAndMemberships data={CertificationsMemberships}/>
+      <OurCompany data={Our_Company_Content}/>
+      <Services />
+      <Milestones data={milestones} />
+      <OurBrands />
+      <Cards dark />
+      <Cards />
+      <News />
     </>
   );
 }
