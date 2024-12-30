@@ -1,4 +1,4 @@
-import ProductsAndServicesTemplate from '@/templates/ProductsAndServices'
+import ProductsAndServicesTemplate from '@/templates/ProductsAndServices/ShipSupply'
 
 const ProductsAndServices = () => <ProductsAndServicesTemplate />
 

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import GridBanner from '@/components/hero/grid-banner'
 import Milestones from '@/components/milestones/Milestones'
 import ChooseAdamallys from '@/components/choose-adamallys/choose-adamallys'
 import OtherServices from "@/components/other-services-slider/OtherServices"
@@ -7,6 +8,15 @@ import OtherServices from "@/components/other-services-slider/OtherServices"
 const ShipSupply = () => {
   return (
     <div>
+      <div className="mb-24" />
+      <section>
+        <div>
+          <h1 className="text-center text-2xl pb-8 md:pt-8 sm:text-[40px] font_calibri md:leading-[50px] md:text-[50px] lg:text-[60px] font-bold text-[#2E368F] px-4">
+            Products & Services
+          </h1>
+        </div>
+        <GridBanner />
+      </section>
       <section className="mt-14 container mx-auto px-3 flex flex-col md:flex-row gap-5 md:gap-10 mb-10 md:mb-20">
         <div className='md:w-[30%]'>
           <h2 className='text-3xl md:text-5xl lg:text-6xl font_calibri text-theme-main font-bold'>Ship Supply</h2>

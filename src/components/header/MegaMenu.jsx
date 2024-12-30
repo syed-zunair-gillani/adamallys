@@ -8,10 +8,9 @@ import styles from './style.module.css';
 
 const MegaMenu = () => {
   const pathname = usePathname();
-  const isActive = shipSupplyPaginationData?.find(({ link }) => link === pathname);
-
-  const isIndustrialPage = pathname === "/industrial-energy-sector-supplies"
-  const isMarineLogisticsPage = pathname === "/marine-logistics"
+  const isShipSupplyPage = pathname === "/products-&-services"
+  const isIndustrialPage = pathname === "/industrial-&-energy-sector-supplies"
+  const isMarineLogisticsPage = pathname === "/marine-logistics-&-warehousing"
 
   return (
     <div className="relative">
@@ -26,19 +25,19 @@ const MegaMenu = () => {
               <li className="relative group">
                 <div className="flex items-center justify-between">
                   <Link
-                    href="/technical-marine-stores"
-                    className={`whitespace-nowrap ${isActive ? 'font-bold' : ''} hover:font-bold`}
+                    href="/products-&-services"
+                    className={`whitespace-nowrap ${isShipSupplyPage ? 'font-bold' : ''} hover:font-bold`}
                   >
                     Ship Supply
                   </Link>
                   <Image src={'/svg/arrow_forward_link.svg'} alt='arrow' width={13} height={13} />
                 </div>
-                {isActive && <div className='mt-2 w-[18px] h-[2px] bg-theme-main' />}
+                {isShipSupplyPage && <div className='mt-2 w-[18px] h-[2px] bg-theme-main' />}
               </li>
 
               <li>
                 <Link
-                  href="/marine-logistics"
+                  href="/marine-logistics-&-warehousing"
                   className={`whitespace-nowrap ${isMarineLogisticsPage ? 'font-bold' : ''} hover:font-bold`}
                 >Marine Logistics & Warehousing</Link>
                 {isMarineLogisticsPage && <div className='mt-2 w-[18px] h-[2px] bg-theme-main' />}
@@ -46,7 +45,7 @@ const MegaMenu = () => {
 
               <li>
                 <Link
-                  href="/industrial-energy-sector-supplies"
+                  href="/industrial-&-energy-sector-supplies"
                   className={`whitespace-nowrap ${isIndustrialPage ? 'font-bold' : ''} hover:font-bold`}
                 >Industrial & Energy Sector Supplies</Link>
                 {isIndustrialPage && <div className='mt-2 w-[18px] h-[2px] bg-theme-main' />}

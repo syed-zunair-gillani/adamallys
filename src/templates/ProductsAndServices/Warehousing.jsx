@@ -1,8 +1,9 @@
+import Image from 'next/image'
 import Accordion from '@/components/Accordion'
+import GridBanner from '@/components/hero/grid-banner'
 import IndustrialEnergyComp from '@/components/IndustrialEngery'
 import ChooseAdamallys from '@/components/choose-adamallys/choose-adamallys'
 import OtherServices from "@/components/other-services-slider/OtherServices"
-import Image from 'next/image'
 
 const data = [
   {
@@ -38,6 +39,15 @@ const data = [
 const Warehousing = () => {
   return (
     <div>
+      <div className="mb-24" />
+      <section>
+        <div>
+          <h1 className="text-center text-2xl pb-8 md:pt-8 sm:text-[40px] font_calibri md:leading-[50px] md:text-[50px] lg:text-[60px] font-bold text-[#2E368F] px-4">
+            Products & Services
+          </h1>
+        </div>
+        <GridBanner />
+      </section>
       <div
         style={{
           paddingBottom: '72px',
