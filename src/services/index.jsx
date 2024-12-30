@@ -212,7 +212,7 @@ async function getWhyChoose() {
     return responce.data?.data?.attributes
 }
 
-async function getPrivacyPloicy() {
+async function getPrivacyPolicy() {
     const params = qs.stringify({
         populate: [
             'content'

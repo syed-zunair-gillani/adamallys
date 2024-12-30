@@ -3,7 +3,10 @@ import { getPrivacyPolicy } from '../../services'
 
 const PrivacyPolicyTemplate = async () => {
     const data = await getPrivacyPolicy();
-
+    const privacyPolicies = data?.content?.map((policy) => ({
+        title: policy?.title,
+        policy: policy?.content?.[0]
+    }))
     console.log('data', data);
 
     return (
