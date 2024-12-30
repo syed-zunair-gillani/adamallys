@@ -12,7 +12,7 @@ const Header = () => {
           <div className="flex items-center gap-4">
             <ul className="w-[45%] flex gap-8 items-center">
               <MegaMenu />
-              <Link href="#">Distributor & Stockists</Link>
+              <Link href="/distributors-&-stockists">Distributor & Stockists</Link>
               <Link href="#">Standards & Innovation</Link>
             </ul>
             <div className="w-[20%] md:w-[10%]">
