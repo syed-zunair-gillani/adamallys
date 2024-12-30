@@ -3,7 +3,7 @@ import { chooseAdamallysPoints } from '@/consts/shipSupply'
 
 const ChooseAdamallys = ({ description }) => {
   return (
-    <section className={`${description ? "items-center" : ""} mt-10 md:mt-20 container mx-auto flex flex-col-reverse md:flex-row gap-10`}>
+    <section className={`${description ? "items-center" : ""} px-4 xs:px-0 mt-10 md:mt-20 container mx-auto flex flex-col-reverse md:flex-row gap-10`}>
       <div className='md:w-[60%]'>
         <h2 className='text-3xl md:text-5xl lg:text-6xl font_calibri text-theme-main font-bold mb-6 sm:mb-10'>
           Why Choose Adamallys

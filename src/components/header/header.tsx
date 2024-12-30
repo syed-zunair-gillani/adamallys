@@ -22,7 +22,7 @@ const Header = () => {
               <ul className="flex items-center gap-8">
                 <Link href="/about">Who we are</Link>
                 <Link href="/news-&-events">News & Events</Link>
-                <Link href="#">Contact</Link>
+                <Link href="/contact">Contact</Link>
               </ul>
               <Link href={'/request-a-quote'} className="text-white hidden xl:block bg-theme-main text-left px-[19px] py-[9px]">
                 <p className="text-xs">Request a Quote</p>
