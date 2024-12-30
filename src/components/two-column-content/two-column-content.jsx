@@ -1,10 +1,10 @@
 import Image from 'next/image'
 
 const TwoColumnContent = (props) => {
-  const { invert, bgColor, bgGray = '', image, title, caption, points, isCustomBasis } = props;
+  const { invert, bgColor, bgGray = '', image, title, caption, points, isCustomBasis, zeroGap } = props;
 
   return (
-    <section className={`container mx-auto flex flex-col ${'md:flex-row px-3'} mb-4 gap-4 ${invert && "md:!flex-row-reverse"}`}>
+    <section className={`container mx-auto flex flex-col md:flex-row px-3 mb-4 ${zeroGap ? '' : 'gap-4'} ${invert && "md:!flex-row-reverse"}`}>
       <div
         className={`basis-[100%] ${isCustomBasis ? 'md:basis-[65%]' : 'md:basis-[50%]'}`}
       >

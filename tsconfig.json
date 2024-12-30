@@ -39,7 +39,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts", 
     "src/components/our-brands/our-brands.jsx", "src/components/hero/main.jsx", "src/components/certifications-and-memberships/CertificationsAndMemberships.jsx", "src/components/certification/Title.jsx", "src/components/Cards/Cards.jsx", "src/app/page.jsx", "src/components/footer/footer.jsx", "src/templates/dry-docking-service/index.jsx", "src/templates/marine-ropes-&-mooring-ropes/index.jsx", "src/templates/TechnicalMarineStores/index.jsx", "src/templates/ShipSpareParts/index.jsx", "src/templates/ProvisionsAndBondedStores/index.jsx", "src/components/digitalization/Leadingpage.jsx"  
-, "src/templates/contact/index.jsx", "src/templates/distributors-&-stockists/index.jsx", "src/app/about/page.jsx", "src/app/certification/page.jsx", "src/app/digitalization/page.jsx", "src/components/our-company/our-company.jsx"  ],
+, "src/templates/contact/index.jsx", "src/templates/distributors-&-stockists/index.jsx", "src/templates/sustainability/index.jsx"  ],
   "exclude": [
     "node_modules"
   ]
