@@ -17,7 +17,7 @@ const Services = ({data}) => {
           <div className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-5 gap-[14px]">
             {data?.map((item, idx) => {
               const fullWidthItems = [2, 3, 5, 6, 7]; // Items requiring 100% width
-              const isFullWidth = fullWidthItems.includes(item); // Check dynamically
+              const isFullWidth = fullWidthItems.includes(idx+1); // Check dynamically
               return (
                 <div
                   key={idx}
@@ -35,8 +35,8 @@ const Services = ({data}) => {
                     className={`h-[378px] object-cover w-full`}
                   />
                   <div className="absolute px-9 gap-3 flex justify-between w-full items-center bottom-9 ">
-                    <Link href="#" className="text-white text-[30px] font-bold font_calibri">
-                      Ship Supply
+                    <Link href={item?.item || "#"} className="text-white text-[30px] font-bold font_calibri">
+                      {item?.title}
                     </Link>
                     <Image
                       src="/svg/service-arrow.svg"
