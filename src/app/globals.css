@@ -19,14 +19,16 @@
   src: url('/fonts/calibri/calibri-light.ttf')
 }
 
-
-
 @font-face {
   font-family: "Franklin_Gothic_Regular";
   font-style: normal;
   font-weight: normal;
   src: local("Franklin Gothic Regular"),
     url("/fonts/fraklin/Franklin-Regular.ttf");
+}
+
+.container{
+  max-width: 1337px !important;
 }
 
 .font_calibri{
@@ -97,7 +99,18 @@
 .blue_gradient2{
   background: linear-gradient(150deg, rgba(178,182,224,1) 0%, rgba(23,31,124,1) 100%);
 }
+.blue_gradient3{
+  background: linear-gradient(-90deg, rgba(178,182,224,1) 0%, rgba(23,31,124,1) 100%);
+}
 
 .black_gradient{
   background: linear-gradient(180deg, rgba(17,17,17,1) 0%, rgba(17,17,17,1) 0%, rgba(17,17,17,0.2582282913165266) 100%);
+}
+
+.banner-gradient{
+  background: linear-gradient(85deg, rgba(46,54,143,1) 11%, rgba(46,54,143,1) 24%, rgba(46,54,143,1) 37%, rgba(46,54,143,0.9585084033613446) 43%, rgba(46,54,143,0.9024859943977591) 48%, rgba(46,54,143,0) 100%);
+}
+
+.map::-webkit-scrollbar {
+  display: none;
 }

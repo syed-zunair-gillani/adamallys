@@ -4,7 +4,7 @@ import React from 'react'
 
 const VerticleIcon = () => {
     return (
-        <ul className='fixed right-2 z-[1000] flex flex-col gap-2 bottom-4'>
+        <ul className='fixed right-2 z-[1000] flex flex-col gap-2 top-1/2 -translate-y-1/2'>
             {
                 list?.map((item, idx) => (
                     <li key={idx}>
