@@ -100,7 +100,7 @@ const DistributorsAndStockistsTemplate = () => {
                     overflow: 'hidden',
                     display: '-webkit-box',
                     WebkitLineClamp: expanded[distributor.title] ? 'none' : 5,
-                    '-webkit-box-orient': 'vertical',
+                    WebkitBoxOrient: 'vertical',
                   }}
                 >
                   {distributor.description}
