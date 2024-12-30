@@ -24,7 +24,6 @@ const GridBanner = () => {
   const { push } = useRouter();
   const pathname = usePathname();
 
-
   return (
     <main className='flex flex-col md:flex-row font_calibri'>
       {tabs?.map((tab) =>
@@ -33,7 +32,7 @@ const GridBanner = () => {
           onClick={() => push(tab.link)}
           className={`relative cursor-pointer ${pathname === tab.link ? "w-full md:w-[40%]" : "w-[30%] hidden md:block"} `}
         >
-          <Image src="/images/container.jpg" alt='' width={600} height={600} className='w-full h-[465px] object-cover' />
+          <Image src={tab?.image} alt={tab?.label} width={600} height={600} className='w-full h-[465px] object-cover' />
           <div className={`absolute ${pathname !== tab.link && 'black_gradient'} flex flex-col text-white justify-end inset-0`}>
             <h6 className={`px-8 text-xl font-bold pb-10 ${pathname === tab.link ? "max-w-[415px] text-3xl md:text-[40px] leading-[42px]" : ""} `}>
               {tab.label}
