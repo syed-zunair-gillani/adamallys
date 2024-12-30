@@ -2,7 +2,6 @@ import React from "react";
 import Markdown from "react-markdown";
 
 const OurCompany = ({data}) => {
-  console.log("🚀 ~ OurCompany ~ data:", data)
   return (
     <section className="">
       <div className="container py-20 mx-auto px-3 flex md:flex-row gap-6 flex-col">

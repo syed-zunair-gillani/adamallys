@@ -4,7 +4,7 @@
 }
 
 .oc_content h3 {
-    line-height: 20px;
+    font-size: 20px !important;
 }
 
 .oc_content p {

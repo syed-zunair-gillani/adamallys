@@ -13,6 +13,7 @@ export default async function Home() {
   const milestones = await getMilestones()
   const page = await getHomePage()
   console.log("🚀 ~ Home ~ page:", page)
+  
   const {
     BrandContent,
     CertificationsMemberships,
@@ -29,7 +30,7 @@ export default async function Home() {
       <Main data={Hero}/>
       <CertificationsAndMemberships data={CertificationsMemberships}/>
       <OurCompany data={Our_Company_Content}/>
-      <Services />
+      <Services data={ServiceCard}/>
       <Milestones data={milestones} />
       <OurBrands />
       <Cards dark />
