@@ -2,8 +2,12 @@ import Card2 from "@/components/digitalization/Card2";
 import Card3 from "@/components/digitalization/Card3";
 import Digital from "@/components/digitalization/Digital";
 import LeadingPageBanner from "@/components/digitalization/Leadingpage";
+import { getCertificationsAndMemberships } from "@/services";
 
-export default function Home() {
+
+export default async function Home() {
+  const page = await getCertificationsAndMemberships()
+  
   return (
     <>
       <div className="mb-24" />

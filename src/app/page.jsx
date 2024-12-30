@@ -6,25 +6,24 @@ import Milestones from "@/components/milestones/Milestones"
 import OurBrands from "@/components/our-brands/our-brands";
 import Cards from "@/components/Cards/Cards";
 import News from "@/components/news/News"
+import {getHomePage, getMilestones} from "@/services"
 
-// async function getPageData() {
-    
-// }
 
 export default async function Home() {
-  // const {page} = await getPageData()
+  const milestones = await getMilestones()
+  const page = await getHomePage()
 
   return (
     <>
-      <Main/>
-      <CertificationsAndMemberships/>
-      <OurCompany/>
-      <Services/>
-      <Milestones/>
-      <OurBrands/>
-      <Cards dark/>
-      <Cards/>
-      <News/>
+      <Main />
+      <CertificationsAndMemberships />
+      <OurCompany />
+      <Services />
+      <Milestones />
+      <OurBrands />
+      <Cards dark />
+      <Cards />
+      <News />
     </>
   );
 }
