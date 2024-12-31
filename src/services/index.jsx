@@ -4,7 +4,7 @@ import { Axios } from "@/config/Axios";
 async function getDistributorsAndStockists() {
   const params = qs.stringify({
     populate: [
-      'Image', "Cards.Icon"
+      'Image', "Cards.Icon", "Banner.Image"
     ],
   })
   const responce = await Axios.get(`/distributors-and-stockists-page?${params}`);

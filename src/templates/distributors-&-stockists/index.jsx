@@ -2,39 +2,20 @@
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react';
 
-const data = [
-  {
-    link: '#',
-    title: 'BAHCO',
-    image: '/images/distributors-&-tockists/distributors-logo-1.png',
-    description: 'Bahco designs and manufactures tools and saws tailored to the most demanding professionals, focusing our design highly on innovation, performance',
-  },
-  {
-    link: '#',
-    title: 'STANLEY',
-    image: '/images/distributors-&-tockists/distributors-logo-1.png',
-    description: 'Since 1843, professionals and skilled homeowners have trusted and wielded STANLEY® tools in their projects and tasks',
-  },
-  {
-    link: '#',
-    title: 'KOEHLER BRIGHT STAR',
-    image: '/images/distributors-&-tockists/distributors-logo-1.png',
-    description: 'KOEHLER BRIGHT STAR is a leading manufacturer of industrial and safety lights.',
-  },
-  {
-    link: '#',
-    title: 'WOLF SAFETY',
-    image: '/images/distributors-&-tockists/distributors-logo-1.png',
-    description: 'Wolf Safety is the worlds leading manufacturer of hazardous area portable & temporary lighting, offering the widest range of ATEX and IECEx certified',
-  },
-
-];
-
-const DistributorsAndStockistsTemplate = () => {
+const DistributorsAndStockistsTemplate = ({ Cards, Banner }) => {
   const [expanded, setExpanded] = useState({});
   const [showButton, setShowButton] = useState({});
 
   const descriptionRefs = useRef([]);
+
+  const data = Cards?.map?.(card => (
+    {
+      link: card?.link,
+      title: card?.title,
+      image: card?.Icon?.data?.attributes?.url,
+      description: card?.info,
+    }
+  ))
 
   const toggleExpand = (title) => {
     setExpanded((prevState) => ({
@@ -53,7 +34,7 @@ const DistributorsAndStockistsTemplate = () => {
         }));
       }
     });
-  }, [data]);
+  }, []);
 
   return (
     <main
@@ -64,14 +45,16 @@ const DistributorsAndStockistsTemplate = () => {
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
-            backgroundImage: 'url(/images/distributors-&-tockists/distributors-image.png)'
+            backgroundImage: `url(${Banner?.Image?.data?.attributes?.url})`
           }}
         >
           <div className="relative z-[999] px-8">
             <h1 className="text-white text-[60px] leading-[67px] text-center font-bold">
-              Distributors & Stockists
+              {Banner?.title}
             </h1>
-            <p className="mt-[17px] text-[22px] leading-[32px] text-center font-bold">Adamallys LLC stocks products from some of the most renowned brands</p>
+            <p className="mt-[17px] text-[22px] leading-[32px] text-center font-bold">
+              {Banner?.sub_title}
+            </p>
           </div>
           <div className={`absolute black_gradient inset-0`}>
           </div>
@@ -85,7 +68,7 @@ const DistributorsAndStockistsTemplate = () => {
                 width={198}
                 height={198}
                 alt='Distributors-logo'
-                src="/images/distributors-&-tockists/distributors-logo-1.png"
+                src={distributor?.image}
               />
             </div>
             <div className="flex-1 pt-[42px] pl-[64px] pr-[57px]">
