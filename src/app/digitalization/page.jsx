@@ -7,7 +7,6 @@ import { getDigitalizationAndTechnologyAtAdamallys } from "@/services";
 
 export default async function Home() {
   const page = await getDigitalizationAndTechnologyAtAdamallys()
-  console.log('page', page);
 
   return (
     <>

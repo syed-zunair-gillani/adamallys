@@ -35,7 +35,7 @@ async function getHomePage() {
 async function getCertificationsAndMemberships() {
   const params = qs.stringify({
     populate: [
-      'Certifications','Certifications.Image', "Memberships.Image"
+      'Certifications', 'Certifications.Image', "Memberships.Image"
     ],
   })
   const responce = await Axios.get(`/certifications-and-memberships-page?${params}`);
@@ -185,7 +185,7 @@ async function getShipSupply() {
 async function getSustainabilityAtAdamallys() {
   const params = qs.stringify({
     populate: [
-      'BannerImage', "Vision_Image", "Commitment_Image", "CSR_Image"
+      'BannerImage', "Vision_Image", "Commitment_Image", "CSR_Image", "Cards.lists","Cards.image"
     ],
   })
   const responce = await Axios.get(`/sustainability-at-adamallys-page?${params}`);
