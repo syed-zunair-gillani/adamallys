@@ -10,7 +10,6 @@ async function getPageData() {
       'Certifications','Certifications.Image', "Memberships.Image"
     ],
   })
-  console.log("🚀 ~ getPageData ~ params:", params)
   const responce = await Axios.get(`/certifications-and-memberships-page?${params}`);
   return {
     page: responce.data?.data?.attributes
@@ -19,7 +18,6 @@ async function getPageData() {
 
 export default async function Home() {
   const {page} = await getPageData()
-  console.log("🚀 ~ Home ~ page:", page)
   return (
     <>
       <div className="mb-32" />
