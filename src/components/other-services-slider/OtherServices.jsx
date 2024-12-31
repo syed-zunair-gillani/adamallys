@@ -34,7 +34,7 @@ const OtherServices = () => {
                 {[1, 2, 3]?.map((item) => (
                   <div key={item}>
                     {otherServicesData?.map((item, index) => (
-                      <div key={index}>
+                      <div key={index} className='mx-1'>
                         <div className={`max-w-[560px] ${index + 1 === otherServicesData?.length ? "" : "mb-[44px]"}`}>
                           <h3 className='text-2xl md:text-[40px] text-white font_franklin'>{item?.title}</h3>
                           <div className='h-[6px] bg-white w-[50px] md:w-[98px] my-5' />
