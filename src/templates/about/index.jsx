@@ -5,7 +5,9 @@ import AboutHeader from './AboutHeader'
 import AboutInfoCard from './AboutInfoCard'
 import CorporateInformation from './CorporateInformation'
 
-const AboutTemplate = () => {
+const AboutTemplate = async ({data}) => {
+  console.log("🚀 ~ AboutTemplate ~ data:", data)
+ 
   return (
     <main
       className='mt-[6rem]'
@@ -16,14 +18,14 @@ const AboutTemplate = () => {
           background: 'linear-gradient(to bottom, #ffffff , #F4F5F7 )'
         }}
       >
-        <AboutHeader />
-        <AboutInfoCard />
-        <CorporateInformation />
+        <AboutHeader data={data} />
+        <AboutInfoCard data={data?.AboutCards}/>
+        <CorporateInformation data={data}/>
       </div>
-      <History />
-      <PresentDay />
+      <History data={data}/>
+      <PresentDay data={data}/>
       <div className="py-[30px] md:py-[60px]">
-        <Expertise />
+        <Expertise media={data?.ExpertiseMedia} data={data?.ExpertiseCards}/>
       </div>
     </main>
   )

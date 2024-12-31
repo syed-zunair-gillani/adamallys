@@ -31,26 +31,25 @@ const historyData = [
   },
 ]
 
-const History = () => {
+const History = ({data}) => {
   return (
-    <div className='flex flex-col md:flex-row gap-[82px] container mx-auto px-3'>
-      <div className="basis-[45%]">
+    <div className='flex flex-col my-10 md:flex-row gap-[82px] container mx-auto px-3'>
+      <div className="basis-[45%] hidden md:block">
         {
-          [1, 2, 3, 4, 5, 6, 7].map(count =>
-            <Image key={count} src={`/images/about/history_image_${count}.png`} alt='history image' width={800} height={308} />
+          data?.HistoryList?.map(count =>
+            <Image key={count?.id} src={count?.Image?.data?.attributes?.url} alt='history image' className='mt-[98px]' width={800} height={308} />
           )
         }
       </div>
       <div className='basis-[55%] lg:mt-[250px]'>
-        <p className="font_calibri capitalize text-[59px] leading-[49px] pb-[26px]">History</p>
-        <p className="font_calibri text-bold text-[20px] leading-[29px] pb-[69px]">Pioneers in the Ship Supply Sector of the UAE
-        </p>
+        <p className="font_calibri capitalize text-[59px] leading-[49px] pb-[26px]">{data?.history_title}</p>
+        <p className="font_calibri text-bold text-[20px] leading-[29px] pb-[69px]">{data?.history_subtitle}</p>
         <div className="flex flex-col gap-[8px]">
           {
-            historyData?.map((history, index) =>
+            data?.HistoryList?.map((history, index) =>
               <div key={history?.year} className="flex gap-[10px]">
                 <div>
-                  <p className="font_calibri capitalize text-[59px] leading-[49px] text-theme-main">{history?.year}</p>
+                  <p className="font_calibri capitalize text-[59px] leading-[49px] text-theme-main">{history?.Year}</p>
                   <div style={{
                     width: 58,
                     height: 6,
@@ -61,7 +60,7 @@ const History = () => {
                     < Image className='mt-[1rem] h-[295px]' src='/images/about/history_line.png' alt='history-line' width={4} height={295} />
                   }
                 </div>
-                <p>{history?.info}</p>
+                <p>{history?.Info}</p>
               </div>
             )
           }
