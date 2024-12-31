@@ -6,7 +6,6 @@ import AboutInfoCard from './AboutInfoCard'
 import CorporateInformation from './CorporateInformation'
 
 const AboutTemplate = async ({data}) => {
-  console.log("🚀 ~ AboutTemplate ~ data:", data)
  
   return (
     <main
