@@ -1,13 +1,9 @@
-import React from 'react'
-import { getContactUs } from '@/services'
-import Contact from "./index"
+"use client"
+import dynamic from 'next/dynamic';
+const ContactTemplate = dynamic(() => import('@/templates/contact'), { ssr: false });
 
-const ContactTemp = async () => {
-    const data = await getContactUs();
-
-  return (
-    <Contact data={data}/>
-  )
+const ContactTemp = async ({data}) => {
+    return <ContactTemplate {...data} />
 }
 
 export default ContactTemp

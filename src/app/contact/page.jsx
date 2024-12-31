@@ -1,9 +1,13 @@
-"use client"
-import dynamic from 'next/dynamic';
-const ContactTemplate = dynamic(() => import('@/templates/contact'), { ssr: false });
+import React from 'react'
+import { getContactUs } from '@/services'
+import Contact from "./index"
 
-const Contact = async ({data}) => {
-    return <ContactTemplate {...data} />
+const ContactPage = async () => {
+    const data = await getContactUs();
+
+  return (
+    <Contact data={data}/>
+  )
 }
 
-export default Contact
+export default ContactPage
