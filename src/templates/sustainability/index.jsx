@@ -4,7 +4,6 @@ import { commitmentPoints, visionAndGoalsPoints } from '@/consts/sustainability'
 
 const SustainabilityTemplate = async () => {
   
-
   return (
     <>
       <div className="mb-20" />
