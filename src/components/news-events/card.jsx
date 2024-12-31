@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import Link from 'next/link';
 import { IoIosArrowForward } from "react-icons/io";
 
-function Card({ title, image, date, slug }: any) {
+function Card({ title, image, date, slug }) {
   return (
     <div
       className="flex flex-col items-center mx-auto w-full max-w-[600px] justify-center duration-300"
