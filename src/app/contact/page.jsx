@@ -1,5 +1,5 @@
 import { getContactUs } from '@/services'
-import ContactTemplate from '@/templates/contact'
+const ContactTemplate = dynamic(() => import('@/templates/contact'), { ssr: false });
 
 const Contact = async () => {
     const data = await getContactUs();
