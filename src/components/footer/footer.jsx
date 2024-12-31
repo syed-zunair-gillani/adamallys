@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { getFooter } from "@/services";
 
 const pagesGroup = [
   {
@@ -29,14 +30,17 @@ const pagesGroup = [
   },
 ]
 
-const Footer = () => {
+const Footer = async () => {
+  const data = await getFooter()
+  console.log("🚀 ~ Footer ~ data:", data)
+  const {About,Logo, Adamallys_Group, AdamallysGroup2, AdamallysLLC, AdamallysMarineShipChandlingServices} = data
   return (
     <footer className="footer_gradient pt-[63px]">
       <section className="grid container mx-auto px-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 md:gap-10 lg:gap-[88px]">
         <div>
           <Link href="/" className="">
             <Image
-              src="/svg/logo.svg"
+              src={Logo?.data?.attributes?.url}
               alt="logo"
               width={126}
               height={74}
@@ -44,18 +48,17 @@ const Footer = () => {
             />
           </Link>
           <p className="font_calibri font-light mt-4 text-theme-main">
-            In publishing and graphic design, Lorem ipsum is a placeholder text
-            commonly used to demonstrate the visual form
+            {About}
           </p>
         </div>
         <div>
           <h6 className="font_calibri uppercase text-lg font-bold text-theme-main">Adamallys Group</h6>
           <ul className="mt-[13px]">
             {
-              pagesGroup.map((item, idx) => (
+              Adamallys_Group?.map((item, idx) => (
                 <li key={idx} className="text-[#3E3E3E] font_calibri mb-2 font-light">
-                  <Link href={item.link}>
-                    {item.label}
+                  <Link href={item.Link}>
+                    {item.Label}
                   </Link>
                 </li>
               ))
@@ -67,16 +70,16 @@ const Footer = () => {
           <ul className="mt-[13px]">
             <li className="text-[#3E3E3E] font_calibri mb-2 font-light">
               Address:<br />
-              P.O Box 4884 Dubai UAE
+              {AdamallysGroup2?.address}
             </li>
             <li className="text-[#3E3E3E] font_calibri mb-2 font-light">
               Contact Details:<br />
-              <span>Tel: +971 4 284 4848</span><br />
-              <span>Fax: +971 4 284 4880 / 4882</span>
+              <span>Tel: {AdamallysGroup2?.Telephone}</span><br />
+              <span>Fax: {AdamallysGroup2?.Fax}</span>
             </li>
             <li className="text-[#3E3E3E] font_calibri mb-2 font-light">
               Email:<br />
-              adamallys@adamallys-llc.com
+              {AdamallysGroup2?.Email}
             </li>
           </ul>
         </div>
@@ -85,36 +88,35 @@ const Footer = () => {
           <ul className="mt-[13px]">
             <li className="text-[#3E3E3E] font_calibri mb-2 font-light">
               Location: <br />
-              <span>Umm Ramool, Old steel Mill Road, Street 5, Dubai, UAE:</span>
+              <span>{AdamallysLLC?.Location}</span>
             </li>
             <li className="text-[#3E3E3E] font_calibri mb-2 font-light">
               Contact Details:<br />
-              <span>Tel: +971 4 284 4848</span><br />
-              <span>Fax: +971 4 284 4880 / 4882</span>
+              <span>Tel: {AdamallysLLC?.Telephone}</span><br />
+              <span>Fax: {AdamallysLLC?.Fax}</span>
             </li>
             <li className="text-[#3E3E3E] font_calibri mb-2 font-light">
               Email:<br />
-              adamallys@adamallys-llc.com
+              {AdamallysLLC?.Email}
             </li>
           </ul>
         </div>
         <div>
           <h6 className="font_calibri uppercase text-lg font-bold text-theme-main">Adamallys Marine
-            Ship chandling
-            services</h6>
+            Ship chandling services</h6>
           <ul className="mt-[13px]">
             <li className="text-[#3E3E3E] font_calibri mb-2 font-light">
               Location: <br />
-              <span>Umm Ramool, Dubai, UAE</span>
+              <span>{AdamallysMarineShipChandlingServices?.Location}</span>
             </li>
             <li className="text-[#3E3E3E] font_calibri mb-2 font-light">
               Contact Details:<br />
-              <span>Tel: +971 4 284 4848</span><br />
-              <span>Fax: +971 4 284 4880 / 4882</span>
+              <span>Tel: {AdamallysMarineShipChandlingServices?.Telephone}</span><br />
+              <span>Fax: {AdamallysMarineShipChandlingServices?.Fax}</span>
             </li>
             <li className="text-[#3E3E3E] font_calibri mb-2 font-light">
               Email:<br />
-              adamallys@adamallys-llc.com
+              {AdamallysMarineShipChandlingServices?.Email}
             </li>
           </ul>
         </div>
