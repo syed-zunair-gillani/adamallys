@@ -1,6 +1,7 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
-const Expertise = () => {
+const Expertise = ({ media, data }) => {
   return (
     <div className='flex flex-col xl:flex-row gap-[20px] container mx-auto px-3'>
       <div className='flex flex-col sm:flex-row xl:flex-col'>
@@ -23,16 +24,21 @@ const Expertise = () => {
       </div>
       <div className="flex flex-col lg:flex-row flex-wrap gap-[20px]">
         <div className="flex-1 flex flex-col justify-between p-[32px] basis-[45%] bg-[#F1F3F5]">
-          <p className='font_calibri capitalize text-base leading-[26px] font-light text-[#3E3E3E]'>Equipping a fleet is a privilege we understand the importance off. Our passion for what we do is reflected in the quality of our service.</p>
-          <Image src='/svg/about/arrow_circle_right_filled.svg' alt='arrow_circle_right' width={42} height={42} />
+          <p className='font_calibri capitalize text-base leading-[26px] font-light text-[#3E3E3E]'>{data[0]?.content}</p>
+          <Link href={data[0]?.link || "#"}>
+            <Image src='/svg/about/arrow_circle_right_filled.svg' alt='arrow_circle_right' width={42} height={42} />
+          </Link>
         </div>
         <div className="flex-1 flex flex-col justify-between p-[32px] basis-[45%] bg-[#F1F3F5]">
-          <p className='font_calibri capitalize text-base leading-[26px] font-light text-[#3E3E3E]'>As pioneers in the modern ship-chandling era, we have merged our vast technological presence and importing ability to continue to reshape the shipping industry.</p>
-          <Image src='/svg/about/arrow_circle_right_filled.svg' alt='arrow_circle_right' width={42} height={42} />
-        </div>
+          <p className='font_calibri capitalize text-base leading-[26px] font-light text-[#3E3E3E]'>{data[1]?.content}</p>
+          <Link href={data[1]?.link || "#"}>
+            <Image src='/svg/about/arrow_circle_right_filled.svg' alt='arrow_circle_right' width={42} height={42} />
+          </Link>        </div>
         <div className="flex-1 flex flex-col justify-between p-[32px] basis-[100%] bg-[#F1F3F5]">
-          <p className='font_calibri capitalize text-base leading-[26px] font-light text-[#3E3E3E]'>With extensive technical product knowledge, experienced staff and global sourcing capabilities, combined with a comprehensive range of products and available ex-stock, Adamallys LLC is ideally placed for the procurement of oilfield supplies, ship repair materials, provisions, container lashings and deck/engine store for oil/chemical/product tankers.</p>
-          <Image src='/svg/about/arrow_circle_right_filled.svg' alt='arrow_circle_right' width={42} height={42} />
+          <p className='font_calibri capitalize text-base leading-[26px] font-light text-[#3E3E3E]'>{data[2]?.content}</p>
+          <Link href={data[2]?.link || "#"}>
+            <Image src='/svg/about/arrow_circle_right_filled.svg' alt='arrow_circle_right' width={42} height={42} />
+          </Link>
         </div>
       </div>
 

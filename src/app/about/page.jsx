@@ -5,7 +5,7 @@ const About = async() => {
   const page = await getAboutUs()
   
   return(
-    <AboutTemplate />
+    <AboutTemplate data={page}/>
   )
 }
 
