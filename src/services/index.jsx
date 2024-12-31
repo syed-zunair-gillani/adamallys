@@ -114,7 +114,7 @@ async function getHeader() {
 async function getIndustrialEnergy() {
   const params = qs.stringify({
     populate: [
-      'Video'
+      'Video', 'Our_Key_Product_Offerings'
     ],
   })
   const responce = await Axios.get(`/industrial-and-energy-sector-supplies-page?${params}`);
@@ -124,7 +124,7 @@ async function getIndustrialEnergy() {
 async function getMarineLogisticsWarehousing() {
   const params = qs.stringify({
     populate: [
-      'Video', "Warehousing_videos"
+      'video', "Warehousing_videos", "list", 'Cards'
     ],
   })
   const responce = await Axios.get(`/marine-logistics-and-warehousing-page?${params}`);
