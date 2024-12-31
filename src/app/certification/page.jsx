@@ -7,9 +7,10 @@ import { Axios } from "@/config/Axios";
 async function getPageData() {
   const params = qs.stringify({
     populate: [
-      'Certifications?.Image', "Memberships.Image"
+      'Certifications','Certifications.Image', "Memberships.Image"
     ],
   })
+  console.log("🚀 ~ getPageData ~ params:", params)
   const responce = await Axios.get(`/certifications-and-memberships-page?${params}`);
   return {
     page: responce.data?.data?.attributes
@@ -18,13 +19,14 @@ async function getPageData() {
 
 export default async function Home() {
   const {page} = await getPageData()
+  console.log("🚀 ~ Home ~ page:", page)
   return (
     <>
       <div className="mb-32" />
       <Banner title="Certification" />
-      <Logocard />
+      <Logocard data={page?.Certifications}/>
       <Banner title="Memberships" />
-      <Logocard2 />
+      <Logocard2 data={page?.Memberships}/>
     </>
   );
 }
