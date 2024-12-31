@@ -12,7 +12,8 @@ const defaultValues = {
 }
 
 const ContactTemplate = (props) => {
-  const { AddressOne, AddressTwo, Email, Fax, MobileNumber } = props;
+  console.log("🚀 ~ ContactTemplate ~ props:", props)
+  const { AddressOne, AddressTwo, Email, Fax, MobileNumber } = props.data;
   const [formData, setFormData] = useState(defaultValues);
 
   const handleChange = (e) => {
