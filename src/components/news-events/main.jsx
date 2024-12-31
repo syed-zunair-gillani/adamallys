@@ -2,7 +2,7 @@ import dayjs from "dayjs";
 import Link from "next/link";
 import { MdCalendarMonth } from "react-icons/md";
 
-function Main({ news }: any) {
+function Main({ news }) {
   return (
     <>
       <section className="container mx-auto px-4 xl:pt-[30px] mt-12">
