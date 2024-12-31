@@ -4,7 +4,6 @@ import React from 'react'
 import Slider from "react-slick";
 
 const News = ({data}) => {
-    console.log("🚀 ~ News ~ data:", data)
     const slider = React.useRef(null);
     
     return (

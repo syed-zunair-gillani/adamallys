@@ -12,7 +12,6 @@ import { getHomePage, getMilestones } from "@/services"
 export default async function Home() {
   const milestones = await getMilestones()
   const page = await getHomePage()
-  console.log("🚀 ~ Home ~ page:", page)
   
   const {
     BrandContent,

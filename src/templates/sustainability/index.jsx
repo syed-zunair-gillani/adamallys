@@ -3,7 +3,6 @@ import TwoColumnContent from '@/components/two-column-content/two-column-content
 import { commitmentPoints, visionAndGoalsPoints } from '@/consts/sustainability'
 
 const SustainabilityTemplate = async () => {
-  
   return (
     <>
       <div className="mb-20" />
