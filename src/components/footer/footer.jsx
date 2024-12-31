@@ -3,36 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { getFooter } from "@/services";
 
-const pagesGroup = [
-  {
-    link: '/about',
-    label: 'Who we are'
-  },
-  {
-    link: '/products-&-services',
-    label: 'Product & Services'
-  },
-  {
-    link: '#',
-    label: 'Distribution & Stockists'
-  },
-  {
-    link: '/technical-marine-stores',
-    label: 'Ship Supply'
-  },
-  {
-    link: '/news-&-events',
-    label: 'News'
-  },
-  {
-    link: '#',
-    label: 'Contact'
-  },
-]
 
 const Footer = async () => {
   const data = await getFooter()
-  console.log("🚀 ~ Footer ~ data:", data?.Socials[0]?.Icon)
   const {About,Logo, Adamallys_Group, AdamallysGroup2, AdamallysLLC, AdamallysMarineShipChandlingServices, Buttons, Socials} = data
   return (
     <footer className="footer_gradient pt-[63px]">
