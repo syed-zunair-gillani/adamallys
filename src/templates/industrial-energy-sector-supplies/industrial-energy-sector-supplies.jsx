@@ -20,7 +20,7 @@ const IndustrialEnergySectorSupplies = () => {
       <div className="mb-24"/>
       <section>
         <div>
-          <h1 className="text-center text-2xl py-8 sm:text-[40px] font_calibri md:leading-[50px] md:text-[50px] lg:text-[60px] font-bold text-[#2E368F] px-4">
+          <h1 className="text-center text-2xl py-12 sm:text-[40px] font_calibri md:leading-[50px] md:text-[50px] lg:text-[60px] font-bold text-[#2E368F] px-4">
             Products & Services
           </h1>
         </div>

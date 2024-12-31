@@ -4,15 +4,15 @@ import Banner from "@/components/certification/Title";
 import { getCertificationsAndMemberships } from "@/services";
 
 export default async function Home() {
-  const { data } = await getCertificationsAndMemberships();
+  const page = await getCertificationsAndMemberships();
 
   return (
     <>
       <div className="mb-32" />
       <Banner title="Certification" />
-      <Logocard />
+      <Logocard data={page?.Certifications}/>
       <Banner title="Memberships" />
-      <Logocard2 />
+      <Logocard2 data={page?.Memberships}/>
     </>
   );
 }

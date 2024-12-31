@@ -114,3 +114,18 @@
 .map::-webkit-scrollbar {
   display: none;
 }
+
+.present_day{
+  z-index: 1;
+  font-family: 'calibri';
+}
+.present_day h6{
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+.present_day p{
+  font-weight: 300;
+  margin-bottom: 1.4rem;
+}
