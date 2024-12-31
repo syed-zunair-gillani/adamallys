@@ -1,5 +1,5 @@
 export const renderRichText = (blocks) => {
-    return blocks.map((block, index) => {
+    return blocks?.map((block, index) => {
       const { type, level, children } = block;
   
       // Render based on block type
@@ -9,13 +9,13 @@ export const renderRichText = (blocks) => {
           if(HeadingTag === "h2"){
             return (
               <HeadingTag key={index} className="font_franklin mb-5">
-                {children.map((child, childIndex) => child.text)}
+                {children?.map((child, childIndex) => child.text)}
               </HeadingTag>
             );
           }else{
             return (
               <h3 key={index} className="!font-xl mb-5 !text-[#3E3E3E]">
-                {children.map((child, childIndex) => child.text)}
+                {children?.map((child, childIndex) => child.text)}
               </h3>
             );
           }

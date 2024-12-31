@@ -36,7 +36,7 @@ const Cards = ({ dark, data }) => {
 export default Cards
 
 const renderRichText = (blocks, dark) => {
-  return blocks.map((block, index) => {
+  return blocks?.map((block, index) => {
     const { type, level, children } = block;
 
     // Render based on block type
@@ -46,14 +46,14 @@ const renderRichText = (blocks, dark) => {
         if (HeadingTag === "h3") {
           return (
             <h3 key={index} className="mb-3 text-xl">
-              {children.map((child, childIndex) => child.text)}
+              {children?.map((child, childIndex) => child.text)}
             </h3>
           );
         }
       case "paragraph":
         return (
           <p key={index} className={`font-light ${dark ? "text-white" : "text-[#2E368F]"}`}>
-            {children.map((child, childIndex) => child.text)}
+            {children?.map((child, childIndex) => child.text)}
           </p>
         );
 

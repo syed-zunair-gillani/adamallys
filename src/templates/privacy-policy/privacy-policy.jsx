@@ -1,11 +1,11 @@
 import { getPrivacyPolicy } from '../../services'
 
 const renderRichText = (blocks) => {
-  return blocks.map((block, index) => {
+  return blocks?.map((block, index) => {
     const { children } = block;
     return (
       <p key={index} className="font-light !text-[rgba(62, 62, 62, 1)]">
-        {children.map((child) => child?.text)}
+        {children?.map((child) => child?.text)}
       </p>
     );
   });
