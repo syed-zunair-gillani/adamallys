@@ -12,7 +12,10 @@ const Cards = ({ dark, data }) => {
         <div className={`h-[720px] px-4 sm:px-10 md:px-16 flex justify-center flex-col items-center  ${dark ? "bg-black text-white" : "bg-[#F5F6F8] text-[#2E368F]"}`} >
           <div className='max-w-[435px] mx-auto'>
             <h3 className='text-[40px] mb-4 font_franklin'>{data?.title}</h3>
-            <p className='font-light font_calibri text-white'>{renderRichText(data?.Content, dark)}</p>
+            <div>
+              {data?.sub_title && <h6 className={`text-xl mb-2 ${dark ? "text-white" : "text-theme-main"}`}>{data?.sub_title}</h6>}
+              <p className={`text-light ${dark ? "text-white" : "text-theme-main"}`}>{data?.Caption}</p>
+            </div>
             <Link href={data?.link || "#"}>
               <button className={`font_calibri border flex items-center gap-10 mt-10 py-[14px] px-[18px] ${dark ? "border-white" : "border-[#2E368F]"}`}>
                 Read More
