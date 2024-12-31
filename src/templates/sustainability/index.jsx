@@ -1,11 +1,9 @@
 import Image from 'next/image'
 import TwoColumnContent from '@/components/two-column-content/two-column-content'
 import { commitmentPoints, visionAndGoalsPoints } from '@/consts/sustainability'
-import { getSustainabilityAtAdamallys } from '@/services'
 
 const SustainabilityTemplate = async () => {
-  const data = await getSustainabilityAtAdamallys()
-  console.log('data', data);
+  
 
   return (
     <>
