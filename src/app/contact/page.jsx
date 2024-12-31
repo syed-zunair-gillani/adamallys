@@ -1,12 +1,12 @@
 import React from 'react'
 import { getContactUs } from '@/services'
-import Contact from "./index"
+import ContactTemp from "@/templates/contact/contactTemp"
 
 const ContactPage = async () => {
     const data = await getContactUs();
 
   return (
-    <Contact data={data}/>
+    <ContactTemp data={data}/>
   )
 }
 
