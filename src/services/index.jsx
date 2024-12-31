@@ -35,7 +35,7 @@ async function getHomePage() {
 async function getCertificationsAndMemberships() {
   const params = qs.stringify({
     populate: [
-      'Certifications?.Image', "Memberships.Image"
+      'Certifications','Certifications.Image', "Memberships.Image"
     ],
   })
   const responce = await Axios.get(`/certifications-and-memberships-page?${params}`);
