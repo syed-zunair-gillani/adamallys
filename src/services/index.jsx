@@ -68,7 +68,8 @@ async function getNewsAndEvents() {
 async function getFooter() {
   const params = qs.stringify({
     populate: [
-      'Logo', "Adamallys_Group", "AdamallysGroup2", "AdamallysLLC", "AdamallysMarineShipChandlingServices"
+      'Logo', "Adamallys_Group", "AdamallysGroup2", "AdamallysLLC", "AdamallysMarineShipChandlingServices",
+      "Buttons", "Socials.Icon"
     ],
   })
   const responce = await Axios.get(`/footer?${params}`);
