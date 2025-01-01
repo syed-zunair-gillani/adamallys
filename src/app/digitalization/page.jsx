@@ -1,6 +1,3 @@
-import Card2 from "@/components/digitalization/Card2";
-import Card3 from "@/components/digitalization/Card3";
-import Digital from "@/components/digitalization/Digital";
 import LeadingPageBanner from "@/components/digitalization/Leadingpage";
 import TwoColumnContent from "@/components/two-column-content/two-column-content";
 import { getDigitalizationAndTechnologyAtAdamallys } from "@/services";
@@ -18,7 +15,7 @@ export default async function Home() {
           content={data?.Banner_Info}
           bgImage={data?.Banner_Image?.data?.attributes?.url}
         />
-        <div className="my-[56px] flex flex-col gap-10">
+        <div className="my:6 lg:my-[56px] flex flex-col gap-6 lg:gap-10">
           <TwoColumnContent
             zeroGap
             title={data?.Cards?.[0]?.title}
