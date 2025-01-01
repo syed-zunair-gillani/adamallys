@@ -8,7 +8,7 @@ const Footer = async () => {
   const data = await getFooter()
   const {About,Logo, Adamallys_Group, AdamallysGroup2, AdamallysLLC, AdamallysMarineShipChandlingServices, Buttons, Socials} = data
   return (
-    <footer className="footer_gradient pt-[63px]">
+    <footer className="footer_gradient pt-[63px] relative">
       <section className="grid container mx-auto px-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 md:gap-10 lg:gap-[88px]">
         <div>
           <Link href="/" className="">
