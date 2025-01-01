@@ -8,7 +8,8 @@ import {
   dryDockingServiceBannerData,
 } from '@/consts/shipSupply';
 
-const DryDockingServiceTemplate = () => {
+const DryDockingServiceTemplate = (props) => {
+  const { } = props;
   return (
     <main className=''>
       <div className="mb-20" />

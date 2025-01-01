@@ -12,7 +12,7 @@ function Logocard({data}) {
           >
             <img src={card.Image?.data?.attributes?.url} alt={card.title} className="object-contain mb-4 w-[150px] h-[150px]" />
             <h2 className="text-center text-[18px] sm:text-[20px] lg:text-[22px] font-[700] text-[#171F7C]">
-              {card.title}
+              {card?.title}
             </h2>
           </div>
         ))}
