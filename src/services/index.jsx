@@ -35,7 +35,7 @@ async function getHomePage() {
 async function getCertificationsAndMemberships() {
   const params = qs.stringify({
     populate: [
-      'Certifications','Certifications.Image', "Memberships.Image"
+      'Certifications', 'Certifications.Image', "Memberships.Image"
     ],
   })
   const responce = await Axios.get(`/certifications-and-memberships-page?${params}`);
@@ -114,7 +114,7 @@ async function getHeader() {
 async function getIndustrialEnergy() {
   const params = qs.stringify({
     populate: [
-      'Video'
+      'Video', 'Our_Key_Product_Offerings'
     ],
   })
   const responce = await Axios.get(`/industrial-and-energy-sector-supplies-page?${params}`);
@@ -124,7 +124,7 @@ async function getIndustrialEnergy() {
 async function getMarineLogisticsWarehousing() {
   const params = qs.stringify({
     populate: [
-      'Video', "Warehousing_videos"
+      'video', "Warehousing_videos", "list", 'Cards'
     ],
   })
   const responce = await Axios.get(`/marine-logistics-and-warehousing-page?${params}`);
@@ -185,7 +185,7 @@ async function getShipSupply() {
 async function getSustainabilityAtAdamallys() {
   const params = qs.stringify({
     populate: [
-      'BannerImage', "Vision_Image", "Commitment_Image", "CSR_Image"
+      'BannerImage', "Vision_Image", "Commitment_Image", "CSR_Image", "Cards.lists","Cards.image"
     ],
   })
   const responce = await Axios.get(`/sustainability-at-adamallys-page?${params}`);

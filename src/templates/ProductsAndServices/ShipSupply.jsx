@@ -5,7 +5,21 @@ import Milestones from '@/components/milestones/Milestones'
 import ChooseAdamallys from '@/components/choose-adamallys/choose-adamallys'
 import OtherServices from "@/components/other-services-slider/OtherServices"
 
-const ShipSupply = () => {
+const renderRichText = (blocks) => {
+  return blocks?.map((block, index) => {
+    const { children } = block;
+    return (
+      <p key={index} className="font-light !text-[rgba(62, 62, 62, 1)]">
+        {children?.map((child) => child?.text)}
+      </p>
+    );
+  });
+};
+
+const ShipSupply = (props) => {
+  const { title, content, Product_and_service, milestones } = props;
+
+  const text = renderRichText(content)
   return (
     <div>
       <div className="mb-24" />
@@ -19,28 +33,25 @@ const ShipSupply = () => {
       </section>
       <section className="mt-14 container mx-auto px-3 flex flex-col md:flex-row gap-5 md:gap-10 mb-10 md:mb-20">
         <div className='md:w-[30%]'>
-          <h2 className='text-3xl md:text-5xl lg:text-6xl font_calibri text-theme-main font-bold'>Ship Supply</h2>
+          <h2 className='text-3xl md:text-5xl lg:text-6xl font_calibri text-theme-main font-bold'>{title}</h2>
           <div className='ship_supply_content font_calibri mt-4'>
-            <p>Adamallys LLC is one of the largest and most trusted ship chandlers in the UAE, with over 50 years of expertise in providing premium marine and industrial supplies. As the leading ship chandler in Dubai, we offer unparalleled access to top-tier brands and a vast inventory, making us the preferred supplier for ship owners and managers throughout the region.</p>
-            <p>Our comprehensive ship supply solutions are tailored to meet the demands of all vessel types—from tankers, container ships, LNG carriers to bulk carriers—ensuring fast, reliable service that minimizes downtime and optimizes operational efficiency. Specializing in large-scale contracts and drydock support, we guarantee that essential supplies are delivered quickly and precisely, supporting vessels to operate at their best.</p>
-            <p>We uphold the highest global standards of quality, safety, and environmental responsibility, with each item carefully selected to meet rigorous marine-grade standards for onboard safety. With an exceptional price-to-quality ratio, Adamallys LLC provides cost-effective ship supply solutions without compromising on quality, establishing us as the go-to ship chandler in the UAE.</p>
-            <p>Choose Adamallys LLC for all your ship supply needs and experience the reliability, quality, and value that make us a leader in the region.</p>
+            {text}
           </div>
         </div>
         <div className='md:w-[70%]'>
           <div className='flex flex-col gap-10'>
             {
-              [1, 2, 3, 1, 2, 3]?.map((item, idx) => (
+              Product_and_service?.map?.((item, idx) => (
                 <div key={idx} className='grid grid-cols-2 gap-10'>
                   <figure>
-                    <Image src="/images/container.jpg" alt='' className='h-[214px] w-full object-cover' width={400} height={214} />
+                    <Image src={item?.Image?.data?.attributes?.url} alt={item?.title} className='h-[214px] w-full object-cover' width={400} height={214} />
                   </figure>
                   <div className='flex flex-col justify-between'>
                     <div>
-                      <h3 className='text-theme-main text-4xl mb-1 font_franklin'>Technical marine stores</h3>
-                      <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly </p>
+                      <h3 className='text-theme-main text-4xl mb-1 font_franklin'>{item?.title}</h3>
+                      <p>{item?.Excerpt}</p>
                     </div>
-                    <Link href="#" className='text-theme-main flex gap-[29px]'>
+                    <Link href={item?.link} className='text-theme-main flex gap-[29px]'>
                       Read More
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <mask id="mask0_550_4737" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
@@ -59,7 +70,7 @@ const ShipSupply = () => {
           </div>
         </div>
       </section>
-      <Milestones />
+      <Milestones data={milestones} />
       <ChooseAdamallys />
       <OtherServices />
     </div>
