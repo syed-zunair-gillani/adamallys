@@ -84,7 +84,7 @@ async function getContactUs() {
 async function getDigitalizationAndTechnologyAtAdamallys() {
   const params = qs.stringify({
     populate: [
-      'Banner_Image', "Content_Cards.Image"
+      'Banner_Image', "Content_Cards.Image",'Cards.image','Cards.lists'
     ],
   })
   const responce = await Axios.get(`/digitalization-and-technology-at-adamallys-page?${params}`);
