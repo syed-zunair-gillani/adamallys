@@ -6,19 +6,8 @@ import Milestones from "@/components/milestones/Milestones"
 import OurBrands from "@/components/our-brands/our-brands";
 import Cards from "@/components/Cards/Cards";
 import News from "@/components/news/News"
-import { getMilestones } from "@/services"
-import qs from "qs"
+import { getHomePage, getMilestones } from "@/services"
 
-async function getHomePage() {
-  const params = qs.stringify({
-    populate: [
-      'Hero.video', "CertificationsMemberships.Icon", "ServiceCard.Image",
-      "Icons.Icon", "ContentCard.Image", "news_and_events.Image"
-    ],
-  })
-  const responce = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_PUBLIC_BASE_URL}/api/home-page?${params}`, { next: { revalidate: 60 } });
-  return responce.json()
-}
 
 export default async function Home() {
   const milestones = await getMilestones()
@@ -33,7 +22,7 @@ export default async function Home() {
     Our_Company_Content,
     ServiceCard,
     news_and_events,
-  } = page?.data?.attributes
+  } = page
 
   return (
     <>
