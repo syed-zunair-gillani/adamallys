@@ -164,7 +164,7 @@ async function getProvisionsBondedStores() {
 async function getShipSpareParts() {
   const params = qs.stringify({
     populate: [
-      'banner_background_image', "Why_Choose_Image", "Cards.Image"
+      'banner_background_image', "Why_Choose_Image", "Cards.image", "Cards.lists"
     ],
   })
   const responce = await Axios.get(`/ship-spare-parts-page?${params}`);
@@ -195,7 +195,7 @@ async function getSustainabilityAtAdamallys() {
 async function getTechnicalMarineStores() {
   const params = qs.stringify({
     populate: [
-      'banner_background_image', "Cards.Image"
+      'banner_background_image', "Card.lists", "Card.image", "Tags",
     ],
   })
   const responce = await Axios.get(`/technical-marine-stores-page?${params}`);

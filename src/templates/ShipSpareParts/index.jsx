@@ -4,18 +4,9 @@ import OtherServices from '@/components/other-services-slider/OtherServices'
 import ChooseAdamallys from '@/components/choose-adamallys/choose-adamallys'
 import OneColumnContent from '@/components/one-column-content/two-column-content'
 import TwoColumnContent from "@/components/two-column-content/two-column-content"
-import {
-  HAVCPoints,
-  marineValvesPoints,
-  safetyEquipmentPoints,
-  filtrationSystemsPoints,
-  shipSparePartsDeckStores,
-  auxiliaryEnginePartsPoints,
-  electricalSystemPartsPoints,
-  shipSparePartsRopesBannerData,
-} from '@/consts/shipSupply';
 
-const ShipSparePartsTemplate = () => {
+const ShipSparePartsTemplate = (props) => {
+  const { Why_Choose_Image, Why_Choose_Title, Why_Choose_info, banner_background_image, banner_Info, banner_title, Cards, } = props;
   return (
     <>
       <div className="mb-20" />
@@ -26,62 +17,66 @@ const ShipSparePartsTemplate = () => {
       </div>
       <PageNavigation />
       <LeadingPageBanner
-        {...shipSparePartsRopesBannerData}
+        {...{
+          title: banner_title,
+          content: banner_Info,
+          bgImage: banner_background_image?.data?.attributes?.url
+        }}
       />
       <div className="mt-[72px]">
         <TwoColumnContent
-          title={"Main & Auxiliary Engine Parts"}
-          points={auxiliaryEnginePartsPoints}
-          image={"/images/ship-supply/auxiliary-engine-parts-image.png"}
-          caption={"Main & Auxiliary Engine PartsEnsuring smooth and efficient engine operation is paramount for every vessel, and at Adamallys LLC, we provide a comprehensive range of spare parts for both main and auxiliary engines. These include:"}
+          title={Cards?.[0]?.title}
+          caption={Cards?.[0]?.info}
+          image={Cards?.[0]?.image?.data?.attributes?.url}
+          points={Cards?.[0]?.lists?.map(({ list }) => list)}
         />
       </div>
       <TwoColumnContent
         invert
         bgGray
-        points={shipSparePartsDeckStores}
-        title={"Deck Stores"}
-        image={"/images/ship-supply/ship-spare-parts-deck-stores.png"}
-        caption={"Adamallys supplies an extensive range of spare parts for deck machinery, helping vessels maintain critical operations. These include:"}
+        title={Cards?.[1]?.title}
+        caption={Cards?.[1]?.info}
+        image={Cards?.[1]?.image?.data?.attributes?.url}
+        points={Cards?.[1]?.lists?.map(({ list }) => list)}
       />
       <TwoColumnContent
-        title={"Electrical System Parts"}
-        points={electricalSystemPartsPoints}
-        image={"/images/ship-supply/electrical-system-parts-image.png"}
-        caption={"Adamallys LLC offers a full range of electrical spare parts to ensure the seamless operation of a vessel's power distribution and control systems:"}
+        title={Cards?.[2]?.title}
+        caption={Cards?.[2]?.info}
+        image={Cards?.[2]?.image?.data?.attributes?.url}
+        points={Cards?.[2]?.lists?.map(({ list }) => list)}
       />
       <TwoColumnContent
         bgGray
         bgColor={"#E0E2FB"}
-        title='Safety Equipment & LSA/FFA Spares'
-        points={safetyEquipmentPoints}
-        image={"/images/ship-supply/safety-equipment-image.png"}
-        caption='Safety at sea is paramount, and we stock a comprehensive range of spare parts for Life-Saving Appliances (LSA) and Fire-Fighting Appliances (FFA), ensuring vessels remain compliant with international safety regulations:'
+        title={Cards?.[3]?.title}
+        caption={Cards?.[3]?.info}
+        image={Cards?.[3]?.image?.data?.attributes?.url}
+        points={Cards?.[3]?.lists?.map(({ list }) => list)}
       />
       <OneColumnContent
         leftTitle
-        points={marineValvesPoints}
-        title={'Pumps & Valves'}
-        image={"/images/ship-supply/marine-valves.png"}
-        caption={'We provide a comprehensive range of valves, adhering to international standards (DIN, JIS) for fluid and gas control:'}
+        title={Cards?.[4]?.title}
+        caption={Cards?.[4]?.info}
+        image={Cards?.[4]?.image?.data?.attributes?.url}
+        points={Cards?.[4]?.lists?.map(({ list }) => list)}
       />
       <TwoColumnContent
         bgGray
         invert
-        title='HVAC & Refrigeration Parts'
-        points={HAVCPoints}
-        image={"/images/ship-supply/HVAC-image.png"}
-        caption='We provide spare parts for heating, ventilation, air conditioning, and refrigeration systems, ensuring a comfortable and controlled environment on board:'
+        title={Cards?.[5]?.title}
+        caption={Cards?.[5]?.info}
+        image={Cards?.[5]?.image?.data?.attributes?.url}
+        points={Cards?.[5]?.lists?.map(({ list }) => list)}
       />
       <TwoColumnContent
         bgGray
-        title='Filtration Systems'
-        points={filtrationSystemsPoints}
-        image={"/images/ship-supply/filtration-systems-image.png"}
-        caption='Proper filtration is essential for maintaining the health of engine and hydraulic systems. Adamallys provides:'
+        title={Cards?.[6]?.title}
+        caption={Cards?.[6]?.info}
+        image={Cards?.[6]?.image?.data?.attributes?.url}
+        points={Cards?.[6]?.lists?.map(({ list }) => list)}
       />
       <ChooseAdamallys
-        description={'At Adamallys LLC, we pride ourselves on our ability to source and supply high-quality spare parts from reputable manufacturers across the globe. Our extensive stock ensures fast and reliable delivery, minimizing vessel downtime and operational interruptions. Whether you need critical engine spares or essential deck machinery parts, Adamallys is committed to providing the right solutions tailored to the needs of the maritime industry.'}
+        {...{ title: Why_Choose_Title, image: Why_Choose_Image?.data?.attributes?.url, description: Why_Choose_info }}
       />
       <OtherServices />
     </>
