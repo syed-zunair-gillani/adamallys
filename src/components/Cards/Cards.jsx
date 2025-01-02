@@ -8,7 +8,6 @@ const Cards = ({ dark, data }) => {
   const topRef = useRef(null);
   const bottomRef = useRef(null);
   const [remainingHeight, setRemainingHeight] = useState(0);
-  console.log("🚀 ~ Cards ~ remainingHeight:", remainingHeight)
 
   const calculateRemainingHeight = () => {
     const topOffset = topRef.current ? topRef.current.getBoundingClientRect().bottom : 0;
@@ -42,27 +41,29 @@ const Cards = ({ dark, data }) => {
           alt=''
           width={720}
           height={720}
-          className='w-full sticky top-40 object-cover h-[400px] md:h-[720px] -mt-52'
+          className='w-full sticky top-60 object-cover h-[400px] md:h-[720px] mt-28'
         />
+        
       </div>
       <div >
+        {/* 1st */}
         <div
-          className={`h-[720px] px-4 sticky top-20 sm:px-10 md:px-16 flex justify-center flex-col items-center  ${dark ? 'bg-black text-white' : 'bg-[#F5F6F8] text-[#2E368F]'
+          className={`h-[720px] px-4 sticky top-20 sm:px-10 md:px-16 flex justify-center flex-col items-center bg-black text-white  
           }`}
         >
           <div className='max-w-[435px] mx-auto'>
             <h3 className='text-[40px] mb-4 font_franklin'>{data[0]?.title}</h3>
             <div>
               {data[0]?.sub_title && (
-                <h6 className={`text-xl mb-2 ${dark ? 'text-white' : 'text-theme-main'}`}>
+                <h6 className={`text-xl mb-2 text-white `}>
                   {data[0]?.sub_title}
                 </h6>
               )}
-              <p className={`text-light ${dark ? 'text-white' : 'text-theme-main'}`}>{data[0]?.Caption}</p>
+              <p className={`text-light text-white `}>{data[0]?.Caption}</p>
             </div>
             <Link href={data[0]?.link || '#'}>
               <button
-                className={`font_calibri border flex items-center gap-10 mt-10 py-[14px] px-[18px] ${dark ? 'border-white' : 'border-[#2E368F]'
+                className={`font_calibri border flex items-center gap-10 mt-10 py-[14px] px-[18px] border-white '
                   }`}
               >
                 Read More
@@ -81,8 +82,9 @@ const Cards = ({ dark, data }) => {
             </Link>
           </div>
         </div>
+        {/* 2nd */}
         <div
-          className={`h-[720px] sticky top-40 px-4 sm:px-10 md:px-16 flex justify-center flex-col items-center  ${dark ? 'bg-black text-white' : 'bg-[#F5F6F8] text-[#2E368F]'
+          className={`h-[720px] sticky top-60 px-4 sm:px-10 md:px-16 flex justify-center flex-col items-center mt-40 ${dark ? 'bg-black text-white' : 'bg-[#F5F6F8] text-[#2E368F]'
             }`}
             ref={topRef}
         >

@@ -33,11 +33,12 @@ const historyData = [
 
 const History = ({data}) => {
   return (
-    <div className='flex flex-col my-10 md:flex-row gap-[82px] container mx-auto px-3'>
+    <section className='bg-white pb-32 pt-8 sm:pt-0'>
+      <div className='flex flex-col my-10 md:flex-row gap-[82px] container mx-auto px-3'>
       <div className="basis-[45%] hidden md:block">
         {
           data?.HistoryList?.map(count =>
-            <Image key={count?.id} src={count?.Image?.data?.attributes?.url} alt='history image' className='mt-[98px]' width={800} height={308} />
+            <Image key={count?.id} src={count?.Image?.data?.attributes?.url} alt='history image' className='mt-[98px] sticky top-28' width={800} height={308} />
           )
         }
       </div>
@@ -66,8 +67,8 @@ const History = ({data}) => {
           }
         </div>
       </div>
-
     </div>
+    </section>
   )
 }
 
