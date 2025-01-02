@@ -1,6 +1,8 @@
 import qs from "qs"
 import { Axios } from "@/config/Axios";
 
+const baseURL = `${process.env.NEXT_PUBLIC_BACKEND_PUBLIC_BASE_URL}/api`
+
 async function getDistributorsAndStockists() {
   const params = qs.stringify({
     populate: [
@@ -28,8 +30,8 @@ async function getHomePage() {
       "Icons.Icon", "ContentCard.Image", "news_and_events.Image"
     ],
   })
-  const responce = await Axios.get(`/home-page?${params}`);
-  return responce.data?.data?.attributes
+  const responce = await fetch(`${baseURL}/home-page?${params}`);
+  return responce.json()
 }
 
 async function getCertificationsAndMemberships() {

@@ -22,7 +22,7 @@ export default async function Home() {
     Our_Company_Content,
     ServiceCard,
     news_and_events,
-  } = page
+  } = page?.data?.attributes
 
   return (
     <>
