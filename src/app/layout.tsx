@@ -1,9 +1,8 @@
-import Header from "@/components/header/header";
+import Header from "@/components/header";
 import "./globals.css";
 import "./style.css";
 import Footer from "@/components/footer/footer";
-import VerticleIcon from "@/components/verticle-icon/verticle-icon"
-import HeaderTwo from "@/components/header/header-two"
+import VerticleIcon from "@/components/verticle-icon/verticle-icon";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -15,14 +14,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`antialiased`}
-      >
-        <Header/>
-        <HeaderTwo/>
+      <body className={`antialiased`}>
+        <Header />
         {children}
-        <Footer/>
-        <VerticleIcon/>
+        <Footer />
+        <VerticleIcon />
       </body>
     </html>
   );

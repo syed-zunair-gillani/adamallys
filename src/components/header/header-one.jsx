@@ -1,12 +1,16 @@
+"use client"
 import React from "react";
 import Logo from "./logo";
 import Link from "next/link";
 import MegaMenu from "./MegaMenu";
 import MobileHeader from "./mobile-header";
+import { usePathname } from "next/navigation";
 
-const Header = () => {
+const HeaderOne = () => {
+  const path = usePathname()
+
   return (
-    <header className="bg-white z-[300] absolute top-0 w-full">
+    <header className={`z-[300] absolute top-0 w-full ${path !== "/" && "bg-white"}`}>
       <section className="py-5 hidden md:block text-theme-main header-gradient font_calibri">
         <div className="container mx-auto px-3">
           <div className="flex items-center gap-4">
@@ -37,4 +41,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderOne;
