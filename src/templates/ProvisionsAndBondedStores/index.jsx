@@ -39,9 +39,7 @@ const ProvisionsAndBondedStoresTemplate = (props) => {
         images={[Cards?.[1]?.Image?.data?.attributes?.url]}
       />
 
-      <ChooseAdamallys
-        {...{ title: Why_Choose_Title, image: Why_Choose_Image?.data?.attributes?.url, description: Why_Choose_info }}
-      />
+      <ChooseAdamallys />
       <OtherServices />
     </>
   )
