@@ -7,6 +7,7 @@ import OurBrands from "@/components/our-brands/our-brands";
 import Cards from "@/components/Cards/Cards";
 import News from "@/components/news/News"
 import { getMilestones } from "@/services"
+import qs from "qs"
 
 async function getHomePage() {
   const params = qs.stringify({
@@ -15,7 +16,7 @@ async function getHomePage() {
       "Icons.Icon", "ContentCard.Image", "news_and_events.Image"
     ],
   })
-  const responce = await fetch(`${baseURL}/home-page?${params}`, { next: { revalidate: 60 } });
+  const responce = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_PUBLIC_BASE_URL}/api/home-page?${params}`, { next: { revalidate: 60 } });
   return responce.json()
 }
 
