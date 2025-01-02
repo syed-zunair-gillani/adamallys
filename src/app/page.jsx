@@ -6,8 +6,18 @@ import Milestones from "@/components/milestones/Milestones"
 import OurBrands from "@/components/our-brands/our-brands";
 import Cards from "@/components/Cards/Cards";
 import News from "@/components/news/News"
-import { getHomePage, getMilestones } from "@/services"
+import { getMilestones } from "@/services"
 
+async function getHomePage() {
+  const params = qs.stringify({
+    populate: [
+      'Hero.video', "CertificationsMemberships.Icon", "ServiceCard.Image",
+      "Icons.Icon", "ContentCard.Image", "news_and_events.Image"
+    ],
+  })
+  const responce = await fetch(`${baseURL}/home-page?${params}`, { next: { revalidate: 60 } });
+  return responce.json()
+}
 
 export default async function Home() {
   const milestones = await getMilestones()
