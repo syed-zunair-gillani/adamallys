@@ -3,8 +3,7 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { NextArrowIcon } from "../../../public/icons";
 
-const Main = ({data, s}) => {
-  console.log("🚀 ~ Main ~ s:", s)
+const Main = ({data}) => {
   const slider = React.useRef(null);
   const [activeID, setActiveID] = useState(0);
   const [activeSlide, setActiveSlide] = useState();
