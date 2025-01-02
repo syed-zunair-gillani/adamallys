@@ -6,8 +6,8 @@ import MobileHeader from "./mobile-header";
 
 const Header = () => {
   return (
-    <>
-      <header className="py-5 absolute w-full top-0 z-[50] hidden md:block text-theme-main header-gradient font_calibri">
+    <header className="bg-white z-[300] absolute top-0 w-full">
+      <section className="py-5 hidden md:block text-theme-main header-gradient font_calibri">
         <div className="container mx-auto px-3">
           <div className="flex items-center gap-4">
             <ul className="w-[45%] flex gap-8 items-center">
@@ -31,9 +31,9 @@ const Header = () => {
             </div>
           </div>
         </div>
-      </header>
+      </section>
       <MobileHeader />
-    </>
+    </header>
   );
 };
 
