@@ -3,13 +3,10 @@ import PageNavigation from "@/components/page-navigation/PageNavigation"
 import OtherServices from '@/components/other-services-slider/OtherServices'
 import ChooseAdamallys from '@/components/choose-adamallys/choose-adamallys'
 import SingleWrapperTwoColumnContent from '@/components/single-wrapper-two-column-content'
-import {
-  provisionsPoints,
-  bondedStoresPoints,
-  provisionsAndBondedStoresBannerData,
-} from '@/consts/shipSupply';
 
-const ProvisionsAndBondedStoresTemplate = () => {
+const ProvisionsAndBondedStoresTemplate = (props) => {
+  const { banner_background_image, banner_info, banner_title, Cards, } = props;
+
   return (
     <>
       <div className="mb-20" />
@@ -20,22 +17,26 @@ const ProvisionsAndBondedStoresTemplate = () => {
       </div>
       <PageNavigation />
       <LeadingPageBanner
-        {...provisionsAndBondedStoresBannerData}
+        {...{
+          title: banner_title,
+          content: banner_info,
+          bgImage: banner_background_image?.data?.attributes?.url
+        }}
       />
 
       <SingleWrapperTwoColumnContent
-        title={"Provisions"}
-        points={provisionsPoints}
-        images={["/images/ship-supply/province-image.png"]}
-        caption={"We supply a complete range of provisions to meet the crew's dietary needs and preferences, ensuring quality and freshness in all categories. Some examples include:"}
+        points={Cards?.[0]?.List}
+        title={Cards?.[0]?.title}
+        caption={Cards?.[0]?.info}
+        images={[Cards?.[0]?.Image?.data?.attributes?.url]}
       />
 
       <SingleWrapperTwoColumnContent
         isGradientBg
-        title={"Bonded Stores"}
-        points={bondedStoresPoints}
-        images={["/images/ship-supply/bonded-stores-image.png"]}
-        caption={"Bonded stores are essential for crew morale and relaxation, providing non-dutiable goods like alcohol, tobacco, and personal care items. We stock a wide range of bonded goods, including:"}
+        points={Cards?.[1]?.List}
+        title={Cards?.[1]?.title}
+        caption={Cards?.[1]?.info}
+        images={[Cards?.[1]?.Image?.data?.attributes?.url]}
       />
 
       <ChooseAdamallys />

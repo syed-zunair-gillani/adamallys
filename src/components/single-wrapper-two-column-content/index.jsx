@@ -27,11 +27,15 @@ const SingleWrapperTwoColumnContent = (props) => {
         <div>
           <h2>{title}</h2>
           <p>{caption}</p>
-          {points?.map(({ title: pointTitle, info }, index) =>
+          {points?.map(({ title: pointTitle, info, lists }, index) =>
             <div key={title + index}>
               <h3 className='text-[25px] mb-2'>{pointTitle}</h3>
               <ul className='flex flex-col gap-2 mb-4'>
-                <li>{info}</li>
+                {lists ? lists?.map((point, idx) =>
+                  <li key={pointTitle + idx}>{point?.list}</li>
+                ) :
+                  <li>{info}</li>
+                }
               </ul>
             </div>
           )}
