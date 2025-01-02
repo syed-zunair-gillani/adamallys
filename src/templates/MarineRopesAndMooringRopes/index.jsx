@@ -3,13 +3,10 @@ import PageNavigation from "@/components/page-navigation/PageNavigation"
 import OtherServices from '@/components/other-services-slider/OtherServices'
 import ChooseAdamallys from '@/components/choose-adamallys/choose-adamallys'
 import SingleWrapperTwoColumnContent from '@/components/single-wrapper-two-column-content'
-import {
-  wireRopesPoints,
-  mooringRopesPoints,
-  marineRopesAndMooringRopesBannerData,
-} from '@/consts/shipSupply';
 
-const MarineRopesAndMooringRopesTemplate = () => {
+const MarineRopesAndMooringRopesTemplate = (props) => {
+  const { Why_Choose_Image, Why_Choose_Title, Why_Choose_info, banner_background_image, banner_info, banner_title, Card, } = props;
+
   return (
     <>
       <div className="mb-20" />
@@ -20,26 +17,30 @@ const MarineRopesAndMooringRopesTemplate = () => {
       </div>
       <PageNavigation />
       <LeadingPageBanner
-        bgImage={'/images/ship-supply/marine-ropes-bg.png'}
-        {...marineRopesAndMooringRopesBannerData}
+        {...{
+          title: banner_title,
+          content: banner_info,
+          bgImage: banner_background_image?.data?.attributes?.url
+        }}
       />
 
       <SingleWrapperTwoColumnContent
-        title={"Mooring Ropes"}
-        points={mooringRopesPoints}
-        images={["/images/ship-supply/mooring-ropes-one.png", "/images/ship-supply/mooring-ropes-two.png"]}
-        caption={"Adamallys LLC is a leader in supplying mooring ropes, with a diverse and extensive stock to meet the operational demands of vessels across the globe. Our ropes are rigorously tested and certified, ensuring full compliance with the latest MEG4 (Mooring Equipment Guidelines). This guarantees that every rope provided is reliable, durable, and safe for mooring operations."}
+        points={Card?.[0]?.list}
+        title={Card?.[0]?.title}
+        caption={Card?.[0]?.info}
+        images={Card?.[0]?.Images?.data?.map(image => image?.attributes?.url)}
       />
 
       <SingleWrapperTwoColumnContent
         isGradientBg
-        title={"Wire Ropes"}
-        points={wireRopesPoints}
-        images={["/images/ship-supply/wire-ropes-one.png", "/images/ship-supply/wire-ropes-two.png"]}
-        caption={"Adamallys LLC supplies a comprehensive range of wire ropes designed for heavy-duty marine operations, including mooring, towing, and lifting. Our wire ropes are manufactured to the highest standards, ensuring both durability and reliability under the toughest marine conditions."}
+        points={Card?.[1]?.list}
+        title={Card?.[1]?.title}
+        caption={Card?.[1]?.info}
+        images={Card?.[1]?.Images?.data?.map(image => image?.attributes?.url)}
       />
 
-      <ChooseAdamallys />
+      <ChooseAdamallys
+        {...{ title: Why_Choose_Title, image: Why_Choose_Image?.data?.attributes?.url, description: Why_Choose_info }} />
       <OtherServices />
     </>
   )

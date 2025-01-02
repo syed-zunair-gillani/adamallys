@@ -86,7 +86,7 @@ async function getContactUs() {
 async function getDigitalizationAndTechnologyAtAdamallys() {
   const params = qs.stringify({
     populate: [
-      'Banner_Image', "Content_Cards.Image",'Cards.image','Cards.lists'
+      'Banner_Image', "Content_Cards.Image", 'Cards.image', 'Cards.lists'
     ],
   })
   const responce = await Axios.get(`/digitalization-and-technology-at-adamallys-page?${params}`);
@@ -156,7 +156,7 @@ async function getOtherService() {
 async function getProvisionsBondedStores() {
   const params = qs.stringify({
     populate: [
-      'banner_background_image'
+      'banner_background_image', "Cards.Image", "Cards.List.lists"
     ],
   })
   const responce = await Axios.get(`/provisions-and-bonded-stores-page?${params}`);
@@ -166,7 +166,7 @@ async function getProvisionsBondedStores() {
 async function getShipSpareParts() {
   const params = qs.stringify({
     populate: [
-      'banner_background_image', "Why_Choose_Image", "Cards.Image"
+      'banner_background_image', "Why_Choose_Image", "Cards.image", "Cards.lists"
     ],
   })
   const responce = await Axios.get(`/ship-spare-parts-page?${params}`);
@@ -187,7 +187,7 @@ async function getShipSupply() {
 async function getSustainabilityAtAdamallys() {
   const params = qs.stringify({
     populate: [
-      'BannerImage', "Vision_Image", "Commitment_Image", "CSR_Image", "Cards.lists","Cards.image"
+      'BannerImage', "Vision_Image", "Commitment_Image", "CSR_Image", "Cards.lists", "Cards.image"
     ],
   })
   const responce = await Axios.get(`/sustainability-at-adamallys-page?${params}`);
@@ -197,7 +197,7 @@ async function getSustainabilityAtAdamallys() {
 async function getTechnicalMarineStores() {
   const params = qs.stringify({
     populate: [
-      'banner_background_image', "Cards.Image"
+      'banner_background_image', "Card.lists", "Card.image", "Tags",
     ],
   })
   const responce = await Axios.get(`/technical-marine-stores-page?${params}`);

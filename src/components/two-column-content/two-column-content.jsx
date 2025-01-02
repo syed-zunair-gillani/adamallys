@@ -1,7 +1,8 @@
 import Image from 'next/image'
+import Link from 'next/link';
 
 const TwoColumnContent = (props) => {
-  const { invert, bgColor, bgGray = '', image, title, caption, points, isCustomBasis, zeroGap } = props;
+  const { invert, bgColor, bgGray = '', image, title, caption, points, isCustomBasis, zeroGap, link = '#' } = props;
 
   return (
     <section className={`container mx-auto flex flex-col md:flex-row px-3 mb-4 ${zeroGap ? '' : 'gap-4'} ${invert && "md:!flex-row-reverse"}`}>
@@ -36,10 +37,10 @@ const TwoColumnContent = (props) => {
           }
         </div>
         <div>
-          <button className={`flex items-center gap-6 ${bgGray ? "bg-theme-main text-white" : "bg-white text-theme-main"} py-[13px] px-[24px] font_calibri rounded-full`}>
-            <span>View Products</span>
+          <Link href={link} className={`flex max-w-[178px] items-center gap-6 ${bgGray ? "bg-theme-main text-white" : "bg-white text-theme-main"} py-[13px] px-[24px] font_calibri rounded-full`}>
+            <span className='whitespace-nowrap'>View Products</span>
             <Image src={bgGray ? '/svg/arrow_forward.svg' : '/svg/arrow_next.svg'} alt='arrow_next' width={16} height={16} />
-          </button>
+          </Link>
         </div>
       </div>
     </section>
