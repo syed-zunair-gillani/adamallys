@@ -195,7 +195,7 @@ async function getSustainabilityAtAdamallys() {
 async function getTechnicalMarineStores() {
   const params = qs.stringify({
     populate: [
-      'banner_background_image', "Cards.Image"
+      'banner_background_image', "Card.image", "Tags", "Card", "Card.lists"
     ],
   })
   const responce = await Axios.get(`/technical-marine-stores-page?${params}`);
