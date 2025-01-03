@@ -16,6 +16,7 @@ const DistributorsAndStockistsTemplate = ({ Cards, Banner }) => {
       description: card?.info,
     }
   ))
+  console.log("🚀 ~ DistributorsAndStockistsTemplate ~ data:", data.length)
 
   const toggleExpand = (title) => {
     setExpanded((prevState) => ({
@@ -61,50 +62,55 @@ const DistributorsAndStockistsTemplate = ({ Cards, Banner }) => {
         </div>
       </section>
       <div className="my-[68px] flex flex-wrap gap-[24px]">
-        {data?.map((distributor, index) =>
-          <div key={distributor?.title} className=" basis-full flex-1 lg:basis-[40%] relative border flex min-h-[360px]">
-            <div className="flex-1 pt-[42px] pl-[64px] pr-[57px] border-r">
-              <Image
-                width={198}
-                height={198}
-                alt='Distributors-logo'
-                src={distributor?.image}
-              />
-            </div>
-            <div className="flex-1 pt-[42px] pl-[64px] pr-[57px]">
-              <p className="text-theme-main font-bold text-[30px] leading-[44px] mb-3">{distributor?.title}</p>
-              <div className="mb-[150px] ">
-                <p
-                  ref={(el) => descriptionRefs.current[index] = el}
-                  className={`inline-block font-light text-lg leading-[26px] ${expanded[distributor.title] ? '' : 'truncate'}`}
-                  style={{
-                    whiteSpace: 'wrap',
-                    maxHeight: expanded[distributor.title] ? 'none' : '130px',
-                    overflow: 'hidden',
-                    display: '-webkit-box',
-                    WebkitLineClamp: expanded[distributor.title] ? 'none' : 5,
-                    WebkitBoxOrient: 'vertical',
-                  }}
-                >
-                  {distributor.description}
-                </p>
-                {showButton[distributor.title] &&
-                  <button
-                    className="inline-block  text-theme-main font-semibold"
-                    onClick={() => toggleExpand(distributor.title)}
+        {
+          data?.map((distributor, index) =>
+            <div key={distributor?.title} className=" basis-full flex-1 lg:basis-[40%] relative border flex min-h-[360px]">
+              <div className="flex-1 pt-[42px] pl-[64px] pr-[57px] border-r">
+                <Image
+                  width={198}
+                  height={198}
+                  alt='Distributors-logo'
+                  src={distributor?.image}
+                />
+              </div>
+              <div className="flex-1 pt-[42px] pl-[64px] pr-[57px]">
+                <p className="text-theme-main font-bold text-[30px] leading-[44px] mb-3">{distributor?.title}</p>
+                <div className="mb-[150px] ">
+                  <p
+                    ref={(el) => descriptionRefs.current[index] = el}
+                    className={`inline-block font-light text-lg leading-[26px] ${expanded[distributor.title] ? '' : 'truncate'}`}
+                    style={{
+                      whiteSpace: 'wrap',
+                      maxHeight: expanded[distributor.title] ? 'none' : '130px',
+                      overflow: 'hidden',
+                      display: '-webkit-box',
+                      WebkitLineClamp: expanded[distributor.title] ? 'none' : 5,
+                      WebkitBoxOrient: 'vertical',
+                    }}
                   >
-                    {expanded[distributor.title] ? 'Read Less' : 'Read More'}
-                  </button>
-                }
+                    {distributor.description}
+                  </p>
+                  {showButton[distributor.title] &&
+                    <button
+                      className="inline-block  text-theme-main font-semibold"
+                      onClick={() => toggleExpand(distributor.title)}
+                    >
+                      {expanded[distributor.title] ? 'Read Less' : 'Read More'}
+                    </button>
+                  }
+                </div>
+              </div>
+              <div style={{
+                transform: 'translateX(-50%)'
+              }} className="absolute left-[50%] bottom-[42px] bg-white pt-[41px] pb-[38px]  ">
+                <a className='whitespace-nowrap bg-white text-lg font-bold leading-[26px] text-theme-main py-4 px-[65px] border border-[#B2B6E0] rounded-[30px]' href={distributor?.link} target='_blank'>Visit Website</a>
               </div>
             </div>
-            <div style={{
-              transform: 'translateX(-50%)'
-            }} className="absolute left-[50%] bottom-[42px] bg-white pt-[41px] pb-[38px]  ">
-              <a className='whitespace-nowrap bg-white text-lg font-bold leading-[26px] text-theme-main py-4 px-[65px] border border-[#B2B6E0] rounded-[30px]' href={distributor?.link} target='_blank'>Visit Website</a>
-            </div>
-          </div>
-        )}
+          ) 
+        }
+        {data.length % 2 !== 0 && <div className='basis-full flex-1 justify-center flex-col items-center bg-gradient-to-r from-[#2E368F] to-[#B2B6E0] opacity-75 lg:basis-[40%] relative border flex min-h-[360px]'>
+          <Image src="/svg/site-fav.svg" alt="" width={174} height={84}/>
+        </div>}
       </div>
     </main>
   )
