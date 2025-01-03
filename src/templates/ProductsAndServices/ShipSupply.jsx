@@ -33,9 +33,11 @@ const ShipSupply = (props) => {
       </section>
       <section className="mt-14 container mx-auto px-3 flex flex-col md:flex-row gap-5 md:gap-10 mb-10 md:mb-20">
         <div className='md:w-[30%]'>
-          <h2 className='text-3xl md:text-5xl lg:text-6xl font_calibri text-theme-main font-bold'>{title}</h2>
-          <div className='ship_supply_content font_calibri mt-4'>
-            {text}
+          <div className='sticky top-20'>
+            <h2 className='text-3xl md:text-5xl lg:text-6xl font_calibri text-theme-main font-bold'>{title}</h2>
+            <div className='ship_supply_content font_calibri mt-4'>
+              {text}
+            </div>
           </div>
         </div>
         <div className='md:w-[70%]'>
