@@ -164,7 +164,7 @@ async function getProvisionsBondedStores() {
 async function getShipSpareParts() {
   const params = qs.stringify({
     populate: [
-      'banner_background_image', "Why_Choose_Image", "Cards.Image"
+      'banner_background_image', "Why_Choose_Image", "Cards.image"
     ],
   })
   const responce = await Axios.get(`/ship-spare-parts-page?${params}`);
