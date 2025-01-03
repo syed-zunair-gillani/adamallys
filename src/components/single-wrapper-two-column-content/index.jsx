@@ -4,7 +4,7 @@ const SingleWrapperTwoColumnContent = (props) => {
   const { isGradientBg = false, images, title, caption, points } = props;
 
   return (
-    <section className={`${isGradientBg ? 'blue_gradient2 px-4 md:px-[70px]' : 'px-3 mt-0'} container mx-auto flex flex-col md:flex-row mb-4 gap-4`}>
+    <section className={` ${isGradientBg ? 'blue_gradient2 px-4 md:px-[70px]' : 'px-3 mt-0'} container mx-auto flex flex-col md:flex-row gap-4 pb-[170px]`}>
       <div
         className={'md:w-[50%]'}
       >

@@ -154,7 +154,7 @@ async function getOtherService() {
 async function getProvisionsBondedStores() {
   const params = qs.stringify({
     populate: [
-      'banner_background_image'
+      'banner_background_image', "Cards.Image", "Cards.List", "Cards.List.lists"
     ],
   })
   const responce = await Axios.get(`/provisions-and-bonded-stores-page?${params}`);

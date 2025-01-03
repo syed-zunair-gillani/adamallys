@@ -5,6 +5,7 @@ import ChooseAdamallys from '@/components/choose-adamallys/choose-adamallys'
 import SingleWrapperTwoColumnContent from '@/components/single-wrapper-two-column-content'
 
 const ProvisionsAndBondedStoresTemplate = (props) => {
+  console.log("🚀 ~ ProvisionsAndBondedStoresTemplate ~ props:", props)
   const { banner_background_image, banner_info, banner_title, Cards, } = props;
 
   return (
