@@ -104,7 +104,7 @@ async function getDryDockingService() {
 async function getHeader() {
   const params = qs.stringify({
     populate: [
-      'Logo', "NavLinks", "Button"
+      'Logo', "NavLinks", "Button", "Secound_Header_Nav"
     ],
   })
   const responce = await Axios.get(`/header?${params}`);

@@ -1,17 +1,11 @@
-"use client"
 import React from 'react'
-import HeaderOne from './header-one'
-import HeaderTwo from './header-two'
-import { usePathname } from 'next/navigation'
+import { getHeader } from '@/services'
+import HeaderLayout from "@/components/header/layout"
 
-
-const Header = () => {
-    const path = usePathname()
+const Header = async () => {
+    const data = await getHeader()
     return (
-        path === "/" ? <HeaderOne /> : <>
-            <HeaderOne />
-            <HeaderTwo />
-        </>
+        <HeaderLayout data={data}/>        
     )
 }
 
