@@ -46,7 +46,7 @@ const TechnicalMarineStoresTemplate = (props) => {
         caption={Card?.[2]?.info}
         image1={Card?.[2]?.image?.data?.attributes?.url}
         points={Card?.[2]?.lists?.map(({ list }) => list)}
-        image2={Card?.[2]?.image2?.data?.attributes?.url || "/images/ship-supply/cabin-stores-two.png"}
+        image2={Card?.[2]?.Secound_Image?.data?.attributes?.url || "/images/ship-supply/cabin-stores-two.png"}
       />
       <TwoColumnContent
         bgGray
@@ -84,7 +84,7 @@ const TechnicalMarineStoresTemplate = (props) => {
         caption={Card?.[7]?.info}
         image1={Card?.[7]?.image?.data?.attributes?.url}
         points={Card?.[7]?.lists?.map(({ list }) => list)}
-        image2={Card?.[7]?.image2?.data?.attributes?.url || "/images/ship-supply/safety-stores-image2.png"}
+        image2={Card?.[7]?.Secound_Image?.data?.attributes?.url || "/images/ship-supply/safety-stores-image2.png"}
       />
       <TwoColumnContent
         title={Card?.[8]?.title}
