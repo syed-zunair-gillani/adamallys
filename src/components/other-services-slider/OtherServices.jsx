@@ -7,7 +7,6 @@ import { otherServicesData } from "@/consts/shipSupply";
 import { CircularArrowRight } from "../../../public/icons";
 import { getOtherService } from "@/services";
 
-
 const settings = {
   dots: false,
   infinite: true,

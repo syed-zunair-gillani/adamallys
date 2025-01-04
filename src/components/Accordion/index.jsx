@@ -24,8 +24,8 @@ const AccordionItem = ({ title, content, isOpen, onToggle, hideToggle }) => {
   );
 };
 
-const Accordion = ({ data = [], isOpen, hideToggle }) => {
-  const [openIndex, setOpenIndex] = useState(null);
+const Accordion = ({ data = [], isOpen, hideToggle, isFirstOpen }) => {
+  const [openIndex, setOpenIndex] = useState(isFirstOpen ? 0 : null);
 
   const toggleAccordion = (index) => {
     setOpenIndex((prevIndex) => (prevIndex === index ? null : index));

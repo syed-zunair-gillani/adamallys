@@ -5,15 +5,15 @@ import AboutHeader from './AboutHeader'
 import AboutInfoCard from './AboutInfoCard'
 import CorporateInformation from './CorporateInformation'
 
-const AboutTemplate = async ({ data }) => {
-
+const AboutTemplate = ({ data }) => {
   return (
     <>
       <main
-        className='mt-[6rem]'
+        className='mt-[4rem]'
         style={{ overflowX: 'hidden' }}
       >
-        <div className='py-[30px] md:py-[60px]'
+        <div
+          className='pt-[30px] md:pt-[60px]'
           style={{
             background: 'linear-gradient(to bottom, #ffffff , #F4F5F7 )'
           }}

@@ -20,7 +20,7 @@ const cardsData = [
 
 const AboutInfoCard = ({data}) => {
   return (
-    <div className='flex flex-wrap gap-[8px] pt-[40px] md:pt-[80px] container mx-auto px-3'>
+    <div className='flex flex-wrap gap-[8px] pt-[40px] md:pt-[60px] container mx-auto px-3'>
       {
         data?.map((card) =>
           <div key={card?.title} className='min-w-[280px] relative py-[36px] flex-1 flex flex-col items-center gap-[8px]'

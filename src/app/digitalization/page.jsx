@@ -8,16 +8,21 @@ export default async function Home() {
 
   return (
     <>
-      <div className="mb-24" />
+      <div className="mb-[120px]" />
       <main>
+        <h1 className="text-theme-main text-[60px] leading-[67px] text-center font-bold mb-6 lg:mb-10">
+          {data?.title}
+        </h1>
         <LeadingPageBanner
-          title={data?.title}
+          title={data?.Banner_Title}
           content={data?.Banner_Info}
           bgImage={data?.Banner_Image?.data?.attributes?.url}
+          style={{ background: 'linear-gradient(to right,rgba(23, 31, 124, 1), rgba(23, 31, 124, 0))' }}
         />
         <div className="my:6 lg:my-[56px] flex flex-col gap-6 lg:gap-10">
           <TwoColumnContent
             zeroGap
+            hideButton
             title={data?.Cards?.[0]?.title}
             caption={data?.Cards?.[0]?.info}
             image={data?.Cards?.[0]?.image?.data?.attributes?.url}
@@ -27,6 +32,7 @@ export default async function Home() {
             invert
             bgGray
             zeroGap
+            hideButton
             bgColor="#E0E2FB"
             title={data?.Cards?.[1]?.title}
             caption={data?.Cards?.[1]?.info}

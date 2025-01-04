@@ -16,7 +16,6 @@ const DistributorsAndStockistsTemplate = ({ Cards, Banner }) => {
       description: card?.info,
     }
   ))
-  console.log("🚀 ~ DistributorsAndStockistsTemplate ~ data:", data.length)
 
   const toggleExpand = (title) => {
     setExpanded((prevState) => ({

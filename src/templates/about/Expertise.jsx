@@ -1,7 +1,9 @@
-import Image from 'next/image'
 import Link from 'next/link'
+import Image from 'next/image'
+import VideoPlayer from '@/components/VideoPlayer'
 
 const Expertise = ({ media, data }) => {
+
   return (
     <div className='flex flex-col xl:flex-row gap-[20px] container mx-auto px-3'>
       <div className='flex flex-col sm:flex-row xl:flex-col'>
@@ -20,7 +22,7 @@ const Expertise = ({ media, data }) => {
             <Image src='/svg/about/arrow_circle_right.svg' alt='arrow_circle_right' width={100} height={100} />
           </div>
         </div>
-        <Image className='flex-1' src='/images/about/expertise_image.png' alt='expertise_image' width={632} height={346} />
+        <VideoPlayer autoPlay className='flex-1' src={media?.data?.attributes?.url} />
       </div>
       <div className="flex flex-col lg:flex-row flex-wrap gap-[20px]">
         <div className="flex-1 flex flex-col justify-between p-[32px] basis-[45%] bg-[#F1F3F5]">
@@ -41,7 +43,6 @@ const Expertise = ({ media, data }) => {
           </Link>
         </div>
       </div>
-
     </div>
   )
 }

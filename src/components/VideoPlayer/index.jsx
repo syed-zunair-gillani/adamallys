@@ -3,12 +3,12 @@ import React from 'react';
 const VideoPlayer = ({
     src,
     poster,
-    controls = true,
-    autoPlay = false,
-    loop = false,
-    muted = false,
+    loop = true,
+    muted = true,
     width = '100%',
     height = '100%',
+    controls = false,
+    autoPlay = true,
 }) => {
     if (!src) {
         return <p>Video source is required!</p>;
