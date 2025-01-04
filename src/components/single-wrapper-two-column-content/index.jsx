@@ -10,7 +10,7 @@ const SingleWrapperTwoColumnContent = (props) => {
       >
         {
           images?.map((image, index) =>
-            <figure key={index} className={isGradientBg ? 'mt-14' : '-mt-2 sm:-mt-6 md:mt-14'}>
+            <figure key={index} className={isGradientBg ? 'mt-14 sticky -top-10' : '-mt-2 sm:-mt-6 md:mt-14 sticky -top-10'}>
               <Image
                 alt={title}
                 src={image}

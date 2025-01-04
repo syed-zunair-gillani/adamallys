@@ -1,26 +1,93 @@
+"use client"
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
-const Services = ({data}) => {
+const Services = ({ data }) => {
+  const sectionRef = useRef(null);
+  const headingRef = useRef(null);
+  const gridItemsRef = useRef([]);
+  const titleRef = useRef(null);
+
+  useEffect(() => {
+    // Animate heading
+    gsap.fromTo(
+      headingRef.current,
+      { opacity: 0, y: -50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+        },
+      }
+    );
+
+    // Animate subheading
+    gsap.fromTo(
+      titleRef.current,
+      { opacity: 0, x: -30 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.6,
+        delay: 0.2,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+        },
+      }
+    );
+
+    // Animate grid items
+    gridItemsRef.current.forEach((item, index) => {
+      gsap.fromTo(
+        item,
+        { opacity: 0, scale: 0.8 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.8,
+          delay: index * 0.2,
+          scrollTrigger: {
+            trigger: item,
+            start: "top 90%",
+          },
+        }
+      );
+    });
+  }, []);
+
   return (
-    <section className="">
+    <section ref={sectionRef} className="">
       <div className="container pb-20 pt-5 mx-auto px-3 gap-3 flex md:flex-row flex-col">
         <div className="md:w-[25%]">
-          <h3 className="text-theme-main font-bold font_calibri uppercase text-[30px]">
+          <h3
+            ref={headingRef}
+            className="text-theme-main font-bold font_calibri uppercase text-[30px]"
+          >
             What we do
             <div className="w-10 mt-2 h-[1px] bg-theme-main" />
           </h3>
         </div>
         <div className="md:w-[75%] mt-5 md:mt-0">
-            <h2 className="text-[40px] mb-10 -mt-[6px] font_franklin">Services</h2>
+          <h2
+            ref={titleRef}
+            className="text-[40px] mb-10 -mt-[6px] font_franklin"
+          >
+            Services
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-5 gap-[14px]">
             {data?.map((item, idx) => {
               const fullWidthItems = [2, 3, 5, 6, 7]; // Items requiring 100% width
-              const isFullWidth = fullWidthItems.includes(idx+1); // Check dynamically
+              const isFullWidth = fullWidthItems.includes(idx + 1); // Check dynamically
               return (
                 <div
                   key={idx}
+                  ref={(el) => (gridItemsRef.current[idx] = el)} // Add refs to grid items
                   className={`relative ${
                     isFullWidth
                       ? "w-full object-cover sm:col-span-2 lg:col-span-3"
@@ -34,8 +101,13 @@ const Services = ({data}) => {
                     height={378}
                     className={`h-[378px] object-cover w-full`}
                   />
-                  <div className="absolute px-9 gap-3 flex justify-between w-full items-center bottom-9 ">
-                    <Link href={item?.item || "#"} className={`text-white text-[30px] font-bold font_calibri ${idx ===3 && "!text-black"}`}>
+                  <div className="absolute px-9 gap-3 flex justify-between w-full items-center bottom-9">
+                    <Link
+                      href={item?.item || "#"}
+                      className={`text-white text-[30px] font-bold font_calibri ${
+                        idx === 3 && "!text-black"
+                      }`}
+                    >
                       {item?.title}
                     </Link>
                     <Image

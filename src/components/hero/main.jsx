@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { NextArrowIcon } from "../../../public/icons";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const Main = ({data}) => {
   const slider = React.useRef(null);
@@ -17,6 +19,14 @@ const Main = ({data}) => {
     setActiveSlide(activeSlide);
   }, [activeID]);
 
+  useGSAP(()=>{
+    gsap.from(".slideFade",{
+        y: 20,
+        opacity: 0,
+        duration: 1,
+    })
+  })
+
   return (
     <main>
       <Slider {...settings} ref={slider} beforeChange={handleBeforeChange}>
@@ -30,11 +40,11 @@ const Main = ({data}) => {
               <section className="fullscreen-video-content absolute inset-0">
                 <div className="container flex flex-col justify-between mx-auto px-3 h-full pb-12">
                   <div className="opacity-0"></div>
-                  <h2 className="text-2xl md:leading-[48px] lg:leading-[66px] md:text-[40px] font_franklin lg:text-[50px] text-white max-w-[1028px] uppercase font-normal">
+                  <h2 className="text-2xl slideFade md:leading-[48px] lg:leading-[66px] md:text-[40px] font_franklin lg:text-[50px] text-white max-w-[1028px] uppercase font-normal">
                     {item?.title}
                   </h2>
                   <div>
-                    <div>
+                    <div className="slideFade">
                       <p className="max-w-[377px] text-white font_calibri">
                         {item?.sub_title}
                       </p>

@@ -1,16 +1,77 @@
 "use client";
-import Image from "next/image";
-import React from "react";
-import Slider from "react-slick";
 
-const OurBrands = ({data, content}) => {
-  const slider = React.useRef(null);
- 
+import Image from "next/image";
+import React, { useRef, useEffect } from "react";
+import Slider from "react-slick";
+import { gsap } from "gsap";
+
+const OurBrands = ({ data, content }) => {
+  const slider = useRef(null);
+  const sectionRef = useRef(null);
+  const headingRef = useRef(null);
+  const contentRef = useRef(null);
+  const sliderRef = useRef(null);
+
+  useEffect(() => {
+    // Animate heading
+    gsap.fromTo(
+      headingRef.current,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+        },
+      }
+    );
+
+    // Animate content paragraph
+    gsap.fromTo(
+      contentRef.current,
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        delay: 0.3,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 75%",
+        },
+      }
+    );
+
+    // Animate slider icons
+    const sliderItems = sliderRef.current.querySelectorAll(".slider-icon");
+    sliderItems.forEach((item, index) => {
+      gsap.fromTo(
+        item,
+        { opacity: 0, scale: 0.8 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.5,
+          delay: index * 0.1,
+          scrollTrigger: {
+            trigger: item,
+            start: "top 90%",
+          },
+        }
+      );
+    });
+  }, []);
+
   return (
-    <section className="my-[54px]">
+    <section ref={sectionRef} className="my-[54px]">
       <div className="container mx-auto px-3">
         <div className="flex justify-between items-center">
-          <h3 className="text-[30px] text-theme-main font_calibri font-bold">
+          <h3
+            ref={headingRef}
+            className="text-[30px] text-theme-main font_calibri font-bold"
+          >
             Our Brands
             <div className="w-10 h-[1px] bg-theme-main" />
           </h3>
@@ -33,15 +94,20 @@ const OurBrands = ({data, content}) => {
             />
           </div>
         </div>
-        <p className="font-light mt-3 font_calibri">
+        <p ref={contentRef} className="font-light mt-3 font_calibri">
           {content}
         </p>
         <Slider ref={slider} {...settings}>
           {data?.map((icon, id) => (
-            <div className="!grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7" key={id}>
+            <div
+              ref={sliderRef}
+              className="!grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7"
+              key={id}
+            >
               {icon?.Icon?.data?.map((item, idx) => (
                 <div key={idx} className="flex justify-center">
                   <Image
+                    className="slider-icon"
                     src={item?.attributes?.url}
                     alt="image"
                     width={165}
