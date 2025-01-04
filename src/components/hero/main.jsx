@@ -1,11 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Slider from "react-slick";
-import { NextArrowIcon } from "../../../public/icons";
-import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import Image from "next/image";
+import Slider from "react-slick";
+import { useGSAP } from "@gsap/react";
+import { NextArrowIcon } from "../../../public/icons";
 
-const Main = ({data}) => {
+const Main = ({ data }) => {
   const slider = React.useRef(null);
   const [activeID, setActiveID] = useState(0);
   const [activeSlide, setActiveSlide] = useState();
@@ -19,11 +20,11 @@ const Main = ({data}) => {
     setActiveSlide(activeSlide);
   }, [activeID]);
 
-  useGSAP(()=>{
-    gsap.from(".slideFade",{
-        y: 20,
-        opacity: 0,
-        duration: 1,
+  useGSAP(() => {
+    gsap.from(".slideFade", {
+      y: 20,
+      opacity: 0,
+      duration: 1,
     })
   })
 
@@ -58,9 +59,10 @@ const Main = ({data}) => {
         ))}
       </Slider>
       <div className="container mx-auto absolute right-1/2 bottom-32 sm:bottom-14 translate-x-1/2 flex justify-end px-6">
+        <figure className="mr-2">
+          <Image src={'/images/next-image.png'} alt="next-image" width={124} height={64} />
+        </figure>
         <button onClick={() => slider?.current?.slickNext()}>
-          <figure>
-          </figure>
           <div>
             <h6 className="text-lg text-white font_calibri">Next</h6>
             <NextArrowIcon />
@@ -75,10 +77,14 @@ export default Main;
 
 
 const settings = {
-  dots: false,
-  infinite: true,
   speed: 500,
+  dots: false,
+  arrows: false,
+  infinite: true,
+  autoplay: true,
   slidesToShow: 1,
   slidesToScroll: 1,
-  arrows: false,
+  pauseOnHover: true,
+  autoplaySpeed: 5000,
+  cssEase: 'ease-in-out'
 };

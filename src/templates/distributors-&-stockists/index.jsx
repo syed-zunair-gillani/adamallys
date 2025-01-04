@@ -48,7 +48,7 @@ const DistributorsAndStockistsTemplate = ({ Cards, Banner }) => {
             backgroundImage: `url(${Banner?.Image?.data?.attributes?.url})`
           }}
         >
-          <div className="relative z-[999] px-8">
+          <div className="relative z-[2] px-8">
             <h1 className="text-white text-[60px] leading-[67px] text-center font-bold">
               {Banner?.title}
             </h1>
@@ -105,10 +105,10 @@ const DistributorsAndStockistsTemplate = ({ Cards, Banner }) => {
                 <a className='whitespace-nowrap bg-white text-lg font-bold leading-[26px] text-theme-main py-4 px-[65px] border border-[#B2B6E0] rounded-[30px]' href={distributor?.link} target='_blank'>Visit Website</a>
               </div>
             </div>
-          ) 
+          )
         }
         {data.length % 2 !== 0 && <div className='basis-full flex-1 justify-center flex-col items-center bg-gradient-to-r from-[#2E368F] to-[#B2B6E0] opacity-75 lg:basis-[40%] relative border flex min-h-[360px]'>
-          <Image src="/svg/site-fav.svg" alt="" width={174} height={84}/>
+          <Image src="/svg/site-fav.svg" alt="" width={174} height={84} />
         </div>}
       </div>
     </main>
