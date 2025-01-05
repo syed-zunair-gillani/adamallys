@@ -3,7 +3,7 @@ import VideoPlayer from '../VideoPlayer'
 
 const IndustrialEnergy = ({ image, video, caption }) => {
   return (
-    <div style={{ height: '100%' }}>
+    <div className='' style={{ height: '100%' }}>
       {video ?
         <VideoPlayer
           loop
