@@ -82,7 +82,7 @@ export default News
 
 var settings = {
     dots: false,
-    infinite: false,
+    infinite: true,
     arrows: false,
     className: "center",
     centerMode: true,
