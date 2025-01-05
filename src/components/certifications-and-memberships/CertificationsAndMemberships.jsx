@@ -1,8 +1,11 @@
 "use client"
 import gsap from "gsap";
+import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect, useRef } from "react";
 
-const CertificationsAndMemberships = ({data}) => {
+const CertificationsAndMemberships = ({ data }) => {
+  console.log("🚀 ~ CertificationsAndMemberships ~ data:", data)
   const imageRefs = useRef([]);
   const imageRefs2 = useRef([]);
   useEffect(() => {
@@ -47,33 +50,42 @@ const CertificationsAndMemberships = ({data}) => {
     <section className="certification-gradient -mt-[6px]">
       <div className="container mx-auto px-3 py-16">
         <h4 className="text-xl md:text-2xl text-white font_calibri mb-10">
-            Certifications & Memberships
+          Certifications & Memberships
           <div className="h-[2px] w-[34px] bg-white mt-2" />
         </h4>
         <div className="flex justify-center gap-2 lg:justify-between items-center flex-wrap">
-      {data?.slice(0, 6).map((item, idx) => (
-        <React.Fragment key={idx}>
-          <figure
-            className="flex justify-center w-[162px] h-[162px]"
-            ref={(el) => (imageRefs.current[idx] = el)} // Add ref to each image container
-          >
-            <img
-              src={item?.Icon?.data?.attributes?.url}
-              alt=""
-              className="w-[110px] md:w-[140px] lg:w-[162px] object-contain"
-            />
-          </figure>
-        </React.Fragment>
-      ))}
-    </div>
-        <div className="h-[1px] w-full bg-[#5860BC] my-5"/>
+          {data?.slice(0, 6).map((item, idx) => (
+            <React.Fragment key={idx}>
+              <figure
+                className="flex justify-center w-[162px] h-[162px]"
+                ref={(el) => (imageRefs.current[idx] = el)} // Add ref to each image container
+              >
+                <img
+                  src={item?.Icon?.data?.attributes?.url}
+                  alt=""
+                  className="w-[110px] md:w-[140px] lg:w-[162px] object-contain"
+                />
+              </figure>
+            </React.Fragment>
+          ))}
+        </div>
+        <div className="h-[1px] w-full bg-[#5860BC] my-5" />
         <div className="flex justify-center gap-2 lg:justify-between items-center flex-wrap">
-          {data?.slice(6,12).map(
+          {data?.slice(6, 12).map(
             (item, idx) => (
               <React.Fragment key={idx}>
-                <figure className="flex justify-center w-[162px] h-[162px]" ref={(el) => (imageRefs2.current[idx] = el)}>
+                <div className="flex flex-col items-center justify-center w-[162px] h-[162px]" ref={(el) => (imageRefs2.current[idx] = el)}>
                   <img src={item?.Icon?.data?.attributes?.url} alt="" className="w-[110px] md:w-[140px] lg:w-[162px] object-contain" />
-                </figure>
+                  {
+                    item?.Caption && <>
+                      <p className="text-white mt-2 !font-light">ProcureShip ID: 440</p>
+                      <Link href={item?.link || "#"} className="flex mt-1 items-center font-light text-white gap-2">
+                        Read More
+                        <Image src="/svg/arrow-right.svg" alt="" width={17} height={17} />
+                      </Link>
+                    </>
+                  }
+                </div>
               </React.Fragment>
             )
           )}
