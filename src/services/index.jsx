@@ -25,7 +25,7 @@ async function getHomePage() {
   const params = qs.stringify({
     populate: [
       'Hero.video', "CertificationsMemberships.Icon", "ServiceCard.Image",
-      "Icons.Icon", "ContentCard.Image", "news_and_events.Image"
+      "Icons.Icon", "ContentCard.Image", "news_and_events.Image", "Hero.NextButtonImage"
     ],
   })
   const responce = await Axios.get(`/home-page?${params}`);
