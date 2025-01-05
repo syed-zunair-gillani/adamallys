@@ -86,7 +86,6 @@ var settings = {
     arrows: false,
     className: "center",
     centerMode: true,
-    infinite: true,
     centerPadding: "60px",
     slidesToShow: 2,
     speed: 500,
