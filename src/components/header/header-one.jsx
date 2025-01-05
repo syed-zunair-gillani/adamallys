@@ -54,7 +54,7 @@ const HeaderOne = ({ data }) => {
           </div>
         </div>
       </section>
-      <MobileHeader />
+      <MobileHeader NavLinks={NavLinks}/>
     </header>
   );
 };
