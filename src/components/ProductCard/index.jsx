@@ -2,7 +2,7 @@ import React from 'react'
 import LabelGroup from '@/components/LabelGroup';
 
 const ProductCard = (props) => {
-  const { Image, SKU, Slug, Title, categories } = props;
+  const { Image, SKU, Slug, Title, general_category } = props;
   const imageURL = `${process.env.NEXT_PUBLIC_BACKEND_PUBLIC_BASE_URL}${props?.Image?.data?.attributes?.url}`
   return (
     <div className='bg-[#E5E7F5] basis-[18%] flex-1 rounded'>
@@ -15,7 +15,7 @@ const ProductCard = (props) => {
           <span className='font_calibri text-theme-main text-[12px] leading-[18px]'>{SKU}</span>
           <p className='pt-[10px] pb-[14px] font_calibri text-lg font-bold leading-[20px] text-theme-main'>{Title}</p>
         </div>
-        <LabelGroup labels={categories?.data?.slice(0,2)} />
+        <LabelGroup generalCategory={general_category?.data?.attributes} specificCategory={general_category?.data?.attributes} />
       </div>
     </div>
   )

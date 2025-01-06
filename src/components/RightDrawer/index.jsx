@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import qs from "qs";
 import { Axios } from '@/config/Axios';
@@ -34,31 +34,6 @@ const RightDrawer = ({ categories, specificCategorries, setProducts }) => {
     }
   };
 
-
-  // useEffect(()=>{
-  //     (async()=>{
-  //       const params = qs.stringify({
-  //         populate: ['Image', 'categories', 'specific_category'],
-  //         filters: {
-  //           specific_category: {
-  //             Slug: {
-  //               $in: specificCheckedValues,
-  //             },
-  //           },
-  //           categories: {
-  //             Slug: {
-  //               $in: generalCheckedValues
-  //             },
-  //           },
-  //         },
-  //       });
-    
-  //       const response = await Axios.get(`/products?${params}`);
-  //       setProducts(response?.data);
-  //     })()
-  // },[generalCheckedValues, specificCheckedValues])
-
-
   const handleSelectAllChange = (e) => {
     const checked = e.target.checked;
     setSelectAllChecked(checked);
@@ -80,14 +55,14 @@ const RightDrawer = ({ categories, specificCategorries, setProducts }) => {
 
   const handleSearch = async () => {
     const params = qs.stringify({
-      populate: ['Image', 'categories', 'specific_category'],
+      populate: ['Image', 'general_categories', 'specific_category'],
       filters: {
         specific_category: {
           Slug: {
             $in: specificCheckedValues,
           },
         },
-        categories: {
+        general_category: {
           Slug: {
             $in: generalCheckedValues
           },

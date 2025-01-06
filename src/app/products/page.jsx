@@ -2,36 +2,55 @@ import { Axios } from '@/config/Axios';
 import ProductsTemplate from '@/templates/products'
 import qs from "qs"
 
-async function getProducts() {
+async function getProducts(searchParams) {
   const params = qs.stringify({
     populate: [
-      'Image', "categories", "specific_category"
+      'Image', "general_category", "specific_category"
     ],
     pagination: {
-      page: 1,    
-      pageSize: 5
+      page: 1,
+      pageSize: 20
     }
   })
 
+  const GCparams = qs.stringify({
+    populate: ['general_categories', 'specific_categories'],
+    filters: {
+      Slug: { $eq: searchParams?.baseCategory }
+    }
+  }, { encodeValuesOnly: true });
 
+  const baseCategorriesRes = await Axios.get(`/base-categories`);
+  const baseCategory = await Axios.get(`/base-categories?${GCparams}`);
   const responce = await Axios.get(`/products?${params}`);
-  const productLengthRes = await Axios.get(`/products`);
-  const categories = await Axios.get(`/categories`);
-  const specificCategorries = await Axios.get(`/specific-categories`);
+  const getProductLengthRes = await Axios.get(`/products`);
+  const categories = baseCategory?.data?.data[0]?.attributes?.general_categories?.data
+  const specificCategorries = baseCategory?.data?.data[0]?.attributes?.specific_categories?.data
+  const baseCategorries = baseCategorriesRes.data.data?.map((item)=>({
+    Name: item.attributes.Name,
+    Slug: item.attributes.Slug
+  }))
 
   return {
     allProducts: responce.data,
-    categories: categories?.data?.data,
-    specificCategorries: specificCategorries?.data?.data,
-    productLength: productLengthRes.data?.data.length
+    categories,
+    specificCategorries,
+    baseCategorries,
+    productLength:getProductLengthRes?.data.data.length
   }
 }
 
-const Products = async () => {
-  const { allProducts, categories, specificCategorries, productLength } = await getProducts()
+const Products = async ({ searchParams }) => {
+  const { allProducts, categories, specificCategorries, baseCategorries, productLength } = await getProducts(searchParams)
 
   return (
-    <ProductsTemplate data={allProducts} categories={categories} specificCategorries={specificCategorries} />
+    <ProductsTemplate 
+      data={allProducts} 
+      categories={categories} 
+      specificCategorries={specificCategorries}
+      baseCategorries={baseCategorries}
+      grandTotal={productLength}
+    />
   )
 }
 
