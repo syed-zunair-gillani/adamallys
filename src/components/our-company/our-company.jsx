@@ -1,8 +1,7 @@
 "use client"
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { renderRichText } from "@/components/renderRichText";
-
 
 const OurCompany = ({ data }) => {
   const sectionRef = useRef(null);
@@ -10,6 +9,14 @@ const OurCompany = ({ data }) => {
   const underlineRef = useRef(null);
   const contentRef = useRef(null);
   const buttonRef = useRef(null);
+
+  const [expanded, setExpanded] = useState(false);
+
+  const descriptionRefs = useRef();
+
+  const toggleExpand = () => {
+    setExpanded(prev => !prev);
+  };
 
   useEffect(() => {
     const tl = gsap.timeline({
@@ -64,12 +71,25 @@ const OurCompany = ({ data }) => {
             ref={contentRef}
             className="oc_content font_calibri"
           >
-            <div>{renderRichText(data)}</div>
-            <button
-              ref={buttonRef}
-              className="flex items-center font_calibri gap-10 text-theme-main mt-6"
+            <div
+              ref={descriptionRefs}
+              className={`inline-block font-light text-lg leading-[26px] ${expanded ? '' : 'truncate'}`}
+              style={{
+                whiteSpace: 'wrap',
+                maxHeight: expanded ? 'none' : '430px',
+                overflow: 'hidden',
+                display: '-webkit-box',
+                WebkitLineClamp: expanded ? 'none' : 15,
+                WebkitBoxOrient: 'vertical',
+              }}
             >
-              <span>Read More</span>
+              {renderRichText(data)}
+            </div>
+
+            <button
+              className="flex items-center font_calibri gap-10 text-theme-main mt-6" onClick={toggleExpand}
+            >
+              {expanded ? 'Read Less' : 'Read More'}
               <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
                 <mask
                   id="mask0_42_1450"

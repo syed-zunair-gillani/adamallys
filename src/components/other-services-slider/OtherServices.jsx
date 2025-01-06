@@ -1,19 +1,22 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
+import { gsap } from "gsap";
 import Image from "next/image";
 import Slider from "react-slick";
-import { gsap } from "gsap";
 import { otherServicesData } from "@/consts/shipSupply";
 import { CircularArrowRight } from "../../../public/icons";
 import { getOtherService } from "@/services";
+import Link from "next/link";
 
 const settings = {
   dots: false,
-  infinite: true,
   speed: 500,
-  slidesToShow: 1,
   arrows: false,
+  infinite: true,
+  autoplay: true,
+  slidesToShow: 1,
   slidesToScroll: 1,
+  autoplaySpeed: 5000,
 };
 
 const OtherServices = () => {
@@ -101,22 +104,13 @@ const OtherServices = () => {
           </h2>
           <div className="w-full h-[1px] bg-gray-500 my-10" />
           <div className="flex flex-col md:flex-row gap-8">
-            <div className="w-full md:w-[80%]">
+            <div className="w-full">
               <Slider ref={slider} {...settings}>
                 {services?.services?.map((chunk, chunkIndex) => (
                   <div key={chunkIndex}>
                     {chunk?.map((item, index) => (
-                      <div
-                        key={index}
-                        className="service-item mx-1"
-                      >
-                        <div
-                          className={`max-w-[560px] ${
-                            index + 1 === otherServicesData?.length
-                              ? ""
-                              : "mb-[44px]"
-                          }`}
-                        >
+                      <div key={index} className="flex items-end service-item mx-1 group">
+                        <div className={`max-w-[560px] ${index + 1 === otherServicesData?.length ? "" : "mb-[44px]"}`}>
                           <h3 className="text-2xl md:text-[40px] text-white font_franklin md:leading-[45px]">
                             {item?.title}
                           </h3>
@@ -125,18 +119,18 @@ const OtherServices = () => {
                             {item?.info}
                           </p>
                         </div>
+                        <Link
+                          href=""
+                          className="mb-4 hidden group-hover:flex !w-full justify-end md:items-center md:w-[20%]"
+                        >
+                          <CircularArrowRight />
+                        </Link>
                       </div>
                     ))}
                   </div>
                 ))}
               </Slider>
             </div>
-            <button
-              onClick={() => slider?.current?.slickNext()}
-              className="!w-full flex justify-end md:items-center md:w-[20%]"
-            >
-              <CircularArrowRight />
-            </button>
           </div>
         </div>
       </div>
