@@ -17,11 +17,27 @@ const HeaderOne = ({ data }) => {
           <div className="flex justify-between items-center gap-4">
             <ul className="flex gap-9 items-center">
               <MegaMenu />
-              {
-                NavLinks?.slice(0, 2).map((item, idx) => (
+              {NavLinks?.slice(0, 2).map((item, idx) => (
+                item?.Label?.toLowerCase() === 'standards & innovation' ?
+                  <MegaMenu
+                    title='Standards & Innovation'
+                    links={[
+                      {
+                        label: 'Sustainability at Adamallys',
+                        href: '/sustainability'
+                      },
+                      {
+                        label: 'Digitalization & Technology at Adamallys',
+                        href: '/digitalization'
+                      },
+                      {
+                        label: 'Certification & Membership',
+                        href: '/certification'
+                      },
+                    ]}
+                  /> :
                   <Link className="uppercase" href={item?.Link} key={idx}>{item?.Label}</Link>
-                ))
-              }
+              ))}
             </ul>
             <div className="">
               <figure className={`flex justify-center items-center`}>
@@ -40,13 +56,25 @@ const HeaderOne = ({ data }) => {
             </div>
             <div className="flex gap-[23px] justify-end">
               <ul className="flex items-center gap-[27px]">
-                {
-                  NavLinks?.slice(2).map((item, idx) => (
+                {NavLinks?.slice(2).map((item, idx) => (
+                  item?.Label?.toLowerCase() === 'who we are' ?
+                    <MegaMenu
+                      title='who are we'
+                      links={[
+                        {
+                          label: 'Ports',
+                          href: '/ports'
+                        },
+                        {
+                          label: 'Who are we',
+                          href: '/about'
+                        },
+                      ]}
+                    /> :
                     <Link className="uppercase" href={item?.Link} key={idx}>{item?.Label}</Link>
-                  ))
-                }
+                ))}
               </ul>
-              <Link href={Button?.Link || "#"} className="text-white hidden xl:block bg-theme-main text-left px-[19px] py-[9px]">
+              <Link href={"/request-a-quote"} className="text-white hidden xl:block bg-theme-main text-left px-[19px] py-[9px]">
                 <p className="text-xs">Request a Quote</p>
                 <h6 className="text-[15px]">{Button?.Email}</h6>
               </Link>
@@ -54,7 +82,7 @@ const HeaderOne = ({ data }) => {
           </div>
         </div>
       </section>
-      <MobileHeader NavLinks={NavLinks}/>
+      <MobileHeader NavLinks={NavLinks} />
     </header>
   );
 };

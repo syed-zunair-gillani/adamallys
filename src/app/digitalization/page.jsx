@@ -44,6 +44,7 @@ export default async function Home() {
         <div className="sticky top-20">
           <TwoColumnContent
             zeroGap
+            hideButton
             title={data?.Cards?.[2]?.title}
             caption={data?.Cards?.[2]?.info}
             image={data?.Cards?.[2]?.image?.data?.attributes?.url}

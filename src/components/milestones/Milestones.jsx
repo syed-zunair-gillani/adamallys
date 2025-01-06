@@ -1,7 +1,8 @@
 "use client"
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
+import CounterText from '@/components/CounterText'
 
 const Milestones = ({ data }) => {
   const sectionRef = useRef(null);
@@ -91,9 +92,17 @@ const Milestones = ({ data }) => {
                 />
               </figure>
               <div>
-                <div className="text-[36px] sm:text-[50px] leading-10 font_franklin">
-                  {item?.title}
-                </div>
+                {
+                  isNaN(Number(item?.title)) ?
+                    <div className="text-[36px] sm:text-[50px] leading-10 font_franklin">
+                      {item?.title}
+                    </div> :
+                    <CounterText
+                      duration={2000}
+                      targetValue={Number(item?.title)}
+                      ref={(el) => (cardsRef.current[idx] = el)}
+                    />
+                }
                 <div className="font-light md:mt-1 font_calibri">{item?.subtitle}</div>
               </div>
             </div>

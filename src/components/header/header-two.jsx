@@ -22,7 +22,39 @@ const HeaderTwo = ({ data }) => {
               {
                 Secound_Header_Nav?.map((item, idx) => (
                   idx + 1 < Secound_Header_Nav.length ?
-                    <Link className='uppercase' href={item?.Link} key={idx}>{item?.Label}</Link> :
+                    item?.Label?.toLowerCase() === 'who we are' ?
+                      <MegaMenu
+                        title='who are we'
+                        links={[
+                          {
+                            label: 'Ports',
+                            href: '/ports'
+                          },
+                          {
+                            label: 'Who are we',
+                            href: '/about'
+                          },
+                        ]}
+                      /> :
+                      item?.Label?.toLowerCase() === 'standards & innovation' ?
+                        <MegaMenu
+                          title='Standards & Innovation'
+                          links={[
+                            {
+                              label: 'Sustainability at Adamallys',
+                              href: '/sustainability'
+                            },
+                            {
+                              label: 'Digitalization & Technology at Adamallys',
+                              href: '/digitalization'
+                            },
+                            {
+                              label: 'Certification & Membership',
+                              href: '/certification'
+                            },
+                          ]}
+                        /> :
+                        <Link className='uppercase' href={item?.Link} key={idx}>{item?.Label}</Link> :
                     <Link href={item?.Link} key={idx} className="text-white uppercase hidden xl:block bg-theme-main text-left px-[19px] py-[9px]">
                       <p className="text-[15px] uppercase">{item?.Label}</p>
                     </Link>
