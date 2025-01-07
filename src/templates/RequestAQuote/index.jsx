@@ -130,11 +130,9 @@ const RequestAQuoteTemplate = ({ ports }) => {
     console.log(formData);
     try {
       const response = await axios.post(`/api/send-request-a-quote`, formData);
-
-      console.log("🚀 ~ handleSubmit ~ response:", response)
-      if (email.status === 'ok') {
-          alert("Email Sended");
-          setFormData(defaultValues)
+      if(response?.status === 200){
+        alert("Email Sended");
+        setFormData({...defaultValues})
       }
     } catch (error) {
       console.error("🚀 ~ handleSubmit ~ error:", error)
