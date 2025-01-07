@@ -107,7 +107,7 @@ const OurBrands = ({ data, content }) => {
               {icon?.Icon?.data?.map((item, idx) => (
                 <div key={idx} className="flex justify-center">
                   <Image
-                    className="slider-icon"
+                    className="slider-icon p-5"
                     src={item?.attributes?.url}
                     alt="image"
                     width={165}

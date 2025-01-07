@@ -5,7 +5,7 @@ import ChooseAdamallys from '@/components/choose-adamallys/choose-adamallys'
 import SingleWrapperTwoColumnContent from '@/components/single-wrapper-two-column-content'
 
 const MarineRopesAndMooringRopesTemplate = (props) => {
-  const { Why_Choose_Image, Why_Choose_Title, Why_Choose_info, banner_background_image, banner_info, banner_title, Card, } = props;
+  const { Why_Choose_Image, Why_Choose_Title, Why_Choose_info, banner_background_image, banner_info, banner_title, Card, OtherServices: otherServicesData } = props;
 
   return (
     <>
@@ -42,7 +42,7 @@ const MarineRopesAndMooringRopesTemplate = (props) => {
 
       <ChooseAdamallys
         {...{ title: Why_Choose_Title, image: Why_Choose_Image?.data?.attributes?.url, description: Why_Choose_info }} />
-      <OtherServices />
+      <OtherServices {...otherServicesData} />
     </>
   )
 }

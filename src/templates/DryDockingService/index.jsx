@@ -5,7 +5,8 @@ import ChooseAdamallys from '@/components/choose-adamallys/choose-adamallys'
 import TwoColumnContent from "@/components/two-column-content/two-column-content"
 
 const DryDockingServiceTemplate = (props) => {
-  const { Why_Choose_Image, Why_Choose_Title, Why_Choose_info, banner_background_image, banner_info, banner_title, cards, } = props;
+  const { Why_Choose_Image, Why_Choose_Title, Why_Choose_info, banner_background_image, banner_info, banner_title, cards, OtherServices: otherServicesData } = props;
+
   return (
     <main className=''>
       <div className="mb-20" />
@@ -51,7 +52,7 @@ const DryDockingServiceTemplate = (props) => {
       <ChooseAdamallys
         {...{ title: Why_Choose_Title, image: Why_Choose_Image?.data?.attributes?.url, description: Why_Choose_info }}
       />
-      <OtherServices />
+      <OtherServices {...otherServicesData} />
     </main>
   )
 }

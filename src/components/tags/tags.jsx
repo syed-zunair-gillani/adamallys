@@ -2,7 +2,7 @@ import Link from "next/link"
 
 const Tags = ({ tags }) => {
   return (
-    <section className='px-3 py-4 sticky top-[71px] bg-white z-[999]'>
+    <section className='px-3 py-4 sticky top-[71px] bg-white z-[9]'>
       <div className="container mx-auto">
         <ul className='flex gap-2 items-center justify-center flex-wrap'>
           {tags?.map((tag, idx) => (

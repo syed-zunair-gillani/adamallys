@@ -3,7 +3,7 @@ import ProductsAndServicesTemplate from '@/templates/ProductsAndServices/ShipSup
 
 const ProductsAndServices = async () => {
     const data = await getShipSupply();
-    const milestones = await getMilestones()
+    const milestones = await getMilestones();
     return <ProductsAndServicesTemplate {...data} milestones={milestones} />
 }
 
