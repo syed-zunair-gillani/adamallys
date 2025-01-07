@@ -70,7 +70,7 @@ const HeaderTwo = ({ data, slideFromTop }) => {
                             >
                               {item?.Label}
                             </Link>
-                            <div className={`mt-2 w-[18px] h-[2px] group-hover:bg-theme-main ${pathname === item?.Link ? 'bg-theme-main' : ''}`} />
+                            <div className={`absolute bottom-[-4px] left-0 mt-2 w-[18px] h-[2px] group-hover:bg-theme-main ${pathname === item?.Link ? 'bg-theme-main' : ''}`} />
                           </li>
                     ) :
                     <Link href={item?.Link} key={idx} className="text-white uppercase hidden xl:block bg-theme-main text-left px-[19px] py-[9px]">

@@ -33,7 +33,7 @@ const MegaMenu = ({ title, links = [] }) => {
           className={`relative group hover:font-bold ${styles.product_services} ${(isActive || (!title && isProductActive)) ? 'font-bold' : ''}`}
         >
           {title || 'Product & Services'}
-          <span className={`block mt-2 w-[18px] h-[2px] ${(isActive || (!title && isProductActive)) ? 'bg-theme-main' : ''}`} />
+          <span className={`absolute bottom-[-4px] left-0 block mt-2 w-[18px] h-[2px] ${(isActive || (!title && isProductActive)) ? 'bg-theme-main' : ''}`} />
         </Link>
         <div className={`${styles.mega_menu} w-[145px] h-12 absolute top-1`}>
           <nav
