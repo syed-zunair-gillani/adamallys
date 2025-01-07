@@ -68,7 +68,7 @@ const Services = ({ data }) => {
         <div className="md:w-[25%]">
           <h3
             ref={headingRef}
-            className="text-theme-main font-bold font_calibri uppercase text-[30px]"
+            className="text-theme-main text-[25px] uppercase font-bold text-center md:text-left md:justify-start md:items-start md:text-[30px] font_calibri flex justify-center flex-col items-center"
           >
             What we do
             <div className="w-10 mt-2 h-[1px] bg-theme-main" />
@@ -77,7 +77,7 @@ const Services = ({ data }) => {
         <div className="md:w-[75%] mt-5 md:mt-0">
           <h2
             ref={titleRef}
-            className="text-[40px] mb-10 -mt-[6px] font_franklin"
+            className="text-[40px] mb-10 -mt-[6px] font_franklin hidden md:block"
           >
             Services
           </h2>
@@ -103,10 +103,10 @@ const Services = ({ data }) => {
                       className={`${styles.service_image} h-[378px] object-cover w-full`}
                     />
                   </div>
-                  <div className="absolute px-9 gap-3 flex justify-between w-full items-center bottom-9">
+                  <div className="absolute px-[18px] md:px-9 gap-3 flex justify-between w-full items-center bottom-9">
                     <Link
                       href={item?.item || "#"}
-                      className={`text-white text-[30px] font-bold font_calibri ${idx === 3 && "!text-black"
+                      className={`text-white text-[25px] md:text-[30px] font-bold font_calibri ${idx === 3 && "!text-black"
                         }`}
                     >
                       {item?.title}

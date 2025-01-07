@@ -6,7 +6,7 @@ const VerticleIcon = async () => {
   const { Side_Sticky_Links } = await getFooter()
   return (
     Side_Sticky_Links.length > 0 &&
-    <ul className='fixed right-2 z-[1000] flex flex-col gap-2 top-1/2 -translate-y-1/2'>
+    <ul className='fixed  right-2 z-[1000] hidden md:flex flex-col gap-2 top-1/2 -translate-y-1/2'>
       {Side_Sticky_Links?.map((item, idx) => (
         <li key={idx}>
           <a

@@ -48,40 +48,40 @@ const CertificationsAndMemberships = ({ data }) => {
 
   return (
     <section className="certification-gradient -mt-[6px]">
-      <div className="container mx-auto px-3 py-16">
-        <h4 className="text-xl md:text-2xl text-white font_calibri mb-10">
+      <div className="container mx-auto px-3 py-[38px] md:py-16">
+        <h4 className="text-[25px] font-normal text-center md:text-left md:justify-start md:items-start md:text-2xl text-white font_calibri mb-10 flex justify-center flex-col items-center">
           Certifications & Memberships
           <div className="h-[2px] w-[34px] bg-white mt-2" />
         </h4>
-        <div className="flex justify-center gap-2 lg:justify-between items-center flex-wrap">
+        <div className="grid grid-cols-3 md:grid-cols-6 justify-center gap-6 lg:justify-between items-center">
           {data?.slice(0, 6).map((item, idx) => (
             <React.Fragment key={idx}>
               <figure
-                className="flex justify-center w-[162px] h-[162px]"
+                className="flex justify-center"
                 ref={(el) => (imageRefs.current[idx] = el)} // Add ref to each image container
               >
                 <img
                   src={item?.Icon?.data?.attributes?.url}
                   alt=""
-                  className="w-[110px] md:w-[140px] lg:w-[162px] object-contain"
+                  className=""
                 />
               </figure>
             </React.Fragment>
           ))}
         </div>
         <div className="h-[1px] w-full bg-[#5860BC] my-5" />
-        <div className="flex justify-center gap-2 lg:justify-between items-center flex-wrap">
+        <div className="grid grid-cols-3 md:grid-cols-6 justify-center gap-6 lg:justify-between items-center">
           {data?.slice(6, 12).map(
             (item, idx) => (
               <React.Fragment key={idx}>
-                <div className="flex flex-col items-center justify-center w-[162px] h-[162px]" ref={(el) => (imageRefs2.current[idx] = el)}>
-                  <img src={item?.Icon?.data?.attributes?.url} alt="" className="w-[110px] md:w-[140px] lg:w-[162px] object-contain" />
+                <div className="flex flex-col items-center justify-center" ref={(el) => (imageRefs2.current[idx] = el)}>
+                  <img src={item?.Icon?.data?.attributes?.url} alt="" className="" />
                   {
                     item?.Caption && <>
-                      <p className="text-white mt-2 !font-light">ProcureShip ID: 440</p>
-                      <Link href={item?.link || "#"} className="flex mt-1 items-center font-light text-white gap-2">
+                      <p className="text-white mt-2 text-[8px] md:text-base !font-light">{item?.Caption}</p>
+                      <Link href={item?.link || "#"} target="_blank" className="flex mt-1 items-center font-light text-[8px] md:text-base text-white gap-2">
                         Read More
-                        <Image src="/svg/arrow-right.svg" alt="" width={17} height={17} />
+                        <Image src="/svg/arrow-right.svg" alt="" width={17} height={17} className="w-2 md:w-[17px]"/>
                       </Link>
                     </>
                   }
