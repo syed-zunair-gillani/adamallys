@@ -12,7 +12,6 @@ const defaultValues = {
 }
 
 const ContactTemplate = (props) => {
-  console.log("🚀 ~ ContactTemplate ~ props:", props)
   const { AddressOne, AddressTwo, Email, Fax, MobileNumber } = props.data;
   const [formData, setFormData] = useState(defaultValues);
 
@@ -64,7 +63,7 @@ const ContactTemplate = (props) => {
               <div className='w-[50px] h-[46px] flex items-center justify-center bg-white rounded-[46%]'>
                 <Image src={'/svg/call-icon.svg'} alt='location_on' width={23} height={23} />
               </div>
-              <p className='text-lg leading-[26px] text-white'>{MobileNumber}</p>
+              <a href={`tel:${MobileNumber}`} className='text-lg leading-[26px] text-white'>{MobileNumber}</a>
             </div>
             <div className="w-auto border border-white h-[46px] pr-[18px] inline-flex items-center gap-[15px] rounded-[30px]">
               <div className='w-[50px] h-[46px] flex items-center justify-center bg-white rounded-[46%]'>
@@ -76,7 +75,7 @@ const ContactTemplate = (props) => {
               <div className='w-[50px] h-[46px] flex items-center justify-center bg-white rounded-[46%]'>
                 <Image src={'/svg/mail-icon.svg'} alt='location_on' width={23} height={23} />
               </div>
-              <p className='text-lg leading-[26px] text-white'>{Email}</p>
+              <a href={`mailto:${Email}`} className='text-lg leading-[26px] text-white'>{Email}</a>
             </div>
           </div>
         </div>
