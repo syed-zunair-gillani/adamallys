@@ -7,7 +7,7 @@ const History = ({ data }) => {
 
   return (
     <section className='bg-white pb-40 lg:pb-[96px] pt-8 sm:pt-0'>
-      <div className='flex flex-col my-10 md:flex-row gap-[82px] container mx-auto'>
+      <div className='flex flex-col md:my-10 md:flex-row gap-[82px] container mx-auto'>
         <div className="basis-[45%] hidden md:block">
           {
             data?.HistoryList?.map(count =>
@@ -17,8 +17,8 @@ const History = ({ data }) => {
         </div>
         <div className='basis-[55%] lg:mt-[250px]'>
           <p className="font_franklin text-center md:text-left capitalize text-[25px] font-medium md:text-[59px] leading-[49px] md:pb-[26px]">{data?.history_title}</p>
-          <p className="font_calibri text-bold text-[20px] leading-[29px] text-center md:text-left pb-[40px] md:pb-[69px]">{data?.history_subtitle}</p>
-          <div className="flex flex-col gap-[8px]">
+          <p className="font_calibri text-bold text-[14px] md:text-[20px] leading-[29px] text-center md:text-left pb-[40px] md:pb-[69px]">{data?.history_subtitle}</p>
+          <div className="flex flex-col gap-[8px] px-3">
             {
               data?.HistoryList?.map((history, index) =>
                 <div key={history?.year} className="flex gap-10 md:gap-[10px]">

@@ -9,7 +9,7 @@ const AboutTemplate = ({ data }) => {
   return (
     <>
       <main
-        className='mt-[4rem]'
+        className='mt-[4rem] px-3 lg:px-0'
         style={{ overflowX: 'hidden' }}
       >
         <div
@@ -26,7 +26,7 @@ const AboutTemplate = ({ data }) => {
 
       <History data={data} />
       <PresentDay data={data} />
-      <div className="py-[30px] md:py-[60px] z-[100] bg-white relative ">
+      <div className="py-10 md:py-[60px] px-3 z-[100] bg-white relative ">
         <Expertise media={data?.ExpertiseMedia} data={data?.ExpertiseCards} />
       </div>
 

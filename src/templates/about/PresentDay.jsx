@@ -24,8 +24,8 @@ const PresentDay = ({ data }) => {
           background: 'rgba(0,0,0,0.5)',
           zIndex: 0
         }} />
-        <p className="z-[2] font_calibri capitalize text-[40px] leading-[45px] text-white">{data?.PresentDayTitle}</p>
-        <div className='text-white present_day'>
+        <p className="z-[2] font_calibri capitalize text-center text-[25px] md:text-left md:text-[40px] leading-[45px] text-white">{data?.PresentDayTitle}</p>
+        <div className='text-white present_day '>
           <Markdown>{data?.PresentDayInfo}</Markdown>
         </div>
       </div>
