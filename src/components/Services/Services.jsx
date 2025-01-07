@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import Image from "next/image";
 import Link from "next/link";
+import styles from './style.module.css';
 
 const Services = ({ data }) => {
   const sectionRef = useRef(null);
@@ -82,40 +83,40 @@ const Services = ({ data }) => {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-5 gap-[14px]">
             {data?.map((item, idx) => {
-              const fullWidthItems = [2, 3, 5, 6, 7]; // Items requiring 100% width
-              const isFullWidth = fullWidthItems.includes(idx + 1); // Check dynamically
+              const fullWidthItems = [2, 3, 5, 6, 7];
+              const isFullWidth = fullWidthItems.includes(idx + 1);
               return (
                 <div
                   key={idx}
-                  ref={(el) => (gridItemsRef.current[idx] = el)} // Add refs to grid items
-                  className={`relative ${
-                    isFullWidth
-                      ? "w-full object-cover sm:col-span-2 lg:col-span-3"
-                      : "h-[378px] object-cover sm:col-span-2 lg:col-span-2"
-                  }`}
+                  ref={(el) => (gridItemsRef.current[idx] = el)}
+                  className={`${styles.service_image_container} relative ${isFullWidth
+                    ? "w-full object-cover sm:col-span-2 lg:col-span-3"
+                    : "h-[378px] object-cover sm:col-span-2 lg:col-span-2"
+                    }`}
                 >
-                  <Image
-                    src={item?.Image?.data?.attributes?.url}
-                    alt=""
-                    width={573}
-                    height={378}
-                    className={`h-[378px] object-cover w-full`}
-                  />
+                  <div>
+                    <Image
+                      width={573}
+                      height={378}
+                      alt={item?.title}
+                      src={item?.Image?.data?.attributes?.url}
+                      className={`${styles.service_image} h-[378px] object-cover w-full`}
+                    />
+                  </div>
                   <div className="absolute px-9 gap-3 flex justify-between w-full items-center bottom-9">
                     <Link
                       href={item?.item || "#"}
-                      className={`text-white text-[30px] font-bold font_calibri ${
-                        idx === 3 && "!text-black"
-                      }`}
+                      className={`text-white text-[30px] font-bold font_calibri ${idx === 3 && "!text-black"
+                        }`}
                     >
                       {item?.title}
                     </Link>
                     <Image
                       src="/svg/service-arrow.svg"
-                      alt=""
+                      alt="icon"
                       width={43}
                       height={43}
-                      className={``}
+                      className={styles.service_icon}
                     />
                   </div>
                 </div>

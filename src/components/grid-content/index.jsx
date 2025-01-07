@@ -1,10 +1,10 @@
 import Image from 'next/image'
 
 const GridContent = (props) => {
-  const { data, images } = props;
+  const { id, data, images } = props;
 
   return (
-    <section className={`container mx-auto flex flex-col mb-4 gap-4`}>
+    <section id={id} className={`container mx-auto flex flex-col mb-4 gap-4`}>
       <div className="flex flex-col md:flex-row gap-4">
         {images?.map((image, index) =>
           <div

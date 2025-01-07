@@ -1,10 +1,10 @@
 import Image from 'next/image'
 
 const OneColumnContent = (props) => {
-  const { leftTitle, title, caption, image, points } = props;
+  const { id, leftTitle, title, caption, image, points } = props;
 
   return (
-    <section className={`container mx-auto px-3 grid mb-4`}>
+    <section id={id} className={`container mx-auto px-3 grid mb-4`}>
       <div>
         <figure>
           <Image

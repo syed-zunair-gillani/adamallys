@@ -2,10 +2,10 @@ import Image from 'next/image'
 import Link from 'next/link';
 
 const TwoColumnContent = (props) => {
-  const { hideButton, invert, bgColor, bgGray = '', image, title, caption, points, isCustomBasis, zeroGap, link = '#' } = props;
+  const { id, hideButton, invert, bgColor, bgGray = '', image, title, caption, points, isCustomBasis, zeroGap, link = '#', caption2 } = props;
 
   return (
-    <section className={`container mx-auto flex flex-col md:flex-row px-3 mb-4 ${zeroGap ? '' : 'gap-4'} ${invert && "md:!flex-row-reverse"}`}>
+    <section id={id} className={`container mx-auto flex flex-col md:flex-row px-3 mb-4 ${zeroGap ? '' : 'gap-4'} ${invert && "md:!flex-row-reverse"}`}>
       <div
         className={`basis-[100%] ${isCustomBasis ? 'md:basis-[65%]' : 'md:basis-[50%]'}`}
       >
@@ -35,6 +35,7 @@ const TwoColumnContent = (props) => {
               )}
             </ul>
           }
+          {caption2 && <p className='mt-2'>{caption2}</p>}
         </div>
         {
           !hideButton &&

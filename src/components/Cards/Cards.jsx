@@ -63,13 +63,13 @@ const Cards = ({ dark, data }) => {
             <h3 className='text-[40px] mb-4 font_franklin'>{data[0]?.title}</h3>
             <div>
               {data[0]?.sub_title && (
-                <h6 className={`text-xl mb-2 text-white `}>
+                <h6 className="font_calibri text-xl mb-2 text-white">
                   {data[0]?.sub_title}
                 </h6>
               )}
               <div
                 ref={sustainabilityRefs}
-                className={`text-light text-white  inline-block font-light text-lg leading-[26px] ${sustainabilityExpanded ? '' : 'truncate'}`}
+                className={`font_calibri text-light text-white  inline-block font-light text-lg leading-[26px] ${sustainabilityExpanded ? '' : 'truncate'}`}
                 style={{
                   whiteSpace: 'wrap',
                   maxHeight: sustainabilityExpanded ? 'none' : '160px',
@@ -114,13 +114,13 @@ const Cards = ({ dark, data }) => {
             <h3 className='text-[40px] mb-4 font_franklin'>{data[1]?.title}</h3>
             <div>
               {data[1]?.sub_title && (
-                <h6 className={`text-xl mb-2 ${dark ? 'text-white' : 'text-theme-main'}`}>
+                <h6 className={`font_calibri text-xl mb-2 ${dark ? 'text-white' : 'text-theme-main'}`}>
                   {data[1]?.sub_title}
                 </h6>
               )}
               <div
                 ref={digitalizationRefs}
-                className={`text-light ${dark ? 'text-white' : 'text-theme-main'} inline-block font-light text-lg leading-[26px] ${expanded ? '' : 'truncate'}`}
+                className={`font_calibri text-light ${dark ? 'text-white' : 'text-theme-main'} inline-block font-light text-lg leading-[26px] ${expanded ? '' : 'truncate'}`}
                 style={{
                   whiteSpace: 'wrap',
                   maxHeight: expanded ? 'none' : '130px',

@@ -1,9 +1,9 @@
 import Image from 'next/image'
 
 const ThreeColumnContent = (props) => {
-  const { image1, image2, title, caption, points, } = props;
+  const { id, image1, image2, title, caption, points, } = props;
   return (
-    <section className={`container mx-auto px-3 grid md:grid-cols-2 lg:grid-cols-3 mb-4 gap-4`}>
+    <section id={id} className={`container mx-auto px-3 grid md:grid-cols-2 lg:grid-cols-3 mb-4 gap-4`}>
       <div className=''>
         <figure className='h-full'>
           <Image src={image1} alt='' className='w-full h-full object-cover' width={700} height={800} />
