@@ -82,26 +82,26 @@ const Cards = ({ dark, data }) => {
                 {data[0]?.Caption}
               </div>
             </div>
-            {/* <Link href={data[0]?.link || '#'}> */}
-            <button
-              onClick={() => setSustainabilityExpanded(prev => !prev)}
-              className={`font_calibri border flex items-center gap-10 mt-10 py-[14px] px-[18px] border-white '
+            <Link href={data[0]?.link || '#'}>
+              <button
+                // onClick={() => setSustainabilityExpanded(prev => !prev)}
+                className={`font_calibri border flex items-center gap-10 mt-10 py-[14px] px-[18px] border-white '
                   }`}
-            >
-              {sustainabilityExpanded ? 'Read Less' : 'Read More'}
-              <svg width='17' height='17' viewBox='0 0 17 17' fill='none'>
-                <mask id='mask0_42_1540' maskUnits='userSpaceOnUse' x='0' y='0' width='17' height='17'>
-                  <rect width='16.1863' height='16.1863' fill='#D9D9D9' />
-                </mask>
-                <g mask='url(#mask0_42_1540)'>
-                  <path
-                    d='M5.39553 14.2305L4.82227 13.6572L10.3863 8.09313L4.82227 2.52908L5.39553 1.95581L11.5329 8.09313L5.39553 14.2305Z'
-                    fill={`${dark ? 'white' : '#2E368F'}`}
-                  />
-                </g>
-              </svg>
-            </button>
-            {/* </Link> */}
+              >
+                {sustainabilityExpanded ? 'Read Less' : 'Read More'}
+                <svg width='17' height='17' viewBox='0 0 17 17' fill='none'>
+                  <mask id='mask0_42_1540' maskUnits='userSpaceOnUse' x='0' y='0' width='17' height='17'>
+                    <rect width='16.1863' height='16.1863' fill='#fff' />
+                  </mask>
+                  <g mask='url(#mask0_42_1540)'>
+                    <path
+                      d='M5.39553 14.2305L4.82227 13.6572L10.3863 8.09313L4.82227 2.52908L5.39553 1.95581L11.5329 8.09313L5.39553 14.2305Z'
+                      fill={`${dark ? 'white' : 'white'}`}
+                    />
+                  </g>
+                </svg>
+              </button>
+            </Link>
           </div>
         </div>
         {/* 2nd */}
@@ -133,26 +133,26 @@ const Cards = ({ dark, data }) => {
                 {data[1]?.Caption}
               </div>
             </div>
-            {/* <Link href={data[1]?.link || '#'}> */}
-            <button
-              onClick={() => setExpanded(prev => !prev)}
-              className={`font_calibri border flex items-center gap-10 mt-10 py-[14px] px-[18px] ${dark ? 'border-white' : 'border-[#2E368F]'
-                }`}
-            >
-              {expanded ? 'Read Less' : 'Read More'}
-              <svg width='17' height='17' viewBox='0 0 17 17' fill='none'>
-                <mask id='mask0_42_1540' maskUnits='userSpaceOnUse' x='0' y='0' width='17' height='17'>
-                  <rect width='16.1863' height='16.1863' fill='#D9D9D9' />
-                </mask>
-                <g mask='url(#mask0_42_1540)'>
-                  <path
-                    d='M5.39553 14.2305L4.82227 13.6572L10.3863 8.09313L4.82227 2.52908L5.39553 1.95581L11.5329 8.09313L5.39553 14.2305Z'
-                    fill={`${dark ? 'white' : '#2E368F'}`}
-                  />
-                </g>
-              </svg>
-            </button>
-            {/* </Link> */}
+            <Link href={data[1]?.link || '#'}>
+              <button
+                // onClick={() => setExpanded(prev => !prev)}
+                className={`font_calibri border flex items-center gap-10 mt-10 py-[14px] px-[18px] ${dark ? 'border-white' : 'border-[#2E368F]'
+                  }`}
+              >
+                {expanded ? 'Read Less' : 'Read More'}
+                <svg width='17' height='17' viewBox='0 0 17 17' fill='none'>
+                  <mask id='mask0_42_1540' maskUnits='userSpaceOnUse' x='0' y='0' width='17' height='17'>
+                    <rect width='16.1863' height='16.1863' fill='#D9D9D9' />
+                  </mask>
+                  <g mask='url(#mask0_42_1540)'>
+                    <path
+                      d='M5.39553 14.2305L4.82227 13.6572L10.3863 8.09313L4.82227 2.52908L5.39553 1.95581L11.5329 8.09313L5.39553 14.2305Z'
+                      fill={`${dark ? 'white' : '#2E368F'}`}
+                    />
+                  </g>
+                </svg>
+              </button>
+            </Link>
           </div>
         </div>
       </div>

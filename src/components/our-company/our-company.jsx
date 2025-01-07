@@ -123,24 +123,38 @@ const OurCompany = ({ data }) => {
               className="flex items-center font_calibri justify-center md:justify-start w-full gap-2 text-xs md:text-base md:gap-10 text-theme-main mt-6" onClick={toggleExpand}
             >
               {expanded ? 'Read Less' : 'Read More'}
-              <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
-                <mask
-                  id="mask0_42_1450"
-                  maskUnits="userSpaceOnUse"
-                  x="0"
-                  y="0"
-                  width="17"
-                  height="17"
-                >
-                  <rect width="16.1863" height="16.1863" fill="#D9D9D9" />
-                </mask>
-                <g mask="url(#mask0_42_1450)">
-                  <path
-                    d="M5.39553 14.2305L4.82227 13.6572L10.3863 8.09316L4.82227 2.52911L5.39553 1.95584L11.5329 8.09316L5.39553 14.2305Z"
-                    fill="#2E368F"
-                  />
-                </g>
-              </svg>
+              {expanded ?
+                <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                  <mask id="mask0_42_1450" maskUnits="userSpaceOnUse" x="0" y="0" width="17" height="17">
+                    <rect width="17" height="17" fill="#D9D9D9" />
+                  </mask>
+                  <g mask="url(#mask0_42_1450)">
+                    <path
+                      d="M2.52911 11.5329L3.10237 10.9597L8.09316 5.39569L13.6572 10.9597L14.2305 10.3864L8.09316 4.2305L2.52911 10.3864L2.52911 11.5329Z"
+                      fill="#2E368F"
+                    />
+                  </g>
+                </svg>
+                :
+                <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                  <mask
+                    id="mask0_42_1450"
+                    maskUnits="userSpaceOnUse"
+                    x="0"
+                    y="0"
+                    width="17"
+                    height="17"
+                  >
+                    <rect width="16.1863" height="16.1863" fill="#D9D9D9" />
+                  </mask>
+                  <g mask="url(#mask0_42_1450)">
+                    <path
+                      d="M5.39553 14.2305L4.82227 13.6572L10.3863 8.09316L4.82227 2.52911L5.39553 1.95584L11.5329 8.09316L5.39553 14.2305Z"
+                      fill="#2E368F"
+                    />
+                  </g>
+                </svg>
+              }
             </button>
           </div>
         </div>
