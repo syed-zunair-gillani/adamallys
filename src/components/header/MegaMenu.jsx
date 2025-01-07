@@ -7,17 +7,34 @@ import { shipSupplyPaginationData } from '@/consts/shipSupply';
 
 import styles from './style.module.css';
 
-const MegaMenu = ({ title, links }) => {
+const productAndServicesMegaMenu = [
+  '/industrial-&-energy-sector-supplies',
+  '/products-&-services',
+  '/marine-logistics-&-warehousing',
+  ...shipSupplyPaginationData?.map(({ link }) => link)
+];
+
+const MegaMenu = ({ title, links = [] }) => {
   const pathname = usePathname();
+
   const [isShipSupplyHovered, setIsShipSupplyHovered] = useState(false);
   const isShipSupplyPage = pathname === "/products-&-services"
   const isIndustrialPage = pathname === "/industrial-&-energy-sector-supplies"
   const isMarineLogisticsPage = pathname === "/marine-logistics-&-warehousing"
 
+  const isActive = links?.map(({ href }) => href)?.includes(pathname)
+  const isProductActive = productAndServicesMegaMenu?.includes(pathname)
+
   return (
     <div className="relative">
       <div className="relative product-services">
-        <Link href={title ? "" : "/products-&-services"} className={styles.product_services}>{title || 'Product & Services'}</Link>
+        <Link
+          href={title ? "" : "/products-&-services"}
+          className={`${styles.product_services} ${(isActive || (!title && isProductActive)) ? 'font-bold' : ''}`}
+        >
+          {title || 'Product & Services'}
+          <span className={`block mt-2 w-[18px] h-[2px] ${(isActive || (!title && isProductActive)) ? 'bg-theme-main' : ''}`} />
+        </Link>
         <div className={`${styles.mega_menu} w-[125px] h-12 absolute top-1`}>
           <nav
             style={{ zIndex: 999, boxShadow: '0px 2px 12.5px 0px rgba(46, 54, 143, 0.09)' }}

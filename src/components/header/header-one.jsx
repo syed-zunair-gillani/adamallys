@@ -8,10 +8,10 @@ import { usePathname } from "next/navigation";
 
 const HeaderOne = ({ data }) => {
   const { Button, NavLinks, Logo } = data
-  const path = usePathname()
+  const pathname = usePathname()
 
   return (
-    <header className={`z-[300] absolute top-0 w-full ${path !== "/" && "bg-white"}`}>
+    <header className={`z-[300] absolute top-0 w-full ${pathname !== "/" && "bg-white"}`}>
       <section className="py-5 hidden md:block text-theme-main header-gradient font_calibri">
         <div className="container mx-auto px-3">
           <div className="flex justify-between items-center gap-4">
@@ -36,7 +36,13 @@ const HeaderOne = ({ data }) => {
                       },
                     ]}
                   /> :
-                  <Link className="uppercase" href={item?.Link} key={idx}>{item?.Label}</Link>
+                  <li key={idx}>
+                    <Link
+                      href={item?.Link}
+                      className={`uppercase ${pathname === item?.Link ? 'font-bold' : ''}`}
+                    >{item?.Label}</Link>
+                    <div className={`mt-2 w-[18px] h-[2px] ${pathname === item?.Link ? 'bg-theme-main' : ''}`} />
+                  </li>
               ))}
             </ul>
             <div className="">
@@ -71,7 +77,10 @@ const HeaderOne = ({ data }) => {
                         },
                       ]}
                     /> :
-                    <Link className="uppercase" href={item?.Link} key={idx}>{item?.Label}</Link>
+                    <li key={idx}>
+                      <Link className="uppercase" href={item?.Link} key={idx}>{item?.Label}</Link>
+                      <div className={`mt-2 w-[18px] h-[2px] ${pathname === item?.Link ? 'bg-theme-main' : ''}`} />
+                    </li>
                 ))}
               </ul>
               <Link href={"/request-a-quote"} className="text-white hidden xl:block bg-theme-main text-left px-[19px] py-[9px]">

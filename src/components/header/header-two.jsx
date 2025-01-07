@@ -2,9 +2,12 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import MegaMenu from './MegaMenu'
+import { usePathname } from 'next/navigation'
 
 const HeaderTwo = ({ data }) => {
-  const { Secound_Header_Nav, Logo } = data
+  const { Secound_Header_Nav, Logo } = data;
+  const pathname = usePathname()
+
   return (
     <header className="py-3 fixed w-full top-0 z-[200] hidden md:block text-theme-main font_calibri bg-white">
       <div className="container mx-auto px-3">
@@ -54,7 +57,13 @@ const HeaderTwo = ({ data }) => {
                             },
                           ]}
                         /> :
-                        <Link className='uppercase' href={item?.Link} key={idx}>{item?.Label}</Link> :
+                        <li key={idx}>
+                          <Link
+                            href={item?.Link}
+                            className={`uppercase ${pathname === item?.Link ? 'font-bold' : ''}`}
+                          >{item?.Label}</Link>
+                          <div className={`mt-2 w-[18px] h-[2px] ${pathname === item?.Link ? 'bg-theme-main' : ''}`} />
+                        </li> :
                     <Link href={item?.Link} key={idx} className="text-white uppercase hidden xl:block bg-theme-main text-left px-[19px] py-[9px]">
                       <p className="text-[15px] uppercase">{item?.Label}</p>
                     </Link>
