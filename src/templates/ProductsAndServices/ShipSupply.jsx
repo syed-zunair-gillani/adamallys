@@ -1,9 +1,11 @@
+"use client"
 import Link from 'next/link'
 import Image from 'next/image'
 import GridBanner from '@/components/hero/grid-banner'
 import Milestones from '@/components/milestones/Milestones'
 import ChooseAdamallys from '@/components/choose-adamallys/choose-adamallys'
 import OtherServices from "@/components/other-services-slider/OtherServices"
+import modifyImageUrl from "@/utils/modifyImageUrl"
 
 const renderRichText = (blocks) => {
   return blocks?.map((block, index) => {
@@ -47,7 +49,7 @@ const ShipSupply = (props) => {
                 <div key={idx}>
                   <div className='grid grid-cols-2 gap-10'>
                     <figure className='h-ful w-full'>
-                      <Image src={item?.Image?.data?.attributes?.url} alt={item?.title} className='h-full w-full object-cover' width={400} height={214} />
+                      <Image src={modifyImageUrl(item?.Image?.data?.attributes?.url)} alt={item?.title} className='max-h-[257px] w-full object-cover' width={400} height={214} />
                     </figure>
                     <div className='flex flex-col justify-between'>
                       <div>

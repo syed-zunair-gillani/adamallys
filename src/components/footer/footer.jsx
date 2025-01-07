@@ -10,7 +10,7 @@ const Footer = async () => {
 
   return (
     <footer className="bg-white relative z-[100]">
-      <section className="footer_gradient pt-[63px] relative">
+      <section className="footer_gradient pt-[63px] relative px-3 lg:px-0">
         <section className="grid container mx-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 md:gap-10 lg:gap-[88px]">
           <div>
             <Link href="/" className="">
