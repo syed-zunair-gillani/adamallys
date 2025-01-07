@@ -5,7 +5,7 @@ import ChooseAdamallys from '@/components/choose-adamallys/choose-adamallys'
 import SingleWrapperTwoColumnContent from '@/components/single-wrapper-two-column-content'
 
 const ProvisionsAndBondedStoresTemplate = (props) => {
-  const { banner_background_image, banner_info, banner_title, Cards, } = props;
+  const { banner_background_image, banner_info, banner_title, Cards, OtherServices: otherServicesData } = props;
 
   return (
     <>
@@ -41,7 +41,7 @@ const ProvisionsAndBondedStoresTemplate = (props) => {
       />
 
       <ChooseAdamallys />
-      <OtherServices />
+      <OtherServices {...otherServicesData} />
     </>
   )
 }

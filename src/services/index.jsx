@@ -94,7 +94,7 @@ async function getDigitalizationAndTechnologyAtAdamallys() {
 async function getDryDockingService() {
   const params = qs.stringify({
     populate: [
-      'cards.Icon', "Why_Choose_Image", "banner_background_image"
+      'cards.Icon', "Why_Choose_Image", "banner_background_image", 'OtherServices.Image', 'OtherServices.Services'
     ],
   })
   const responce = await Axios.get(`/dry-docking-service-page?${params}`);
@@ -114,7 +114,7 @@ async function getHeader() {
 async function getIndustrialEnergy() {
   const params = qs.stringify({
     populate: [
-      'Video', 'Our_Key_Product_Offerings'
+      'Video', 'Our_Key_Product_Offerings', 'OtherServices.Image', 'OtherServices.Services'
     ],
   })
   const responce = await Axios.get(`/industrial-and-energy-sector-supplies-page?${params}`);
@@ -124,7 +124,7 @@ async function getIndustrialEnergy() {
 async function getMarineLogisticsWarehousing() {
   const params = qs.stringify({
     populate: [
-      'video', "Warehousing_videos", "list", 'Cards'
+      'video', "Warehousing_videos", "list", 'Cards', 'OtherServices.Image', 'OtherServices.Services'
     ],
   })
   const responce = await Axios.get(`/marine-logistics-and-warehousing-page?${params}`);
@@ -134,7 +134,7 @@ async function getMarineLogisticsWarehousing() {
 async function getMarineRopesAndMooringRopes() {
   const params = qs.stringify({
     populate: [
-      'banner_backeground_image', "Card.Images", "Card.list"
+      'banner_backeground_image', "Card.Images", "Card.list", 'OtherServices.Image', 'OtherServices.Services'
     ],
   })
   const responce = await Axios.get(`/marine-ropes-and-mooring-ropes-page?${params}`);
@@ -154,7 +154,7 @@ async function getOtherService() {
 async function getProvisionsBondedStores() {
   const params = qs.stringify({
     populate: [
-      'banner_background_image', "Cards.Image", "Cards.List", "Cards.List.lists"
+      'banner_background_image', "Cards.Image", "Cards.List", "Cards.List.lists",'OtherServices.Image', 'OtherServices.Services'
     ],
   })
   const responce = await Axios.get(`/provisions-and-bonded-stores-page?${params}`);
@@ -164,7 +164,7 @@ async function getProvisionsBondedStores() {
 async function getShipSpareParts() {
   const params = qs.stringify({
     populate: [
-      'banner_background_image', "Why_Choose_Image", "Cards.image"
+      'banner_background_image', "Why_Choose_Image", "Cards.image",'OtherServices.Image', 'OtherServices.Services'
     ],
   })
   const responce = await Axios.get(`/ship-spare-parts-page?${params}`);
@@ -175,7 +175,7 @@ async function getShipSpareParts() {
 async function getShipSupply() {
   const params = qs.stringify({
     populate: [
-      'Product_and_service.Image'
+      'Product_and_service.Image', 'OtherServices.Image', 'OtherServices.Services'
     ],
   })
   const responce = await Axios.get(`/ship-supply-page?${params}`);
@@ -195,7 +195,7 @@ async function getSustainabilityAtAdamallys() {
 async function getTechnicalMarineStores() {
   const params = qs.stringify({
     populate: [
-      'banner_background_image', "Card.image", "Tags", "Card", "Card.lists", "Card.Secound_Image"
+      'banner_background_image', "Card.image", "Tags", "Card", "Card.lists", "Card.Secound_Image",'OtherServices.Image', 'OtherServices.Services'
     ],
   })
   const responce = await Axios.get(`/technical-marine-stores-page?${params}`);

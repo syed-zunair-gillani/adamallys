@@ -5,7 +5,7 @@ import ChooseAdamallys from '@/components/choose-adamallys/choose-adamallys'
 import OtherServices from "@/components/other-services-slider/OtherServices"
 
 const IndustrialEnergy = (props) => {
-  const { title, info, video_title, Video, Our_Key_Product_Offerings } = props;
+  const { title, info, video_title, Video, Our_Key_Product_Offerings, OtherServices: otherServicesData } = props;
   const data = Our_Key_Product_Offerings?.map?.((offer) => (
     {
       title: offer?.title,
@@ -41,7 +41,7 @@ const IndustrialEnergy = (props) => {
         </div>
       </section>
       <ChooseAdamallys />
-      <OtherServices />
+      <OtherServices {...otherServicesData} />
     </>
   )
 }

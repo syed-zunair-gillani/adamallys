@@ -9,7 +9,7 @@ import TwoColumnContent from "@/components/two-column-content/two-column-content
 import ThreeColumnContent from "@/components/three-column-content/three-column-content"
 
 const TechnicalMarineStoresTemplate = (props) => {
-  const { banner_background_image, banner_info, banner_title, Tags: tags, Card } = props;
+  const { banner_background_image, banner_info, banner_title, Tags: tags, Card, OtherServices: otherServicesData } = props;
   const tagList = tags?.map(({ list }) => list);
   return (
     <>
@@ -145,7 +145,7 @@ const TechnicalMarineStoresTemplate = (props) => {
         points={Card?.[13]?.lists?.map(({ list }) => list)}
       />
       <ChooseAdamallys />
-      <OtherServices />
+      <OtherServices {...otherServicesData} />
     </>
   )
 }
