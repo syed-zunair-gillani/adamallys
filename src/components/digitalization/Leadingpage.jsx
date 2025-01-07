@@ -32,7 +32,7 @@ const LeadingPageBanner = ({ title, content, bgImage, style }) => {
           style={{ ...style }}
           className={`absolute inset-0 ${style ? '' : 'banner-gradient'}`}
         />
-        <div className="container relative text-white w-full sm:w-[90%] md:w-[80%] px-6 py-5 sm:px-9 sm:py-8 lg:w-[776px] lg:px-[68px] lg:py-[56px]">
+        <div className="container relative text-white w-full sm:w-[90%] md:w-[80%] px-6 py-5 sm:px-9 sm:py-8 lg:w-[776px] lg:px-[90px] lg:py-[56px]">
           <h1
             className="banner-title text-[24px] z-[99] sm:text-[32px] font_franklin md:text-[40px] lg:text-[40px] font-bold leading-[36px] sm:leading-[44px] md:leading-[49px] mb-3"
           >

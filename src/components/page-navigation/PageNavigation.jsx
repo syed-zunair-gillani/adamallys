@@ -24,7 +24,7 @@ const PageNavigation = () => {
 
   return (
     <section className="page_navigation_gradient">
-      <div className="container mx-auto px-3">
+      <div className="container mx-auto">
         <ul className="flex gap-8 justify-between overflow-x-auto overflow-y-hidden">
           {shipSupplyPaginationData?.map((page) => (
             <li

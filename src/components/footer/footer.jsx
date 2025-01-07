@@ -11,7 +11,7 @@ const Footer = async () => {
   return (
     <footer className="bg-white relative z-[100]">
       <section className="footer_gradient pt-[63px] relative">
-        <section className="grid container mx-auto px-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 md:gap-10 lg:gap-[88px]">
+        <section className="grid container mx-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 md:gap-10 lg:gap-[88px]">
           <div>
             <Link href="/" className="">
               <Image
@@ -103,7 +103,7 @@ const Footer = async () => {
           </div>
         </section>
 
-        <section className="flex justify-center container mx-auto px-3 flex-wrap mb-[66px] mt-[23px] items-center gap-2 sm:gap-4 font_calibri text-theme-main">
+        <section className="flex justify-center container mx-auto flex-wrap mb-[66px] mt-[23px] items-center gap-2 sm:gap-4 font_calibri text-theme-main">
           {
             Buttons?.map((item, idx) => (
               <Link href={item?.Link || "#"} key={idx}><button className="py-[6px] px-4 sm:px-[30px] border border-theme-main leading-[32px] rounded-full">{item?.Label}</button></Link>
@@ -111,7 +111,7 @@ const Footer = async () => {
           }
 
         </section>
-        <section className=" flex flex-col sm:flex-row gap-5 justify-between items-center container mx-auto px-3 pb-[36px]">
+        <section className=" flex flex-col sm:flex-row gap-5 justify-between items-center container mx-auto pb-[36px]">
           <ul className="flex items-center gap-5">
             <li>
               <Link href={data?.Socials[0]?.link || "#"}>

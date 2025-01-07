@@ -70,7 +70,7 @@ const Milestones = ({ data }) => {
     >
       <div
         ref={bgRef}
-        className="container mx-auto px-3 py-[54px]"
+        className="container mx-auto py-[54px]"
       >
         <h4
           ref={headingRef}

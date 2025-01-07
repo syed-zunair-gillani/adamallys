@@ -5,7 +5,7 @@ import VideoPlayer from '@/components/VideoPlayer'
 const Expertise = ({ media, data }) => {
 
   return (
-    <div className='flex flex-col xl:flex-row gap-[20px] container mx-auto px-3'>
+    <div className='flex flex-col xl:flex-row gap-[20px] container mx-auto'>
       <div className='flex flex-col sm:flex-row xl:flex-col'>
         <div className='flex-1 xl:w-[632px] h-[346px] p-[70px] flex flex-col justify-between'
           style={{

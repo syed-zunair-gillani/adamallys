@@ -31,7 +31,7 @@ const ShipSupply = (props) => {
         </div>
         <GridBanner />
       </section>
-      <section className="mt-14 container mx-auto px-3 flex flex-col md:flex-row gap-5 md:gap-10 mb-10 md:mb-20">
+      <section className="mt-14 container mx-auto flex flex-col md:flex-row gap-5 md:gap-10 mb-10 md:mb-20">
         <div className='md:w-[30%]'>
           <div className='sticky top-20'>
             <h2 className='text-3xl md:text-5xl lg:text-6xl font_calibri text-theme-main font-bold'>{title}</h2>

@@ -23,7 +23,7 @@ const IndustrialEnergy = (props) => {
         </div>
         <GridBanner />
       </section>
-      <section className="mt-14 container mx-auto px-3 flex flex-col lg:flex-row gap-5 lg:gap-10 mb-10 lg:mb-20">
+      <section className="mt-14 container mx-auto flex flex-col lg:flex-row gap-5 lg:gap-10 mb-10 lg:mb-20">
         <div className='lg:w-[30%] min-w-[464px]'>
           <IndustrialEnergyComp
             caption={video_title}

@@ -49,7 +49,7 @@ const SustainabilityTemplate = (props) => {
         image={Cards?.[1]?.image?.data?.attributes?.url}
         points={Cards?.[1]?.lists?.map(({ list }) => list)}
       />
-      <section className={`container mx-auto px-3 grid mb-4`}>
+      <section className={`container mx-auto grid mb-4`}>
         <div>
           <figure>
             <Image

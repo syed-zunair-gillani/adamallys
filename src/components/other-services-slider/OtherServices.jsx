@@ -52,7 +52,7 @@ const OtherServices = (props) => {
       ref={sectionRef}
       className="certification-gradient py-12 md:py-20 mt-10 md:mt-20"
     >
-      <div className="container mx-auto px-3 flex gap-10 xl:gap-24 items-center">
+      <div className="container mx-auto flex gap-10 xl:gap-24 items-center">
         <div className="w-[40%] hidden lg:block">
           <figure>
             <Image

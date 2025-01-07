@@ -37,7 +37,7 @@ const ProductsTemplate = ({ data, categories, specificCategorries, baseCategorri
 
 
   return (
-    <main className='mt-[6rem] container mx-auto px-3'>
+    <main className='mt-[6rem] container mx-auto'>
       <div className='py-[30px] md:py-[60px]'>
         <h1 className='font_calibri capitalize text-[60px] leading-[60px] text-center font-bold text-theme-main'>Products</h1>
         <div className="flex flex-wrap lg:flex-nowrap items-center gap-[12px] mt-[42px]">

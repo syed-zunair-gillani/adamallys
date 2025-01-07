@@ -6,8 +6,8 @@ const History = ({ data }) => {
   const isMobile = useIsMobile()
 
   return (
-    <section className='bg-white pb-6 lg:pb-[96px] pt-[21px] sm:pt-0'>
-      <div className='flex flex-col md:my-10 md:flex-row gap-[82px] container mx-auto px-3'>
+    <section className='bg-white pb-40 lg:pb-[96px] pt-8 sm:pt-0'>
+      <div className='flex flex-col my-10 md:flex-row gap-[82px] container mx-auto'>
         <div className="basis-[45%] hidden md:block">
           {
             data?.HistoryList?.map(count =>

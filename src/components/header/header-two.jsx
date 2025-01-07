@@ -36,13 +36,13 @@ const HeaderTwo = ({ data, slideFromTop }) => {
                           title='who are we'
                           links={[
                             {
-                              label: 'Ports',
-                              href: '/ports'
-                            },
-                            {
-                              label: 'Who are we',
+                              label: 'About Us',
                               href: '/about'
                             },
+                            {
+                              label: 'Ports',
+                              href: '/ports'
+                            }
                           ]}
                         /> :
                         item?.Label?.toLowerCase() === 'standards & innovation' ?
