@@ -149,21 +149,6 @@ body {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 * {
   margin: 0;
   padding: 0;
@@ -284,5 +269,14 @@ p {
   .oc_content h3{
     font-size: 14px !important;
     text-align: center !important;
+  }
+  .present_day p{
+    text-align: center;
+    font-size: 12px;
+  }
+  .present_day h6{
+    text-align: center;
+    font-size: 14px;
+    margin-top: 0 !important;
   }
 }
