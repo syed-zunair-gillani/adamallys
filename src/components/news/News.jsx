@@ -29,16 +29,16 @@ const News = ({ data }) => {
 
 
   return (
-    <section className='pl-3 md:pl-10 lg:pl-20 bg-[#FFFFFF] py-20 centermodeRight z-[50] relative'>
+    <section className='pl-3 md:pl-10 lg:pl-20 bg-[#FFFFFF] py-[35px] md:py-20 centermodeRight z-[50] relative'>
       <div className='flex flex-col md:flex-row'>
         <div className='md:w-[25%]'>
-          <h3 className="text-[30px] text-theme-main font-bold font_calibri">
+          <h3 className="text-theme-main text-[25px] uppercase font-bold text-center md:text-left md:justify-start md:items-start md:text-[30px] font_calibri flex justify-center flex-col items-center ">
             News
             <div className="w-10 h-[1px] bg-theme-main" />
           </h3>
         </div>
-        <div className='md:w-[75%] centermodeRight font_franklin'>
-          <div className='flex justify-between mb-14 items-center pr-3 md:pr-10 lg:pr-20'>
+        <div className='md:w-[75%] centermodeRight font_franklin mt-[26px] md:mt-0'>
+          <div className='justify-between mb-14 items-center pr-3 md:pr-10 lg:pr-20 hidden md:flex'>
             <h3 className='text-[30px] font-bold font_franklin'>News & Events</h3>
             <div className="flex items-center gap-2">
               <Image

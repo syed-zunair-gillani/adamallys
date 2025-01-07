@@ -65,17 +65,17 @@ const OurBrands = ({ data, content }) => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="my-[54px]">
+    <section ref={sectionRef} className="my-[38px] md:my-[54px]">
       <div className="container mx-auto">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-center md:justify-between items-center">
           <h3
             ref={headingRef}
-            className="text-[30px] text-theme-main font_calibri font-bold"
+            className="text-theme-main text-[25px] uppercase font-bold text-center md:text-left md:justify-start md:items-start md:text-[30px] font_calibri flex justify-center flex-col items-center "
           >
             Our Brands
             <div className="w-10 h-[1px] bg-theme-main" />
           </h3>
-          <div className="flex items-center gap-2">
+          <div className="items-center gap-2 hidden md:flex">
             <Image
               src="/svg/arrow_circle_left.svg"
               alt=""
@@ -94,14 +94,14 @@ const OurBrands = ({ data, content }) => {
             />
           </div>
         </div>
-        <p ref={contentRef} className="font-light mt-3 font_calibri">
+        <p ref={contentRef} className="font-light mt-3 mb-[37px] text-center md:text-left text-xs md:text-base font_calibri">
           {content}
         </p>
         <Slider ref={slider} {...settings}>
           {data?.map((icon, id) => (
             <div
               ref={sliderRef}
-              className="!grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7"
+              className="!grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-[10px] lg:grid-cols-7"
               key={id}
             >
               {icon?.Icon?.data?.map((item, idx) => (
@@ -118,6 +118,24 @@ const OurBrands = ({ data, content }) => {
             </div>
           ))}
         </Slider>
+      </div>
+      <div className="items-center gap-3 md:hidden flex justify-center">
+        <Image
+          src="/svg/arrow_circle_left.svg"
+          alt=""
+          className="cursor-pointer"
+          width={49}
+          height={49}
+          onClick={() => slider?.current?.slickPrev()}
+        />
+        <Image
+          src="/svg/arrow_circle_right.svg"
+          alt=""
+          className="cursor-pointer"
+          width={49}
+          height={49}
+          onClick={() => slider?.current?.slickNext()}
+        />
       </div>
     </section>
   );

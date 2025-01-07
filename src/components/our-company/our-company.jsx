@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import useIsMobile from "@/hooks/useIsMobile"
 
 export const renderRichText = (blocks) => {
   return blocks?.map((block, index) => {
@@ -40,8 +41,9 @@ const OurCompany = ({ data }) => {
   const underlineRef = useRef(null);
   const contentRef = useRef(null);
   const buttonRef = useRef(null);
+  const isMobile = useIsMobile();
 
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(isMobile ? true : false);
 
   const descriptionRefs = useRef();
 
@@ -84,11 +86,11 @@ const OurCompany = ({ data }) => {
 
   return (
     <section ref={sectionRef} className="">
-      <div className="container py-20 mx-auto flex md:flex-row gap-6 flex-col">
-        <div className="md:w-[25%]">
+      <div className="container py-[35px] md:py-20 mx-auto flex md:flex-row gap-6 flex-col">
+        <div className="md:w-[25%] mb-[22px]">
           <h3
             ref={headingRef}
-            className="text-theme-main font-bold font_calibri uppercase text-[30px]"
+            className="text-theme-main uppercase text-[25px] font-bold text-center md:text-left md:justify-start md:items-start md:text-[30px] font_calibri flex justify-center flex-col items-center"
           >
             Our Company
             <div
@@ -118,7 +120,7 @@ const OurCompany = ({ data }) => {
             </div>
 
             <button
-              className="flex items-center font_calibri gap-10 text-theme-main mt-6" onClick={toggleExpand}
+              className="flex items-center font_calibri justify-center md:justify-start w-full gap-2 text-xs md:text-base md:gap-10 text-theme-main mt-6" onClick={toggleExpand}
             >
               {expanded ? 'Read Less' : 'Read More'}
               <svg width="17" height="17" viewBox="0 0 17 17" fill="none">

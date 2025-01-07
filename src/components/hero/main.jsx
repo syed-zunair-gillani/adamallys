@@ -6,7 +6,7 @@ import Slider from "react-slick";
 import { useGSAP } from "@gsap/react";
 import { NextArrowIcon } from "../../../public/icons";
 
-const Main = ({ data }) => {
+const Main = ({ data, Side_Sticky_Links }) => {
   const slider = React.useRef(null);
   const [activeID, setActiveID] = useState(0);
   const [activeSlide, setActiveSlide] = useState();
@@ -41,11 +41,36 @@ const Main = ({ data }) => {
               <section className="fullscreen-video-content absolute inset-0">
                 <div className="container flex flex-col justify-between mx-auto h-full pb-12">
                   <div className="opacity-0"></div>
-                  <h2 className="text-2xl slideFade md:leading-[48px] lg:leading-[66px] md:text-[40px] font_franklin lg:text-[50px] text-white max-w-[1028px] uppercase font-normal">
+                  <h2 className="text-[30px] text-center md:text-left slideFade md:leading-[48px] lg:leading-[66px] md:text-[40px] font_franklin lg:text-[50px] text-white max-w-[1028px] uppercase font-normal">
                     {item?.title}
                   </h2>
-                  <div>
-                    <div className="slideFade">
+                  <div className="">
+                    <div className="md:hidden">
+                      {
+                        Side_Sticky_Links.length > 0 &&
+                        <ul className='flex justify-center mb-6 gap-2'>
+                          {Side_Sticky_Links?.map((item, idx) => (
+                            <li key={idx}>
+                              <a
+                                target={item?.Caption === 'link' ? '_blank' : '_self'}
+                                href={
+                                  (item?.Caption === 'phone') ?
+                                    `tel:${item?.link}` :
+                                    (item?.Caption === 'email')
+                                      ? `mailto:${item?.link}` :
+                                      item?.link
+                                }
+                              >
+                                <span className='w-6 h-6 bg-white rounded-full flex flex-col border border-[#EDEDED] justify-center items-center'>
+                                  <Image src={item?.Icon?.data?.attributes?.url} alt="" width={20} height={20} className="w-[10px]" />
+                                </span>
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      }
+                    </div>
+                    <div className="slideFade flex flex-col md:text-left text-center items-center md:item-left md:items-start md:justify-start justify-center">
                       <p className="max-w-[377px] text-white font_calibri">
                         {item?.sub_title}
                       </p>
@@ -58,7 +83,7 @@ const Main = ({ data }) => {
           </div>
         ))}
       </Slider>
-      <div className="container mx-auto absolute right-1/2 bottom-32 sm:bottom-14 translate-x-1/2 flex justify-end px-6">
+      <div className="container hidden md:flex mx-auto absolute right-1/2 bottom-32 sm:bottom-14 translate-x-1/2 justify-end px-6">
         <figure className="mr-2">
           <Image src={activeSlide?.NextButtonImage.data?.attributes.url} alt="next-image" width={124} height={64} />
         </figure>

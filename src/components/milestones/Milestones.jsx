@@ -3,12 +3,14 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import CounterText from '@/components/CounterText'
+import useIsMobile from "@/hooks/useIsMobile";
 
 const Milestones = ({ data }) => {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const cardsRef = useRef([]);
   const bgRef = useRef(null);
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     gsap.fromTo(
@@ -63,7 +65,7 @@ const Milestones = ({ data }) => {
   return (
     <section
       ref={sectionRef}
-      className="milestone_bg bg-right !bg-no-repeat !bg-cover"
+      className="milestone_bg bg-center md:bg-right !bg-no-repeat !bg-cover"
       style={{ backgroundImage: `url(${data?.Background_Image?.data?.attributes?.url})` }}
     >
       <div
@@ -72,7 +74,7 @@ const Milestones = ({ data }) => {
       >
         <h4
           ref={headingRef}
-          className="text-[40px] text-white font_franklin"
+          className="text-[25px] text-center md:text-left md:text-[40px] text-white font_franklin"
         >
           Milestones
         </h4>
@@ -81,20 +83,20 @@ const Milestones = ({ data }) => {
             <div
               ref={(el) => (cardsRef.current[idx] = el)} // Add refs to each card
               key={idx}
-              className="flex w-full items-center p-[34px] bg-black/40 backdrop-blur-[6px] border border-white/60 text-white"
+              className="flex w-full items-center gap-[10px] px-[43px] py-[19px] md:p-[34px] bg-black/40 backdrop-blur-[6px] border border-white/60 text-white"
             >
               <figure className="text-5xl mb-2">
                 <Image
                   src={item.Icon?.data?.attributes?.url}
                   alt="Calendar Icon"
-                  width={81}
-                  height={81}
+                  width={isMobile ? 64 : 81}
+                  height={isMobile ? 64 : 81}
                 />
               </figure>
               <div>
                 {
                   isNaN(Number(item?.title)) ?
-                    <div className="text-[36px] sm:text-[50px] leading-10 font_franklin">
+                    <div className="text-[30px] sm:text-[50px] leading-10 font_franklin">
                       {item?.title}
                     </div> :
                     <CounterText

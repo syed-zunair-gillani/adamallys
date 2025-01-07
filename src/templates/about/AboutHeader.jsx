@@ -4,11 +4,11 @@ import Image from 'next/image'
 const AboutHeader = ({data}) => {
   return (
     <div
-      className='min-h-[400px] container mx-auto flex flex-col lg:flex-row items-end justify-between gap-[30px]'
+      className='min-h-[400px] container mx-auto flex flex-col-reverse lg:flex-row items-end justify-between gap-[28px] md:gap-[30px]'
     >
       <div className='basis-[40%] flex items-center justify-center flex-col'>
-        <h2 className='font_calibri capitalize text-[50px] leading-[56px] font-bold text-theme-main'>{data?.title}</h2>
-        <p className='font_calibri text-lg mt-[36px] mb-[47px]'>{data?.Info}</p>
+        <h2 className='font_calibri capitalize text-[25px] leading-8 text-center md:text-left md:text-[50px] md:leading-[56px] font-bold text-theme-main'>{data?.title}</h2>
+        <p className='font_calibri text-lg mt-2 md:mt-[36px] mb-[47px] text-center md:text-left'>{data?.Info}</p>
         <ArrowDownIcon />
       </div>
       <div className='basis-[60%] w-full'>
