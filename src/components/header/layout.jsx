@@ -8,13 +8,19 @@ import gsap from 'gsap'
 
 gsap.registerPlugin(ScrollTrigger);
 
-const HeaderLayout = ({data}) => {
+const HeaderLayout = ({ data }) => {
     const path = usePathname()
     return (
-        path === "/" ? <HeaderOne data={data}/> : <>
-            <HeaderOne data={data}/>
-            <HeaderTwo data={data}/>
-        </>
+        path === "/" ?
+            <>
+                <HeaderOne data={data} />
+                <HeaderTwo data={data} slideFromTop/>
+            </>
+            :
+            <>
+                <HeaderOne data={data} />
+                <HeaderTwo data={data} />
+            </>
     )
 }
 

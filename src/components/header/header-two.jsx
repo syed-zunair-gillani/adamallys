@@ -1,12 +1,19 @@
+"use client"
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import MegaMenu from './MegaMenu'
+import useScrollPosition from '@/hooks/useScrollPosition';
 
-const HeaderTwo = ({ data }) => {
+
+const HeaderTwo = ({ data, slideFromTop }) => {
   const { Secound_Header_Nav, Logo } = data
+  const scrollPosition = useScrollPosition(); 
+
   return (
-    <header className="py-3 fixed w-full top-0 z-[200] hidden md:block text-theme-main font_calibri bg-white">
+    <header className={`py-3 w-full fixed z-[200] hidden md:block transition-all duration-500 ease-linear text-theme-main font_calibri bg-white 
+      ${slideFromTop ? (scrollPosition > 100 ? "top-0" : "-top-[200px]") : "top-0"}
+    `}>
       <div className="container mx-auto px-3">
         <div className="flex justify-between items-center gap-4">
           <div className=" md:w-[10%]">
