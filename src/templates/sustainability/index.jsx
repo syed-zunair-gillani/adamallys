@@ -33,6 +33,7 @@ const SustainabilityTemplate = (props) => {
       </div>
       <TwoColumnContent
         zeroGap
+        hideButton
         title={Cards?.[0]?.title}
         caption={Cards?.[0]?.info}
         image={Cards?.[0]?.image?.data?.attributes?.url}
@@ -42,6 +43,7 @@ const SustainabilityTemplate = (props) => {
         invert
         bgGray
         zeroGap
+        hideButton
         title={Cards?.[1]?.title}
         caption={Cards?.[1]?.info}
         image={Cards?.[1]?.image?.data?.attributes?.url}
@@ -62,9 +64,11 @@ const SustainabilityTemplate = (props) => {
         <div className={`p-8 xl:p-14 leading-10  text-white bg-theme-main "flex-col gap-2"}`}>
           <h2 className={`text-center text-[40px] leading-[49px]`}>Marine Valves & Ship Side Valves</h2>
           <div>
-            <p className='max-w-[720px] text-center text-lg leading-[26px] font-light mt-3'>
-              {Content}
-            </p>
+            <div className="flex justify-center">
+              <p className='max-w-[800px] text-center text-lg leading-[26px] font-light mt-3'>
+                {Content}
+              </p>
+            </div>
             <div className="flex flex-col md:flex-row justify-between gap-[45px] mt-[30px]">
               <p className='text-lg leading-[26px] font-light'>
                 {fst_content}

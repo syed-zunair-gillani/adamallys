@@ -10,6 +10,7 @@ import ThreeColumnContent from "@/components/three-column-content/three-column-c
 
 const TechnicalMarineStoresTemplate = (props) => {
   const { banner_background_image, banner_info, banner_title, Tags: tags, Card } = props;
+  const tagList = tags?.map(({ list }) => list);
   return (
     <>
       <div className="mb-20" />
@@ -26,8 +27,9 @@ const TechnicalMarineStoresTemplate = (props) => {
           bgImage: banner_background_image?.data?.attributes?.url
         }}
       />
-      <Tags tags={tags?.map(({ list }) => list)} />
+      <Tags tags={tagList} />
       <TwoColumnContent
+        id={tagList[0]}
         title={Card?.[0]?.title}
         caption={Card?.[0]?.info}
         image={Card?.[0]?.image?.data?.attributes?.url}
@@ -36,12 +38,14 @@ const TechnicalMarineStoresTemplate = (props) => {
       <TwoColumnContent
         invert
         bgGray
+        id={tagList[1]}
         title={Card?.[1]?.title}
         caption={Card?.[1]?.info}
         image={Card?.[1]?.image?.data?.attributes?.url}
         points={Card?.[1]?.lists?.map(({ list }) => list)}
       />
       <ThreeColumnContent
+        id={tagList[2]}
         title={Card?.[2]?.title}
         caption={Card?.[2]?.info}
         image1={Card?.[2]?.image?.data?.attributes?.url}
@@ -50,6 +54,7 @@ const TechnicalMarineStoresTemplate = (props) => {
       />
       <TwoColumnContent
         bgGray
+        id={tagList[3]}
         isCustomBasis
         bgColor={"#E0E2FB"}
         title={Card?.[3]?.title}
@@ -59,6 +64,7 @@ const TechnicalMarineStoresTemplate = (props) => {
       />
       <OneColumnContent
         leftTitle
+        id={tagList[4]}
         title={Card?.[4]?.title}
         caption={Card?.[4]?.info}
         image={Card?.[4]?.image?.data?.attributes?.url}
@@ -66,6 +72,7 @@ const TechnicalMarineStoresTemplate = (props) => {
       />
       <TwoColumnContent
         bgGray
+        id={tagList[5]}
         title={Card?.[5]?.title}
         caption={Card?.[5]?.info}
         image={Card?.[5]?.image?.data?.attributes?.url}
@@ -74,12 +81,14 @@ const TechnicalMarineStoresTemplate = (props) => {
       <TwoColumnContent
         bgGray
         invert
+        id={tagList[6]}
         title={Card?.[6]?.title}
         caption={Card?.[6]?.info}
         image={Card?.[6]?.image?.data?.attributes?.url}
         points={Card?.[6]?.lists?.map(({ list }) => list)}
       />
       <ThreeColumnContent
+        id={tagList[7]}
         title={Card?.[7]?.title}
         caption={Card?.[7]?.info}
         image1={Card?.[7]?.image?.data?.attributes?.url}
@@ -87,12 +96,14 @@ const TechnicalMarineStoresTemplate = (props) => {
         image2={Card?.[7]?.Secound_Image?.data?.attributes?.url || "/images/ship-supply/safety-stores-image2.png"}
       />
       <TwoColumnContent
+        id={tagList[8]}
         title={Card?.[8]?.title}
         caption={Card?.[8]?.info}
         image={Card?.[8]?.image?.data?.attributes?.url}
         points={Card?.[8]?.lists?.map(({ list }) => list)}
       />
       <ThreeColumnContent
+        id={tagList[9]}
         title={Card?.[9]?.title}
         caption={Card?.[9]?.info}
         image1={Card?.[9]?.image?.data?.attributes?.url}
@@ -100,12 +111,14 @@ const TechnicalMarineStoresTemplate = (props) => {
         image2={Card?.[9]?.image2?.data?.attributes?.url || "/images/ship-supply/stationary-two.png"}
       />
       <OneColumnContent
+        id={tagList[10]}
         title={Card?.[10]?.title}
         caption={Card?.[10]?.info}
         image={Card?.[10]?.image?.data?.attributes?.url}
         points={Card?.[10]?.lists?.map(({ list }) => list)}
       />
       <GridContent
+        id={tagList[11]}
         data={[
           {
             bgGray: true,
@@ -123,6 +136,7 @@ const TechnicalMarineStoresTemplate = (props) => {
       />
       <TwoColumnContent
         bgGray
+        id={tagList[13]}
         isCustomBasis
         bgColor={"#E0E2FB"}
         title={Card?.[13]?.title}

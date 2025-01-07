@@ -7,6 +7,7 @@
   font-weight: 700;
   src: url('/fonts/calibri/calibri-bold.ttf')
 }
+
 @font-face {
   font-family: 'calibri';
   font-weight: 400;
@@ -27,28 +28,33 @@
     url("/fonts/fraklin/Franklin-Regular.ttf");
 }
 
-.container{
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
   max-width: 1337px !important;
 }
 
-.font_calibri{
+.font_calibri {
   font-family: 'calibri';
 }
-.font_franklin{
+
+.font_franklin {
   font-family: "Franklin_Gothic_Regular";
 }
 
-.header-gradient{
-  background: linear-gradient(0deg, rgba(38,160,217,0) 0%, rgba(255,255,255,1) 77%);
+.header-gradient {
+  background: linear-gradient(0deg, rgba(38, 160, 217, 0) 0%, rgba(255, 255, 255, 1) 77%);
 }
 
-.container{
+.container {
   max-width: 1460px;
 }
 
 .fullscreen-video-container {
   position: relative;
-  height: 100vh; 
+  height: 100vh;
   width: 100vw;
   overflow: hidden;
 }
@@ -59,26 +65,27 @@
   min-height: 100%;
   width: auto;
   height: auto;
-  object-fit: cover; 
+  object-fit: cover;
   z-index: -100;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
 
-.wherehouse-video{
+.wherehouse-video {
   position: relative;
-  height: 400px; 
+  height: 400px;
   width: "100%";
   overflow: hidden;
 }
+
 .wherehouse-video video {
   position: absolute;
   min-width: 100%;
   min-height: 100%;
   width: auto;
   height: auto;
-  object-fit: cover; 
+  object-fit: cover;
   z-index: -100;
   top: 0;
   bottom: 0;
@@ -87,50 +94,56 @@
   /* transform: translateX(-50%) translateY(-50%); */
 }
 
-.certification-gradient{
-  background: linear-gradient(167deg, rgba(46,54,143,1) 0%, rgba(13,15,41,1) 75%);
+.certification-gradient {
+  background: linear-gradient(167deg, rgba(46, 54, 143, 1) 0%, rgba(13, 15, 41, 1) 75%);
 }
 
-.centermodeRight .slick-list{padding:0 20% 0 0 !important;}
-
-.blue_gradient{
-  background: linear-gradient(180deg, rgba(178,182,224,1) 0%, rgba(23,31,124,1) 75%);
-}
-.blue_gradient2{
-  background: linear-gradient(150deg, rgba(178,182,224,1) 0%, rgba(23,31,124,1) 100%);
-}
-.blue_gradient3{
-  background: linear-gradient(-90deg, rgba(178,182,224,1) 0%, rgba(23,31,124,1) 100%);
+.centermodeRight .slick-list {
+  padding: 0 20% 0 0 !important;
 }
 
-.black_gradient{
-  background: linear-gradient(180deg, rgba(17,17,17,1) 0%, rgba(17,17,17,1) 0%, rgba(17,17,17,0.2582282913165266) 100%);
+.blue_gradient {
+  background: linear-gradient(180deg, rgba(178, 182, 224, 1) 0%, rgba(23, 31, 124, 1) 75%);
 }
 
-.banner-gradient{
-  background: linear-gradient(85deg, rgba(46,54,143,1) 11%, rgba(46,54,143,1) 24%, rgba(46,54,143,1) 37%, rgba(46,54,143,0.9585084033613446) 43%, rgba(46,54,143,0.9024859943977591) 48%, rgba(46,54,143,0) 100%);
+.blue_gradient2 {
+  background: linear-gradient(150deg, rgba(178, 182, 224, 1) 0%, rgba(23, 31, 124, 1) 100%);
+}
+
+.blue_gradient3 {
+  background: linear-gradient(-90deg, rgba(178, 182, 224, 1) 0%, rgba(23, 31, 124, 1) 100%);
+}
+
+.black_gradient {
+  background: linear-gradient(180deg, rgba(17, 17, 17, 1) 0%, rgba(17, 17, 17, 1) 0%, rgba(17, 17, 17, 0.2582282913165266) 100%);
+}
+
+.banner-gradient {
+  background: linear-gradient(85deg, rgba(46, 54, 143, 1) 11%, rgba(46, 54, 143, 1) 24%, rgba(46, 54, 143, 1) 37%, rgba(46, 54, 143, 0.9585084033613446) 43%, rgba(46, 54, 143, 0.9024859943977591) 48%, rgba(46, 54, 143, 0) 100%);
 }
 
 .map::-webkit-scrollbar {
   display: none;
 }
 
-.present_day{
+.present_day {
   z-index: 1;
   font-family: 'calibri';
 }
-.present_day h6{
+
+.present_day h6 {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 16px;
   margin-top: 16px;
 }
-.present_day p{
+
+.present_day p {
   font-weight: 300;
   margin-bottom: 1.4rem;
 }
 
-body{
+body {
   background-color: #fff !important;
 }
 
@@ -167,16 +180,19 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   margin: 50px 0;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
+  /* Full viewport height */
   position: relative;
 }
 
 .left {
-  flex: 0 0 40%; /* Set image container width */
+  flex: 0 0 40%;
+  /* Set image container width */
 }
 
 .right {
-  flex: 0 0 55%; /* Set content container width */
+  flex: 0 0 55%;
+  /* Set content container width */
   overflow: hidden;
 }
 
@@ -204,13 +220,15 @@ p {
 }
 
 .right .content {
-  max-height: 400px; /* Adjust as needed */
+  max-height: 400px;
+  /* Adjust as needed */
   overflow-y: auto;
 }
 
 .section:nth-child(3) {
   position: relative;
-  z-index: 3; /* Initially, section 3 has higher z-index to overlap */
+  z-index: 3;
+  /* Initially, section 3 has higher z-index to overlap */
 }
 
 .left .image {

@@ -36,6 +36,7 @@ const MarineRopesAndMooringRopesTemplate = (props) => {
         points={Card?.[1]?.list}
         title={Card?.[1]?.title}
         caption={Card?.[1]?.info}
+        caption2={Card?.[1]?.info2}
         images={Card?.[1]?.Images?.data?.map(image => image?.attributes?.url)}
       />
 

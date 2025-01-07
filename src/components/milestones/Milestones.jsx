@@ -98,9 +98,10 @@ const Milestones = ({ data }) => {
                       {item?.title}
                     </div> :
                     <CounterText
-                      duration={2000}
+                      duration={3000}
                       targetValue={Number(item?.title)}
                       ref={(el) => (cardsRef.current[idx] = el)}
+                      hasPlus={!item?.subtitle?.includes("Total Sq.Ft Storage")}
                     />
                 }
                 <div className="font-light md:mt-1 font_calibri">{item?.subtitle}</div>

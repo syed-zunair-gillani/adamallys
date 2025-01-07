@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-const CounterText = ({ targetValue, duration }) => {
+const CounterText = ({ targetValue, duration, hasPlus }) => {
   const [count, setCount] = useState(0);
 
   const [inView, setInView] = useState(false);
@@ -51,7 +51,7 @@ const CounterText = ({ targetValue, duration }) => {
 
   return (
     <div ref={counterRef} className="text-[36px] sm:text-[50px] leading-10 font_franklin">
-      {count}+
+      {`${count?.toLocaleString()} ${hasPlus ? "+" : ""}`}
     </div>
   );
 };

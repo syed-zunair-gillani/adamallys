@@ -47,6 +47,7 @@ export default async function Home() {
             hideButton
             title={data?.Cards?.[2]?.title}
             caption={data?.Cards?.[2]?.info}
+            caption2={data?.Cards?.[2]?.info2}
             image={data?.Cards?.[2]?.image?.data?.attributes?.url}
             points={data?.Cards?.[2]?.lists?.map(({ list }) => list)}
           />
