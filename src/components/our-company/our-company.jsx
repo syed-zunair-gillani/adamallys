@@ -1,7 +1,38 @@
 "use client"
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-import { renderRichText } from "@/components/renderRichText";
+
+export const renderRichText = (blocks) => {
+  return blocks?.map((block, index) => {
+    const { type, level, children } = block;
+    switch (type) {
+      case "heading":
+        const HeadingTag = `h${level}`;
+        if (HeadingTag === "h2") {
+          return (
+            <HeadingTag key={index} className="font_franklin">
+              {children?.map((child) => child.text)}
+            </HeadingTag>
+          );
+        } else {
+          return (
+            <h3 key={index} className="!font-xl !text-[#3E3E3E]">
+              {children?.map((child) => child.text)}
+            </h3>
+          );
+        }
+      case "paragraph":
+        return (
+          <p key={index} className="font-light !mt-4 !text-[#3E3E3E]">
+            {children.map((child) => child.text)}
+          </p>
+        );
+
+      default:
+        return null;
+    }
+  });
+};
 
 const OurCompany = ({ data }) => {
   const sectionRef = useRef(null);
