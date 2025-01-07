@@ -89,18 +89,18 @@ const Services = ({ data }) => {
                 <div
                   key={idx}
                   ref={(el) => (gridItemsRef.current[idx] = el)}
-                  className={`relative ${isFullWidth
+                  className={`${styles.service_image_container} relative ${isFullWidth
                     ? "w-full object-cover sm:col-span-2 lg:col-span-3"
                     : "h-[378px] object-cover sm:col-span-2 lg:col-span-2"
                     }`}
                 >
-                  <div className={styles.service_image_container}>
+                  <div>
                     <Image
                       width={573}
                       height={378}
                       alt={item?.title}
                       src={item?.Image?.data?.attributes?.url}
-                      className={`h-[378px] object-cover w-full`}
+                      className={`${styles.service_image} h-[378px] object-cover w-full`}
                     />
                   </div>
                   <div className="absolute px-9 gap-3 flex justify-between w-full items-center bottom-9">
@@ -113,10 +113,10 @@ const Services = ({ data }) => {
                     </Link>
                     <Image
                       src="/svg/service-arrow.svg"
-                      alt=""
+                      alt="icon"
                       width={43}
                       height={43}
-                      className={``}
+                      className={styles.service_icon}
                     />
                   </div>
                 </div>
