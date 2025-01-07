@@ -4,7 +4,6 @@ import ContactTemplate from '@/templates/contact';
 
 const ContactPage = async () => {
     const data = await getContactUs();
-
   return (
     <ContactTemplate data={data}/>
   )
