@@ -23,12 +23,12 @@ export const NextArrowIcon = () => {
 
 export const MenuIcon = () => {
   return (
-    <svg width="26px" height="26px" viewBox="0 0 24 24" fill="none">
+    <svg width="26px" height="26px" viewBox="0 0 24 24" fill="#fff">
       <path
         d="M4 6H20M4 12H20M4 18H20"
-        stroke="#2E368F"
+        stroke="#fff"
         strokeWidth="2"
-        strokeLinecap="round"
+        strokeLinecap="round" 
         strokeLinejoin="round"
       />
     </svg>
@@ -37,8 +37,8 @@ export const MenuIcon = () => {
 
 export const XIcon = () => {
   return (
-    <svg width="26px" height="26px" viewBox="0 0 24 24" fill="none">
-      <g stroke="#2E368F" strokeLinecap="round" strokeWidth="2">
+    <svg width="26px" height="26px" viewBox="0 0 24 24" fill="#fff">
+      <g stroke="#fff" strokeLinecap="round" strokeWidth="2">
         <path d="M6 18L18 6" />
         <path d="M18 18L6 6" />
       </g>
