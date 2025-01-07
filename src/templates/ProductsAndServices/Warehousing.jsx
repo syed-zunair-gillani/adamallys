@@ -31,7 +31,7 @@ const Warehousing = (props) => {
           background: 'linear-gradient(to bottom, #ffffff , #F4F5F7 )'
         }}
       >
-        <section className="mt-[71px] container mx-auto px-3 flex flex-col lg:flex-row gap-5 lg:gap-10 mb-10 lg:mb-20">
+        <section className="mt-[71px] container mx-auto flex flex-col lg:flex-row gap-5 lg:gap-10 mb-10 lg:mb-20">
           <div className='lg:w-[30%] min-w-[464px]'>
             <IndustrialEnergyComp
               video={video?.data?.attributes?.url}
@@ -48,7 +48,7 @@ const Warehousing = (props) => {
           </div>
         </section>
 
-        <section className="mt-[71px] container mx-auto px-3 flex flex-col lg:flex-row gap-5 lg:gap-10 ">
+        <section className="mt-[71px] container mx-auto flex flex-col lg:flex-row gap-5 lg:gap-10 ">
           <div className='lg:w-[30%] bg-[red]'>
             <VideoPlayer
               loop

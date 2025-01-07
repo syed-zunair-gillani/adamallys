@@ -3,7 +3,7 @@ import Image from 'next/image'
 const CorporateInformation = ({ data }) => {
   return (
     <section className='bg-[#F4F5F7]'>
-      <div className='container grid md:grid-cols-2 gap-20 mx-auto px-3 pb-10 md:mb-0'>
+      <div className='container grid md:grid-cols-2 gap-20 mx-auto pb-10 md:mb-0'>
         <div className=' mt-16 lg:flex-row items-center justify-between gap-[82px]'>
           <div class="sticky top-20 z-[11]">
             <Image className='basis-[50%] ' src={data?.Images?.data[1]?.attributes?.url} alt='CorporateInformation' width={569} height={557} />

@@ -66,7 +66,7 @@ const OurBrands = ({ data, content }) => {
 
   return (
     <section ref={sectionRef} className="my-[54px]">
-      <div className="container mx-auto px-3">
+      <div className="container mx-auto">
         <div className="flex justify-between items-center">
           <h3
             ref={headingRef}

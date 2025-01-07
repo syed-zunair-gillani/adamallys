@@ -2,7 +2,7 @@ import React from 'react';
 
 function Banner({title}) {
   return (
-    <div className='container mx-auto px-4'>
+    <div className='container mx-auto'>
        <section 
         className="w-full max-w-[1600px] mx-auto relative bg-[url('/images/Vector%20(1).svg')] bg-no-repeat  h-[200px] sm:h-[250px] lg:h-[306px] mt-10">
         <div className="absolute inset-0 bg-gradient-to-r from-[#2E368F] to-[#B2B6E0] opacity-75"></div>

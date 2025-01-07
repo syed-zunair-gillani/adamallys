@@ -13,7 +13,7 @@ const HeaderOne = ({ data }) => {
   return (
     <header className={`z-[300] absolute top-0 w-full ${pathname !== "/" && "bg-white"}`}>
       <section className="py-5 hidden md:block text-theme-main header-gradient font_calibri">
-        <div className="container mx-auto px-3">
+        <div className="container mx-auto">
           <div className="flex justify-between items-center gap-4">
             <ul className="flex gap-9 items-center">
               <MegaMenu />
@@ -68,7 +68,7 @@ const HeaderOne = ({ data }) => {
                       title='who are we'
                       links={[
                         {
-                          label: 'Who are we',
+                          label: 'About Us',
                           href: '/about'
                         },
                         {

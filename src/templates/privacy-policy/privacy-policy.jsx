@@ -29,7 +29,7 @@ const PrivacyPolicyTemplate = async () => {
           Privacy Policy
         </h1>
       </main>
-      <section className='container mx-auto px-3 '>
+      <section className='container mx-auto '>
         {
           privacyPolicies?.map((item, idx) => (
             <div key={idx} className=' md:flex gap-10 mb-8'>

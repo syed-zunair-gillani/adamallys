@@ -35,7 +35,7 @@ const MegaMenu = ({ title, links = [] }) => {
           {title || 'Product & Services'}
           <span className={`block mt-2 w-[18px] h-[2px] ${(isActive || (!title && isProductActive)) ? 'bg-theme-main' : ''}`} />
         </Link>
-        <div className={`${styles.mega_menu} w-[145px] h-12 absolute top-1 bg-white`}>
+        <div className={`${styles.mega_menu} w-[145px] h-12 absolute top-1`}>
           <nav
             style={{ zIndex: 999, boxShadow: '0px 2px 12.5px 0px rgba(46, 54, 143, 0.09)' }}
             className={`absolute flex top-[36px] bg-white text-theme-main z-[999]`}
