@@ -35,7 +35,7 @@ const MegaMenu = ({ title, links = [] }) => {
           {title || 'Product & Services'}
           <span className={`block mt-2 w-[18px] h-[2px] ${(isActive || (!title && isProductActive)) ? 'bg-theme-main' : ''}`} />
         </Link>
-        <div className={`${styles.mega_menu} w-[145px] h-12 absolute top-1`}>
+        <div className={`${styles.mega_menu} w-[145px] h-12 absolute top-1 bg-white`}>
           <nav
             style={{ zIndex: 999, boxShadow: '0px 2px 12.5px 0px rgba(46, 54, 143, 0.09)' }}
             className={`absolute flex top-[36px] bg-white text-theme-main z-[999]`}
@@ -59,7 +59,7 @@ const MegaMenu = ({ title, links = [] }) => {
                   <li
                     onMouseEnter={() => setIsShipSupplyHovered(true)}
                     onMouseLeave={() => setIsShipSupplyHovered(false)}
-                    className='top-[31px] w-full h-[25px] absolute' />
+                    className='top-[21px] w-full h-[25px] absolute' />
                   <li
                     onMouseEnter={() => setIsShipSupplyHovered(true)}
                     onMouseLeave={() => setIsShipSupplyHovered(false)}
@@ -107,17 +107,18 @@ const MegaMenu = ({ title, links = [] }) => {
                 <div className='w-[2px] bg-[rgba(0,0,0,0.075)]' />
                 <div
                   className={`w-full min-w-[505px] flex  w-full bg-white text-theme-main`}>
-                  <ul className="grid grid-cols-2 gap-2 py-[31px] px-[35px]">
+                  <ul className="grid grid-cols-2 gap-2 py-4 px-5">
                     {shipSupplyPaginationData?.map((page, index) => (
                       <li
                         key={page?.link + index}
-                        className={`font-light ${page?.link === pathname && "!font-bold"}`}
+                        className={`mr-5 relative group font-light ${page?.link === pathname && "!font-bold"}`}
                       >
                         <Link
                           href={page?.link} className={`${styles.below_line} whitespace-nowrap text-theme-main hover:font-bold font_calibri`}>
                           {page?.label}
                         </Link>
-                        {page?.link === pathname && <div className="mt-2 w-[18px] h-[2px] bg-theme-main" />}
+                        <div
+                          className={`group-hover:bg-theme-main mt-2 w-[18px] h-[2px] ${page?.link === pathname ? 'bg-theme-main' : ''}`} />
                       </li>
                     ))}
                   </ul>
