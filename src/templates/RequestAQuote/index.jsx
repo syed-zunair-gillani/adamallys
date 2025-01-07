@@ -1,5 +1,6 @@
 'use client'
-import { useState } from 'react'
+import axios from 'axios';
+import { useEffect, useState } from 'react'
 
 const defaultValues = {
   companyName: '',
@@ -20,6 +21,27 @@ const defaultValues = {
 
 const RequestAQuoteTemplate = ({ ports }) => {
   const [formData, setFormData] = useState(defaultValues);
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    axios.get('https://restcountries.com/v3.1/all')
+      .then(response => {
+        const countryData = response.data.map(country => ({
+          name: country.name.common,
+          code: country.cca2,
+        }));
+        const sortedCountries = countryData.sort((a, b) =>
+          a.name.localeCompare(b.name)
+        );
+
+        setCountries(sortedCountries);
+      })
+      .catch(error => {
+        console.error('Error fetching country data:', error);
+      });
+  }, []);
+
+
   const portList = [
     ...ports?.attributes?.Oman?.map(({ Name }) => ({ label: Name, value: Name })),
     ...ports?.attributes?.UAE_Ports?.map(({ Name }) => ({ label: Name, value: Name })),
@@ -62,27 +84,59 @@ const RequestAQuoteTemplate = ({ ports }) => {
     }));
   };
 
-  const handleFileChange = (event) => {
+  const handleFileChange = async (event) => {
     const selectedFile = event.target.files[0];
+
     if (selectedFile && selectedFile.type !== 'application/pdf') {
       alert('Please upload a PDF file.');
       return;
     }
+
     if (selectedFile && selectedFile.size > 5 * 1024 * 1024) {
       alert('File size should not exceed 5MB.');
       return;
     }
+
+
     if (selectedFile) {
-      setFormData(prevData => ({
-        ...prevData,
-        file: selectedFile
-      }));
+      try {
+        const formData = new FormData();
+        formData.append("files", selectedFile);
+
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_PUBLIC_BASE_URL}/api/upload`, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
+
+        // Handle response and set the uploaded file data
+        if (response.status === 200) {
+          console.log('File uploaded')
+          setFormData((prevData) => ({
+            ...prevData,
+            file: response?.data[0]?.url,
+          }));
+        }
+
+      } catch (error) {
+        console.error('Error uploading file:', error);
+        console.error('Failed to upload file. Please try again.');
+      }
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
+    try {
+      const response = await axios.post(`/api/send-request-a-quote`, formData);
+      if(response?.status === 200){
+        alert("Email Sended");
+        setFormData({...defaultValues})
+      }
+    } catch (error) {
+      console.error("🚀 ~ handleSubmit ~ error:", error)
+    }
   };
 
   const handleCancel = () => {
@@ -133,7 +187,9 @@ const RequestAQuoteTemplate = ({ ports }) => {
               />
             </div>
             <div className='relative'>
-              <label className='block ml-[25px] mb-2 font_calibri text-lg leading[26px] text-theme-main'>Country</label>
+              <label className='block ml-[25px] mb-2 font_calibri text-lg leading-[26px] text-theme-main'>
+                Country
+              </label>
               <select
                 name="country"
                 value={formData.country}
@@ -145,9 +201,11 @@ const RequestAQuoteTemplate = ({ ports }) => {
                 }}
               >
                 <option value="" disabled hidden>Select</option>
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
+                {countries.map(country => (
+                  <option key={country.code} value={country.name}>
+                    {country.name}
+                  </option>
+                ))}
               </select>
             </div>
             <div className='relative'>
@@ -180,7 +238,7 @@ const RequestAQuoteTemplate = ({ ports }) => {
                   backgroundSize: '36px 36px',
                 }}
                 onChange={handleChange}
-                onClick={(e) => e.target.showPicker()}
+                onClick={(e) => e?.target?.showPicker()}
               />
             </div>
             <div>
@@ -195,7 +253,7 @@ const RequestAQuoteTemplate = ({ ports }) => {
                   backgroundSize: '36px 36px',
                 }}
                 onChange={handleChange}
-                onClick={(e) => e.target.showPicker()}
+                onClick={(e) => e?.target?.showPicker()}
               />
             </div>
             <div>

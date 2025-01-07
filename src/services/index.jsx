@@ -154,7 +154,7 @@ async function getOtherService() {
 async function getProvisionsBondedStores() {
   const params = qs.stringify({
     populate: [
-      'banner_background_image', "Cards.Image", "Cards.List", "Cards.List.lists",'OtherServices.Image', 'OtherServices.Services'
+      'banner_background_image', "Cards.Image", "Cards.List", "Cards.List.lists", 'OtherServices.Image', 'OtherServices.Services'
     ],
   })
   const responce = await Axios.get(`/provisions-and-bonded-stores-page?${params}`);
@@ -164,7 +164,7 @@ async function getProvisionsBondedStores() {
 async function getShipSpareParts() {
   const params = qs.stringify({
     populate: [
-      'banner_background_image', "Why_Choose_Image", "Cards.image",'OtherServices.Image', 'OtherServices.Services'
+      'banner_background_image', "Why_Choose_Image", "Cards.image", "Cards.lists", 'OtherServices.Image', 'OtherServices.Services'
     ],
   })
   const responce = await Axios.get(`/ship-spare-parts-page?${params}`);
@@ -195,7 +195,7 @@ async function getSustainabilityAtAdamallys() {
 async function getTechnicalMarineStores() {
   const params = qs.stringify({
     populate: [
-      'banner_background_image', "Card.image", "Tags", "Card", "Card.lists", "Card.Secound_Image",'OtherServices.Image', 'OtherServices.Services'
+      'banner_background_image', "Card.image", "Tags", "Card", "Card.lists", "Card.Secound_Image", 'OtherServices.Image', 'OtherServices.Services'
     ],
   })
   const responce = await Axios.get(`/technical-marine-stores-page?${params}`);

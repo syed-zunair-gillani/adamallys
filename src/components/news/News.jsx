@@ -29,7 +29,7 @@ const News = ({ data }) => {
 
 
   return (
-    <section className='pl-3 md:pl-10 lg:pl-20 bg-[#FFFFFF] py-20 z-[50] relative'>
+    <section className='pl-3 md:pl-10 lg:pl-20 bg-[#FFFFFF] py-20 centermodeRight z-[50] relative'>
       <div className='flex flex-col md:flex-row'>
         <div className='md:w-[25%]'>
           <h3 className="text-[30px] text-theme-main font-bold font_calibri">
