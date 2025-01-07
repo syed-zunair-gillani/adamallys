@@ -4,7 +4,7 @@ import Link from 'next/link'
 import React from 'react'
 
 const VerticleIcon = async () => {
-    const {Side_Sticky_Links} = await getFooter()
+    const { Side_Sticky_Links } = await getFooter()
     return (
         Side_Sticky_Links.length > 0 &&
         <ul className='fixed right-2 z-[1000] flex flex-col gap-2 top-1/2 -translate-y-1/2'>

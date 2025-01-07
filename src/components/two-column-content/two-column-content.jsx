@@ -35,7 +35,7 @@ const TwoColumnContent = (props) => {
               )}
             </ul>
           }
-          {caption2 && <p className='mt-4'>{caption2}</p>}
+          {caption2 && <p className='mt-2'>{caption2}</p>}
         </div>
         {
           !hideButton &&

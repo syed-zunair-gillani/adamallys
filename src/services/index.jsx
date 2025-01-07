@@ -84,7 +84,7 @@ async function getContactUs() {
 async function getDigitalizationAndTechnologyAtAdamallys() {
   const params = qs.stringify({
     populate: [
-      'Banner_Image', "Content_Cards.Image",'Cards.image','Cards.lists'
+      'Banner_Image', "Content_Cards.Image", 'Cards.image', 'Cards.lists'
     ],
   })
   const responce = await Axios.get(`/digitalization-and-technology-at-adamallys-page?${params}`);
@@ -185,7 +185,7 @@ async function getShipSupply() {
 async function getSustainabilityAtAdamallys() {
   const params = qs.stringify({
     populate: [
-      'BannerImage', "Vision_Image", "Commitment_Image", "CSR_Image", "Cards.lists","Cards.image"
+      'BannerImage', "Vision_Image", "Commitment_Image", "CSR_Image", "Cards.lists", "Cards.image"
     ],
   })
   const responce = await Axios.get(`/sustainability-at-adamallys-page?${params}`);
@@ -202,6 +202,16 @@ async function getTechnicalMarineStores() {
   return responce.data?.data?.attributes
 }
 
+async function getPorts() {
+  const params = qs.stringify({
+    populate: [
+      'UAE_Ports.Image', "Oman.Image"
+    ],
+  })
+  const res = await fetch(`${process.env.BACKEND_PUBLIC_BASE_URL}/api/port?${params}`)
+  const ports = await res.json()
+  return { ports: ports.data }
+}
 
 async function getWhyChoose() {
   const params = qs.stringify({
@@ -247,4 +257,5 @@ export {
   getTechnicalMarineStores,
   getWhyChoose,
   getPrivacyPolicy,
+  getPorts
 }

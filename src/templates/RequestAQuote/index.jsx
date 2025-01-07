@@ -6,6 +6,7 @@ const defaultValues = {
   vessel: '',
   refNo: '',
   country: '',
+  portOfArrival: '',
   eta: '',
   etd: '',
   contactPerson: '',
@@ -17,8 +18,13 @@ const defaultValues = {
   comments: ''
 }
 
-const RequestAQuoteTemplate = () => {
+const RequestAQuoteTemplate = ({ ports }) => {
   const [formData, setFormData] = useState(defaultValues);
+  const portList = [
+    ...ports?.attributes?.Oman?.map(({ Name }) => ({ label: Name, value: Name })),
+    ...ports?.attributes?.UAE_Ports?.map(({ Name }) => ({ label: Name, value: Name })),
+  ];
+  portList.sort((a, b) => a.label.localeCompare(b.label));
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -58,6 +64,14 @@ const RequestAQuoteTemplate = () => {
 
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
+    if (selectedFile && selectedFile.type !== 'application/pdf') {
+      alert('Please upload a PDF file.');
+      return;
+    }
+    if (selectedFile && selectedFile.size > 5 * 1024 * 1024) {
+      alert('File size should not exceed 5MB.');
+      return;
+    }
     if (selectedFile) {
       setFormData(prevData => ({
         ...prevData,
@@ -91,6 +105,9 @@ const RequestAQuoteTemplate = () => {
                 placeholder="Type here"
                 className="w-full h-[55px] px-4 py-2 border border-theme-main focus:outline-none text-theme-main focus:text-theme-main"
                 onChange={handleChange}
+                onInput={(e) => {
+                  e.target.value = e.target.value.replace(/[^a-zA-Z]/g, '');
+                }}
               />
             </div>
             <div>
@@ -119,7 +136,7 @@ const RequestAQuoteTemplate = () => {
               <label className='block ml-[25px] mb-2 font_calibri text-lg leading[26px] text-theme-main'>Country</label>
               <select
                 name="country"
-                value={formData.country} // Controlled via formData state
+                value={formData.country}
                 className="w-full h-[55px] px-4 py-2 border border-theme-main focus:outline-none text-theme-main focus:text-theme-main appearance-none"
                 onChange={handleChange}
                 style={{
@@ -133,7 +150,24 @@ const RequestAQuoteTemplate = () => {
                 <option value="option3">Option 3</option>
               </select>
             </div>
-
+            <div className='relative'>
+              <label className='block ml-[25px] mb-2 font_calibri text-lg leading[26px] text-theme-main'>Port of Arrival</label>
+              <select
+                name="portOfArrival"
+                value={formData.portOfArrival}
+                className="w-full h-[55px] px-4 py-2 border border-theme-main focus:outline-none text-theme-main focus:text-theme-main appearance-none"
+                onChange={handleChange}
+                style={{
+                  background: 'url(/svg/arrow_drop_down.svg) no-repeat right 10px center',
+                  backgroundSize: '15px 7.5px',
+                }}
+              >
+                <option value="" disabled hidden>Select</option>
+                {portList?.map(({ label, value }) =>
+                  <option key={value} value={value}>{label}</option>
+                )}
+              </select>
+            </div>
             <div>
               <label className='block ml-[25px] mb-2 font_calibri text-lg leading[26px] text-theme-main'>Estimated Time of Arrival</label>
               <input
@@ -173,6 +207,9 @@ const RequestAQuoteTemplate = () => {
                 placeholder="Type here"
                 className="w-full h-[55px] px-4 py-2 border border-theme-main focus:outline-none text-theme-main focus:text-theme-main"
                 onChange={handleChange}
+                onInput={(e) => {
+                  e.target.value = e.target.value.replace(/[^a-zA-Z]/g, '');
+                }}
               />
             </div>
             <div>
@@ -210,7 +247,7 @@ const RequestAQuoteTemplate = () => {
             <div>
               <label className='block ml-[25px] mb-2 font_calibri text-lg leading[26px] text-theme-main'>Email *</label>
               <input
-                type="text"
+                type="email"
                 name="email"
                 value={formData.email}
                 placeholder="Type here"

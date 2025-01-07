@@ -10,10 +10,10 @@ const HeaderTwo = ({ data }) => {
 
   return (
     <header className="py-3 fixed w-full top-0 z-[200] hidden md:block text-theme-main font_calibri bg-white">
-      <div className="container mx-auto px-3">
+      <div className="container mx-auto">
         <div className="flex justify-between items-center gap-4">
           <div className=" md:w-[10%]">
-            <figure className={`flex justify-center items-center`}>
+            <figure>
               <Link href="/" className="">
                 <Image src={Logo?.data?.attributes.url ? Logo?.data?.attributes.url : `/svg/logo.svg`} alt="logo" width={126} height={74} className="w-16 md:w-[80px]" />
               </Link>
@@ -25,45 +25,49 @@ const HeaderTwo = ({ data }) => {
               {
                 Secound_Header_Nav?.map((item, idx) => (
                   idx + 1 < Secound_Header_Nav.length ?
-                    item?.Label?.toLowerCase() === 'who we are' ?
-                      <MegaMenu
-                        title='who are we'
-                        links={[
-                          {
-                            label: 'Ports',
-                            href: '/ports'
-                          },
-                          {
-                            label: 'Who are we',
-                            href: '/about'
-                          },
-                        ]}
-                      /> :
-                      item?.Label?.toLowerCase() === 'standards & innovation' ?
+                    (
+                      item?.Label?.toLowerCase() === 'who we are' ?
                         <MegaMenu
-                          title='Standards & Innovation'
+                          title='who are we'
                           links={[
                             {
-                              label: 'Sustainability at Adamallys',
-                              href: '/sustainability'
+                              label: 'Ports',
+                              href: '/ports'
                             },
                             {
-                              label: 'Digitalization & Technology at Adamallys',
-                              href: '/digitalization'
-                            },
-                            {
-                              label: 'Certification & Membership',
-                              href: '/certification'
+                              label: 'Who are we',
+                              href: '/about'
                             },
                           ]}
                         /> :
-                        <li key={idx}>
-                          <Link
-                            href={item?.Link}
-                            className={`uppercase ${pathname === item?.Link ? 'font-bold' : ''}`}
-                          >{item?.Label}</Link>
-                          <div className={`mt-2 w-[18px] h-[2px] ${pathname === item?.Link ? 'bg-theme-main' : ''}`} />
-                        </li> :
+                        item?.Label?.toLowerCase() === 'standards & innovation' ?
+                          <MegaMenu
+                            title='Standards & Innovation'
+                            links={[
+                              {
+                                label: 'Sustainability at Adamallys',
+                                href: '/sustainability'
+                              },
+                              {
+                                label: 'Digitalization & Technology at Adamallys',
+                                href: '/digitalization'
+                              },
+                              {
+                                label: 'Certification & Membership',
+                                href: '/certification'
+                              },
+                            ]}
+                          /> :
+                          <li key={idx} className="relative group">
+                            <Link
+                              href={item?.Link}
+                              className={`block uppercase hover:font-bold group ${pathname === item?.Link ? 'font-bold' : ''}`}
+                            >
+                              {item?.Label}
+                            </Link>
+                            <div className={`mt-2 w-[18px] h-[2px] group-hover:bg-theme-main ${pathname === item?.Link ? 'bg-theme-main' : ''}`} />
+                          </li>
+                    ) :
                     <Link href={item?.Link} key={idx} className="text-white uppercase hidden xl:block bg-theme-main text-left px-[19px] py-[9px]">
                       <p className="text-[15px] uppercase">{item?.Label}</p>
                     </Link>

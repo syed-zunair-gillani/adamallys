@@ -36,12 +36,12 @@ const HeaderOne = ({ data }) => {
                       },
                     ]}
                   /> :
-                  <li key={idx}>
+                  <li key={idx} className="relative group">
                     <Link
                       href={item?.Link}
-                      className={`uppercase ${pathname === item?.Link ? 'font-bold' : ''}`}
+                      className={`uppercase hover:font-bold ${pathname === item?.Link ? 'font-bold' : ''}`}
                     >{item?.Label}</Link>
-                    <div className={`mt-2 w-[18px] h-[2px] ${pathname === item?.Link ? 'bg-theme-main' : ''}`} />
+                    <div className={`mt-2 w-[18px] h-[2px] group-hover:bg-theme-main ${pathname === item?.Link ? 'bg-theme-main' : ''}`} />
                   </li>
               ))}
             </ul>
@@ -68,18 +68,18 @@ const HeaderOne = ({ data }) => {
                       title='who are we'
                       links={[
                         {
-                          label: 'Ports',
-                          href: '/ports'
-                        },
-                        {
                           label: 'Who are we',
                           href: '/about'
                         },
+                        {
+                          label: 'Ports',
+                          href: '/ports'
+                        },
                       ]}
                     /> :
-                    <li key={idx}>
-                      <Link className="uppercase" href={item?.Link} key={idx}>{item?.Label}</Link>
-                      <div className={`mt-2 w-[18px] h-[2px] ${pathname === item?.Link ? 'bg-theme-main' : ''}`} />
+                    <li key={idx} className="relative group">
+                      <Link className="uppercase hover:font-bold" href={item?.Link} key={idx}>{item?.Label}</Link>
+                      <div className={`mt-2 w-[18px] h-[2px] group-hover:bg-theme-main ${pathname === item?.Link ? 'bg-theme-main' : ''}`} />
                     </li>
                 ))}
               </ul>

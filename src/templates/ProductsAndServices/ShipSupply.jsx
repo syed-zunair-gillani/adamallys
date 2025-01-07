@@ -35,7 +35,7 @@ const ShipSupply = (props) => {
         <div className='md:w-[30%]'>
           <div className='sticky top-20'>
             <h2 className='text-3xl md:text-5xl lg:text-6xl font_calibri text-theme-main font-bold'>{title}</h2>
-            <div className='ship_supply_content font_calibri mt-4'>
+            <div className='ship_supply_content font_calibri mt-4 text-[#3E3E3E] text-lg font-light leading-[26px]'>
               {text}
             </div>
           </div>
@@ -46,16 +46,16 @@ const ShipSupply = (props) => {
               Product_and_service?.map?.((item, idx) => (
                 <div key={idx}>
                   <div className='grid grid-cols-2 gap-10'>
-                    <figure>
-                      <Image src={item?.Image?.data?.attributes?.url} alt={item?.title} className='h-[214px] w-full object-cover' width={400} height={214} />
+                    <figure className='h-ful w-full'>
+                      <Image src={item?.Image?.data?.attributes?.url} alt={item?.title} className='h-full w-full object-cover' width={400} height={214} />
                     </figure>
                     <div className='flex flex-col justify-between'>
                       <div>
                         <h3 className='text-theme-main text-4xl mb-1 font_franklin'>{item?.title}</h3>
-                        <p>{item?.Excerpt}</p>
+                        <p className='mt-3 text-lg font-light text-[#3E3E3E] leading-[26px] font_calibri'>{item?.Excerpt}</p>
                       </div>
 
-                      <Link href={item?.link} className='text-theme-main flex gap-[29px]'>
+                      <Link href={item?.link} className='mt-[45px] text-theme-main flex gap-[29px]'>
                         Read More
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                           <mask id="mask0_550_4737" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">

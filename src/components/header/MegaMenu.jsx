@@ -27,30 +27,32 @@ const MegaMenu = ({ title, links = [] }) => {
 
   return (
     <div className="relative">
-      <div className="relative product-services">
+      <div className="product-services">
         <Link
           href={title ? "" : "/products-&-services"}
-          className={`${styles.product_services} ${(isActive || (!title && isProductActive)) ? 'font-bold' : ''}`}
+          className={`relative group hover:font-bold ${styles.product_services} ${(isActive || (!title && isProductActive)) ? 'font-bold' : ''}`}
         >
           {title || 'Product & Services'}
           <span className={`block mt-2 w-[18px] h-[2px] ${(isActive || (!title && isProductActive)) ? 'bg-theme-main' : ''}`} />
         </Link>
-        <div className={`${styles.mega_menu} w-[125px] h-12 absolute top-1`}>
+        <div className={`${styles.mega_menu} w-[145px] h-12 absolute top-1`}>
           <nav
             style={{ zIndex: 999, boxShadow: '0px 2px 12.5px 0px rgba(46, 54, 143, 0.09)' }}
             className={`absolute flex top-[36px] bg-white text-theme-main z-[999]`}
           >
-            <ul className="relative min-w-[310px] flex flex-col gap-7 py-[31px] px-[35px]">
+            <ul className="relative min-w-[310px] flex flex-col gap-2 py-4 px-5">
               {links?.length ?
                 links?.map((linkItem, index) =>
                   <li key={index} className="relative group">
                     <Link
                       href={linkItem?.href}
-                      className={`whitespace-nowrap ${pathname === linkItem?.href ? 'font-bold' : ''} hover:font-bold`}
+                      className={`group whitespace-nowrap ${pathname === linkItem?.href ? 'font-bold' : ''} hover:font-bold`}
                     >
                       {linkItem?.label}
                     </Link>
-                    {pathname === linkItem?.href && <div className='mt-2 w-[18px] h-[2px] bg-theme-main' />}
+                    <div
+                      className={`group-hover:bg-theme-main mt-2 w-[18px] h-[2px] transition-colors duration-300 ${pathname === linkItem?.href ? 'bg-theme-main' : 'bg-transparent'}`}
+                    />
                   </li>
                 ) :
                 <>
@@ -61,7 +63,7 @@ const MegaMenu = ({ title, links = [] }) => {
                   <li
                     onMouseEnter={() => setIsShipSupplyHovered(true)}
                     onMouseLeave={() => setIsShipSupplyHovered(false)}
-                    className="relative"
+                    className="relative group"
                   >
                     <div className="flex items-center justify-between">
                       <Link
@@ -75,23 +77,23 @@ const MegaMenu = ({ title, links = [] }) => {
                         <Image src={'/svg/arrow_forward_link.svg'} alt='arrow' width={13} height={13} />
                       }
                     </div>
-                    {isShipSupplyPage && <div className='mt-2 w-[18px] h-[2px] bg-theme-main' />}
+                    <div className={`mt-2 w-[18px] h-[2px] group-hover:bg-theme-main ${isShipSupplyPage ? 'bg-theme-main' : ''}`} />
                   </li>
 
-                  <li>
+                  <li className="relative group">
                     <Link
                       href="/marine-logistics-&-warehousing"
                       className={`whitespace-nowrap ${isMarineLogisticsPage ? 'font-bold' : ''} hover:font-bold`}
                     >Marine Logistics & Warehousing</Link>
-                    {isMarineLogisticsPage && <div className='mt-2 w-[18px] h-[2px] bg-theme-main' />}
+                    <div className={`mt-2 w-[18px] h-[2px] group-hover:bg-theme-main ${isMarineLogisticsPage ? 'bg-theme-main' : ''}`} />
                   </li>
 
-                  <li>
+                  <li className="relative group">
                     <Link
                       href="/industrial-&-energy-sector-supplies"
                       className={`whitespace-nowrap ${isIndustrialPage ? 'font-bold' : ''} hover:font-bold`}
                     >Industrial & Energy Sector Supplies</Link>
-                    {isIndustrialPage && <div className='mt-2 w-[18px] h-[2px] bg-theme-main' />}
+                    <div className={`mt-2 w-[18px] h-[2px] group-hover:bg-theme-main ${isIndustrialPage ? 'bg-theme-main' : ''}`} />
                   </li>
                 </>
               }
@@ -105,13 +107,14 @@ const MegaMenu = ({ title, links = [] }) => {
                 <div className='w-[2px] bg-[rgba(0,0,0,0.075)]' />
                 <div
                   className={`w-full min-w-[505px] flex  w-full bg-white text-theme-main`}>
-                  <ul className="grid grid-cols-2 gap-7 py-[31px] px-[35px]">
-                    {shipSupplyPaginationData?.map((page) => (
+                  <ul className="grid grid-cols-2 gap-2 py-[31px] px-[35px]">
+                    {shipSupplyPaginationData?.map((page, index) => (
                       <li
-                        key={page?.link}
+                        key={page?.link + index}
                         className={`font-light ${page?.link === pathname && "!font-bold"}`}
                       >
-                        <Link href={page?.link} className="whitespace-nowrap text-theme-main font_calibri">
+                        <Link
+                          href={page?.link} className={`${styles.below_line} whitespace-nowrap text-theme-main hover:font-bold font_calibri`}>
                           {page?.label}
                         </Link>
                         {page?.link === pathname && <div className="mt-2 w-[18px] h-[2px] bg-theme-main" />}
