@@ -279,4 +279,13 @@ p {
     font-size: 14px;
     margin-top: 0 !important;
   }
+  .banner-gradient {
+    background: linear-gradient(0deg, rgba(46, 54, 143, 1) 11%, rgba(46, 54, 143, 1) 24%, rgba(46, 54, 143, 1) 37%, rgba(46, 54, 143, 0.9585084033613446) 43%, rgba(46, 54, 143, 0.9024859943977591) 48%, rgba(46, 54, 143, 0) 100%);
+  }
+}
+
+.tags::-webkit-scrollbar { /* WebKit */
+  width: 0;
+  height: 0;
+  display: none;
 }
