@@ -40,7 +40,7 @@ const RequestAQuoteTemplate = ({ ports }) => {
         const countryData = response.data.map(country => ({
           name: country.name.common,
           code: country.cca2,
-          phoneCode: country.idd ? `${country.idd.root}${country.idd.suffixes ? country.idd.suffixes.join(', ') : ''}` : ''
+          phoneCode: country.idd ? country.idd.root + (country.idd.suffixes ? country.idd.suffixes[0] : '') : ''
         }));
 
         const sortedCountries = countryData.sort((a, b) =>
@@ -78,25 +78,6 @@ const RequestAQuoteTemplate = ({ ports }) => {
     setFormData(prevData => ({
       ...prevData,
       [name]: value
-    }));
-  };
-
-  const handleCodeChange = (e) => {
-    let inputValue = e.target.value;
-
-    if (inputValue[0] !== '+') {
-      inputValue = '+' + inputValue.replace(/[^0-9]/g, '');
-    } else {
-      inputValue = '+' + inputValue.slice(1).replace(/[^0-9]/g, '');
-    }
-
-    if (inputValue.length > 4) {
-      inputValue = inputValue.slice(0, 4);
-    }
-
-    setFormData(prevData => ({
-      ...prevData,
-      phoneCode: inputValue
     }));
   };
 
@@ -183,14 +164,15 @@ const RequestAQuoteTemplate = ({ ports }) => {
   }
 
   return (
-    <main className='mt-[6rem] mb-[40px] lg:mb-[88px] container mx-auto'>
+    <main className='mt-[3rem] md:mt-[6rem] mb-[40px] lg:mb-[88px] container mx-auto px-[18px] md:px-0'>
       <div className="pt-[30px] md:pt-[60px]">
-        <h1 className='font_calibri capitalize text-[40px] leading-[40px] text-center font-bold text-theme-main mb-[8px]'>Request a Quote</h1>
-        <p className='font_calibri text-center text-lg leading[26px] text-theme-main'>Inquire by emailing adamallys@adamallys-llc.com OR fill out the form below</p>
+        <h1 className='font_calibri capitalize text-[25px] md:text-[40px] leading-[40px] text-center font-bold text-theme-main mb-[8px]'>Request a Quote</h1>
+        <div className='w-[49px] h-[2px] bg-[#8B8B8B] md:hidden mx-auto my-3' />
+        <p className='font_calibri max-w-[262px] md:max-w-full mx-auto text-center text-[12px] md:text-lg leading[26px] text-theme-main'>Inquire by emailing adamallys@adamallys-llc.com OR fill out the form below</p>
         <form onSubmit={handleSubmit} className='max-w-[690px] mx-auto mt-[26px]'>
           <div className="flex flex-col gap-4">
             <div>
-              <label className='block ml-[25px] mb-2 font_calibri text-lg leading[26px] text-theme-main'>Company Name*</label>
+              <label className='block ml-[25px] mb-2 font_calibri text-[14px] md:text-lg leading[26px] text-theme-main'>Company Name*</label>
               <input
                 type="text"
                 name="companyName"
@@ -207,7 +189,7 @@ const RequestAQuoteTemplate = ({ ports }) => {
               )}
             </div>
             <div>
-              <label className='block ml-[25px] mb-2 font_calibri text-lg leading[26px] text-theme-main'>Vessel *</label>
+              <label className='block ml-[25px] mb-2 font_calibri text-[14px] md:text-lg leading[26px] text-theme-main'>Vessel *</label>
               <input
                 type="text"
                 name="vessel"
@@ -221,7 +203,7 @@ const RequestAQuoteTemplate = ({ ports }) => {
               )}
             </div>
             <div>
-              <label className='block ml-[25px] mb-2 font_calibri text-lg leading[26px] text-theme-main'>Ref No. *</label>
+              <label className='block ml-[25px] mb-2 font_calibri text-[14px] md:text-lg leading[26px] text-theme-main'>Ref No. *</label>
               <input
                 type="text"
                 name="refNo"
@@ -235,7 +217,7 @@ const RequestAQuoteTemplate = ({ ports }) => {
               )}
             </div>
             <div className='relative'>
-              <label className='block ml-[25px] mb-2 font_calibri text-lg leading-[26px] text-theme-main'>
+              <label className='block ml-[25px] mb-2 font_calibri text-[14px] md:text-lg leading-[26px] text-theme-main'>
                 Country
               </label>
               <select
@@ -260,7 +242,7 @@ const RequestAQuoteTemplate = ({ ports }) => {
               </select>
             </div>
             <div className='relative'>
-              <label className='block ml-[25px] mb-2 font_calibri text-lg leading[26px] text-theme-main'>Port of Arrival</label>
+              <label className='block ml-[25px] mb-2 font_calibri text-[14px] md:text-lg leading[26px] text-theme-main'>Port of Arrival</label>
               <select
                 name="portOfArrival"
                 value={formData.portOfArrival}
@@ -278,7 +260,7 @@ const RequestAQuoteTemplate = ({ ports }) => {
               </select>
             </div>
             <div>
-              <label className='block ml-[25px] mb-2 font_calibri text-lg leading[26px] text-theme-main'>Estimated Time of Arrival</label>
+              <label className='block ml-[25px] mb-2 font_calibri text-[14px] md:text-lg leading[26px] text-theme-main'>Estimated Time of Arrival</label>
               <input
                 type="date"
                 name="eta"
@@ -293,7 +275,7 @@ const RequestAQuoteTemplate = ({ ports }) => {
               />
             </div>
             <div>
-              <label className='block ml-[25px] mb-2 font_calibri text-lg leading[26px] text-theme-main'>Estimated Time of Departure</label>
+              <label className='block ml-[25px] mb-2 font_calibri text-[14px] md:text-lg leading[26px] text-theme-main'>Estimated Time of Departure</label>
               <input
                 type="date"
                 name="etd"
@@ -308,7 +290,7 @@ const RequestAQuoteTemplate = ({ ports }) => {
               />
             </div>
             <div>
-              <label className='block ml-[25px] mb-2 font_calibri text-lg leading[26px] text-theme-main'>Contact Person *</label>
+              <label className='block ml-[25px] mb-2 font_calibri text-[14px] md:text-lg leading[26px] text-theme-main'>Contact Person *</label>
               <input
                 type="text"
                 name="contactPerson"
@@ -325,16 +307,28 @@ const RequestAQuoteTemplate = ({ ports }) => {
               )}
             </div>
             <div>
-              <label className='block ml-[25px] mb-2 font_calibri text-lg leading[26px] text-theme-main'>Phone *</label>
+              <label className='block ml-[25px] mb-2 font_calibri text-[14px] md:text-lg leading[26px] text-theme-main'>Phone *</label>
               <div className="flex gap-2">
-                <input
-                  type="text"
+                <select
                   name="phoneCode"
                   value={formData.phoneCode}
-                  placeholder="Code"
-                  className="w-[106px] h-[55px] px-4 py-2 border border-theme-main focus:outline-none text-theme-main focus:text-theme-main"
-                  onChange={handleCodeChange}
-                />
+                  className="w-[106px] max-w-[200px] h-[55px] px-4 py-2 border border-theme-main focus:outline-none text-theme-main focus:text-theme-main appearance-none"
+                  onChange={handleChange}
+                  style={{
+                    background: 'url(/svg/arrow_drop_down.svg) no-repeat right 10px center',
+                    backgroundSize: '15px 7.5px',
+                  }}
+                >
+                  <option className='w-[200px]' value="" disabled hidden>Code</option>
+                  {countries.map(country => (
+                    <option className='w-[200px]'
+                      value={country?.phoneCode}
+                      key={country?.phoneCode + country?.name}
+                    >
+                      {country?.phoneCode}
+                    </option>
+                  ))}
+                </select>
                 <input
                   type="text"
                   name="phone"
@@ -349,7 +343,7 @@ const RequestAQuoteTemplate = ({ ports }) => {
               )}
             </div>
             <div>
-              <label className='block ml-[25px] mb-2 font_calibri text-lg leading[26px] text-theme-main'>Fax</label>
+              <label className='block ml-[25px] mb-2 font_calibri text-[14px] md:text-lg leading[26px] text-theme-main'>Fax</label>
               <input
                 type="text"
                 name="fax"
@@ -360,7 +354,7 @@ const RequestAQuoteTemplate = ({ ports }) => {
               />
             </div>
             <div>
-              <label className='block ml-[25px] mb-2 font_calibri text-lg leading[26px] text-theme-main'>Email *</label>
+              <label className='block ml-[25px] mb-2 font_calibri text-[14px] md:text-lg leading[26px] text-theme-main'>Email *</label>
               <input
                 type="email"
                 name="email"
@@ -374,7 +368,7 @@ const RequestAQuoteTemplate = ({ ports }) => {
               )}
             </div>
             <div>
-              <label className='block ml-[25px] mb-2 font_calibri text-lg leading[26px] text-theme-main'>Attach file, if any (Max: 5MB // Only .pdf format)</label>
+              <label className='block ml-[25px] mb-2 font_calibri text-[14px] md:text-lg leading[26px] text-theme-main'>Attach file, if any (Max: 5MB // Only .pdf format)</label>
               <div className="relative">
                 <input
                   type="file"
@@ -399,7 +393,7 @@ const RequestAQuoteTemplate = ({ ports }) => {
               </div>
             </div>
             <div>
-              <label className='block ml-[25px] mb-2 font_calibri text-lg leading[26px] text-theme-main'>Comments</label>
+              <label className='block ml-[25px] mb-2 font_calibri text-[14px] md:text-lg leading[26px] text-theme-main'>Comments</label>
               <textarea
                 name="comments"
                 rows={6}
@@ -410,17 +404,17 @@ const RequestAQuoteTemplate = ({ ports }) => {
               />
             </div>
           </div>
-          <div className="flex gap-[8px] mt-[30px]">
+          <div className="flex flex-col-reverse items-center sm:flex-row gap-[8px] mt-[30px]">
             <button
               type="button"
               onClick={handleCancel}
-              className={`flex font-bold text-lg items-center justify-center gap-[12px] w-full h-[55px] px-[30px] py-[20px] border border-theme-main text-theme-main`}
+              className={`flex font-bold w-[132px] sm:w-full text-[14px] md:text-lg items-center justify-center gap-[12px] w-full h-[55px] px-[30px] py-[20px] border border-theme-main text-theme-main`}
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="flex font-bold text-lg items-center justify-center gap-[12px] w-full h-[55px] px-4 py-2 bg-[text-theme-main] text-white bg-theme-main"
+              className="flex font-bold w-[132px] sm:w-full text-[14px] md:text-lg items-center justify-center gap-[12px] w-full h-[55px] px-4 py-2 bg-[text-theme-main] text-white bg-theme-main"
             >
               Send
             </button>
