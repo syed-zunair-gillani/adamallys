@@ -37,7 +37,7 @@ const IndustrialEnergy = (props) => {
         </div>
         <div className='lg:w-[70%]'>
           <h2 className='text-[60px] font_calibri text-center md:text-[60px] md:text-left leading-[67px] font-bold text-theme-main hidden md:block'>{title}</h2>
-          <p className="text-lg font-light leading-[26px] py-[17px] hidden md:block">
+          <p className="font_calibri text-lg font-light leading-[26px] py-[17px] hidden md:block">
             {info}
           </p>
           <p className="text-[25px] md:text-[40px] text-center md:text-left font_calibri leading-[45px] font-bold text-theme-main">Our Key Product Offerings</p>
