@@ -38,7 +38,7 @@ const DistributorsAndStockistsTemplate = ({ Cards, Banner }) => {
 
   return (
     <main
-      className='mt-[8rem] container mx-auto'>
+      className='mt-[8rem] container mx-auto px-3 lg:px-0'>
       <section>
         <div className={`relative min-h-[418px] flex flex-col text-white justify-center items-center`}
           style={{
@@ -48,7 +48,7 @@ const DistributorsAndStockistsTemplate = ({ Cards, Banner }) => {
             backgroundImage: `url(${Banner?.Image?.data?.attributes?.url})`
           }}
         >
-          <div className="relative z-[2] px-8">
+          <div className="relative z-[2] px-8 hidden md:block">
             <h1 className="text-white text-[60px] leading-[67px] text-center font-bold">
               {Banner?.title}
             </h1>
@@ -60,11 +60,22 @@ const DistributorsAndStockistsTemplate = ({ Cards, Banner }) => {
           </div>
         </div>
       </section>
-      <div className="my-[68px] flex flex-wrap gap-[24px]">
+
+      <div className="relative z-[2] px-8 mt-6 md:hidden">
+        <h1 className=" text-[25px] md:text-[60px] leading-[67px] text-[#171F7C] text-center font-bold">
+          {Banner?.title}
+        </h1>
+        <p className=" text-[14px] text-center font-bold text-[#171F7C]">
+          {Banner?.sub_title}
+        </p>
+      </div>
+
+
+      <div className="mt-10 md:my-[68px] flex flex-wrap gap-[24px]">
         {
           data?.map((distributor, index) =>
-            <div key={distributor?.title} className=" basis-full flex-1 lg:basis-[40%] relative border flex min-h-[360px]">
-              <div className="flex-1 pt-[42%] lg:pt-[10%] pl-[64px] pr-[57px] border-r">
+            <div key={distributor?.title} className=" basis-full flex-1 lg:basis-[40%] relative border flex flex-col lg:flex-row min-h-[360px]">
+              <div className="flex-1 pt-8 pb-8 md:pb-0 md:pt-10 pl-[64px] pr-[57px] border-r border-b min-h-[220px] flex justify-center items-center md:!items-start">
                 <Image
                   width={198}
                   height={198}
@@ -73,11 +84,11 @@ const DistributorsAndStockistsTemplate = ({ Cards, Banner }) => {
                 />
               </div>
               <div className="flex-1 pt-[42px] pl-[64px] pr-[57px]">
-                <p className="text-theme-main font-bold text-[30px] leading-[44px] mb-3">{distributor?.title}</p>
-                <div className="mb-[150px] ">
+                <p className="text-theme-main font-bold text-lg text-center md:text-left md:text-[30px] leading-[44px] mb-3">{distributor?.title}</p>
+                <div className="mb-[150px] flex flex-col justify-center md:justify-start md:items-start">
                   <p
                     ref={(el) => descriptionRefs.current[index] = el}
-                    className={`text-[#3E3E3E] font_calibri inline-block font-light text-lg leading-[26px] ${expanded[distributor.title] ? '' : 'truncate'}`}
+                    className={`text-[#3E3E3E] font_calibri text-center md:text-left text-xs inline-block font-light md:text-lg leading-[26px] ${expanded[distributor.title] ? '' : 'truncate'}`}
                     style={{
                       whiteSpace: 'wrap',
                       maxHeight: expanded[distributor.title] ? 'none' : '130px',
@@ -91,7 +102,7 @@ const DistributorsAndStockistsTemplate = ({ Cards, Banner }) => {
                   </p>
                   {showButton[distributor.title] &&
                     <button
-                      className="inline-block  text-theme-main font-semibold"
+                      className="inline-block text-theme-main text-sm md:text-base md:font-semibold"
                       onClick={() => toggleExpand(distributor.title)}
                     >
                       {expanded[distributor.title] ? 'Read Less' : 'Read More'}
@@ -102,12 +113,12 @@ const DistributorsAndStockistsTemplate = ({ Cards, Banner }) => {
               <div style={{
                 transform: 'translateX(-50%)'
               }} className="absolute left-[50%] bottom-[42px] bg-white pt-[41px] pb-[38px]  ">
-                <a className='whitespace-nowrap bg-white text-lg font-bold leading-[26px] text-theme-main py-4 px-[65px] border border-[#B2B6E0] rounded-[30px]' href={distributor?.link} target='_blank'>Visit Website</a>
+                <a className='whitespace-nowrap bg-white text-sm md:text-lg font-bold leading-[26px] text-theme-main py-4 px-[65px] border border-[#B2B6E0] rounded-[30px]' href={distributor?.link} target='_blank'>Visit Website</a>
               </div>
             </div>
           )
         }
-        {data.length % 2 !== 0 && <div className='basis-full flex-1 justify-center flex-col items-center bg-gradient-to-r from-[#2E368F] to-[#B2B6E0] opacity-75 lg:basis-[40%] relative border flex min-h-[360px]'>
+        {data.length % 2 !== 0 && <div className='basis-full flex-1 hidden md:flex justify-center flex-col items-center bg-gradient-to-r from-[#2E368F] to-[#B2B6E0] opacity-75 lg:basis-[40%] relative border min-h-[360px]'>
           <Image src="/svg/site-fav.svg" alt="" width={174} height={84} />
         </div>}
       </div>
