@@ -3,7 +3,6 @@ import { useState } from 'react';
 import Image from 'next/image';
 import qs from "qs";
 import { Axios } from '@/config/Axios';
-import { useRouter } from 'next/navigation';
 
 const RightDrawer = ({ categories, specificCategorries, setProducts }) => {
   const [generalCheckedValues, setGeneralCheckedValues] = useState([]);
@@ -11,7 +10,6 @@ const RightDrawer = ({ categories, specificCategorries, setProducts }) => {
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
   const [selectAllChecked, setSelectAllChecked] = useState(false);
   const [isGeneralCategories, setIsGeneralCategories] = useState(true);
-  const router = useRouter()
 
   const toggleDrawer = () => setIsDrawerVisible(!isDrawerVisible);
 
@@ -29,7 +27,7 @@ const RightDrawer = ({ categories, specificCategorries, setProducts }) => {
         const updatedSValues = e.target.checked
           ? [...prev, value]
           : prev.filter((item) => item !== value);
-          return updatedSValues;
+        return updatedSValues;
       });
     }
   };
@@ -69,7 +67,7 @@ const RightDrawer = ({ categories, specificCategorries, setProducts }) => {
         },
       },
       pagination: {
-        page: 1,    
+        page: 1,
         pageSize: 5
       }
     });
@@ -86,7 +84,7 @@ const RightDrawer = ({ categories, specificCategorries, setProducts }) => {
         onClick={toggleDrawer}
         className="flex items-center justify-center gap-[12px] w-[115px] h-[55px] px-4 py-2 bg-[text-theme-main] text-white bg-theme-main"
       >
-        <p>Filter</p>
+        <p className='text-[14px] md:text-[18px]'>Filter</p>
         <Image
           width={24}
           height={24}
@@ -97,9 +95,9 @@ const RightDrawer = ({ categories, specificCategorries, setProducts }) => {
       </button>
 
       {isDrawerVisible && (
-        <div className="absolute right-0 w-[390px] bg-[#EBEDFF] shadow-lg py-[30px] z-[9999]">
+        <div className="absolute right-0 w-[402px] md:w-[390px] bg-[#EBEDFF] shadow-lg py-[30px] z-[9999]">
           <div className="flex gap-[30px] justify-between items-center pb-[30px] px-[30px]">
-            <p className="flex-1 text-[30px] leading-[30px] font-bold text-theme-main font_calibri">Filter</p>
+            <p className="flex-1 text-[25px] md:text-[30px] leading-[30px] md:font-bold text-theme-main font_calibri">Filter</p>
             <button className='text-lg leading-[18px] text-theme-main font_calibri'>Clear</button>
             <button
               onClick={toggleDrawer}

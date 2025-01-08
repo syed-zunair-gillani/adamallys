@@ -31,7 +31,7 @@ const AccordionItem = ({ isHeader, isFooter, title, content, isOpen, onToggle, h
       </button>
       {isOpen && (
         <div className={`${isHeader ? "" : hideToggle ? "pb-5" : "pt-[14px] pb-6 px-4"}`}>
-          <div className='font_calibri'>{content}</div>
+          <div className='font_calibri text-[12px] md:text-lg'>{content}</div>
         </div>
       )}
     </div>

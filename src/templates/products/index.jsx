@@ -34,14 +34,13 @@ const ProductsTemplate = ({ data, categories, specificCategorries, baseCategorri
     router?.push(`?baseCategory=${e.target.value}`)
   }
 
-
-
   return (
-    <main className='mt-[6rem] container mx-auto'>
-      <div className='py-[30px] md:py-[60px]'>
-        <h1 className='font_calibri capitalize text-[60px] leading-[60px] text-center font-bold text-theme-main'>Products</h1>
-        <div className="flex flex-wrap lg:flex-nowrap items-center gap-[12px] mt-[42px]">
-          <p className='font_calibri capitalize text-lg leading-[26px] text-theme-main mr-[40px]'>
+    <main className='mt-[4rem] md:mt-[6rem] container mx-auto'>
+      <div className='md:py-[60px] px-[18px] xl:px-0'>
+        <h1 className='font_calibri capitalize text-[25px] md:text-[60px] leading-[60px] text-center font-bold text-theme-main'>Products</h1>
+        <div className='w-[49px] h-[2px] bg-[#8B8B8B] md:hidden mx-auto' />
+        <div className="flex flex-wrap lg:flex-nowrap items-center gap-[12px] mt-3 md:mt-[42px]">
+          <p className='font_calibri mx-auto max-w-[276px] md:max-w-full text-center md:text-left text-[12px] capitalize md:text-lg leading-[18px] md:leading-[26px] text-theme-main md:mr-[40px]'>
             Please use the search to filter the products. Please be patient as it has {grandTotal} products listed.
           </p>
           <div className="relative flex items-center flex-1 lg:flex-auto min-w-[220px]">
@@ -65,17 +64,17 @@ const ProductsTemplate = ({ data, categories, specificCategorries, baseCategorri
               ▼
             </button>
           </div>
-          <div className="relative flex items-center flex-1 lg:flex-auto min-w-[220px]">
+          <div className="hidden md:block relative flex items-center flex-1 lg:flex-auto min-w-[220px]">
             <select
               value={selectBaseCategory}
-              onChange={(e)=>handleSelectCategory(e)}
+              onChange={(e) => handleSelectCategory(e)}
               className="w-full lg:max-w-[414px] h-[55px] pl-2 pr-10 py-2 border border-theme-main focus:outline-none text-theme-main focus:text-theme-main appearance-none"
             >
               <option value="" disabled selected>
                 Provisions
               </option>
               {
-                baseCategorries?.map((item,idx)=>(
+                baseCategorries?.map((item, idx) => (
                   <option value={item?.Slug} key={idx}>{item?.Name}</option>
                 ))
               }
@@ -85,28 +84,60 @@ const ProductsTemplate = ({ data, categories, specificCategorries, baseCategorri
               ▼
             </span>
           </div>
-
         </div>
-        <div className='w-full h-[1px] bg-theme-main mt-[30px]' />
-        <div className="flex gap-[20px] items-center justify-between my-[26px]">
-          <p className='font_calibri text-theme-main text-bold text-[24px] md:text-[40px] leading-[40px] font-bold capitalize'>Provisions</p>
-          <div className="flex items-center gap-[24px]">
+
+        <div className='hidden md:block w-full h-[1px] bg-theme-main mt-[30px]' />
+
+        <div className="flex flex-col md:flex-row gap-[20px] md:items-center justify-between mt-2 mb:7 md:my-[26px]">
+          <p className='hidden sm:block font_calibri text-theme-main text-bold text-[24px] md:text-[40px] leading-[40px] font-bold capitalize'>
+            Provisions
+          </p>
+
+          <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-[24px]">
             <p className='text-theme-main text-base md:text-lg md:leading-[26px] font_calibri'>Fresh Vegetables 1421 Search result</p>
-            <RightDrawer categories={categories} specificCategorries={specificCategorries} setProducts={setProducts} />
+            <div className="flex gap-2">
+              <div className="md:hidden relative flex items-center flex-1 lg:flex-auto min-w-[220px]">
+                <select
+                  value={selectBaseCategory}
+                  onChange={(e) => handleSelectCategory(e)}
+                  className="w-full lg:max-w-[414px] h-[55px] pl-2 pr-10 py-2 border border-theme-main focus:outline-none text-theme-main focus:text-theme-main appearance-none"
+                >
+                  <option value="" disabled selected>
+                    Provisions
+                  </option>
+                  {
+                    baseCategorries?.map((item, idx) => (
+                      <option value={item?.Slug} key={idx}>{item?.Name}</option>
+                    ))
+                  }
+                </select>
+
+                <span className="absolute w-6 h-[55px] right-0 flex items-center justify-center text-theme-main pointer-events-none">
+                  ▼
+                </span>
+              </div>
+              <RightDrawer categories={categories} specificCategorries={specificCategorries} setProducts={setProducts} />
+            </div>
           </div>
         </div>
-        <div className='w-full h-[0.5px] bg-theme-main' />
-        <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-[9px]  mt-[30px]'>
+
+        <div className='hidden md:block w-full h-[0.5px] bg-theme-main' />
+
+        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-[9px]  mt-[30px]'>
           {products?.data?.map((product, index) =>
             <ProductCard key={index} {...product.attributes} />
           )}
         </div>
-        <Pagination
-          currentPage={currentPage}
-          itemsPerPage={itemsPerPage}
-          totalItems={products?.length}
-          onPageChange={setCurrentPage}
-        />
+        <div className="my-[38px]">
+          {(products?.data > 19) &&
+            <Pagination
+              currentPage={currentPage}
+              itemsPerPage={itemsPerPage}
+              totalItems={products?.length}
+              onPageChange={setCurrentPage}
+            />
+          }
+        </div>
       </div>
     </main>
   )

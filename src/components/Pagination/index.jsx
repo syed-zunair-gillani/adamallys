@@ -11,9 +11,9 @@ const Pagination = (props) => {
   };
 
   return (
-    <div className="flex justify-center mt-6">
+    <div className="flex justify-center">
       <button
-        className="w-[57px] h-[55px] flex items-center justify-center border border-theme-main  hover:bg-blue-100 disabled:bg-gray-300"
+        className="w-[30px] h-[29px] md:w-[57px] md:h-[55px] flex items-center justify-center border border-theme-main  hover:bg-blue-100 disabled:bg-gray-300"
         onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
       >
@@ -25,7 +25,7 @@ const Pagination = (props) => {
         return (
           <button
             key={pageNumber}
-            className={`w-[57px] h-[55px] flex items-center justify-center border border-theme-main ${pageNumber === currentPage
+            className={`w-[30px] h-[29px] md:w-[57px] md:h-[55px] flex items-center justify-center border border-theme-main ${pageNumber === currentPage
               ? 'bg-theme-main text-white'
               : 'bg-white text-theme-main border hover:bg-blue-100'
               }`}
@@ -37,7 +37,7 @@ const Pagination = (props) => {
       })}
 
       <button
-        className="w-[57px] h-[55px] flex items-center justify-center border border-theme-main  hover:bg-blue-100 disabled:bg-gray-300"
+        className="w-[30px] h-[29px] md:w-[57px] md:h-[55px] flex items-center justify-center border border-theme-main  hover:bg-blue-100 disabled:bg-gray-300"
         onClick={() => handlePageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
       >
