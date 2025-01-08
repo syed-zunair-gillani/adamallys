@@ -1,3 +1,4 @@
+import Accordion from '@/components/Accordion';
 import { getPrivacyPolicy } from '../../services'
 
 const renderRichText = (blocks) => {
@@ -18,18 +19,16 @@ const PrivacyPolicyTemplate = async () => {
     policy: renderRichText(policy?.content)
   }))
 
-  console.log('data', data);
-  console.log('privacyPolicies', privacyPolicies);
-
   return (
     <>
-      <div className="mb-20" />
+      <div className="mt-[4rem] md:mt-0 mb-4 md:mb-20" />
       <main>
-        <h1 className="text-center text-2xl py-12 sm:text-[40px] font_calibri md:leading-[50px] md:text-[50px] lg:text-[60px] font-bold text-[#2E368F] mt-5 px-4">
+        <h1 className="text-center text-2xl py-3 md:py-12 sm:text-[40px] font_calibri md:leading-[50px] md:text-[50px] lg:text-[60px] font-bold text-[#2E368F] mt-5 px-4">
           Privacy Policy
         </h1>
+        <div className='w-[49px] h-[2px] bg-[#8B8B8B] md:hidden mx-auto' />
       </main>
-      <section className='container mx-auto '>
+      <section className='hidden md:block container mx-auto px-6 xl:px-0'>
         {
           privacyPolicies?.map((item, idx) => (
             <div key={idx} className=' md:flex gap-10 mb-8'>
@@ -43,6 +42,16 @@ const PrivacyPolicyTemplate = async () => {
           ))
         }
       </section>
+      <div className='md:hidden mx-[18px]'>
+        <Accordion isFirstOpen data={
+          privacyPolicies?.map((item, idx) => ({
+            title: item?.title,
+            content: <div>
+              {item?.policy}
+            </div>
+          }))
+        } />
+      </div>
     </>
   )
 }
