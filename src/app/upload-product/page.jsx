@@ -3,6 +3,10 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import * as XLSX from 'xlsx';
 import path from 'path';
+import qs from "qs"
+
+const strapiUrl = 'https://monkfish-app-ecq7g.ondigitalocean.app/api';
+const authToken = '84ee029fe3241b6f36511c5800efffc2db34db0eac30ded8767b0729e9b1443cb2f6df956356785fd805050adc4e5d45612c8124ce1f1430575923233c1aff0c6d69e286b101b62b888186339528d728b8b50bcbec141ae71a0e2939e4490076444f7f0a3f36038c1f5ad6b1ab3322facc48410f60dd3de799b0b4bd0b496c4c';
 
 
 function UploadProducts() {
@@ -11,35 +15,29 @@ function UploadProducts() {
 
     const products = [
         {
+            "BASE CATEGORY": "PROVISIONS",
+            "SECONDARY CATEGORY": "00. Provisions",
+            "GENERAL CATEGORY": "Vegetables",
+            "SPECIFIC CATEGORY": "Fresh Vegetables",
             "SKU CODE": "000101",
             "ITEM DESCRIPTION": "ASPARAGUS GREEN FRESH",
             "UOM": "KGS",
             "MTML UOM": "KGM",
-            "Picture": "110108.jpg"
+            "Picture": "000101.JPG"
         },
         {
+            "BASE CATEGORY": "PROVISIONS",
+            "SECONDARY CATEGORY": "00. Provisions",
+            "GENERAL CATEGORY": "Vegetables",
+            "SPECIFIC CATEGORY": "Fresh Vegetables",
             "SKU CODE": "000103",
             "ITEM DESCRIPTION": "BAMBOO SHOOT FRESH",
             "UOM": "KGS",
             "MTML UOM": "KGM",
-            "Picture": "110109.jpg"
-        },
+            "Picture": "000103.JPG"
+        }
     ];
     const folderPath = '../../../../../wetransfer_products-images_2025-01-02_0948/Products_Images';
-    const strapiUrl = 'https://monkfish-app-ecq7g.ondigitalocean.app/api';
-    const authToken = '84ee029fe3241b6f36511c5800efffc2db34db0eac30ded8767b0729e9b1443cb2f6df956356785fd805050adc4e5d45612c8124ce1f1430575923233c1aff0c6d69e286b101b62b888186339528d728b8b50bcbec141ae71a0e2939e4490076444f7f0a3f36038c1f5ad6b1ab3322facc48410f60dd3de799b0b4bd0b496c4c';
-
-    // const uploadImage = async (imagePath) => {
-    //     const formData = new FormData();
-    //     formData.append('files', fs.createReadStream(imagePath));
-    //     const response = await axios.post(`${strapiUrl}/upload`, formData, {
-    //         headers: {
-    //             Authorization: `Bearer ${authToken}`,
-    //             ...formData.getHeaders(),
-    //         },
-    //     });
-    //     return response.data[0].id;  // Return the image ID
-    // };
 
     const generateSlug = (text) => {
         return text
@@ -56,29 +54,34 @@ function UploadProducts() {
                 const Slug = generateSlug(product['ITEM DESCRIPTION'])
 
                 if (imagePath) {
-                    console.log("🚀 ~ requests ~ imagePath:", imagePath)
-                    const imgId = await axios.post(`/api/upload-image`, {
-                        imagePath
-                    })
-                    
-                    console.log("🚀 ~ requests ~ imgId:", imgId)
 
-                    // const imageId = await uploadImage(imagePath);
-                    // product.image = imageId;
+                    // const imgId = await axios.post(`/api/upload-image`, {
+                    //     imagePath
+                    // })
 
-                    // await axios.post(`${strapiUrl}/products`, {
-                    //     data: {
-                    //         Title: product['ITEM DESCRIPTION'],
-                    //         Slug,
-                    //         MTML: product['MTML UOM'],
-                    //         UOM: product['UOM'],
-                    //         SKU: product['SKU CODE']
-                    //     },
-                    // }, {
-                    //     headers: {
-                    //         Authorization: `Bearer ${authToken}`,
-                    //     },
-                    // });
+                    var productData = {
+                        Title: product['ITEM DESCRIPTION'],
+                        Slug,
+                        MTML: product['MTML UOM'],
+                        UOM: product['UOM'],
+                        SKU: product['SKU CODE']
+                    }
+
+                    // Check Base Category Exist in DB 
+
+                    const baseCategoryRes = await CheckBaseCategory(product['BASE CATEGORY'])
+                    if(baseCategoryRes?.id){
+                        productData.base_categories = [1]
+                    }
+
+
+                    await axios.post(`${strapiUrl}/products`, {
+                        data: {...productData},
+                    }, {
+                        headers: {
+                            Authorization: `Bearer ${authToken}`,
+                        },
+                    });
 
                     console.log(`Uploaded ${product.name} with image.`);
                 } else {
@@ -150,3 +153,18 @@ function UploadProducts() {
 }
 
 export default UploadProducts;
+
+
+
+
+const CheckBaseCategory = async (category) => {
+    const bcParams = qs.stringify({
+        filters: {
+            Name: {
+                $eq: category
+            }
+        }
+    })
+    const res = await axios.get(`${strapiUrl}/base-categories?${bcParams}`)
+    return res?.data?.data?.[0]
+}

@@ -32,14 +32,14 @@ const ChooseCard = ({ data, description }) => {
   ) : (
     <div
       ref={containerRef}
-      className="grid grid-cols-1 sm:grid-cols-2 gap-7 font_calibri"
+      className="grid grid-cols-1 sm:grid-cols-2 gap-7 font_calibri px-3 lg:px-0"
     >
       {data?.WhyChoose?.map((item, idx) => (
-        <div key={idx} className="grid-item">
-          <h6 className="border-b pb-3 border-dashed text-theme-main font-bold text-[30px] border-theme-main">
+        <div key={idx} className="grid-item gap-4 flex md:flex-col border-b border-dashed md:border-b-0 border-theme-main">
+          <h6 className="md:border-b pb-3 border-dashed text-theme-main font-bold text-[30px] border-theme-main">
             0{idx + 1}
           </h6>
-          <div className="mt-5">
+          <div className="mt-1 md:mt-5 mb-6 md:mb-0">
             <h6 className="text-xl text-theme-main font-bold">{item?.title}</h6>
             <p className="text-lg text-[#3E3E3E]">{item?.info}</p>
           </div>
