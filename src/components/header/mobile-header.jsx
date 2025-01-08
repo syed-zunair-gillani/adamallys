@@ -45,12 +45,9 @@ const MobileHeader = ({ NavLinks }) => {
 
   return (
     <header
-      className="bg-white md:hidden top-0 absolute w-full z-[50]"
-
+      className="md:hidden top-0 absolute w-full z-[50]"
     >
-      <div
-
-      >
+      <div>
         <div className="border-b-[1px] pl-[18px] item-center border-[#969cc0] flex justify-between w-full">
           <Logo />
           <div className="!bg-[#2E368F] w-[68px] h-[65px] flex justify-center items-center" onClick={() => setOpenMobileNav(!openMobileNav)}>
@@ -58,7 +55,7 @@ const MobileHeader = ({ NavLinks }) => {
           </div>
         </div>
         <div
-          className={`min-h-[750px] absolute w-full right-0 transition-all duration-300 left-0 z-[-1] pt-20 pb-5 px-4 ${openMobileNav ? "top-0" : "-top-[1000%]"
+          className={`${openMobileNav && "min-h-[750px]"} absolute w-full right-0 transition-all duration-300 left-0 z-[-1] pt-20 pb-5 px-4 ${openMobileNav ? "top-0" : "-top-[1000%]"
             } flex flex-col justify-between`}
           style={{
             background: 'linear-gradient(to bottom, #FFFFFF, #DFE2FF )'
