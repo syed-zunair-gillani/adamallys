@@ -75,13 +75,15 @@ const DistributorsAndStockistsTemplate = ({ Cards, Banner }) => {
         {
           data?.map((distributor, index) =>
             <div key={distributor?.title} className=" basis-full flex-1 lg:basis-[40%] relative border flex flex-col lg:flex-row min-h-[360px]">
-              <div className="flex-1 pt-8 pb-8 md:pb-0 md:pt-10 pl-[64px] pr-[57px] border-r border-b min-h-[220px] flex justify-center items-center md:!items-start">
-                <Image
-                  width={198}
-                  height={198}
-                  alt='Distributors-logo'
-                  src={distributor?.image}
-                />
+              <div className="flex-1 pl-[64px] pr-[57px] border-r border-b min-h-[220px] flex justify-center items-center md:!items-start">
+                <div className="lg:mt-[100px] h-[155px] flex items-center justify-center">
+                  <Image
+                    width={198}
+                    height={198}
+                    alt='Distributors-logo'
+                    src={distributor?.image}
+                  />
+                </div>
               </div>
               <div className="flex-1 pt-[42px] pl-[64px] pr-[57px]">
                 <p className="text-theme-main font-bold text-lg text-center md:text-left md:text-[30px] leading-[44px] mb-3">{distributor?.title}</p>
