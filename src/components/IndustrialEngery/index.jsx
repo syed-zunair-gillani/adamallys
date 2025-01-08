@@ -16,7 +16,7 @@ const IndustrialEnergy = ({ image, video, caption }) => {
         <Image src={image || '/images/products-&-services/industrial-energy-image.png'} alt='industrial-energy-image' width={1646} height={529} />
       }
       <div className="blue_gradient2 px-[47px] py-[58px]">
-        <p className="text-[25px] leading-[35px] text-white">
+        <p className="font_calibri text-[25px] leading-[35px] text-white">
           {caption}
         </p>
         <div className="w-[77px] h-1 bg-theme-main rounded mt-[46px]"></div>
