@@ -1,6 +1,7 @@
 'use client'
-import axios from 'axios';
 import { useEffect, useState } from 'react'
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const defaultValues = {
   companyName: '',
@@ -19,9 +20,19 @@ const defaultValues = {
   comments: ''
 }
 
+const requiredFields = [
+  { field: 'companyName', message: 'Company Name is required!' },
+  { field: 'vessel', message: 'Vessel is required!' },
+  { field: 'refNo', message: 'Ref No. is required!' },
+  { field: 'phone', message: 'Phone No. is required!' },
+  { field: 'phoneCode', message: 'Phone Code is required!' },
+  { field: 'email', message: 'Email is required!' },
+];
+
 const RequestAQuoteTemplate = ({ ports }) => {
   const [formData, setFormData] = useState(defaultValues);
   const [countries, setCountries] = useState([]);
+  const [formErrors, setFormErrors] = useState({});
 
   useEffect(() => {
     axios.get('https://restcountries.com/v3.1/all')
@@ -29,7 +40,9 @@ const RequestAQuoteTemplate = ({ ports }) => {
         const countryData = response.data.map(country => ({
           name: country.name.common,
           code: country.cca2,
+          phoneCode: country.idd ? `${country.idd.root}${country.idd.suffixes ? country.idd.suffixes.join(', ') : ''}` : ''
         }));
+
         const sortedCountries = countryData.sort((a, b) =>
           a.name.localeCompare(b.name)
         );
@@ -41,7 +54,6 @@ const RequestAQuoteTemplate = ({ ports }) => {
       });
   }, []);
 
-
   const portList = [
     ...ports?.attributes?.Oman?.map(({ Name }) => ({ label: Name, value: Name })),
     ...ports?.attributes?.UAE_Ports?.map(({ Name }) => ({ label: Name, value: Name })),
@@ -50,6 +62,19 @@ const RequestAQuoteTemplate = ({ ports }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    setFormErrors(prev => {
+      let errors = { ...prev };
+      delete errors[name]
+      return errors
+    })
+    if (name === 'country') {
+      return setFormData(prevData => ({
+        ...prevData,
+        country: value,
+        phoneCode: value,
+      }));
+    }
+
     setFormData(prevData => ({
       ...prevData,
       [name]: value
@@ -82,21 +107,25 @@ const RequestAQuoteTemplate = ({ ports }) => {
       ...prevData,
       phone: inputValue
     }));
+    setFormErrors(prev => {
+      let errors = { ...prev };
+      delete errors.phone
+      return errors
+    })
   };
 
   const handleFileChange = async (event) => {
     const selectedFile = event.target.files[0];
 
     if (selectedFile && selectedFile.type !== 'application/pdf') {
-      alert('Please upload a PDF file.');
+      toast.error('Please upload a PDF file.');
       return;
     }
 
     if (selectedFile && selectedFile.size > 5 * 1024 * 1024) {
-      alert('File size should not exceed 5MB.');
+      toast.error('File size should not exceed 5MB.');
       return;
     }
-
 
     if (selectedFile) {
       try {
@@ -109,33 +138,43 @@ const RequestAQuoteTemplate = ({ ports }) => {
           },
         });
 
-        // Handle response and set the uploaded file data
         if (response.status === 200) {
-          console.log('File uploaded')
           setFormData((prevData) => ({
             ...prevData,
             file: response?.data[0]?.url,
           }));
         }
-
       } catch (error) {
-        console.error('Error uploading file:', error);
-        console.error('Failed to upload file. Please try again.');
       }
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+
+    let errors = {};
+
+    for (let { field, message } of requiredFields) {
+      if (!formData?.[field]) {
+        errors[field] = message;
+      }
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setFormErrors(errors);
+      return;
+    }
+
     try {
       const response = await axios.post(`/api/send-request-a-quote`, formData);
-      if(response?.status === 200){
-        alert("Email Sended");
-        setFormData({...defaultValues})
+      if (response?.status === 200) {
+        toast.success('Email sended successfully!')
+        setFormData({ ...defaultValues })
+      } else {
+        toast.error("Something went wrong!")
       }
     } catch (error) {
-      console.error("🚀 ~ handleSubmit ~ error:", error)
+      toast.error("Something went wrong!")
     }
   };
 
@@ -163,6 +202,9 @@ const RequestAQuoteTemplate = ({ ports }) => {
                   e.target.value = e.target.value.replace(/[^a-zA-Z]/g, '');
                 }}
               />
+              {formErrors.companyName && (
+                <p className="text-red-600 text-sm mt-1">{formErrors.companyName}</p>
+              )}
             </div>
             <div>
               <label className='block ml-[25px] mb-2 font_calibri text-lg leading[26px] text-theme-main'>Vessel *</label>
@@ -174,6 +216,9 @@ const RequestAQuoteTemplate = ({ ports }) => {
                 className="w-full h-[55px] px-4 py-2 border border-theme-main focus:outline-none text-theme-main focus:text-theme-main"
                 onChange={handleChange}
               />
+              {formErrors.vessel && (
+                <p className="text-red-600 text-sm mt-1">{formErrors.vessel}</p>
+              )}
             </div>
             <div>
               <label className='block ml-[25px] mb-2 font_calibri text-lg leading[26px] text-theme-main'>Ref No. *</label>
@@ -185,6 +230,9 @@ const RequestAQuoteTemplate = ({ ports }) => {
                 className="w-full h-[55px] px-4 py-2 border border-theme-main focus:outline-none text-theme-main focus:text-theme-main"
                 onChange={handleChange}
               />
+              {formErrors.refNo && (
+                <p className="text-red-600 text-sm mt-1">{formErrors.refNo}</p>
+              )}
             </div>
             <div className='relative'>
               <label className='block ml-[25px] mb-2 font_calibri text-lg leading-[26px] text-theme-main'>
@@ -202,8 +250,11 @@ const RequestAQuoteTemplate = ({ ports }) => {
               >
                 <option value="" disabled hidden>Select</option>
                 {countries.map(country => (
-                  <option key={country.code} value={country.name}>
-                    {country.name}
+                  <option
+                    value={country?.phoneCode}
+                    key={country?.phoneCode + country?.name}
+                  >
+                    {country?.name}
                   </option>
                 ))}
               </select>
@@ -269,6 +320,9 @@ const RequestAQuoteTemplate = ({ ports }) => {
                   e.target.value = e.target.value.replace(/[^a-zA-Z]/g, '');
                 }}
               />
+              {formErrors.contactPerson && (
+                <p className="text-red-600 text-sm mt-1">{formErrors.contactPerson}</p>
+              )}
             </div>
             <div>
               <label className='block ml-[25px] mb-2 font_calibri text-lg leading[26px] text-theme-main'>Phone *</label>
@@ -290,6 +344,9 @@ const RequestAQuoteTemplate = ({ ports }) => {
                   onChange={handlePhoneChange}
                 />
               </div>
+              {formErrors.phone && (
+                <p className="text-red-600 text-sm mt-1">{formErrors.phone}</p>
+              )}
             </div>
             <div>
               <label className='block ml-[25px] mb-2 font_calibri text-lg leading[26px] text-theme-main'>Fax</label>
@@ -312,6 +369,9 @@ const RequestAQuoteTemplate = ({ ports }) => {
                 className="w-full h-[55px] px-4 py-2 border border-theme-main focus:outline-none text-theme-main focus:text-theme-main"
                 onChange={handleChange}
               />
+              {formErrors.email && (
+                <p className="text-red-600 text-sm mt-1">{formErrors.email}</p>
+              )}
             </div>
             <div>
               <label className='block ml-[25px] mb-2 font_calibri text-lg leading[26px] text-theme-main'>Attach file, if any (Max: 5MB // Only .pdf format)</label>

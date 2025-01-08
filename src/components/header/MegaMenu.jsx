@@ -59,7 +59,7 @@ const MegaMenu = ({ title, links = [] }) => {
                   <li
                     onMouseEnter={() => setIsShipSupplyHovered(true)}
                     onMouseLeave={() => setIsShipSupplyHovered(false)}
-                    className='top-[21px] w-full h-[25px] absolute' />
+                    className='top-[15px] w-full h-[25px] absolute z-2' />
                   <li
                     onMouseEnter={() => setIsShipSupplyHovered(true)}
                     onMouseLeave={() => setIsShipSupplyHovered(false)}
@@ -68,7 +68,7 @@ const MegaMenu = ({ title, links = [] }) => {
                     <div className="flex items-center justify-between">
                       <Link
                         href="/products-&-services"
-                        className={`whitespace-nowrap ${(isShipSupplyPage || isShipSupplyHovered) ? 'font-bold' : ''} hover:font-bold`}
+                        className={`w-full z-9 whitespace-nowrap ${(isShipSupplyPage || isShipSupplyHovered) ? 'font-bold' : ''} hover:font-bold`}
                       >
                         Ship Supply
                       </Link>

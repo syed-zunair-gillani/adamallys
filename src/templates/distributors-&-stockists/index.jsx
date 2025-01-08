@@ -64,7 +64,7 @@ const DistributorsAndStockistsTemplate = ({ Cards, Banner }) => {
         {
           data?.map((distributor, index) =>
             <div key={distributor?.title} className=" basis-full flex-1 lg:basis-[40%] relative border flex min-h-[360px]">
-              <div className="flex-1 pt-[42px] pl-[64px] pr-[57px] border-r">
+              <div className="flex-1 pt-[42%] lg:pt-[10%] pl-[64px] pr-[57px] border-r">
                 <Image
                   width={198}
                   height={198}
@@ -77,7 +77,7 @@ const DistributorsAndStockistsTemplate = ({ Cards, Banner }) => {
                 <div className="mb-[150px] ">
                   <p
                     ref={(el) => descriptionRefs.current[index] = el}
-                    className={`inline-block font-light text-lg leading-[26px] ${expanded[distributor.title] ? '' : 'truncate'}`}
+                    className={`text-[#3E3E3E] font_calibri inline-block font-light text-lg leading-[26px] ${expanded[distributor.title] ? '' : 'truncate'}`}
                     style={{
                       whiteSpace: 'wrap',
                       maxHeight: expanded[distributor.title] ? 'none' : '130px',

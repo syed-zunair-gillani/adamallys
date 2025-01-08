@@ -6,6 +6,7 @@ import VerticleIcon from "@/components/verticle-icon/verticle-icon";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { ToastContainer } from "react-toastify";
 
 export default function RootLayout({
   children,
@@ -15,6 +16,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`antialiased`}>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+        />
         <Header />
         {children}
         <Footer />

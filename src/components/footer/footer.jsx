@@ -2,15 +2,15 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { getFooter } from "@/services";
-
+import MobileFooter from './mobile-footer'
 
 const Footer = async () => {
   const data = await getFooter()
-  const { About, Logo, Adamallys_Group, AdamallysGroup2, AdamallysLLC, AdamallysMarineShipChandlingServices, Buttons, Copyright_Text, Socials } = data;
+  const { About, Logo, Adamallys_Group, AdamallysGroup2, AdamallysLLC, AdamallysMarineShipChandlingServices, Buttons, Copyright_Text } = data;
 
   return (
     <footer className="bg-white relative z-[100]">
-      <section className="footer_gradient pt-[63px] relative px-3 lg:px-0">
+      <section className="hidden sm:block footer_gradient pt-[63px] relative px-3 lg:px-0">
         <section className="grid container mx-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 md:gap-10 lg:gap-[88px]">
           <div>
             <Link href="/" className="">
@@ -132,6 +132,7 @@ const Footer = async () => {
           <p className="font_calibri text-theme-main text-sm font-light">{Copyright_Text}</p>
         </section>
       </section>
+      <MobileFooter />
     </footer>
   );
 };
