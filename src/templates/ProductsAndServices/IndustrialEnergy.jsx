@@ -24,7 +24,7 @@ const IndustrialEnergy = (props) => {
         </div>
         <GridBanner />
       </section>
-      <h2 className='text-[25px] text-center md:text-hidden leading-[67px] font-bold text-theme-main !mb-0'>{title}</h2>
+      <h2 className='text-[25px] text-center md:hidden leading-[67px] font-bold text-theme-main !mb-0'>{title}</h2>
       <p className="text-[12px] font-light text-center leading-[26px] py-3 md:hidden px-3 md:px-0">
         {info}
       </p>
@@ -36,7 +36,7 @@ const IndustrialEnergy = (props) => {
           />
         </div>
         <div className='lg:w-[70%]'>
-          <h2 className='text-[60px] font_calibri text-center md:text-left leading-[67px] font-bold text-theme-main hidden md:block'>{title}</h2>
+          <h2 className='text-[60px] font_calibri text-center md:text-[60px] md:text-left leading-[67px] font-bold text-theme-main hidden md:block'>{title}</h2>
           <p className="text-lg font-light leading-[26px] py-[17px] hidden md:block">
             {info}
           </p>

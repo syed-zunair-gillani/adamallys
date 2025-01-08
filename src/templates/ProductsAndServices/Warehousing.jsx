@@ -26,7 +26,7 @@ const Warehousing = (props) => {
         </div>
         <GridBanner />
       </section>
-      <h2 className='text-[25px] text-center md:text-hidden leading-[67px] font-bold text-theme-main !mb-0'>Industrial & Energy Sector Supplies</h2>
+      <h2 className='text-[25px] text-center md:hidden leading-[67px] font-bold text-theme-main !mb-0'>Industrial & Energy Sector Supplies</h2>
       <p className="text-[12px] font-light text-center leading-[26px] py-3 md:hidden px-3 md:px-0">
         At Adamallys, we offer a comprehensive range of high-quality products essential for the industrial, oil, and gas sectors. Our extensive inventory supports efficient and safe operations across offshore and onshore projects, addressing the specific needs of these demanding industries.
       </p>
@@ -45,8 +45,8 @@ const Warehousing = (props) => {
             />
           </div>
           <div className='lg:w-[70%]'>
-            <h2 className='text-[25px] text-center md:text-hidden leading-[67px] font-bold text-theme-main !mb-0'>{title}</h2>
-            <p className="mt-5 md:mt-[13px] text-center text-lg md:text-[30px] leading-[33px] font-bold text-theme-main">
+            <h2 className='text-[25px] text-center md:text-left md:text-[60px] leading-[67px] font-bold text-theme-main !mb-0'>{title}</h2>
+            <p className="mt-5 md:mt-[13px] text-center md:text-left text-lg md:text-[30px] leading-[33px] font-bold text-theme-main">
               {sub_title}
             </p>
             <div className='mt-[30px] mb-5 w-full h-[1px] bg-[#B2B6E0]' />
@@ -66,8 +66,8 @@ const Warehousing = (props) => {
             />
           </div>
           <div className='lg:w-[70%]'>
-            <h2 className='text-[25px] text-center md:text-hidden leading-[67px] font-bold text-theme-main !mb-0'>Warehousing</h2>
-            <p className="mt-5 md:mt-[13px] text-center text-lg md:text-[30px] leading-[33px] font-bold text-theme-main">
+            <h2 className='text-[25px] text-center md:text-[60px] md:text-left leading-[67px] font-bold text-theme-main !mb-0'>Warehousing</h2>
+            <p className="mt-5 md:mt-[13px] text-center text-lg md:text-left md:text-[30px] leading-[33px] font-bold text-theme-main">
               {Warehousing_info}
             </p>
             <div className="flex flex-col sm:flex-row space-y-[17px] sm:space-y-[0] sm:space-x-[17px] mt-[42px]">
