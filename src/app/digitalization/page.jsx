@@ -1,17 +1,17 @@
+import { getDigitalizationAndTechnologyAtAdamallys } from "@/services";
 import LeadingPageBanner from "@/components/digitalization/Leadingpage";
 import TwoColumnContent from "@/components/two-column-content/two-column-content";
-import { getDigitalizationAndTechnologyAtAdamallys } from "@/services";
-
 
 export default async function Home() {
   const data = await getDigitalizationAndTechnologyAtAdamallys()
 
   return (
     <>
-      <div className="mb-[120px]" />
-      <h1 className="text-theme-main text-[60px] leading-[67px] text-center font-bold mb-6 lg:mb-10">
+      <div className="mb-[5rem] md:mb-[120px]" />
+      <h1 className='font_calibri capitalize text-[25px] md:text-[60px] leading-[25px] md:leading-[60px] text-center font-bold text-theme-main md:mb-[46px]'>
         {data?.title}
       </h1>
+      <div className='w-[49px] h-[2px] bg-[#8B8B8B] md:hidden mx-auto mt-2 mb-6' />
       <LeadingPageBanner
         title={data?.Banner_Title}
         content={data?.Banner_Info}
