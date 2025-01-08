@@ -43,17 +43,17 @@ const ContactTemplate = (props) => {
       style={{ overflowX: 'hidden' }}
     >
       <div className="flex flex-col lg:flex-row container mx-auto z-[1] relative">
-        <div className="basis-full md:min-w-[471px] md:basis-[40%] px-[30px] pt-[34px] pb-[42px] sm:px-[62px] sm:pt-[68px] sm:pb-[76px]  bg-theme-main">
-          <h1 className='text-white font-bold text-[60px] leading-[62px] mb-6'>Contact</h1>
+        <div className="basis-full md:min-w-[471px] md:basis-[40%] px-[18px] md:px-[30px] pt-[51px] pb-[42px] sm:px-[62px] sm:pt-[68px] sm:pb-[76px]  bg-theme-main">
+          <h1 className='font_calibri text-white font-bold text-[30px] md:text-[60px] leading-[30px] md:leading-[62px] mb-6'>Contact</h1>
           <div className="flex gap-[11px] text-white">
             <div className='mt-1.5 min-w-6 h-6'>
               <Image className='min-w-6 h-6' src={'/svg/location_on.svg'} alt='location_on' width={23} height={23} />
             </div>
             <div>
-              <p className='text-lg leading-[26px]'>
+              <p className='text-[14px] font_calibri md:text-lg leading-[20px] font-light md:font-normal md:leading-[26px]'>
                 {AddressOne}
               </p>
-              <p className='text-lg leading-[26px] mt-[18px]'>
+              <p className='text-[14px] font_calibri md:text-lg leading-[20px] font-light md:font-normal md:leading-[26px] mt-[18px]'>
                 {AddressTwo}
               </p>
             </div>
@@ -63,27 +63,27 @@ const ContactTemplate = (props) => {
               <div className='w-[50px] h-[46px] flex items-center justify-center bg-white rounded-[46%]'>
                 <Image src={'/svg/call-icon.svg'} alt='location_on' width={23} height={23} />
               </div>
-              <a href={`tel:${MobileNumber}`} className='text-lg leading-[26px] text-white'>{MobileNumber}</a>
+              <a href={`tel:${MobileNumber}`} className='text-[14px] font_calibri leading-[20px] md:text-lg md:leading-[26px] font-light md:font-normal text-white'>{MobileNumber}</a>
             </div>
             <div className="w-auto border border-white h-[46px] pr-[18px] inline-flex items-center gap-[15px] rounded-[30px]">
               <div className='w-[50px] h-[46px] flex items-center justify-center bg-white rounded-[46%]'>
                 <Image src={'/svg/print.svg'} alt='location_on' width={23} height={23} />
               </div>
-              <p className='text-lg leading-[26px] text-white'>{Fax}</p>
+              <p className='text-[14px] font_calibri md:text-lg leading-[20px] font-light md:font-normal md:leading-[26px] text-white'>{Fax}</p>
             </div>
             <div className="w-auto border border-white h-[46px] pr-[18px] inline-flex items-center gap-[15px] rounded-[30px]">
               <div className='w-[50px] h-[46px] flex items-center justify-center bg-white rounded-[46%]'>
                 <Image src={'/svg/mail-icon.svg'} alt='location_on' width={23} height={23} />
               </div>
-              <a href={`mailto:${Email}`} className='text-lg leading-[26px] text-white'>{Email}</a>
+              <a href={`mailto:${Email}`} className='text-[14px] font_calibri leading-[20px] md:text-lg md:leading-[26px] font-light md:font-normal text-white'>{Email}</a>
             </div>
           </div>
         </div>
         <div className="basis-full bg-[#F5F6F8] flex items-center justify-center">
           <form onSubmit={handleSubmit} className='w-full px-[30px] py-[34px] sm:px-[55px] sm:py-[76px]'>
             <div className="flex flex-col gap-4">
-              <p className='text-theme-main font-bold text-[40px] leading-[44px]'>Have a Question?</p>
-              <div className='flex gap-6'>
+              <p className='text-theme-main font-bold text-[25px] text-center md:text-left leading-[28px] md:text-[40px] md:leading-[44px]'>Have a Question?</p>
+              <div className='flex flex-col sm:flex-row gap:3 md:gap-6'>
                 <input
                   type="text"
                   name="name"
@@ -101,7 +101,7 @@ const ContactTemplate = (props) => {
                   onChange={handleChange}
                 />
               </div>
-              <div className='flex gap-6'>
+              <div className='flex flex-col sm:flex-row gap:3 md:gap-6'>
                 <input
                   type="text"
                   name="phoneNumber"
@@ -119,7 +119,7 @@ const ContactTemplate = (props) => {
                   onChange={handleChange}
                 />
               </div>
-              <div className='flex gap-6'>
+              <div className='flex flex-col sm:flex-row gap:3 md:gap-6'>
                 <textarea
                   type="text"
                   name="message"
@@ -135,7 +135,7 @@ const ContactTemplate = (props) => {
             <div className="flex justify-center items-center gap-[8px] mt-[23px]">
               <button
                 type="submit"
-                className="w-[157px] flex font-bold text-lg items-center justify-center gap-[12px] w-full h-[55px] py-1 bg-[text-theme-main] text-white bg-theme-main"
+                className="w-[96px] md:w-[157px] font_calibri flex md:font-bold md:text-lg items-center justify-center gap-[12px] w-full h-[55px] py-1 bg-[text-theme-main] text-white bg-theme-main"
               >
                 Submit
               </button>

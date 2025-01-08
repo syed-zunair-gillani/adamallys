@@ -5,11 +5,12 @@ const SustainabilityTemplate = (props) => {
   const { Title, BannerContent, BannerImage, CSR_Image, Cards, Content, fst_content, sec_content, third_content } = props;
   return (
     <>
-      <div className="mb-20" />
+      <div className="mb-[5rem] md:mb-20" />
       <div>
-        <h1 className="text-center text-2xl py-12 sm:text-[40px] font_calibri md:leading-[50px] md:text-[50px] lg:text-[60px] font-bold text-theme-main mt-5 px-4">
+        <h1 className='font_calibri md:pt-12 capitalize text-[25px] md:text-[60px] leading-[25px] md:leading-[60px] text-center font-bold text-theme-main md:mb-[46px]'>
           {Title}
         </h1>
+        <div className='w-[49px] h-[2px] bg-[#8B8B8B] md:hidden mx-auto mt-2 mb-6' />
       </div>
       <div
         style={{
