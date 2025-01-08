@@ -1,66 +1,53 @@
-// import axios from 'axios';
-// import formidable from 'formidable';
-// import { NextResponse } from 'next/server';
+import axios from 'axios';
+import formidable from 'formidable';
+import { NextResponse } from 'next/server';
+// import fs from "fs"
+// import path from 'path';
 
-// // Disable body parsing, Next.js needs to parse it manually
-// export const config = {
-//     api: {
-//         bodyParser: false,
-//     },
-// };
-
-// export async function POST(req) {
-//     const form = new formidable.IncomingForm();
-
-//     return new Promise((resolve, reject) => {
-//         form.parse(req, async (err, fields, files) => {
-//             if (err) {
-//                 return reject(new NextResponse(
-//                     JSON.stringify({
-//                         status: 'error',
-//                         message: err.message,
-//                     }),
-//                     { status: 500 }
-//                 ));
-//             }
-
-//             const { filepath, originalFilename } = files.file;
-
-//             const strapiUrl = 'https://monkfish-app-ecq7g.ondigitalocean.app/api';
-//             const authToken = '84ee029fe3241b6f36511c5800efffc2db34db0eac30ded8767b0729e9b1443cb2f6df956356785fd805050adc4e5d45612c8124ce1f1430575923233c1aff0c6d69e286b101b62b888186339528d728b8b50bcbec141ae71a0e2939e4490076444f7f0a3f36038c1f5ad6b1ab3322facc48410f60dd3de799b0b4bd0b496c4c';
-
-//             const formData = new FormData();
-//             formData.append('files', fs.createReadStream(filepath), originalFilename);
-
-//             try {
-//                 const response = await axios.post(`${strapiUrl}/upload`, formData, {
-//                     headers: {
-//                         Authorization: `Bearer ${authToken}`,
-//                         ...formData.getHeaders(),
-//                     },
-//                 });
-
-//                 resolve(new NextResponse(
-//                     JSON.stringify({
-//                         status: 'ok',
-//                         message: 'Image uploaded successfully',
-//                         ImageId: response.data[0].id,
-//                     }),
-//                     { status: 200 }
-//                 ));
-//             } catch (error) {
-//                 reject(new NextResponse(
-//                     JSON.stringify({
-//                         status: 'error',
-//                         message: error.message,
-//                     }),
-//                     { status: 500 }
-//                 ));
-//             }
-//         });
-//     });
-// }
-
+const strapiUrl = 'https://monkfish-app-ecq7g.ondigitalocean.app/api/upload';
 
 export async function POST(req) {
-}
+    const {imagePath} = await req.json()
+
+    try {
+        const resolvedPath = path.resolve(process.cwd(), imagePath);
+        const fileBuffer = fs.readFileSync(resolvedPath);
+        const fileName = path.basename(imagePath);
+  
+        const formData = new FormData();
+        formData.append('files', fileBuffer, fileName);
+
+        return new NextResponse(
+          JSON.stringify({
+              status: "ok",
+              message: formData
+          }),
+          { status: 200 }
+      );
+  
+        const uploadResponse = await axios.post('https://monkfish-app-ecq7g.ondigitalocean.app/api/upload', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            'Authorization': `Bearer 2b5dc480403aa383eac1f95cc50dac631a937a7a8e83d1c68be4eaab4b67e11311619abd33f6a579a079650ce2d17c59dfdf08e0123cd28e44f442776c485bf5719107785de47ce5063850522e11ace5b3ae8286124c1f21560c35baee52314529c2da1c209c4b18b43b8ee5007f4fd34320558b295d88e6bb0238c3ab2de6ac`
+          }
+        });
+  
+        return new NextResponse(
+            JSON.stringify({
+                status: "ok",
+                message: uploadResponse
+            }),
+            { status: 200 }
+        );
+
+      } catch (error) {
+        console.error('Error uploading file:', error);
+        return new NextResponse(
+            JSON.stringify({
+                status: "error",
+                message: error
+            }),
+            { status: 500 }
+        );
+      }
+    }
