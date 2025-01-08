@@ -54,109 +54,84 @@ const MobileHeader = ({ NavLinks }) => {
             {openMobileNav ? <XIcon /> : <MenuIcon />}
           </div>
         </div>
-        <div
-          className={`${openMobileNav && "min-h-[750px]"} absolute w-full right-0 transition-all duration-300 left-0 z-[-1] pt-20 pb-5 px-4 ${openMobileNav ? "top-0" : "-top-[1000%]"
-            } flex flex-col justify-between`}
-          style={{
-            background: 'linear-gradient(to bottom, #FFFFFF, #DFE2FF )'
-          }}
-        >
-          <ul className="flex flex-col p-6">
-            <Accordion
-              isHeader
-              data={[
-                {
-                  title: 'Product & Services',
-                  content: <>
-                    <div
-                      className={`w-full text-theme-main`}>
+        {openMobileNav &&
+          <div
+            className={`${openMobileNav && "min-h-[750px]"} absolute w-full right-0 transition-all duration-300 left-0 z-[-1] pt-20 pb-5 px-4 ${openMobileNav ? "top-0" : "-top-[1000%]"
+              } flex flex-col justify-between`}
+            style={{
+              background: 'linear-gradient(to bottom, #FFFFFF, #DFE2FF )'
+            }}
+          >
+            <ul className="flex flex-col p-6">
+              <Accordion
+                isHeader
+                data={[
+                  {
+                    title: 'Product & Services',
+                    content: <>
                       <div
-                        onMouseEnter={() => setIsShipSupplyHovered(true)}
-                        onMouseLeave={() => setIsShipSupplyHovered(false)}
-                        className="relative group"
-                      >
-                        <div className="flex gap-2 items-center justify-between">
-                          <Image src={'/svg/arrow_forward_link.svg'} alt='arrow' width={13} height={13} />
+                        className={`w-full text-theme-main`}>
+                        <div
+                          onMouseEnter={() => setIsShipSupplyHovered(true)}
+                          onMouseLeave={() => setIsShipSupplyHovered(false)}
+                          className="relative group"
+                        >
+                          <div className="flex gap-2 items-center justify-between">
+                            <Image src={'/svg/arrow_forward_link.svg'} alt='arrow' width={13} height={13} />
+                            <Link
+                              href="/products-&-services"
+                              className={`w-full z-9 whitespace-nowrap ${(isShipSupplyPage || isShipSupplyHovered) ? 'font-bold' : ''} hover:font-bold`}
+                            >
+                              Ship Supply
+                            </Link>
+                          </div>
+                        </div>
+                        <ul className="pl-6 grid grid-cols-1 gap-2 py-4 px-5">
+                          {shipSupplyPaginationData?.map((page, index) => (
+                            <li
+                              key={page?.link + index}
+                              className={`mr-5 relative group font-light ${page?.link === pathname && "!font-bold"}`}
+                            >
+                              <Link
+                                href={page?.link} className={`whitespace-nowrap text-theme-main hover:font-bold font_calibri`}>
+                                {page?.label}
+                              </Link>
+                              <div
+                                className={`group-hover:bg-theme-main mt-2 w-[18px] h-[2px] ${page?.link === pathname ? 'bg-theme-main' : ''}`} />
+                            </li>
+                          ))}
+                        </ul>
+                        <div className="relative group">
                           <Link
-                            href="/products-&-services"
-                            className={`w-full z-9 whitespace-nowrap ${(isShipSupplyPage || isShipSupplyHovered) ? 'font-bold' : ''} hover:font-bold`}
-                          >
-                            Ship Supply
-                          </Link>
+                            href="/marine-logistics-&-warehousing"
+                            className={`whitespace-nowrap ${isMarineLogisticsPage ? 'font-bold' : ''} hover:font-bold`}
+                          >Marine Logistics & Warehousing</Link>
+                          <div className={`mt-2 w-[18px] h-[2px] group-hover:bg-theme-main ${isMarineLogisticsPage ? 'bg-theme-main' : ''}`} />
+                        </div>
+
+                        <div className="relative group mt-2">
+                          <Link
+                            href="/industrial-&-energy-sector-supplies"
+                            className={`whitespace-nowrap ${isIndustrialPage ? 'font-bold' : ''} hover:font-bold`}
+                          >Industrial & Energy Sector Supplies</Link>
+                          <div className={`mt-2 w-[18px] h-[2px] group-hover:bg-theme-main ${isIndustrialPage ? 'bg-theme-main' : ''}`} />
                         </div>
                       </div>
-                      <ul className="pl-6 grid grid-cols-1 gap-2 py-4 px-5">
-                        {shipSupplyPaginationData?.map((page, index) => (
-                          <li
-                            key={page?.link + index}
-                            className={`mr-5 relative group font-light ${page?.link === pathname && "!font-bold"}`}
-                          >
-                            <Link
-                              href={page?.link} className={`whitespace-nowrap text-theme-main hover:font-bold font_calibri`}>
-                              {page?.label}
-                            </Link>
-                            <div
-                              className={`group-hover:bg-theme-main mt-2 w-[18px] h-[2px] ${page?.link === pathname ? 'bg-theme-main' : ''}`} />
-                          </li>
-                        ))}
-                      </ul>
-                      <div className="relative group">
-                        <Link
-                          href="/marine-logistics-&-warehousing"
-                          className={`whitespace-nowrap ${isMarineLogisticsPage ? 'font-bold' : ''} hover:font-bold`}
-                        >Marine Logistics & Warehousing</Link>
-                        <div className={`mt-2 w-[18px] h-[2px] group-hover:bg-theme-main ${isMarineLogisticsPage ? 'bg-theme-main' : ''}`} />
-                      </div>
-
-                      <div className="relative group mt-2">
-                        <Link
-                          href="/industrial-&-energy-sector-supplies"
-                          className={`whitespace-nowrap ${isIndustrialPage ? 'font-bold' : ''} hover:font-bold`}
-                        >Industrial & Energy Sector Supplies</Link>
-                        <div className={`mt-2 w-[18px] h-[2px] group-hover:bg-theme-main ${isIndustrialPage ? 'bg-theme-main' : ''}`} />
-                      </div>
-                    </div>
-                  </>
-                }
-              ]}
-            />
-            {
-              NavLinks?.map((item, idx) => (
-                item?.Label?.toLowerCase() === 'who we are' ?
-                  <Accordion
-                    isHeader
-                    data={[
-                      {
-                        title: 'Who are we',
-                        content: <>
-                          <ul className="relative min-w-[310px] flex flex-col gap-2 py-4 px-5">
-                            {whoWeAreLinks?.map((linkItem, index) =>
-                              <li key={index} className="relative group">
-                                <Link
-                                  href={linkItem?.href}
-                                  className={`group text-theme-main whitespace-nowrap ${pathname === linkItem?.href ? 'font-bold' : ''} hover:font-bold`}
-                                >
-                                  {linkItem?.label}
-                                </Link>
-                                <div
-                                  className={`group-hover:bg-theme-main mt-2 w-[18px] h-[2px] transition-colors duration-300 ${pathname === linkItem?.href ? 'bg-theme-main' : 'bg-transparent'}`}
-                                />
-                              </li>
-                            )}
-                          </ul>
-                        </>
-                      }
-                    ]}
-                  /> :
-                  item?.Label?.toLowerCase() === 'standards & innovation' ?
+                    </>
+                  }
+                ]}
+              />
+              {
+                NavLinks?.map((item, idx) => (
+                  item?.Label?.toLowerCase() === 'who we are' ?
                     <Accordion
                       isHeader
                       data={[
                         {
-                          title: 'Standards & Innovation',
+                          title: 'Who are we',
                           content: <>
                             <ul className="relative min-w-[310px] flex flex-col gap-2 py-4 px-5">
-                              {standardsInnovationLinks?.map((linkItem, index) =>
+                              {whoWeAreLinks?.map((linkItem, index) =>
                                 <li key={index} className="relative group">
                                   <Link
                                     href={linkItem?.href}
@@ -174,26 +149,53 @@ const MobileHeader = ({ NavLinks }) => {
                         }
                       ]}
                     /> :
-                    <li key={idx} className="relative group pt-4">
-                      <div className="flex items-center justify-between">
-                        <Link
-                          href={item?.Link}
-                          className={`block text-theme-main uppercase hover:font-bold group ${pathname === item?.Link ? 'font-bold' : ''}`}
-                        >
-                          {item?.Label}
-                        </Link>
-                        <Image src='/svg/arrow_forward_nav.svg' alt='arrow_forward_nav' width={17} height={17} />
-                      </div>
-                      <div className={`absolute bottom-[-4px] left-0 mt-2 w-[18px] h-[2px] group-hover:bg-theme-main ${pathname === item?.Link ? 'bg-theme-main' : ''}`} />
-                    </li>
-              ))
-            }
-          </ul>
-          <button className="w-full text-white mt-3 bg-theme-main text-left px-[19px] py-[9px]">
-            <p className="text-center text-[15px] font-light">Request a Quote</p>
-            <h6 className="text-center text-lg font-bold">adamallys@adamallys-llc.com</h6>
-          </button>
-        </div>
+                    item?.Label?.toLowerCase() === 'standards & innovation' ?
+                      <Accordion
+                        isHeader
+                        data={[
+                          {
+                            title: 'Standards & Innovation',
+                            content: <>
+                              <ul className="relative min-w-[310px] flex flex-col gap-2 py-4 px-5">
+                                {standardsInnovationLinks?.map((linkItem, index) =>
+                                  <li key={index} className="relative group">
+                                    <Link
+                                      href={linkItem?.href}
+                                      className={`group text-theme-main whitespace-nowrap ${pathname === linkItem?.href ? 'font-bold' : ''} hover:font-bold`}
+                                    >
+                                      {linkItem?.label}
+                                    </Link>
+                                    <div
+                                      className={`group-hover:bg-theme-main mt-2 w-[18px] h-[2px] transition-colors duration-300 ${pathname === linkItem?.href ? 'bg-theme-main' : 'bg-transparent'}`}
+                                    />
+                                  </li>
+                                )}
+                              </ul>
+                            </>
+                          }
+                        ]}
+                      /> :
+                      <li key={idx} className="relative group pt-4">
+                        <div className="flex items-center justify-between">
+                          <Link
+                            href={item?.Link}
+                            className={`block text-theme-main uppercase hover:font-bold group ${pathname === item?.Link ? 'font-bold' : ''}`}
+                          >
+                            {item?.Label}
+                          </Link>
+                          <Image src='/svg/arrow_forward_nav.svg' alt='arrow_forward_nav' width={17} height={17} />
+                        </div>
+                        <div className={`absolute bottom-[-4px] left-0 mt-2 w-[18px] h-[2px] group-hover:bg-theme-main ${pathname === item?.Link ? 'bg-theme-main' : ''}`} />
+                      </li>
+                ))
+              }
+            </ul>
+            <button className="w-full text-white mt-3 bg-theme-main text-left px-[19px] py-[9px]">
+              <p className="text-center text-[15px] font-light">Request a Quote</p>
+              <h6 className="text-center text-lg font-bold">adamallys@adamallys-llc.com</h6>
+            </button>
+          </div>
+        }
       </div>
     </header>
   );
