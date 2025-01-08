@@ -9,10 +9,10 @@ function Card({ title, image, date, slug }) {
     >
       <img src={image} alt={title} className="w-full" />
       <div className="bg-[#F5F6F8] w-full py-8 px-10">
-        <p className="text-[#2E368F]">{dayjs(date).format('DD MMMM YYYY')}</p>
-        <h3 className="text-[25px] font-[300] text-[#8B8B8B] py-3">{title}</h3>
-        <span className="flex items-center gap-4 text-[#2E368F] mt-4">
-          <Link href={`/${slug}`}>Read More</Link>
+        <p className="font_calibri text-[14px] text-[#2E368F] text-center md:text-left">{dayjs(date).format('DD MMMM YYYY')}</p>
+        <h3 className="font_calibri text-[14px] md:text-[25px] font-[300] text-[#8B8B8B] py-3 text-center md:text-left">{title}</h3>
+        <span className="font_calibri flex items-center justify-center md:justify-start gap-4 text-[#2E368F] md:mt-4 text-center md:text-left">
+          <Link className='font_calibri' href={`/${slug}`}>Read More</Link>
           <IoIosArrowForward />
         </span>
       </div>
