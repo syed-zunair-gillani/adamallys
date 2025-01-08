@@ -17,13 +17,18 @@ const IndustrialEnergy = (props) => {
       <div className="mb-24" />
       <section>
         <div>
-          <h1 className="text-center text-2xl pb-8 md:pt-8 sm:text-[40px] font_calibri md:leading-[50px] md:text-[50px] lg:text-[60px] font-bold text-[#2E368F] px-4">
+          <h1 className="text-center flex flex-col justify-center items-center text-[25px] mt-2 mb-1 sm:text-[40px] font_calibri leading-[149%] md:text-[50px] lg:text-[60px] font-bold text-[#2E368F] px-4">
             Products & Services
+            <div className='h-[1px] w-[49px] bg-[#8B8B8B] mt-4 md:hidden block' />
           </h1>
         </div>
         <GridBanner />
       </section>
-      <section className="mt-14 container mx-auto flex flex-col lg:flex-row gap-5 lg:gap-10 mb-10 lg:mb-20">
+      <h2 className='text-[25px] text-center md:text-hidden leading-[67px] font-bold text-theme-main !mb-0'>{title}</h2>
+      <p className="text-[12px] font-light text-center leading-[26px] py-3 md:hidden px-3 md:px-0">
+        {info}
+      </p>
+      <section className="mt-6 md:mt-14 container mx-auto flex flex-col lg:flex-row gap-5 lg:gap-10 mb-6 lg:mb-20 px-3 lg:px-0">
         <div className='lg:w-[30%] min-w-[464px]'>
           <IndustrialEnergyComp
             caption={video_title}
@@ -31,12 +36,12 @@ const IndustrialEnergy = (props) => {
           />
         </div>
         <div className='lg:w-[70%]'>
-          <h2 className='text-[60px] leading-[67px] font-bold text-theme-main'>{title}</h2>
-          <p className="text-lg font-light leading-[26px] py-[17px]">
+          <h2 className='text-[60px] font_calibri text-center md:text-left leading-[67px] font-bold text-theme-main hidden md:block'>{title}</h2>
+          <p className="text-lg font-light leading-[26px] py-[17px] hidden md:block">
             {info}
           </p>
-          <p className="text-[40px] leading-[45px] text-theme-main">Our Key Product Offerings</p>
-          <div className='my-[30px] w-full h-[1px] bg-[#B2B6E0]' />
+          <p className="text-[25px] md:text-[40px] text-center md:text-left font_calibri leading-[45px] font-bold text-theme-main">Our Key Product Offerings</p>
+          <div className='md:my-[30px] mb-0 mt-[30px] w-full h-[1px] bg-[#B2B6E0]' />
           <Accordion data={data} isFirstOpen />
         </div>
       </section>
