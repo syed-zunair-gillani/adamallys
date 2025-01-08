@@ -1,11 +1,11 @@
 'use client'
 import React, { useState } from 'react';
 
-const AccordionItem = ({ title, content, isOpen, onToggle, hideToggle }) => {
+const AccordionItem = ({ isFooter, title, content, isOpen, onToggle, hideToggle }) => {
   return (
-    <div className="border-b last:border-b-0">
+    <div className={`${isFooter && 'pb-3'} border-b border-[#8B8B8B80] last:border-b-0`}>
       <button
-        className={`w-full text-left ${hideToggle ? 'pt-4' : 'p-4 hover:bg-gray-100'} focus:outline-none`}
+        className={`w-full text-left ${(hideToggle || isFooter) ? 'pt-4' : 'p-4 hover:bg-gray-100'} focus:outline-none`}
         onClick={onToggle}
       >
         <div className="flex justify-between items-center">
@@ -24,7 +24,7 @@ const AccordionItem = ({ title, content, isOpen, onToggle, hideToggle }) => {
   );
 };
 
-const Accordion = ({ data = [], isOpen, hideToggle, isFirstOpen }) => {
+const Accordion = ({ isFooter, data = [], isOpen, hideToggle, isFirstOpen }) => {
   const [openIndex, setOpenIndex] = useState(isFirstOpen ? 0 : null);
 
   const toggleAccordion = (index) => {
@@ -37,6 +37,7 @@ const Accordion = ({ data = [], isOpen, hideToggle, isFirstOpen }) => {
         <AccordionItem
           key={index}
           title={item.title}
+          isFooter={isFooter}
           content={item.content}
           hideToggle={hideToggle}
           isOpen={isOpen || openIndex === index}
