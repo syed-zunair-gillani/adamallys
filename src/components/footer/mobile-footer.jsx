@@ -102,7 +102,7 @@ const MobileFooter = async () => {
                       </a>
                     </li>
                   </ul>
-                  <section className="flex flex-col justify-center items-center gap-2 mt-8 font_calibri text-theme-main">
+                  <section className="flex flex-wrap justify-center items-center gap-2 mt-8 font_calibri text-theme-main">
                     {
                       Buttons?.map((item, idx) => (
                         <Link href={item?.Link || "#"} key={idx}><button className="py-[6px] px-4 sm:px-[30px] border border-theme-main leading-[32px] rounded-full">{item?.Label}</button></Link>
