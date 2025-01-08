@@ -50,10 +50,13 @@ const OtherServices = (props) => {
   return (
     <section
       ref={sectionRef}
-      className="certification-gradient py-12 md:py-20 mt-10 md:mt-20"
+      className="certification-gradient py-12 md:py-20 mt-10 md:mt-20 px-3 lg:px-0 w-full"
     >
-      <div className="container mx-auto flex gap-10 xl:gap-24 items-center">
-        <div className="w-[40%] hidden lg:block">
+      <div className="container mx-auto flex flex-col md:flex-row gap-6 xl:gap-24 items-center">
+        <h2 className="other-services-heading md:hidden text-center text-[25px] font_calibri pb-6 text-white font-bold border-b border-gray-500 w-full">
+          Other Services
+        </h2>
+        <div className="md:w-[40%] w-full">
           <figure>
             <Image
               src={serviceImage?.data?.attributes?.url}
@@ -65,26 +68,26 @@ const OtherServices = (props) => {
           </figure>
         </div>
         <div className="w-full lg:w-[60%]">
-          <h2 className="other-services-heading text-4xl md:text-5xl lg:text-6xl font_calibri text-white font-bold">
+          <h2 className="other-services-heading text-center md:text-left text-[25px] md:text-5xl lg:text-6xl font_calibri text-white font-bold hidden md:block">
             Other Services
           </h2>
-          <div className="w-full h-[1px] bg-gray-500 my-10" />
-          <div className="flex flex-col md:flex-row gap-8">
+          <div className="w-full h-[1px] bg-gray-500 my-10 hidden md:block" />
+          <div className="flex flex-col md:flex-row gap-8 px-3 lg:px-0">
             <div className="w-full">
               {Services?.map((item, index) => (
-                <div key={index} className="flex items-center service-item mx-1 group">
+                <div key={index} className="flex items-center service-item mx-1 group text-center  md:text-left">
                   <div className={` ${index + 1 === Services?.length ? "" : "mb-[44px]"}`}>
-                    <h3 className="text-2xl md:text-[40px] text-white font_franklin md:leading-[45px]">
+                    <h3 className="text-[25px] md:text-[40px] text-white font_franklin md:leading-[45px]">
                       {item?.Title}
                     </h3>
-                    <div className="h-[6px] bg-white w-[50px] md:w-[98px] my-5" />
-                    <div className="flex justify-between items-center">
-                      <p className="max-w-[560px] text-lg font_calibri text-white font-light">
+                    <div className="h-[6px] bg-white w-[50px] md:w-[98px] my-5 mx-auto md:mx-0" />
+                    <div className="flex md:flex-row flex-col justify-center md:justify-between items-center">
+                      <p className="max-w-[560px] text-xs md:text-lg font_calibri text-white font-light">
                         {item?.Caption}
                       </p>
                       <Link
                         href={item?.Link}
-                        className="hidden group-hover:flex !w-full justify-end md:items-center md:w-[20%]"
+                        className="md:hidden group-hover:flex flex !w-full md:justify-end md:items-center md:w-[20%] justify-center"
                       >
                         <CircularArrowRight />
                       </Link>

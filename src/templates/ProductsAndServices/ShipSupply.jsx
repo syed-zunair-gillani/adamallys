@@ -27,36 +27,37 @@ const ShipSupply = (props) => {
       <div className="mb-24" />
       <section>
         <div>
-          <h1 className="text-center text-2xl pb-8 md:pt-8 sm:text-[40px] font_calibri md:leading-[50px] md:text-[50px] lg:text-[60px] font-bold text-[#2E368F] px-4">
+          <h1 className="text-center flex flex-col justify-center items-center text-[25px] mt-2 mb-1 sm:text-[40px] font_calibri leading-[149%] md:text-[50px] lg:text-[60px] font-bold text-[#2E368F] px-4">
             Products & Services
+            <div className='h-[1px] w-[49px] bg-[#8B8B8B] mt-4 md:hidden block' />
           </h1>
         </div>
         <GridBanner />
       </section>
-      <section className="mt-14 container mx-auto flex flex-col md:flex-row gap-5 md:gap-10 mb-10 md:mb-20">
+      <section className="mt-4 md:mt-14 container px-3 lg:px-0 mx-auto flex flex-col md:flex-row gap-5 md:gap-10 mb-10 md:mb-20">
         <div className='md:w-[30%]'>
-          <div className='sticky top-20'>
-            <h2 className='text-3xl md:text-5xl lg:text-6xl font_calibri text-theme-main font-bold'>{title}</h2>
-            <div className='ship_supply_content font_calibri mt-4 text-[#3E3E3E] text-lg font-light leading-[26px]'>
+          <div className='md:sticky md:top-20'>
+            <h2 className='text-3xl md:text-5xl lg:text-6xl font_calibri text-theme-main font-bold flex flex-col justify-center items-center md:items-start md:text-left md:justify-start'>{title}</h2>
+            <div className='ship_supply_content font_calibri mt-4 text-[#3E3E3E] md:text-lg font-light leading-[26px] text-center md:text-left text-xs'>
               {text}
             </div>
           </div>
         </div>
         <div className='md:w-[70%]'>
-          <div className='flex flex-col gap-10'>
+          <div className='w-full h-[1px] bg-[#9F9F9F] mt-[30px] my-[15px] md:mb-0 md:py-0 md:hidden' />
+          <div className='flex flex-col md:gap-10'>
             {
               Product_and_service?.map?.((item, idx) => (
                 <div key={idx}>
-                  <div className='grid grid-cols-2 gap-10'>
+                  <div className='grid grid-cols-2 gap-4 md:gap-10'>
                     <figure className='h-ful w-full'>
-                      <Image src={modifyImageUrl(item?.Image?.data?.attributes?.url)} alt={item?.title} className='max-h-[257px] w-full object-cover' width={400} height={214} />
+                      <Image src={modifyImageUrl(item?.Image?.data?.attributes?.url)} alt={item?.title} className='max-h-[257px] w-full h-full object-cover' width={400} height={214} />
                     </figure>
                     <div className='flex flex-col justify-between'>
                       <div>
-                        <h3 className='text-theme-main text-4xl mb-1 font_franklin'>{item?.title}</h3>
-                        <p className='mt-3 text-lg font-light text-[#3E3E3E] leading-[26px] font_calibri'>{item?.Excerpt}</p>
+                        <h3 className='text-theme-main text-xl md:text-4xl mb-1 font_franklin'>{item?.title}</h3>
+                        <p className='mt-3 text-lg font-light text-[#3E3E3E] leading-[26px] font_calibri line-clamp-2 md:line-clamp-none'>{item?.Excerpt}</p>
                       </div>
-
                       <Link href={item?.link} className='mt-[45px] text-theme-main flex gap-[29px]'>
                         Read More
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -70,7 +71,7 @@ const ShipSupply = (props) => {
                       </Link>
                     </div>
                   </div>
-                  <div className='w-full h-[1px] bg-[#9F9F9F] mt-[40px]' />
+                  <div className='w-full h-[1px] bg-[#9F9F9F] my-4 md:mb-0 md:mt-[40px]' />
                 </div>
               ))
             }

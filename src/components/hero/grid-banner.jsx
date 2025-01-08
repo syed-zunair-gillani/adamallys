@@ -25,7 +25,7 @@ const GridBanner = () => {
   const pathname = usePathname();
 
   return (
-    <main className='flex flex-col md:flex-row font_calibri'>
+    <main className='flex-col md:flex-row font_calibri hidden md:flex'>
       {tabs?.map((tab) =>
         <div
           key={tab?.link}
