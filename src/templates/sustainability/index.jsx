@@ -31,25 +31,29 @@ const SustainabilityTemplate = (props) => {
           </p>
         </div>
       </div>
-      <TwoColumnContent
-        zeroGap
-        hideButton
-        title={Cards?.[0]?.title}
-        caption={Cards?.[0]?.info}
-        image={Cards?.[0]?.image?.data?.attributes?.url}
-        points={Cards?.[0]?.lists?.map(({ list }) => list)}
-      />
-      <TwoColumnContent
-        invert
-        bgGray
-        zeroGap
-        hideButton
-        title={Cards?.[1]?.title}
-        caption={Cards?.[1]?.info}
-        image={Cards?.[1]?.image?.data?.attributes?.url}
-        points={Cards?.[1]?.lists?.map(({ list }) => list)}
-      />
-      <section className={`container mx-auto grid mb-4`}>
+      <div className="sticky top-20">
+        <TwoColumnContent
+          zeroGap
+          hideButton
+          title={Cards?.[0]?.title}
+          caption={Cards?.[0]?.info}
+          image={Cards?.[0]?.image?.data?.attributes?.url}
+          points={Cards?.[0]?.lists?.map(({ list }) => list)}
+        />
+      </div>
+      <div className="sticky top-20">
+        <TwoColumnContent
+          invert
+          bgGray
+          zeroGap
+          hideButton
+          title={Cards?.[1]?.title}
+          caption={Cards?.[1]?.info}
+          image={Cards?.[1]?.image?.data?.attributes?.url}
+          points={Cards?.[1]?.lists?.map(({ list }) => list)}
+        />
+      </div>
+      <section className={`relative container mx-auto grid pb-4 z-9 bg-white`}>
         <div>
           <figure>
             <Image
@@ -61,7 +65,7 @@ const SustainabilityTemplate = (props) => {
             />
           </figure>
         </div>
-        <div className={`p-8 xl:p-14 leading-10  text-white bg-theme-main "flex-col gap-2"}`}>
+        <div className={`p-8 xl:p-14 leading-10  text-white bg-theme-main flex-col gap-2`}>
           <h2 className={`text-center text-[40px] leading-[49px]`}>Marine Valves & Ship Side Valves</h2>
           <div>
             <div className="flex justify-center">

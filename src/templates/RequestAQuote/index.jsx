@@ -1,6 +1,7 @@
 'use client'
 import axios from 'axios';
 import { useEffect, useState } from 'react'
+import { toast } from 'react-toastify';
 
 const defaultValues = {
   companyName: '',
@@ -19,6 +20,15 @@ const defaultValues = {
   comments: ''
 }
 
+const requiredFields = [
+  { field: 'companyName', message: 'Company Name is required!' },
+  { field: 'vessel', message: 'Vessel is required!' },
+  { field: 'refNo', message: 'Ref No. is required!' },
+  { field: 'phone', message: 'Phone No. is required!' },
+  { field: 'phoneCode', message: 'Phone Code is required!' },
+  { field: 'email', message: 'Email is required!' },
+];
+
 const RequestAQuoteTemplate = ({ ports }) => {
   const [formData, setFormData] = useState(defaultValues);
   const [countries, setCountries] = useState([]);
@@ -29,7 +39,9 @@ const RequestAQuoteTemplate = ({ ports }) => {
         const countryData = response.data.map(country => ({
           name: country.name.common,
           code: country.cca2,
+          phoneCode: country.idd ? `${country.idd.root}${country.idd.suffixes ? country.idd.suffixes.join(', ') : ''}` : ''
         }));
+
         const sortedCountries = countryData.sort((a, b) =>
           a.name.localeCompare(b.name)
         );
@@ -41,7 +53,6 @@ const RequestAQuoteTemplate = ({ ports }) => {
       });
   }, []);
 
-
   const portList = [
     ...ports?.attributes?.Oman?.map(({ Name }) => ({ label: Name, value: Name })),
     ...ports?.attributes?.UAE_Ports?.map(({ Name }) => ({ label: Name, value: Name })),
@@ -50,6 +61,13 @@ const RequestAQuoteTemplate = ({ ports }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    if (name === 'country') {
+      return setFormData(prevData => ({
+        ...prevData,
+        country: value,
+        phoneCode: value,
+      }));
+    }
     setFormData(prevData => ({
       ...prevData,
       [name]: value
@@ -127,15 +145,24 @@ const RequestAQuoteTemplate = ({ ports }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+
+    for (let { field, message } of requiredFields) {
+      if (!formData?.[field]) {
+        toast.error(message);
+        return;
+      }
+    }
+
     try {
       const response = await axios.post(`/api/send-request-a-quote`, formData);
-      if(response?.status === 200){
-        alert("Email Sended");
-        setFormData({...defaultValues})
+      if (response?.status === 200) {
+        toast.success('Email sended successfully!')
+        setFormData({ ...defaultValues })
+      } else {
+        toast.error("Something went wrong!")
       }
     } catch (error) {
-      console.error("🚀 ~ handleSubmit ~ error:", error)
+      toast.error("Something went wrong!")
     }
   };
 
@@ -202,8 +229,11 @@ const RequestAQuoteTemplate = ({ ports }) => {
               >
                 <option value="" disabled hidden>Select</option>
                 {countries.map(country => (
-                  <option key={country.code} value={country.name}>
-                    {country.name}
+                  <option
+                    value={country?.phoneCode}
+                    key={country?.phoneCode + country?.name}
+                  >
+                    {country?.name}
                   </option>
                 ))}
               </select>
