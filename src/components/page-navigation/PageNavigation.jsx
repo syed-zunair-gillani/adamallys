@@ -24,7 +24,7 @@ const PageNavigation = () => {
 
   return (
     <section className="page_navigation_gradient">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-3 lg:px-0">
         <ul className="flex gap-8 justify-between overflow-x-auto overflow-y-hidden">
           {shipSupplyPaginationData?.map((page) => (
             <li
@@ -34,7 +34,7 @@ const PageNavigation = () => {
               }`}
             >
               {page?.link?.includes(pathname) && (
-                <div className="h-[2px] w-[45px] bg-white" />
+                <div className="h-[2px] w-[45px] bg-white hidden md:block" />
               )}
               <Link
                 href={page?.link}
@@ -43,7 +43,7 @@ const PageNavigation = () => {
                 {page?.label}
               </Link>
               {page?.link?.includes(pathname) && (
-                <div className="h-[2px] w-[45px] bg-white" />
+                <div className="h-[2px] w-[45px] bg-white hidden md:block" />
               )}
             </li>
           ))}
