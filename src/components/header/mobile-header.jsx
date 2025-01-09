@@ -57,7 +57,7 @@ const MobileHeader = ({ NavLinks }) => {
         </div>
         {openMobileNav &&
           <div
-            className={`${openMobileNav && "min-h-[750px]"} absolute w-full right-0 transition-all duration-300 left-0 z-[-1] pt-20 pb-5 px-4 ${openMobileNav ? "top-0" : "-top-[1000%]"
+            className={`${openMobileNav && "min-h-[650px]"} absolute w-full right-0 transition-all duration-300 left-0 z-[-1] pt-20 pb-5 px-4 ${openMobileNav ? "top-0" : "-top-[1000%]"
               } flex flex-col justify-between`}
             style={{
               background: 'linear-gradient(to bottom, #FFFFFF, #DFE2FF )'
@@ -80,7 +80,7 @@ const MobileHeader = ({ NavLinks }) => {
                             <Link
                               onClick={handleClose}
                               href="/products-&-services"
-                              className={`w-full z-9 whitespace-nowrap ${(isShipSupplyPage) ? 'font-bold' : ''} hover:font-bold`}
+                              className={`w-full text-lg z-9 whitespace-nowrap ${(isShipSupplyPage) ? 'font-bold' : ''} hover:font-bold`}
                             >
                               Ship Supply
                             </Link>
@@ -94,7 +94,7 @@ const MobileHeader = ({ NavLinks }) => {
                             >
                               <Link
                                 onClick={handleClose}
-                                href={page?.link} className={`whitespace-nowrap text-theme-main hover:font-bold font_calibri`}>
+                                href={page?.link} className={`whitespace-nowrap text-lg text-theme-main hover:font-bold font_calibri`}>
                                 {page?.label}
                               </Link>
                               <div
@@ -106,7 +106,7 @@ const MobileHeader = ({ NavLinks }) => {
                           <Link
                             onClick={handleClose}
                             href="/marine-logistics-&-warehousing"
-                            className={`whitespace-nowrap ${isMarineLogisticsPage ? 'font-bold' : ''} hover:font-bold`}
+                            className={`text-lg whitespace-nowrap ${isMarineLogisticsPage ? 'font-bold' : ''} hover:font-bold`}
                           >Marine Logistics & Warehousing</Link>
                           <div className={`mt-2 w-[18px] h-[2px] group-hover:bg-theme-main ${isMarineLogisticsPage ? 'bg-theme-main' : ''}`} />
                         </div>
@@ -115,7 +115,7 @@ const MobileHeader = ({ NavLinks }) => {
                           <Link
                             onClick={handleClose}
                             href="/industrial-&-energy-sector-supplies"
-                            className={`whitespace-nowrap ${isIndustrialPage ? 'font-bold' : ''} hover:font-bold`}
+                            className={`text-lg whitespace-nowrap ${isIndustrialPage ? 'font-bold' : ''} hover:font-bold`}
                           >Industrial & Energy Sector Supplies</Link>
                           <div className={`mt-2 w-[18px] h-[2px] group-hover:bg-theme-main ${isIndustrialPage ? 'bg-theme-main' : ''}`} />
                         </div>
@@ -139,7 +139,7 @@ const MobileHeader = ({ NavLinks }) => {
                                   <Link
                                     href={linkItem?.href}
                                     onClick={handleClose}
-                                    className={`group text-theme-main whitespace-nowrap ${pathname === linkItem?.href ? 'font-bold' : ''} hover:font-bold`}
+                                    className={`group text-lg text-theme-main whitespace-nowrap ${pathname === linkItem?.href ? 'font-bold' : ''} hover:font-bold`}
                                   >
                                     {linkItem?.label}
                                   </Link>
@@ -166,7 +166,7 @@ const MobileHeader = ({ NavLinks }) => {
                                     <Link
                                       href={linkItem?.href}
                                       onClick={handleClose}
-                                      className={`group text-theme-main whitespace-nowrap ${pathname === linkItem?.href ? 'font-bold' : ''} hover:font-bold`}
+                                      className={`group text-lg text-theme-main whitespace-nowrap ${pathname === linkItem?.href ? 'font-bold' : ''} hover:font-bold`}
                                     >
                                       {linkItem?.label}
                                     </Link>

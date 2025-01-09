@@ -111,13 +111,15 @@ const Services = ({ data }) => {
                     >
                       {item?.title}
                     </Link>
-                    <Image
-                      src="/svg/service-arrow.svg"
-                      alt="icon"
-                      width={43}
-                      height={43}
-                      className={styles.service_icon}
-                    />
+                    <Link href={item?.link || '#'}>
+                      <Image
+                        src="/svg/service-arrow.svg"
+                        alt="icon"
+                        width={43}
+                        height={43}
+                        className={styles.service_icon}
+                      />
+                    </Link>
                   </div>
                 </div>
               );

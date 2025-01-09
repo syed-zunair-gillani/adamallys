@@ -6,7 +6,8 @@ import OneColumnContent from '@/components/one-column-content/two-column-content
 import TwoColumnContent from "@/components/two-column-content/two-column-content"
 
 const ShipSparePartsTemplate = (props) => {
-  const { Why_Choose_Image, Why_Choose_Title, Why_Choose_info, banner_background_image, banner_Info, banner_title, Cards, OtherServices: otherServicesData } = props;
+  const { Why_Choose_Image, Why_Choose_Title, Why_Choose_Info, banner_background_image, banner_Info, banner_title, Cards, OtherServices: otherServicesData } = props;
+
   return (
     <>
       <div className="mb-20" />
@@ -76,7 +77,7 @@ const ShipSparePartsTemplate = (props) => {
         points={Cards?.[6]?.lists?.map(({ list }) => list)}
       />
       <ChooseAdamallys
-        {...{ title: Why_Choose_Title, image: Why_Choose_Image?.data?.attributes?.url, description: Why_Choose_info }}
+        {...{ title: Why_Choose_Title, image: Why_Choose_Image?.data?.attributes?.url, description: Why_Choose_Info }}
       />
       <OtherServices {...otherServicesData} />
     </>
