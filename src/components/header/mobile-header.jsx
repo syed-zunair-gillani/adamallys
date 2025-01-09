@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { MenuIcon, XIcon } from "../../../public/icons";
 import { shipSupplyPaginationData } from "@/consts/shipSupply";
 import Image from "next/image";
+import useScrollPosition from "@/hooks/useScrollPosition";
 
 const standardsInnovationLinks = [
   {
@@ -36,6 +37,8 @@ const whoWeAreLinks = [
 
 const MobileHeader = ({ NavLinks }) => {
   const pathname = usePathname();
+  const scrollPosition = useScrollPosition()
+
   const [openMobileNav, setOpenMobileNav] = useState(false);
 
   const handleClose = () => setOpenMobileNav(false)
@@ -46,7 +49,7 @@ const MobileHeader = ({ NavLinks }) => {
 
   return (
     <header
-      className="md:hidden top-0 absolute w-full z-[50]"
+      className={`${(scrollPosition < 100 && pathname === "/") ? "header-gradient" : "bg-white"} fixed z-[200] top-0 md:hidden top-0 w-full z-[50]`}
     >
       <div>
         <div className="border-b-[1px] pl-[18px] item-center border-[#969cc0] flex justify-between w-full">

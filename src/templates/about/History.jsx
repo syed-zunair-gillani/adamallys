@@ -23,7 +23,7 @@ const History = ({ data }) => {
               data?.HistoryList?.map((history, index) =>
                 <div key={history?.year} className="flex gap-10 md:gap-[10px]">
                   <div>
-                    <p className="font_calibri capitalize text-[30px] md:text-[59px] leading-[49px] text-theme-main">{history?.Year}</p>
+                    <p className="font_calibri leading-[25px] capitalize text-[30px] md:text-[59px] lg:leading-[49px] text-theme-main">{history?.Year}</p>
                     <div style={{
                       width: 58,
                       height: isMobile ? 3 : 6,

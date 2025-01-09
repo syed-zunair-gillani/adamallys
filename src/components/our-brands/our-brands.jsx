@@ -94,7 +94,7 @@ const OurBrands = ({ data, content }) => {
             />
           </div>
         </div>
-        <p ref={contentRef} className="font-light mt-3 mb-[37px] text-center md:text-left text-xs md:text-base font_calibri">
+        <p ref={contentRef} className="font-light px-[18px] mt-3 mb-[30px] lg:px-0 lg:mb-[37px] text-center md:text-left text-xs md:text-base font_calibri">
           {content}
         </p>
         <Slider ref={slider} {...settings}>

@@ -34,7 +34,7 @@ const Cards = ({ dark, data }) => {
   }, []);
 
   const card1 = <div
-    className={`h-[720px] px-4 sticky top-20 sm:px-10 md:px-16 flex justify-center flex-col items-center bg-black text-white  
+    className={`lg:h-[720px] py-[34px] py-6 px-4 sticky top-20 flex justify-center flex-col items-center bg-black text-white  
 }`}
   >
     <div className='max-w-[435px] mx-auto'>
@@ -63,7 +63,7 @@ const Cards = ({ dark, data }) => {
       <Link href={data[0]?.link || '#'}>
         <button
           // onClick={() => setSustainabilityExpanded(prev => !prev)}
-          className={`font_calibri border flex items-center gap-10 mt-10 py-[14px] px-[18px] border-white '
+          className={`font_calibri border flex items-center gap-10 mt-3 md:mt-10 py-[14px] px-[18px] border-white '
         }`}
         >
           {sustainabilityExpanded ? 'Read Less' : 'Read More'}
@@ -92,7 +92,7 @@ const Cards = ({ dark, data }) => {
   />
 
   const card2 = <div
-    className={`h-[720px] sticky top-60 px-4 sm:px-10 md:px-16 flex justify-center flex-col items-center mt-40 ${dark ? 'bg-black text-white' : 'bg-[#F5F6F8] text-[#2E368F]'
+    className={`lg:h-[720px] py-[34px] py-6 px-4  sticky top-60 px-4 flex justify-center flex-col items-center mt-40 ${dark ? 'bg-black text-white' : 'bg-[#F5F6F8] text-[#2E368F]'
       }`}
     ref={topRef}
   >
@@ -122,7 +122,7 @@ const Cards = ({ dark, data }) => {
       <Link href={data[1]?.link || '#'}>
         <button
           // onClick={() => setExpanded(prev => !prev)}
-          className={`font_calibri border flex items-center gap-10 mt-10 py-[14px] px-[18px] ${dark ? 'border-white' : 'border-[#2E368F]'
+          className={`font_calibri border flex items-center gap-10 mt-3 md:mt-10 py-[14px] px-[18px] ${dark ? 'border-white' : 'border-[#2E368F]'
             }`}
         >
           {expanded ? 'Read Less' : 'Read More'}

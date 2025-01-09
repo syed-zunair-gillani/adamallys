@@ -86,7 +86,7 @@ const OurCompany = ({ data }) => {
 
   return (
     <section ref={sectionRef} className="">
-      <div className="container py-[35px] md:py-20 mx-auto flex md:flex-row gap-6 flex-col px-3 lg:px-0">
+      <div className="container mt-[35px] md:mt-0 md:py-[35px] md:py-20 mx-auto flex md:flex-row md:gap-6 flex-col px-[18px] lg:px-0">
         <div className="md:w-[25%] mb-[22px]">
           <h3
             ref={headingRef}

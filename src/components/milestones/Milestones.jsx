@@ -65,12 +65,12 @@ const Milestones = ({ data }) => {
   return (
     <section
       ref={sectionRef}
-      className="milestone_bg bg-center md:bg-right !bg-no-repeat !bg-cover"
+      className="milestone_bg mx-[18px] md:mx-0 bg-center md:bg-right !bg-no-repeat !bg-cover"
       style={{ backgroundImage: `url(${data?.Background_Image?.data?.attributes?.url})` }}
     >
       <div
         ref={bgRef}
-        className="container mx-auto py-[54px] px-3 lg:px-0"
+        className="container mx-auto py-10 md:py-[54px] px-3 lg:px-0"
       >
         <h4
           ref={headingRef}

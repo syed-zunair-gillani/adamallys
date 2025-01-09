@@ -10,7 +10,7 @@ const AccordionItem = ({ isHeader, isFooter, title, content, isOpen, onToggle, h
         onClick={onToggle}
       >
         <div className="flex justify-between items-center">
-          <span className={`${(isHeader && !isOpen) ? '' : 'font-bold'} text-lg text-theme-main`}>
+          <span className={`${isHeader && 'uppercase'} ${(isHeader && !isOpen) ? '' : 'font-bold'} text-lg text-theme-main`}>
             {title}
             {(isHeader && isOpen) &&
               <span className='block mt-2 w-[18px] h-[2px] bg-theme-main' />
