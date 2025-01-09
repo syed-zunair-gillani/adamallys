@@ -30,6 +30,8 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden !important;
 }
 
 .container {
@@ -256,35 +258,41 @@ p {
   border-radius: 20px;
 }
 
-@media(max-width: 768px){
-  .oc_content h2{
+@media(max-width: 768px) {
+  .oc_content h2 {
     text-align: center;
     font-size: 25px !important;
     line-height: 35px !important;
   }
-  .oc_content p{
+
+  .oc_content p {
     text-align: center !important;
     font-size: 12px !important;
   }
-  .oc_content h3{
+
+  .oc_content h3 {
     font-size: 14px !important;
     text-align: center !important;
   }
-  .present_day p{
+
+  .present_day p {
     text-align: center;
     font-size: 12px;
   }
-  .present_day h6{
+
+  .present_day h6 {
     text-align: center;
     font-size: 14px;
     margin-top: 0 !important;
   }
+
   .banner-gradient {
     background: linear-gradient(0deg, rgba(46, 54, 143, 1) 11%, rgba(46, 54, 143, 1) 24%, rgba(46, 54, 143, 1) 37%, rgba(46, 54, 143, 0.9585084033613446) 43%, rgba(46, 54, 143, 0.9024859943977591) 48%, rgba(46, 54, 143, 0) 100%);
   }
 }
 
-.tags::-webkit-scrollbar { /* WebKit */
+.tags::-webkit-scrollbar {
+  /* WebKit */
   width: 0;
   height: 0;
   display: none;

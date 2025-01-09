@@ -50,7 +50,7 @@ const OtherServices = (props) => {
   return (
     <section
       ref={sectionRef}
-      className="certification-gradient py-12 md:py-20 mt-10 md:mt-20 px-3 lg:px-0 w-full"
+      className="certification-gradient py-12 md:py-20 mt-10 md:mt-20 px-3 lg:px-0"
     >
       <div className="container mx-auto flex flex-col md:flex-row gap-6 xl:gap-24 items-center">
         <h2 className="other-services-heading md:hidden text-center text-[25px] font_calibri pb-6 text-white font-bold border-b border-gray-500 w-full">
@@ -87,7 +87,7 @@ const OtherServices = (props) => {
                       </p>
                       <Link
                         href={item?.Link}
-                        className="md:hidden group-hover:flex flex !w-full md:justify-end md:items-center md:w-[20%] justify-center"
+                        className="md:hidden group-hover:flex flex md:justify-end md:items-center md:w-[20%] justify-center"
                       >
                         <CircularArrowRight />
                       </Link>
