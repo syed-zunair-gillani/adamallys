@@ -67,7 +67,7 @@ const SustainabilityTemplate = (props) => {
           </figure>
         </div>
         <div className={`p-8 xl:p-14 leading-10  text-white bg-theme-main flex-col gap-2`}>
-          <h2 className={`text-center text-[40px] leading-[49px]`}>Marine Valves & Ship Side Valves</h2>
+          <h2 className={`text-center text-[40px] leading-[49px]`}>CORPORATE SOCIAL RESPONSIBILITY (CSR)</h2>
           <div>
             <div className="flex justify-center">
               <p className='max-w-[800px] text-center text-lg leading-[26px] font-light mt-3'>
