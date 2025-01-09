@@ -34,7 +34,7 @@ const Main = ({ data, Side_Sticky_Links }) => {
         {data?.map((item, idx) => (
           <div key={idx}>
             <div className="fullscreen-video-container">
-              <video autoPlay loop muted>
+              <video playsInline webkitPlaysInline autoPlay loop muted>
                 <source src={item?.video?.data?.attributes?.url} type="video/mp4" />
               </video>
 
