@@ -39,7 +39,7 @@ const ContactTemplate = (props) => {
 
   return (
     <main
-      className='mt-[8rem]'
+      className='mt-[4rem] md:mt-[8rem]'
       style={{ overflowX: 'hidden' }}
     >
       <div className="flex flex-col lg:flex-row container mx-auto z-[1] relative">
@@ -59,20 +59,20 @@ const ContactTemplate = (props) => {
             </div>
           </div>
           <div className="mt-[45px] inline-flex flex-col gap-[9px]">
-            <div className="w-auto border border-white h-[46px] pr-[18px] inline-flex items-center gap-[15px] rounded-[30px]">
-              <div className='w-[50px] h-[46px] flex items-center justify-center bg-white rounded-[46%]'>
+            <div className="w-auto border border-white h-[41px] md:h-[46px] pr-[18px] inline-flex items-center gap-[15px] rounded-[30px]">
+              <div className='w-[44px] h-[41px] md:w-[50px] md:md:h-[46px] flex items-center justify-center bg-white rounded-[46%]'>
                 <Image src={'/svg/call-icon.svg'} alt='location_on' width={23} height={23} />
               </div>
               <a href={`tel:${MobileNumber}`} className='text-[14px] font_calibri leading-[20px] md:text-lg md:leading-[26px] font-light md:font-normal text-white'>{MobileNumber}</a>
             </div>
-            <div className="w-auto border border-white h-[46px] pr-[18px] inline-flex items-center gap-[15px] rounded-[30px]">
-              <div className='w-[50px] h-[46px] flex items-center justify-center bg-white rounded-[46%]'>
+            <div className="w-auto border border-white h-[41px] md:h-[46px] pr-[18px] inline-flex items-center gap-[15px] rounded-[30px]">
+              <div className='w-[44px] h-[41px] md:w-[50px] md:md:h-[46px] flex items-center justify-center bg-white rounded-[46%]'>
                 <Image src={'/svg/print.svg'} alt='location_on' width={23} height={23} />
               </div>
               <p className='text-[14px] font_calibri md:text-lg leading-[20px] font-light md:font-normal md:leading-[26px] text-white'>{Fax}</p>
             </div>
-            <div className="w-auto border border-white h-[46px] pr-[18px] inline-flex items-center gap-[15px] rounded-[30px]">
-              <div className='w-[50px] h-[46px] flex items-center justify-center bg-white rounded-[46%]'>
+            <div className="w-auto border border-white h-[41px] md:h-[46px] pr-[18px] inline-flex items-center gap-[15px] rounded-[30px]">
+              <div className='w-[44px] h-[41px] md:w-[50px] md:md:h-[46px] flex items-center justify-center bg-white rounded-[46%]'>
                 <Image src={'/svg/mail-icon.svg'} alt='location_on' width={23} height={23} />
               </div>
               <a href={`mailto:${Email}`} className='text-[14px] font_calibri leading-[20px] md:text-lg md:leading-[26px] font-light md:font-normal text-white'>{Email}</a>
@@ -135,7 +135,7 @@ const ContactTemplate = (props) => {
             <div className="flex justify-center items-center gap-[8px] mt-[23px]">
               <button
                 type="submit"
-                className="w-[96px] md:w-[157px] font_calibri flex md:font-bold md:text-lg items-center justify-center gap-[12px] w-full h-[55px] py-1 bg-[text-theme-main] text-white bg-theme-main"
+                className="w-[96px] md:w-[157px] font_calibri flex md:font-bold md:text-lg items-center justify-center gap-[12px] h-[55px] py-1 bg-[text-theme-main] text-white bg-theme-main"
               >
                 Submit
               </button>

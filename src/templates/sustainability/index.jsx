@@ -19,7 +19,7 @@ const SustainabilityTemplate = (props) => {
           backgroundRepeat: 'no-repeat',
           backgroundImage: `url(${BannerImage?.data?.[0]?.attributes?.url})`,
         }}
-        className={`w-full max-w-[100%] relative min-h-[786px] flex flex-col justify-end items-end`}>
+        className={`w-full max-w-[100%] relative min-h-[288px] md:min-h-[786px] flex flex-col justify-end items-end`}>
         <div
           style={{ background: 'linear-gradient(to bottom, rgba(23, 31, 124, 0), rgba(23, 31, 124, 1))' }}
           className="h-[364px] w-full -mb-5"
@@ -67,23 +67,23 @@ const SustainabilityTemplate = (props) => {
           </figure>
         </div>
         <div className={`p-8 xl:p-14 leading-10  text-white bg-theme-main flex-col gap-2`}>
-          <h2 className={`text-center text-[40px] leading-[49px]`}>CORPORATE SOCIAL RESPONSIBILITY (CSR)</h2>
+          <h2 className={`font_franklin text-center text-[25px] leading-[30px] lg:text-[40px] lg:leading-[49px]`}>CORPORATE SOCIAL RESPONSIBILITY (CSR)</h2>
           <div>
             <div className="flex justify-center">
-              <p className='max-w-[800px] text-center text-lg leading-[26px] font-light mt-3'>
+              <p className='font_calibri max-w-[800px] text-center text-[14px] md:text-lg leading-[26px] font-light md:mt-3'>
                 {Content}
               </p>
             </div>
-            <div className="flex flex-col md:flex-row justify-between gap-[45px] mt-[30px]">
-              <p className='text-lg leading-[26px] font-light'>
+            <div className="flex flex-col md:flex-row justify-between gap-6 lg:gap-[45px] mt-[45px] lg:mt-[30px]">
+              <p className='font_calibri text-center lg:text-left text-[14px] md:text-lg leading-[26px] font-light'>
                 {fst_content}
               </p>
-              <div className='w-full h-[1px] md:h-auto md:w-1 bg-white' />
-              <p className='text-lg leading-[26px] font-light'>
+              <div className='w-[130px] mx-auto md:w-[1px] h-[1px] md:h-auto md:w-1 bg-white' />
+              <p className='font_calibri text-center lg:text-left text-[14px] md:text-lg leading-[26px] font-light'>
                 {sec_content}
               </p>
-              <div className='w-full h-[1px] md:h-auto md:w-1 bg-white' />
-              <p className='text-lg leading-[26px] font-light'>
+              <div className='w-[130px] mx-auto md:w-[1px] h-[1px] md:h-auto md:w-1 bg-white' />
+              <p className='font_calibri text-center lg:text-left text-[14px] md:text-lg leading-[26px] font-light'>
                 {third_content}
               </p>
             </div>

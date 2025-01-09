@@ -95,7 +95,7 @@ const RightDrawer = ({ categories, specificCategorries, setProducts }) => {
       </button>
 
       {isDrawerVisible && (
-        <div className="absolute right-0 w-[402px] md:w-[390px] bg-[#EBEDFF] shadow-lg py-[30px] z-[9999]">
+        <div className="absolute right-0 w-full min-w-[355px] md:w-[402px] md:w-[390px] bg-[#EBEDFF] shadow-lg py-[30px] z-[9999]">
           <div className="flex gap-[30px] justify-between items-center pb-[30px] px-[30px]">
             <p className="flex-1 text-[25px] md:text-[30px] leading-[30px] md:font-bold text-theme-main font_calibri">Filter</p>
             <button className='text-lg leading-[18px] text-theme-main font_calibri'>Clear</button>
@@ -159,16 +159,16 @@ const RightDrawer = ({ categories, specificCategorries, setProducts }) => {
             ))}
           </div>
 
-          <div className="px-[30px] flex flex-col gap-[8px] mt-[30px]">
+          <div className="px-[30px] flex flex-col justify-center items-center gap-[8px] mt-[30px]">
             <button
               onClick={handleSearch}
-              className="flex items-center justify-center gap-[12px] w-full h-[55px] px-4 py-2 bg-[text-theme-main] text-white bg-theme-main"
+              className="flex items-center justify-center gap-[12px] w-[240px] md:w-full h-[55px] px-4 py-2 bg-[text-theme-main] text-white bg-theme-main"
             >
               {isGeneralCategories ? "Search General Category" : "Search"}
             </button>
             <button
               onClick={handleSwitchCategory}
-              className={`flex items-center ${isGeneralCategories ? 'justify-between' : 'justify-center'} gap-[12px] w-full h-[55px] px-[30px] py-[20px] border border-theme-main text-theme-main`}
+              className={`flex items-center ${isGeneralCategories ? 'justify-between' : 'justify-center'} gap-[12px] w-[240px] md:w-full h-[55px] px-[30px] py-[20px] border border-theme-main text-theme-main`}
             >
               {isGeneralCategories ? (
                 <>

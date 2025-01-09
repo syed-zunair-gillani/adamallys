@@ -7,9 +7,9 @@ const ProductCard = (props) => {
   return (
     <div className='bg-[#E5E7F5] basis-[18%] flex-1 rounded'>
       <div className="w-full">
-        <img src={props?.Image?.data?.attributes?.url} alt="" className='h-[184px]' style={{ width: '100%', objectFit: 'cover', objectPosition: 'center' }}/>
+        <img src={props?.Image?.data?.attributes?.url} alt="" className='h-[184px]' style={{ width: '100%', objectFit: 'cover', objectPosition: 'center' }} />
       </div>
-      <div className="p-[20px] flex flex-col justify-between">
+      <div className="p-3 pb-5 md:p-[20px] flex flex-col justify-between">
         <div>
           <span className='font_calibri text-theme-main text-[12px] leading-[18px]'>SKU Code :</span>
           <span className='font_calibri text-theme-main text-[12px] leading-[18px]'>{SKU}</span>
