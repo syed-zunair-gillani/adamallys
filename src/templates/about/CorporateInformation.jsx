@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 const CorporateInformation = ({ data }) => {
   return (
-    <section className='bg-[#F4F5F7] px-3 lg:px-0'>
+    <section className='bg-[#F4F5F7] px-[18px] lg:px-0'>
       <div className='container grid md:grid-cols-2 gap-4 md:gap-20 mx-auto pb-10 md:mb-0'>
         <div className='mt-4 md:mt-16 lg:flex-row items-center justify-between gap-[82px]'>
           <div class="sticky top-20 z-[11]">
