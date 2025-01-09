@@ -101,17 +101,17 @@ const OurBrands = ({ data, content }) => {
           {data?.map((icon, id) => (
             <div
               ref={sliderRef}
-              className="!grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-[10px] lg:grid-cols-7"
+              className="!grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-[10px] lg:gap-[16px] lg:grid-cols-7"
               key={id}
             >
               {icon?.Icon?.data?.map((item, idx) => (
-                <div key={idx} className="flex justify-center">
+                <div key={idx} className="flex justify-center p-5">
                   <Image
                     className="slider-icon p-1"
                     src={item?.attributes?.url}
                     alt="image"
-                    width={165}
-                    height={165}
+                    width={135}
+                    height={135}
                   />
                 </div>
               ))}
