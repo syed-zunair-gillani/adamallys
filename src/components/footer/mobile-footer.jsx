@@ -117,19 +117,19 @@ const MobileFooter = async () => {
         <section className="mt-[21px] flex flex-col sm:flex-row gap-5 justify-between items-center container mx-auto pb-[36px]">
           <ul className="flex items-center gap-5">
             <li>
-              <Link href={data?.Socials[0]?.link || "#"}>
+              <a target="_blank" href={data?.Socials[0]?.link || "#"}>
                 <Image src={data?.Socials[0]?.Icon?.data?.attributes?.url} alt="" width={8} height={14} />
-              </Link>
+              </a>
             </li>
             <li>
-              <Link href={data?.Socials[0]?.link || "#"}>
+              <a target="_blank" href={data?.Socials[0]?.link || "#"}>
                 <Image src={data?.Socials[1]?.Icon?.data?.attributes?.url} alt="" width={13.6} height={15.5} />
-              </Link>
+              </a>
             </li>
             <li>
-              <Link href={data?.Socials[0]?.link || "#"}>
+              <a target="_blank" href={data?.Socials[0]?.link || "#"}>
                 <Image src={data?.Socials[2]?.Icon?.data?.attributes?.url} alt="" width={13.5} height={1.5} />
-              </Link>
+              </a>
             </li>
           </ul>
           <p className="font_calibri text-theme-main text-sm font-light">{Copyright_Text}</p>
