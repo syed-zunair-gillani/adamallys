@@ -9,11 +9,11 @@ const AboutTemplate = ({ data }) => {
   return (
     <>
       <main
-        className='mt-[4rem] px-3 lg:px-0'
+        className='mt-[4rem] px-[18px] lg:px-0'
         style={{ overflowX: 'hidden' }}
       >
         <div
-          className='pt-[30px] md:pt-[60px]'
+          className='pt-[18px] md:pt-[30px] md:pt-[60px]'
           style={{
             background: 'linear-gradient(to bottom, #ffffff , #F4F5F7 )'
           }}
@@ -26,7 +26,7 @@ const AboutTemplate = ({ data }) => {
 
       <History data={data} />
       <PresentDay data={data} />
-      <div className="py-10 md:py-[60px] px-3 z-[100] bg-white relative ">
+      <div className="py-10 md:py-[60px] px-[18px] z-[100] bg-white relative ">
         <Expertise media={data?.ExpertiseMedia} data={data?.ExpertiseCards} />
       </div>
 

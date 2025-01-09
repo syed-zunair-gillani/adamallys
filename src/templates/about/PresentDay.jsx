@@ -4,7 +4,7 @@ import VideoPlayer from '@/components/VideoPlayer'
 
 const PresentDay = ({ data }) => {
   return (
-    <div className='flex flex-col md:sticky top-0 lg:flex-row '>
+    <div className='flex flex-col mx-[18px] md:mx-0 md:sticky top-0 lg:flex-row '>
       <Image style={{ objectFit: 'cover' }} className='flex-1 basis-[100%] lg:basis-[50%]' src={data?.PresentDayImage?.data?.attributes?.url} alt='present day' width={1200} height={765} />
       <div
         className="relative flex-1 basis-[50%] flex flex-col gap-[16px] justify-center p-[30px] md:p-[60px] lg:p-[110px]"

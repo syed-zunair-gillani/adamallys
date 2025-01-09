@@ -18,23 +18,24 @@ const History = ({ data }) => {
         <div className='basis-[55%] lg:mt-[250px]'>
           <p className="font_franklin text-center md:text-left capitalize text-[25px] font-medium md:text-[59px] leading-[49px] md:pb-[26px]">{data?.history_title}</p>
           <p className="font_calibri font-bold text-[14px] md:text-[20px] leading-[29px] text-center md:text-left pb-[40px] md:pb-[69px]">{data?.history_subtitle}</p>
-          <div className="flex flex-col gap-[8px] px-3">
+          <div className="flex flex-col gap-[8px] px-[18px]">
             {
               data?.HistoryList?.map((history, index) =>
-                <div key={history?.year} className="flex gap-10 md:gap-[10px]">
-                  <div>
+                <div key={history?.year} className="flex gap-3 md:gap-[10px]">
+                  <div className='w-[80px] md:w-[140px]'>
                     <p className="font_calibri leading-[25px] capitalize text-[30px] md:text-[59px] lg:leading-[49px] text-theme-main">{history?.Year}</p>
                     <div style={{
                       width: 58,
                       height: isMobile ? 3 : 6,
                       marginTop: isMobile ? 5 : 20,
                       background: 'linear-gradient(to right, #171F7C, #B2B6E0  )'
-                    }} />
+                    }}
+                    />
                     {(index !== data?.HistoryList?.length - 1) &&
-                      < Image className='mt-[1rem] h-[295px]' src='/images/about/history_line.png' alt='history-line' width={4} height={295} />
+                      < Image className='mt-[1rem] h-[260px] lg:h-[295px]' src='/images/about/history_line.png' alt='history-line' width={4} height={295} />
                     }
                   </div>
-                  <div>
+                  <div className='flex-1'>
                     <Image src={history?.Image?.data?.attributes?.url} alt='history image' className='md:hidden' width={800} height={308} />
                     <p className='md:text-base text-xs mt-[13px] sm:mb-10'>{history?.Info}</p>
                   </div>
