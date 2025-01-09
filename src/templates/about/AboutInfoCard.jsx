@@ -18,7 +18,7 @@ const cardsData = [
   }
 ]
 
-const AboutInfoCard = ({data}) => {
+const AboutInfoCard = ({ data }) => {
   return (
     <div className='flex flex-wrap gap-[8px] pt-[40px] md:pt-[60px] container mx-auto'>
       {
@@ -30,7 +30,7 @@ const AboutInfoCard = ({data}) => {
             }}
           >
             <Image src={card.Icon?.data?.attributes?.url} alt={card?.title} width={62} height={62} />
-            <p style={{ zIndex: 2 }} className='font_calibri capitalize text-[20px] md:text-[30px] leading-[34px] text-white text-center'>{card?.title}</p>
+            <p style={{ zIndex: 2 }} className='font_calibri font-bold capitalize text-[20px] md:text-[30px] leading-[34px] text-white text-center'>{card?.title}</p>
             <p style={{ zIndex: 2 }} className='font_calibri capitalize text-base leading-[26px] font-light text-white text-center'>{card?.subtitle}</p>
             <div className='absolute w-full h-full top-0 right-0'
               style={{ top: 0, right: '-50%', zIndex: 0 }}

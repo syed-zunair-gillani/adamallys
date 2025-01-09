@@ -28,7 +28,7 @@ const ChooseCard = ({ data, description }) => {
   }, []);
 
   return data?.description || description ? (
-    <p>{data?.description || description}</p>
+    <p className="px-[18px] md:px-0">{data?.description || description}</p>
   ) : (
     <div
       ref={containerRef}

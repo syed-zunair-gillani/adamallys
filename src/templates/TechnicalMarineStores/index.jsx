@@ -118,23 +118,42 @@ const TechnicalMarineStoresTemplate = (props) => {
         image={Card?.[10]?.image?.data?.attributes?.url}
         points={Card?.[10]?.lists?.map(({ list }) => list)}
       />
-      <GridContent
-        id={tagList[11]}
-        data={[
-          {
-            bgGray: true,
-            title: Card?.[11]?.title,
-            caption: Card?.[11]?.info,
-            points: Card?.[11]?.lists?.map(({ list }) => list),
-          },
-          {
-            title: Card?.[12]?.title,
-            caption: Card?.[12]?.info,
-            points: Card?.[12]?.lists?.map(({ list }) => list),
-          }
-        ]}
-        images={[Card?.[11]?.image?.data?.attributes?.url, Card?.[12]?.image?.data?.attributes?.url]}
-      />
+      <div className="hidden md:block">
+        <GridContent
+          id={tagList[11]}
+          data={[
+            {
+              bgGray: true,
+              title: Card?.[11]?.title,
+              caption: Card?.[11]?.info,
+              points: Card?.[11]?.lists?.map(({ list }) => list),
+            },
+            {
+              title: Card?.[12]?.title,
+              caption: Card?.[12]?.info,
+              points: Card?.[12]?.lists?.map(({ list }) => list),
+            }
+          ]}
+          images={[Card?.[11]?.image?.data?.attributes?.url, Card?.[12]?.image?.data?.attributes?.url]}
+        />
+      </div>
+      <div className="block md:hidden">
+        <TwoColumnContent
+          bgGray
+          id={tagList[11]}
+          title={Card?.[11]?.title}
+          caption={Card?.[11]?.info}
+          image={Card?.[11]?.image?.data?.attributes?.url}
+          points={Card?.[11]?.lists?.map(({ list }) => list)}
+        />
+        <TwoColumnContent
+          id={tagList[12]}
+          title={Card?.[12]?.title}
+          caption={Card?.[12]?.info}
+          image={Card?.[12]?.image?.data?.attributes?.url}
+          points={Card?.[12]?.lists?.map(({ list }) => list)}
+        />
+      </div>
       <TwoColumnContent
         bgGray
         id={tagList[13]}
