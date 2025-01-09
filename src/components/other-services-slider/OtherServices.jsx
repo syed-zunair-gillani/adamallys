@@ -50,7 +50,7 @@ const OtherServices = (props) => {
   return (
     <section
       ref={sectionRef}
-      className="certification-gradient py-12 md:py-20 mt-10 md:mt-20 px-3 lg:px-0"
+      className="certification-gradient py-12 md:py-20 mt-10 md:mt-20 px-[18px] lg:px-0"
     >
       <div className="container mx-auto flex flex-col md:flex-row gap-6 xl:gap-24 items-center">
         <h2 className="other-services-heading md:hidden text-center text-[25px] font_calibri pb-6 text-white font-bold border-b border-gray-500 w-full">
@@ -72,7 +72,7 @@ const OtherServices = (props) => {
             Other Services
           </h2>
           <div className="w-full h-[1px] bg-gray-500 my-10 hidden md:block" />
-          <div className="flex flex-col md:flex-row gap-8 px-3 lg:px-0">
+          <div className="flex flex-col md:flex-row gap-8 px-[18px] lg:px-0">
             <div className="w-full">
               {Services?.map((item, index) => (
                 <div key={index} className="flex items-center service-item mx-1 group text-center  md:text-left">

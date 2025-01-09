@@ -49,7 +49,7 @@ const ProductsTemplate = ({ data, categories, specificCategorries, baseCategorri
               placeholder="Search"
               value={searchQuery}
               onChange={(e) => handleSearch(e)}
-              className="w-full lg:max-w-[414px] h-[55px] pl-2 pr-10 py-2 border border-theme-main focus:outline-none text-theme-main focus:text-theme-main"
+              className="w-full lg:max-w-[414px] h-[55px] p-2 border border-theme-main focus:outline-none text-theme-main focus:text-theme-main"
             />
 
             <Image
@@ -57,18 +57,14 @@ const ProductsTemplate = ({ data, categories, specificCategorries, baseCategorri
               height={24}
               alt='search-icon'
               src='/svg/search.svg'
-              className='absolute right-14'
+              className='absolute right-2'
             />
-
-            <button className="h-[55px] right-0 px-4 py-2 bg-[text-theme-main] text-white bg-theme-main">
-              ▼
-            </button>
           </div>
           <div className="hidden md:block relative flex items-center flex-1 lg:flex-auto min-w-[220px]">
             <select
               value={selectBaseCategory}
               onChange={(e) => handleSelectCategory(e)}
-              className="w-full lg:max-w-[414px] h-[55px] pl-2 pr-10 py-2 border border-theme-main focus:outline-none text-theme-main focus:text-theme-main appearance-none"
+              className="w-full lg:max-w-[414px] h-[55px] px-2 py-2 border border-theme-main focus:outline-none text-theme-main focus:text-theme-main appearance-none"
             >
               <option value="" disabled selected>
                 Provisions
@@ -79,10 +75,6 @@ const ProductsTemplate = ({ data, categories, specificCategorries, baseCategorri
                 ))
               }
             </select>
-
-            <span className="absolute w-6 h-[55px] right-0 flex items-center justify-center text-theme-main pointer-events-none">
-              ▼
-            </span>
           </div>
         </div>
 
@@ -100,7 +92,7 @@ const ProductsTemplate = ({ data, categories, specificCategorries, baseCategorri
                 <select
                   value={selectBaseCategory}
                   onChange={(e) => handleSelectCategory(e)}
-                  className="w-full lg:max-w-[414px] h-[55px] pl-2 pr-10 py-2 border border-theme-main focus:outline-none text-theme-main focus:text-theme-main appearance-none"
+                  className="w-full lg:max-w-[414px] h-[55px] px-2 py-2 border border-theme-main focus:outline-none text-theme-main focus:text-theme-main appearance-none"
                 >
                   <option value="" disabled selected>
                     Provisions
@@ -111,10 +103,6 @@ const ProductsTemplate = ({ data, categories, specificCategorries, baseCategorri
                     ))
                   }
                 </select>
-
-                <span className="absolute w-6 h-[55px] right-0 flex items-center justify-center text-theme-main pointer-events-none">
-                  ▼
-                </span>
               </div>
               <RightDrawer categories={categories} specificCategorries={specificCategorries} setProducts={setProducts} />
             </div>
