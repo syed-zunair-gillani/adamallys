@@ -105,13 +105,14 @@ const OurBrands = ({ data, content }) => {
               key={id}
             >
               {icon?.Icon?.data?.map((item, idx) => (
-                <div key={idx} className="flex justify-center p-5">
+                <div key={idx} className="flex justify-center">
                   <Image
-                    className="slider-icon p-1"
+                    style={{ objectFit: 'contain' }}
+                    className="slider-icon p-1 w-[165px] h-[94px]"
                     src={item?.attributes?.url}
                     alt="image"
-                    width={135}
-                    height={135}
+                    width={165}
+                    height={94}
                   />
                 </div>
               ))}
