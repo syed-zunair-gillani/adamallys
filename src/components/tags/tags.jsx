@@ -1,4 +1,5 @@
-import Link from "next/link"
+import ScrollTo from '@/components/ScrollTo'
+
 
 const Tags = ({ tags }) => {
   return (
@@ -7,9 +8,9 @@ const Tags = ({ tags }) => {
         <ul className='flex gap-2 items-center md:justify-center md:flex-wrap overflow-x-auto tags'>
           {tags?.map((tag, idx) => (
             <li className={`uppercase text-nowrap text-sm text-theme-main font_calibri bg-[#E0E2FB] py-[9px] px-[25px] rounded-full ${idx === 0 && "ml-3 md:ml-0"}`} key={idx}>
-              <Link href={`#${tag}`}>
+              <ScrollTo targetId={tag} offset={200}>
                 {tag}
-              </Link>
+              </ScrollTo>
             </li>
           ))}
         </ul>

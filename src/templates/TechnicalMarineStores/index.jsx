@@ -118,7 +118,7 @@ const TechnicalMarineStoresTemplate = (props) => {
         image={Card?.[10]?.image?.data?.attributes?.url}
         points={Card?.[10]?.lists?.map(({ list }) => list)}
       />
-      <div className="hidden md:block">
+      <div className="hidden md:block" id={tagList[12]}>
         <GridContent
           id={tagList[11]}
           data={[
