@@ -17,14 +17,14 @@ export const renderRichText = (blocks) => {
           );
         } else {
           return (
-            <h3 key={index} className="!font-xl !text-[#3E3E3E]">
+            <h3 key={index} className="!text-xl !text-[#3E3E3E]">
               {children?.map((child) => child.text)}
             </h3>
           );
         }
       case "paragraph":
         return (
-          <p key={index} className="font-light !mt-4 !text-[#3E3E3E]">
+          <p key={index} className="!text-[12px] md:!text-[16px] font-light !mt-4 !text-[#3E3E3E]">
             {children.map((child) => child.text)}
           </p>
         );

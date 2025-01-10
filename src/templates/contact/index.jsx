@@ -80,7 +80,7 @@ const ContactTemplate = (props) => {
           </div>
         </div>
         <div className="basis-full bg-[#F5F6F8] flex items-center justify-center">
-          <form onSubmit={handleSubmit} className='w-full px-[30px] py-[34px] sm:px-[55px] sm:py-[76px]'>
+          <form onSubmit={handleSubmit} className='w-full px-[18px] lg:px-[30px] py-[34px] sm:px-[55px] sm:py-[76px]'>
             <div className="flex flex-col gap-4">
               <p className='text-theme-main font-bold text-[25px] text-center md:text-left leading-[28px] md:text-[40px] md:leading-[44px]'>Have a Question?</p>
               <div className='flex flex-col sm:flex-row gap:3 md:gap-6'>

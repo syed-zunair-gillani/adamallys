@@ -152,7 +152,7 @@ const Cards = ({ dark, data }) => {
 
   return (
     <>
-      <section className={`grid md:grid-cols-2 mt-60 `}>
+      <section className={`grid md:grid-cols-2 mt-60 mx-[18px] lg:mx-0`}>
         <div className='hidden md:block'>
           {cardImage_one}
           {cardImage_two}

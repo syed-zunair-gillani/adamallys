@@ -97,27 +97,30 @@ const OurBrands = ({ data, content }) => {
         <p ref={contentRef} className="font-light px-[18px] mt-3 mb-[30px] lg:px-0 lg:mb-[37px] text-center md:text-left text-xs md:text-base font_calibri">
           {content}
         </p>
-        <Slider ref={slider} {...settings}>
-          {data?.map((icon, id) => (
-            <div
-              ref={sliderRef}
-              className="!grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-[10px] lg:gap-[16px] lg:grid-cols-7"
-              key={id}
-            >
-              {icon?.Icon?.data?.map((item, idx) => (
-                <div key={idx} className="flex justify-center p-5">
-                  <Image
-                    className="slider-icon p-1"
-                    src={item?.attributes?.url}
-                    alt="image"
-                    width={135}
-                    height={135}
-                  />
-                </div>
-              ))}
-            </div>
-          ))}
-        </Slider>
+        <div className="px-[18px] lg:px-0">
+          <Slider ref={slider} {...settings}>
+            {data?.map((icon, id) => (
+              <div
+                ref={sliderRef}
+                className="!grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-[10px] lg:gap-[16px] lg:grid-cols-7"
+                key={id}
+              >
+                {icon?.Icon?.data?.map((item, idx) => (
+                  <div key={idx} className="flex justify-center">
+                    <Image
+                      style={{ objectFit: 'contain' }}
+                      className="slider-icon p-1 w-[165px] h-[94px]"
+                      src={item?.attributes?.url}
+                      alt="image"
+                      width={165}
+                      height={94}
+                    />
+                  </div>
+                ))}
+              </div>
+            ))}
+          </Slider>
+        </div>
       </div>
       <div className="items-center gap-3 md:hidden flex justify-center">
         <Image

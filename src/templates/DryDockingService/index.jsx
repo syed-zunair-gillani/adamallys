@@ -11,7 +11,7 @@ const DryDockingServiceTemplate = (props) => {
     <main className=''>
       <div className="mb-20" />
       <div>
-        <h1 className="text-center text-2xl py-12 sm:text-[40px] font_calibri md:leading-[50px] md:text-[50px] lg:text-[60px] font-bold text-[#2E368F] mt-5 px-4">
+        <h1 className="text-center text-2xl pb-5 md:pb-0 md:py-12 sm:text-[40px] font_calibri md:leading-[50px] md:text-[50px] lg:text-[60px] font-bold text-[#2E368F] mt-5 px-4">
           Ship Supply
         </h1>
       </div>

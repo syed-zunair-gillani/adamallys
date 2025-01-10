@@ -71,7 +71,7 @@ const Main = ({ data, Side_Sticky_Links }) => {
                       }
                     </div>
                     <div className="slideFade flex flex-col md:text-left text-center items-center md:item-left md:items-start md:justify-start justify-center">
-                      <p className="max-w-[377px] text-white font_calibri">
+                      <p className="max-w-[377px] text-[12px] md:text-[16px] text-white font_calibri">
                         {item?.sub_title}
                       </p>
                       <div className="h-[2px] w-[34px] bg-white mt-2" />

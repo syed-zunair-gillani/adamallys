@@ -1,10 +1,20 @@
+'use client'
 import Image from 'next/image'
 import { getWhyChoose } from '@/services'
 import ChooseCard from "./choose-card"
+import { useEffect, useState } from 'react';
 
-const ChooseAdamallys = async (props) => {
+const ChooseAdamallys = (props) => {
   const { description, title, image, } = props;
-  const data = await getWhyChoose()
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    !description && (async () => {
+      const data = await getWhyChoose();
+      setData(data)
+    })()
+  }, []);
+
   return (
     <section className={`${description ? "items-center" : ""} xs:px-0 mt-10 md:mt-20 container mx-auto flex flex-col-reverse md:flex-row gap-8 lg:gap-10`}>
       <div className='md:w-[60%]'>
@@ -21,7 +31,7 @@ const ChooseAdamallys = async (props) => {
           <Image
             alt={title || data?.title} width={530}
             src={image || data?.Image?.data?.attributes?.url}
-            className='w-full h-full object-cover' height={description ? 360 : 670}
+            className='md:w-full h-full object-cover' height={description ? 360 : 670}
           />
         </figure>
       </div>

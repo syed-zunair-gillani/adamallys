@@ -93,7 +93,7 @@ const DistributorsAndStockistsTemplate = ({ Cards, Banner }) => {
                     className={`text-[#3E3E3E] font_calibri text-center md:text-left text-xs inline-block font-light md:text-lg leading-[26px] ${expanded[distributor.title] ? '' : 'truncate'}`}
                     style={{
                       whiteSpace: 'wrap',
-                      maxHeight: expanded[distributor.title] ? 'none' : '130px',
+                      maxHeight: expanded[distributor.title] ? 'none' : '140px',
                       overflow: 'hidden',
                       display: '-webkit-box',
                       WebkitLineClamp: expanded[distributor.title] ? 'none' : 5,

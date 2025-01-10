@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Logo from "./logo";
 import Link from "next/link";
 import Accordion from "../Accordion";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { MenuIcon, XIcon } from "../../../public/icons";
 import { shipSupplyPaginationData } from "@/consts/shipSupply";
 import Image from "next/image";
@@ -36,12 +36,16 @@ const whoWeAreLinks = [
 ]
 
 const MobileHeader = ({ NavLinks }) => {
+  const { push } = useRouter();
   const pathname = usePathname();
   const scrollPosition = useScrollPosition()
 
   const [openMobileNav, setOpenMobileNav] = useState(false);
 
-  const handleClose = () => setOpenMobileNav(false)
+  const handleNavigate = (link) => {
+    push(link)
+    setOpenMobileNav(false)
+  }
 
   const isShipSupplyPage = pathname === "/products-&-services"
   const isIndustrialPage = pathname === "/industrial-&-energy-sector-supplies"
@@ -81,7 +85,7 @@ const MobileHeader = ({ NavLinks }) => {
                           <div className="flex gap-2 items-center justify-between">
                             <Image src={'/svg/arrow_forward_link.svg'} alt='arrow' width={13} height={13} />
                             <Link
-                              onClick={handleClose}
+                              onClick={() => handleNavigate("/products-&-services")}
                               href="/products-&-services"
                               className={`w-full text-lg z-9 whitespace-nowrap ${(isShipSupplyPage) ? 'font-bold' : ''} hover:font-bold`}
                             >
@@ -96,7 +100,7 @@ const MobileHeader = ({ NavLinks }) => {
                               className={`mr-5 relative group font-light ${page?.link === pathname && "!font-bold"}`}
                             >
                               <Link
-                                onClick={handleClose}
+                                onClick={() => handleNavigate(page?.link)}
                                 href={page?.link} className={`whitespace-nowrap text-lg text-theme-main hover:font-bold font_calibri`}>
                                 {page?.label}
                               </Link>
@@ -107,7 +111,7 @@ const MobileHeader = ({ NavLinks }) => {
                         </ul>
                         <div className="relative group">
                           <Link
-                            onClick={handleClose}
+                            onClick={() => handleNavigate("/marine-logistics-&-warehousing")}
                             href="/marine-logistics-&-warehousing"
                             className={`text-lg whitespace-nowrap ${isMarineLogisticsPage ? 'font-bold' : ''} hover:font-bold`}
                           >Marine Logistics & Warehousing</Link>
@@ -116,7 +120,7 @@ const MobileHeader = ({ NavLinks }) => {
 
                         <div className="relative group mt-2">
                           <Link
-                            onClick={handleClose}
+                            onClick={() => handleNavigate("/industrial-&-energy-sector-supplies")}
                             href="/industrial-&-energy-sector-supplies"
                             className={`text-lg whitespace-nowrap ${isIndustrialPage ? 'font-bold' : ''} hover:font-bold`}
                           >Industrial & Energy Sector Supplies</Link>
@@ -141,7 +145,7 @@ const MobileHeader = ({ NavLinks }) => {
                                 <li key={index} className="relative group">
                                   <Link
                                     href={linkItem?.href}
-                                    onClick={handleClose}
+                                    onClick={() => handleNavigate(linkItem?.href)}
                                     className={`group text-lg text-theme-main whitespace-nowrap ${pathname === linkItem?.href ? 'font-bold' : ''} hover:font-bold`}
                                   >
                                     {linkItem?.label}
@@ -168,7 +172,7 @@ const MobileHeader = ({ NavLinks }) => {
                                   <li key={index} className="relative group">
                                     <Link
                                       href={linkItem?.href}
-                                      onClick={handleClose}
+                                      onClick={() => handleNavigate(linkItem?.href)}
                                       className={`group text-lg text-theme-main whitespace-nowrap ${pathname === linkItem?.href ? 'font-bold' : ''} hover:font-bold`}
                                     >
                                       {linkItem?.label}
@@ -187,7 +191,7 @@ const MobileHeader = ({ NavLinks }) => {
                         <div className="flex items-center justify-between">
                           <Link
                             href={item?.Link}
-                            onClick={handleClose}
+                            onClick={() => handleNavigate(item?.Link)}
                             className={`block text-theme-main uppercase hover:font-bold group ${pathname === item?.Link ? 'font-bold' : ''}`}
                           >
                             {item?.Label}
@@ -199,7 +203,7 @@ const MobileHeader = ({ NavLinks }) => {
                 ))
               }
             </ul>
-            <Link href={'/request-a-quote'} onClick={handleClose} className="w-full text-white mt-3 bg-theme-main text-left px-[19px] py-[9px]">
+            <Link href={'/request-a-quote'} onClick={() => handleNavigate('/request-a-quote')} className="w-full text-white mt-3 bg-theme-main text-left px-[19px] py-[9px]">
               <p className="text-center text-[15px] font-light">Request a Quote</p>
               <h6 className="text-center text-lg font-bold">adamallys@adamallys-llc.com</h6>
             </Link>
