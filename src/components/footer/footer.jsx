@@ -104,12 +104,9 @@ const Footer = async () => {
         </section>
 
         <section className="flex justify-center container mx-auto flex-wrap mb-[66px] mt-[23px] items-center gap-2 sm:gap-4 font_calibri text-theme-main">
-          {
-            Buttons?.map((item, idx) => (
-              <Link href={item?.Link || "#"} key={idx}><button className="py-[6px] px-4 sm:px-[30px] border border-theme-main leading-[32px] rounded-full">{item?.Label}</button></Link>
-            ))
-          }
-
+          {Buttons?.map((item, idx) => (
+            <a target="_blank" href={item?.Link || "#"} key={idx}><button className="py-[6px] px-4 sm:px-[30px] border border-theme-main leading-[32px] rounded-full">{item?.Label}</button></a>
+          ))}
         </section>
         <section className=" flex flex-col sm:flex-row gap-5 justify-between items-center container mx-auto pb-[36px]">
           <ul className="flex items-center gap-5">
