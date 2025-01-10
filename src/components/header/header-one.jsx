@@ -83,7 +83,7 @@ const HeaderOne = ({ data }) => {
                     </li>
                 ))}
               </ul>
-              <Link href={"/request-a-quote"} className="text-white hidden xl:block bg-theme-main text-left px-[19px] py-[9px]">
+              <Link href={"/request-a-quote"} className="rounded text-white hidden xl:block bg-theme-main text-left px-[19px] py-[9px]">
                 <p className="text-xs">Request a Quote</p>
                 <h6 className="text-[15px]">{Button?.Email}</h6>
               </Link>

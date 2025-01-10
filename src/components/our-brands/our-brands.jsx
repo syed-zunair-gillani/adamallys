@@ -5,6 +5,18 @@ import React, { useRef, useEffect } from "react";
 import Slider from "react-slick";
 import { gsap } from "gsap";
 
+const settings = {
+  dots: false,
+  infinite: true,
+  arrows: false,
+  speed: 1000,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 5000,
+  cssEase: 'ease-in-out'
+};
+
 const OurBrands = ({ data, content }) => {
   const slider = useRef(null);
   const sectionRef = useRef(null);
@@ -145,12 +157,3 @@ const OurBrands = ({ data, content }) => {
 };
 
 export default OurBrands;
-
-var settings = {
-  dots: false,
-  infinite: false,
-  arrows: false,
-  speed: 1000,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-};

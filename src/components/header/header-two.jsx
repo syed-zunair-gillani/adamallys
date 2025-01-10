@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation'
 import useScrollPosition from "@/hooks/useScrollPosition"
 
 const HeaderTwo = ({ data, slideFromTop }) => {
-  const { Secound_Header_Nav, Logo } = data;
+  const { Button, Secound_Header_Nav, Logo } = data;
   const pathname = usePathname()
   const scrollPosition = useScrollPosition()
 
@@ -73,8 +73,9 @@ const HeaderTwo = ({ data, slideFromTop }) => {
                             <div className={`absolute bottom-[-4px] left-0 mt-2 w-[18px] h-[2px] group-hover:bg-theme-main ${pathname === item?.Link ? 'bg-theme-main' : ''}`} />
                           </li>
                     ) :
-                    <Link href={item?.Link} key={idx} className="text-white uppercase hidden xl:block bg-theme-main text-left px-[19px] py-[9px]">
-                      <p className="text-[15px] uppercase">{item?.Label}</p>
+                    <Link href={"/request-a-quote"} className="rounded text-white hidden xl:block bg-theme-main text-left px-[19px] py-[9px]">
+                      <p className="text-xs">Request a Quote</p>
+                      <h6 className="text-[15px]">{Button?.Email}</h6>
                     </Link>
                 ))
               }
