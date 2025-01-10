@@ -1,4 +1,5 @@
 "use client";
+import { getFullImageURL } from '@/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useRef, useEffect, useState } from 'react';
@@ -84,7 +85,7 @@ const Cards = ({ dark, data }) => {
   </div>
 
   const cardImage_one = <Image
-    src={data[0]?.Image?.data?.[0]?.attributes?.url}
+    src={getFullImageURL(data[0]?.Image?.data?.[0]?.attributes?.url)}
     alt=''
     width={720}
     height={720}
@@ -143,7 +144,7 @@ const Cards = ({ dark, data }) => {
   </div>
 
   const cardImage_two = <Image
-    src={data[1]?.Image?.data?.[0]?.attributes?.url}
+    src={getFullImageURL(data[1]?.Image?.data?.[0]?.attributes?.url)}
     alt=''
     width={720}
     height={720}

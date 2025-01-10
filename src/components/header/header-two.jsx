@@ -20,7 +20,7 @@ const HeaderTwo = ({ data, slideFromTop }) => {
           <div className=" md:w-[10%]">
             <figure>
               <Link href="/" className="">
-                <Image src={Logo?.data?.attributes.url ? Logo?.data?.attributes.url : `/svg/logo.svg`} alt="logo" width={126} height={74} className="w-16 md:w-[80px]" />
+                <Image src={Logo?.data?.attributes.url ? Logo?.data?.attributes.url : `/svg/logo.svg`} alt="logo" width={126} height={74} className="w-16 md:w-[110px]" />
               </Link>
             </figure>
           </div>
@@ -66,7 +66,7 @@ const HeaderTwo = ({ data, slideFromTop }) => {
                           <li key={idx} className="relative group">
                             <Link
                               href={item?.Link}
-                              className={`block uppercase hover:font-bold group ${pathname === item?.Link ? 'font-bold' : ''}`}
+                              className={`block uppercase group`}
                             >
                               {item?.Label}
                             </Link>

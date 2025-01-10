@@ -4,9 +4,9 @@ import Image from 'next/image';
 
 const AccordionItem = ({ isHeader, isFooter, title, content, isOpen, onToggle, hideToggle, isProductAndServices }) => {
   return (
-    <div className={`${isFooter && 'pb-3'} border-b border-[#8B8B8B80] last:border-b-0`}>
+    <div className={`${isFooter && 'pb-3'} border-b border-[#8B8B8B80]`}>
       <button
-        className={`w-full text-left ${isProductAndServices ? `${isOpen ? 'pb-[20px]' : 'pb-[30px]'} pt-[30px]` : (isHeader || hideToggle || isFooter) ? 'pt-4' : 'p-4 hover:bg-gray-100'} focus:outline-none`}
+        className={`w-full text-left ${isProductAndServices ? `${isOpen ? 'pb-[20px]' : 'pb-[18px] lg:pb-[30px]'} pt-[18px] lg:pt-[30px]` : (isHeader || hideToggle || isFooter) ? 'pt-4' : 'p-4 hover:bg-gray-100'} focus:outline-none`}
         onClick={onToggle}
       >
         <div className="flex justify-between items-center">
@@ -30,7 +30,7 @@ const AccordionItem = ({ isHeader, isFooter, title, content, isOpen, onToggle, h
         </div>
       </button>
       {isOpen && (
-        <div className={`${isProductAndServices ? "pb-[30px]" : isHeader ? "" : hideToggle ? "pb-5" : "pt-[14px] pb-6 px-4"}`}>
+        <div className={`${isProductAndServices ? "pb-[18px] lg:pb-[30px]" : isHeader ? "" : hideToggle ? "pb-4 lg:mt-5 pt-4 md:pt-0" : "pt-[14px] pb-6 px-4"}`}>
           <div className='font_calibri font-light text-[12px] md:text-lg'>{content}</div>
         </div>
       )}

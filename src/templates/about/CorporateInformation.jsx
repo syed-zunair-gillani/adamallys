@@ -1,4 +1,5 @@
 import VideoPlayer from '@/components/VideoPlayer'
+import { getFullImageURL } from '@/utils';
 import Image from 'next/image'
 
 const CorporateInformation = ({ data }) => {
@@ -9,13 +10,13 @@ const CorporateInformation = ({ data }) => {
       <div className='container grid md:grid-cols-2 gap-4 md:gap-20 mx-auto pb-10 md:mb-0'>
         <div className='mt-4 md:mt-16 lg:flex-row items-center justify-between gap-[82px]'>
           <div class="sticky top-20 z-[11]">
-            <Image className='basis-[50%] w-full' src={data?.Images?.data[1]?.attributes?.url} alt='CorporateInformation' width={569} height={557} />
+            <Image className='basis-[50%] w-full' src={getFullImageURL(data?.Images?.data[1]?.attributes?.url)} alt='CorporateInformation' width={569} height={557} />
           </div>
           <div class="sticky top-20 mt-3 md:mt-[60px] z-[12]">
             <div className='min-h-[467px] basis-[50%]'>
               <VideoPlayer
                 height={'467px'}
-                src={`https://${data?.Images?.data[0]?.attributes?.url}`}
+                src={getFullImageURL(data?.Images?.data[0]?.attributes?.url)}
               />
             </div>
           </div>

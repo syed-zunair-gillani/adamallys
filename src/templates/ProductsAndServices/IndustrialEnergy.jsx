@@ -19,7 +19,7 @@ const IndustrialEnergy = (props) => {
         <div>
           <h1 className="text-center flex flex-col justify-center items-center text-[25px] mt-2 mb-1 sm:text-[40px] font_calibri leading-[149%] md:text-[50px] lg:text-[60px] font-bold text-[#2E368F] px-4">
             Products & Services
-            <div className='h-[1px] w-[49px] bg-[#8B8B8B] mt-4 md:hidden block' />
+            <div className='h-[1px] w-[49px] bg-[#8B8B8B] my-4 md:hidden block' />
           </h1>
         </div>
         <GridBanner />
@@ -35,13 +35,15 @@ const IndustrialEnergy = (props) => {
             image={Video?.data?.attributes?.url}
           />
         </div>
-        <div className='lg:w-[70%]'>
-          <h2 className='text-[60px] font_calibri text-center md:text-[60px] md:text-left leading-[67px] font-bold text-theme-main hidden md:block'>{title}</h2>
-          <p className="font_calibri text-lg font-light leading-[26px] py-[17px] hidden md:block">
+        <div className='lg:w-[70%] lg:mt-[-14px]'>
+          <h2 className='m-0 text-[60px] font_calibri text-center md:text-[60px] md:text-left leading-[67px] font-bold text-theme-main hidden md:block'>
+            {title}
+          </h2>
+          <p className="font_calibri text-lg font-light leading-[26px] py-4 lg:py-[30px] hidden md:block">
             {info}
           </p>
           <p className="text-[25px] md:text-[40px] text-center md:text-left font_calibri leading-[45px] font-bold text-theme-main">Our Key Product Offerings</p>
-          <div className='md:my-[30px] mb-0 mt-[30px] w-full h-[1px] bg-[#B2B6E0]' />
+          <div className='md:mt-[30px] mb-0 mt-[30px] w-full h-[1px] bg-[#B2B6E0]' />
           <Accordion data={data} isFirstOpen isProductAndServices />
         </div>
       </section>

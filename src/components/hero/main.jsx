@@ -27,9 +27,7 @@ const Main = ({ data, Side_Sticky_Links }) => {
       opacity: 0,
       duration: 1,
     })
-  })
-
-  console.log('data', data);
+  });
 
   return (
     <main>

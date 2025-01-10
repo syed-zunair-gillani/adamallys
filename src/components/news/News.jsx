@@ -1,4 +1,5 @@
 "use client"
+import { getFullImageURL } from '@/utils';
 import Image from 'next/image'
 import React from 'react'
 import Slider from "react-slick";
@@ -73,7 +74,7 @@ const News = ({ data }) => {
                 return (
                   <div key={idx} className='pr-3 md:pr-6'>
                     <figure>
-                      <Image src={item?.attributes?.Image?.data?.attributes?.url} alt='' className='w-full' width={434} height={293} />
+                      <Image src={getFullImageURL(item?.attributes?.Image?.data?.attributes?.url)} alt='' className='w-full' width={434} height={293} />
                     </figure>
                     <div className='bg-theme-gray p-5 md:p-10 font_calibri'>
                       <h6 className='text-theme-main'>{formattedDate}</h6>

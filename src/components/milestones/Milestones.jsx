@@ -4,6 +4,7 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import CounterText from '@/components/CounterText'
 import useIsMobile from "@/hooks/useIsMobile";
+import { getFullImageURL } from "@/utils";
 
 const Milestones = ({ data }) => {
   const sectionRef = useRef(null);
@@ -87,7 +88,7 @@ const Milestones = ({ data }) => {
             >
               <figure className="text-5xl mb-2">
                 <Image
-                  src={item.Icon?.data?.attributes?.url}
+                  src={getFullImageURL(item.Icon?.data?.attributes?.url)}
                   alt="Calendar Icon"
                   width={isMobile ? 64 : 81}
                   height={isMobile ? 64 : 81}

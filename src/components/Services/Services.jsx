@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 import Image from "next/image";
 import Link from "next/link";
 import styles from './style.module.css';
+import { getFullImageURL } from "@/utils";
 
 const Services = ({ data }) => {
   const sectionRef = useRef(null);
@@ -99,11 +100,11 @@ const Services = ({ data }) => {
                       width={573}
                       height={378}
                       alt={item?.title}
-                      src={item?.Image?.data?.attributes?.url}
+                      src={getFullImageURL(item?.Image?.data?.attributes?.url)}
                       className={`${styles.service_image} h-[378px] object-cover w-full`}
                     />
                   </div>
-                  <div className="absolute px-[18px] md:px-9 gap-3 flex justify-between w-full items-center bottom-9">
+                  <div className="absolute px-[18px] md:px-9 gap-3 flex justify-between w-full items-end bottom-9">
                     <Link
                       href={item?.item || "#"}
                       className={`text-white text-[25px] md:text-[30px] font-bold font_calibri ${idx === 3 && "!text-black"

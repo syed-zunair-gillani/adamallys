@@ -1,4 +1,4 @@
-import React from 'react';
+import { getFullImageURL } from '@/utils';
 
 const VideoPlayer = ({
     src,
@@ -17,7 +17,7 @@ const VideoPlayer = ({
     return (
         <div style={{ objectFit: 'cover', position: 'center', width, height }}>
             <video
-                src={src}
+                src={getFullImageURL(src)}
                 loop={loop}
                 muted={muted}
                 width="100%"

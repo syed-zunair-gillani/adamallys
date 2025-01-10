@@ -1,13 +1,14 @@
 "use client"
+import { getFullImageURL } from "@/utils";
 import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef } from "react";
 
 const CertificationsAndMemberships = ({ data }) => {
-  console.log("🚀 ~ CertificationsAndMemberships ~ data:", data)
   const imageRefs = useRef([]);
   const imageRefs2 = useRef([]);
+
   useEffect(() => {
     imageRefs.current = imageRefs.current.slice(0, data?.length || 0);
 
@@ -45,7 +46,6 @@ const CertificationsAndMemberships = ({ data }) => {
     );
   }, [data]);
 
-
   return (
     <section className="certification-gradient -mt-[6px]">
       <div className="container mx-auto py-[38px] md:py-16 px-3 lg:px-0">
@@ -61,7 +61,7 @@ const CertificationsAndMemberships = ({ data }) => {
                 ref={(el) => (imageRefs.current[idx] = el)} // Add ref to each image container
               >
                 <img
-                  src={item?.Icon?.data?.attributes?.url}
+                  src={getFullImageURL(item?.Icon?.data?.attributes?.url)}
                   alt=""
                   className=""
                 />
@@ -74,16 +74,16 @@ const CertificationsAndMemberships = ({ data }) => {
           {data?.slice(6, 12).map(
             (item, idx) => (
               <React.Fragment key={idx}>
-                <div className="flex flex-col items-center justify-center" ref={(el) => (imageRefs2.current[idx] = el)}>
-                  <img src={item?.Icon?.data?.attributes?.url} alt="" className="" />
-                  {
-                    item?.Caption && <>
+                <div className={`h-full flex flex-col items-center ${item?.Caption ? 'justify-end' : 'justify-center'}`} ref={(el) => (imageRefs2.current[idx] = el)}>
+                  <img src={getFullImageURL(item?.Icon?.data?.attributes?.url)} alt="" className="" />
+                  {item?.Caption &&
+                    <div>
                       <p className="text-white mt-2 text-[8px] md:text-base !font-light">{item?.Caption}</p>
                       <Link href={item?.link || "#"} target="_blank" className="flex mt-1 items-center font-light text-[8px] md:text-base text-white gap-2">
                         Read More
-                        <Image src="/svg/arrow-right.svg" alt="" width={17} height={17} className="w-2 md:w-[17px]"/>
+                        <Image src="/svg/arrow-right.svg" alt="" width={17} height={17} className="w-2 md:w-[17px]" />
                       </Link>
-                    </>
+                    </div>
                   }
                 </div>
               </React.Fragment>
