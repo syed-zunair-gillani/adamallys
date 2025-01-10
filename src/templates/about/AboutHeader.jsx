@@ -1,3 +1,4 @@
+import { getFullImageURL } from '@/utils'
 import ArrowDownIcon from '../../../public/svg/ArrowDownIcon'
 import Image from 'next/image'
 
@@ -12,7 +13,7 @@ const AboutHeader = ({ data }) => {
         <ArrowDownIcon />
       </div>
       <div className='basis-[60%] w-full'>
-        <Image src={data?.Image?.data?.attributes?.url} alt='about-header-image' className='w-full' width={750} height={450} />
+        <Image src={getFullImageURL(data?.Image?.data?.attributes?.url)} alt='about-header-image' className='w-full' width={750} height={450} />
       </div>
     </div>
   )

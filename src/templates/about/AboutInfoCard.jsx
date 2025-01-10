@@ -1,3 +1,4 @@
+import { getFullImageURL } from '@/utils'
 import Image from 'next/image'
 
 const cardsData = [
@@ -29,7 +30,7 @@ const AboutInfoCard = ({ data }) => {
               background: 'linear-gradient(to right, #B2B6E0, #171F7C )'
             }}
           >
-            <Image src={card.Icon?.data?.attributes?.url} alt={card?.title} width={62} height={62} />
+            <Image src={getFullImageURL(card.Icon?.data?.attributes?.url)} alt={card?.title} width={62} height={62} />
             <p style={{ zIndex: 2 }} className='font_calibri font-bold capitalize text-[20px] md:text-[30px] leading-[34px] text-white text-center'>{card?.title}</p>
             <p style={{ zIndex: 2 }} className='font_calibri text-[14px] md:text-lg capitalize leading-[26px] font-light text-white text-center'>{card?.subtitle}</p>
             <div className='absolute w-full h-full top-0 right-0'

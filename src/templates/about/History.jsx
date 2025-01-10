@@ -1,5 +1,6 @@
 "use client"
 import useIsMobile from '@/hooks/useIsMobile'
+import { getFullImageURL } from '@/utils'
 import Image from 'next/image'
 
 const History = ({ data }) => {
@@ -11,7 +12,7 @@ const History = ({ data }) => {
         <div className="basis-[45%] hidden md:block">
           {
             data?.HistoryList?.map(count =>
-              <Image key={count?.id} src={count?.Image?.data?.attributes?.url} alt='history image' className='mt-[98px] sticky top-28' width={800} height={308} />
+              <Image key={count?.id} src={getFullImageURL(count?.Image?.data?.attributes?.url)} alt='history image' className='mt-[98px] sticky top-28' width={800} height={308} />
             )
           }
         </div>
@@ -42,7 +43,7 @@ const History = ({ data }) => {
                     }
                   </div>
                   <div className='flex-1'>
-                    <Image src={history?.Image?.data?.attributes?.url} alt='history image' className='md:hidden' width={800} height={308} />
+                    <Image src={getFullImageURL(history?.Image?.data?.attributes?.url)} alt='history image' className='md:hidden' width={800} height={308} />
                     <p className='font_calibri text-[#3E3E3E] font-light md:text-lg text-xs mt-[13px] md:mt-0 sm:mb-10'>{history?.Info}</p>
                   </div>
                 </div>

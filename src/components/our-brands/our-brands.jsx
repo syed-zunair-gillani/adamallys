@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { useRef, useEffect } from "react";
 import Slider from "react-slick";
 import { gsap } from "gsap";
+import { getFullImageURL } from "@/utils";
 
 const settings = {
   dots: false,
@@ -122,7 +123,7 @@ const OurBrands = ({ data, content }) => {
                     <Image
                       style={{ objectFit: 'contain' }}
                       className="slider-icon p-1 w-[165px] h-[94px]"
-                      src={item?.attributes?.url}
+                      src={getFullImageURL(item?.attributes?.url)}
                       alt="image"
                       width={165}
                       height={94}
