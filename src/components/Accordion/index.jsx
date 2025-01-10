@@ -2,11 +2,11 @@
 import { useState } from 'react';
 import Image from 'next/image';
 
-const AccordionItem = ({ isHeader, isFooter, title, content, isOpen, onToggle, hideToggle }) => {
+const AccordionItem = ({ isHeader, isFooter, title, content, isOpen, onToggle, hideToggle, isProductAndServices }) => {
   return (
     <div className={`${isFooter && 'pb-3'} border-b border-[#8B8B8B80] last:border-b-0`}>
       <button
-        className={`w-full text-left ${(isHeader || hideToggle || isFooter) ? 'pt-4' : 'p-4 hover:bg-gray-100'} focus:outline-none`}
+        className={`w-full text-left ${isProductAndServices ? `${isOpen ? 'pb-[20px]' : 'pb-[30px]'} pt-[30px]` : (isHeader || hideToggle || isFooter) ? 'pt-4' : 'p-4 hover:bg-gray-100'} focus:outline-none`}
         onClick={onToggle}
       >
         <div className="flex justify-between items-center">
@@ -30,7 +30,7 @@ const AccordionItem = ({ isHeader, isFooter, title, content, isOpen, onToggle, h
         </div>
       </button>
       {isOpen && (
-        <div className={`${isHeader ? "" : hideToggle ? "pb-5" : "pt-[14px] pb-6 px-4"}`}>
+        <div className={`${isProductAndServices ? "pb-[30px]" : isHeader ? "" : hideToggle ? "pb-5" : "pt-[14px] pb-6 px-4"}`}>
           <div className='font_calibri font-light text-[12px] md:text-lg'>{content}</div>
         </div>
       )}
@@ -38,7 +38,7 @@ const AccordionItem = ({ isHeader, isFooter, title, content, isOpen, onToggle, h
   );
 };
 
-const Accordion = ({ isHeader, isFooter, data = [], isOpen, hideToggle, isFirstOpen }) => {
+const Accordion = ({ isHeader, isFooter, data = [], isOpen, hideToggle, isFirstOpen, isProductAndServices }) => {
   const [openIndex, setOpenIndex] = useState(isFirstOpen ? 0 : null);
 
   const toggleAccordion = (index) => {
@@ -57,6 +57,7 @@ const Accordion = ({ isHeader, isFooter, data = [], isOpen, hideToggle, isFirstO
           hideToggle={hideToggle}
           isOpen={isOpen || openIndex === index}
           onToggle={() => toggleAccordion(index)}
+          isProductAndServices={isProductAndServices}
         />
       ))}
     </div>

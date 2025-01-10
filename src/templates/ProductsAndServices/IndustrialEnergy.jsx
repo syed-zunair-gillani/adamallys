@@ -42,7 +42,7 @@ const IndustrialEnergy = (props) => {
           </p>
           <p className="text-[25px] md:text-[40px] text-center md:text-left font_calibri leading-[45px] font-bold text-theme-main">Our Key Product Offerings</p>
           <div className='md:my-[30px] mb-0 mt-[30px] w-full h-[1px] bg-[#B2B6E0]' />
-          <Accordion data={data} isFirstOpen />
+          <Accordion data={data} isFirstOpen isProductAndServices />
         </div>
       </section>
       <ChooseAdamallys />

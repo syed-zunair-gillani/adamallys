@@ -49,7 +49,7 @@ const Warehousing = (props) => {
             <p className="mt-5 md:mt-[13px] text-center md:text-left text-lg md:text-[30px] leading-[33px] font-bold text-theme-main">
               {sub_title}
             </p>
-            <div className='mt-[30px] mb-5 w-full h-[1px] bg-[#B2B6E0]' />
+            <div className='md:mt-[30px] md:mb-[0px] mb-5 w-full h-[1px] bg-[#B2B6E0]' />
             <Accordion data={data} isOpen hideToggle />
           </div>
         </section>
