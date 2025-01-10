@@ -4,19 +4,21 @@ import { getFullImageURL } from '@/utils'
 
 const IndustrialEnergy = ({ image, video, caption }) => {
   return (
-    <div className='' style={{ height: '100%' }}>
-      {video ?
-        <VideoPlayer
-          loop
-          autoPlay
-          src={video}
-          width={'100%'}
-          height={'529px'}
-          controls={false}
-        /> :
-        <Image src={getFullImageURL(image) || '/images/products-&-services/industrial-energy-image.png'} alt='industrial-energy-image' width={1646} height={529} />
-      }
-      <div className="blue_gradient2 px-[18px] md:px-[47px] py-[58px]">
+    <div style={{ height: '100%' }}>
+      <figure className='sticky top-20'>
+        {video ?
+          <VideoPlayer
+            loop
+            autoPlay
+            src={video}
+            width={'100%'}
+            height={'529px'}
+            controls={false}
+          /> :
+          <Image src={getFullImageURL(image) || '/images/products-&-services/industrial-energy-image.png'} alt='industrial-energy-image' width={1646} height={529} />
+        }
+      </figure>
+      <div className="sticky top-20 blue_gradient2 px-[18px] md:px-[47px] py-[58px] relative z-[9]">
         <p className="font_calibri text-[25px] leading-[35px] text-white">
           {caption}
         </p>

@@ -4,6 +4,8 @@ import "./style.css";
 import Footer from "@/components/footer/footer";
 import VerticleIcon from "@/components/verticle-icon/verticle-icon";
 
+import ScrollToTopButton from '@/components/ScrollToTopButton'
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ToastContainer } from "react-toastify";
@@ -37,6 +39,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <VerticleIcon />
+        <ScrollToTopButton />
       </body>
     </html>
   );

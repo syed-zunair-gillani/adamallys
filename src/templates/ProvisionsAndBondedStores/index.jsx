@@ -19,22 +19,21 @@ const ProvisionsAndBondedStoresTemplate = (props) => {
           bgImage: banner_background_image?.data?.attributes?.url
         }}
       />
-
-      <SingleWrapperTwoColumnContent
-        points={Cards?.[0]?.List}
-        title={Cards?.[0]?.title}
-        caption={Cards?.[0]?.info}
-        images={[Cards?.[0]?.Image?.data?.attributes?.url]}
-      />
-
-      <SingleWrapperTwoColumnContent
-        isGradientBg
-        points={Cards?.[1]?.List}
-        title={Cards?.[1]?.title}
-        caption={Cards?.[1]?.info}
-        images={[Cards?.[1]?.Image?.data?.attributes?.url]}
-      />
-
+      <div className="lg:mt-[66px] ">
+        <SingleWrapperTwoColumnContent
+          points={Cards?.[0]?.List}
+          title={Cards?.[0]?.title}
+          caption={Cards?.[0]?.info}
+          images={[Cards?.[0]?.Image?.data?.attributes?.url]}
+        />
+        <SingleWrapperTwoColumnContent
+          isGradientBg
+          points={Cards?.[1]?.List}
+          title={Cards?.[1]?.title}
+          caption={Cards?.[1]?.info}
+          images={[Cards?.[1]?.Image?.data?.attributes?.url]}
+        />
+      </div>
       <ChooseAdamallys />
       <OtherServices {...otherServicesData} />
     </>
