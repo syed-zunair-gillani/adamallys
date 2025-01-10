@@ -76,12 +76,13 @@ const DistributorsAndStockistsTemplate = ({ Cards, Banner }) => {
           data?.map((distributor, index) =>
             <div key={distributor?.title} className=" basis-full flex-1 lg:basis-[40%] relative border flex flex-col lg:flex-row min-h-[360px]">
               <div className="flex-1 pl-[64px] pr-[57px] border-r border-b min-h-[220px] flex justify-center items-center md:!items-start">
-                <div className="lg:mt-[100px] h-[155px] flex items-center justify-center">
+                <div className="z-[10] relative lg:mt-[100px] h-[155px] flex items-center justify-center">
                   <Image
                     width={198}
                     height={198}
                     alt='Distributors-logo'
                     src={distributor?.image}
+                    className='z-[10]'
                   />
                 </div>
               </div>
@@ -104,7 +105,7 @@ const DistributorsAndStockistsTemplate = ({ Cards, Banner }) => {
                   </p>
                   {showButton[distributor.title] &&
                     <button
-                      className="inline-block text-theme-main text-sm md:text-base md:font-semibold"
+                      className="inline-block text-theme-main text-sm md:text-base"
                       onClick={() => toggleExpand(distributor.title)}
                     >
                       {expanded[distributor.title] ? 'Read Less' : 'Read More'}
@@ -114,7 +115,7 @@ const DistributorsAndStockistsTemplate = ({ Cards, Banner }) => {
               </div>
               <div style={{
                 transform: 'translateX(-50%)'
-              }} className="absolute left-[50%] bottom-[42px] bg-white pt-[41px] pb-[38px]  ">
+              }} className="absolute z-[0] left-[50%] bottom-[42px] bg-white pt-[41px] pb-[38px]  ">
                 <a className='whitespace-nowrap bg-white text-sm md:text-lg font-bold leading-[26px] text-theme-main py-4 px-[65px] border border-[#B2B6E0] rounded-[30px]' href={distributor?.link} target='_blank'>Visit Website</a>
               </div>
             </div>
