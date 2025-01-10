@@ -6,7 +6,7 @@ const History = ({ data }) => {
   const isMobile = useIsMobile()
 
   return (
-    <section className='bg-white pb-6 lg:pb-[96px] pt-[21px] md:pt-8 sm:pt-0'>
+    <section className='lg:ml-[173px] bg-white pb-6 lg:pb-[96px] pt-[21px] md:pt-8 sm:pt-0'>
       <div className='flex flex-col md:my-10 md:flex-row gap-[82px] container mx-auto'>
         <div className="basis-[45%] hidden md:block">
           {
