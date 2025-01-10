@@ -11,7 +11,6 @@ const PresentDay = ({ data }) => {
       >
         <div className="w-full h-full absolute top-0 left-0 bg-[red]">
           <VideoPlayer
-            controls
             poster='/images/about/present_day_bg.png'
             src={'https://res.cloudinary.com/dmmxyyl4v/video/upload/v1736018879/308b_4d0e_bdf8_c5a0f3900116_1_440af1222c.mov'}
           />
