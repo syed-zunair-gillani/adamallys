@@ -1,3 +1,4 @@
+import ShipSupplyHeading from '@/components/ShipSupplyHeading'
 import LeadingPageBanner from '@/components/digitalization/Leadingpage'
 import PageNavigation from "@/components/page-navigation/PageNavigation"
 import OtherServices from '@/components/other-services-slider/OtherServices'
@@ -9,14 +10,8 @@ const ProvisionsAndBondedStoresTemplate = (props) => {
 
   return (
     <>
-      <div className="mb-20" />
-      <div>
-          <h1 className="text-center text-2xl pb-5 md:pb-0 md:py-12 sm:text-[40px] font_calibri md:leading-[50px] md:text-[50px] lg:text-[60px] font-bold text-[#2E368F] mt-5 px-4">
-            Ship Supply
-          </h1>
-      </div>
+      <ShipSupplyHeading />
       <PageNavigation />
-
       <LeadingPageBanner
         {...{
           title: banner_title,

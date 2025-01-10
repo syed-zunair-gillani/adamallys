@@ -4,14 +4,14 @@ const SingleWrapperTwoColumnContent = (props) => {
   const { isGradientBg = false, images, title, caption, points } = props;
 
   return (
-    <div className="mx-[18px] md:mx-0 ">
+    <div className="mx-[18px] md:mx-0">
       <section className={` ${isGradientBg ? 'blue_gradient2 md:px-[70px]' : 'mt-0'} container mx-auto flex flex-col md:flex-row gap-4 sm:pb-10 lg:pb-[170px]`}>
         <div
           className={'p-[18px] md:px-0 md:w-[50%]'}
         >
           {
             images?.map((image, index) =>
-              <figure key={index} className={`sticky -top-10 ${isGradientBg ? '-mt-[72px] pt-5 md:pt-0' : '-mt-6 sm:-mt-10 md:-mt-[92px]'}`}>
+              <figure key={index} className={`sticky -top-10 ${isGradientBg ? 'pt-5 md:pt-10' : ''}`}>
                 <Image
                   alt={title}
                   src={image}

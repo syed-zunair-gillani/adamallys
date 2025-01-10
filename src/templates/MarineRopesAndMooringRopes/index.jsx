@@ -3,6 +3,7 @@ import PageNavigation from "@/components/page-navigation/PageNavigation"
 import OtherServices from '@/components/other-services-slider/OtherServices'
 import ChooseAdamallys from '@/components/choose-adamallys/choose-adamallys'
 import SingleWrapperTwoColumnContent from '@/components/single-wrapper-two-column-content'
+import ShipSupplyHeading from '@/components/ShipSupplyHeading'
 
 const MarineRopesAndMooringRopesTemplate = (props) => {
   const { Why_Choose_Image, Why_Choose_Title, Why_Choose_info, banner_background_image, banner_info, banner_title, Card, OtherServices: otherServicesData } = props;
@@ -10,12 +11,7 @@ const MarineRopesAndMooringRopesTemplate = (props) => {
 
   return (
     <>
-      <div className="mb-20" />
-      <div>
-        <h1 className="text-center text-2xl pb-5 md:pb-0 md:py-12 sm:text-[40px] font_calibri md:leading-[50px] md:text-[50px] lg:text-[60px] font-bold text-[#2E368F] mt-5 px-4">
-          Ship Supply
-        </h1>
-      </div>
+      <ShipSupplyHeading />
       <PageNavigation />
       <LeadingPageBanner
         {...{
@@ -24,7 +20,7 @@ const MarineRopesAndMooringRopesTemplate = (props) => {
           bgImage: banner_background_image?.data?.attributes?.url
         }}
       />
-      <div className="hidden md:block">
+      <div className="lg:mt-[66px] hidden md:block">
         <SingleWrapperTwoColumnContent
           points={Card?.[0]?.list}
           title={Card?.[0]?.title}

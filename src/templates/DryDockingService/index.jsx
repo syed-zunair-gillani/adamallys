@@ -3,18 +3,14 @@ import PageNavigation from "@/components/page-navigation/PageNavigation"
 import OtherServices from '@/components/other-services-slider/OtherServices'
 import ChooseAdamallys from '@/components/choose-adamallys/choose-adamallys'
 import TwoColumnContent from "@/components/two-column-content/two-column-content"
+import ShipSupplyHeading from '@/components/ShipSupplyHeading'
 
 const DryDockingServiceTemplate = (props) => {
   const { Why_Choose_Image, Why_Choose_Title, Why_Choose_info, banner_background_image, banner_info, banner_title, cards, OtherServices: otherServicesData } = props;
 
   return (
     <main className=''>
-      <div className="mb-20" />
-      <div>
-        <h1 className="text-center text-2xl pb-5 md:pb-0 md:py-12 sm:text-[40px] font_calibri md:leading-[50px] md:text-[50px] lg:text-[60px] font-bold text-[#2E368F] mt-5 px-4">
-          Ship Supply
-        </h1>
-      </div>
+      <ShipSupplyHeading />
       <PageNavigation />
       <LeadingPageBanner
         {...{
