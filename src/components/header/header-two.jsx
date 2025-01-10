@@ -66,7 +66,7 @@ const HeaderTwo = ({ data, slideFromTop }) => {
                           <li key={idx} className="relative group">
                             <Link
                               href={item?.Link}
-                              className={`block uppercase hover:font-bold group ${pathname === item?.Link ? 'font-bold' : ''}`}
+                              className={`block uppercase group`}
                             >
                               {item?.Label}
                             </Link>
