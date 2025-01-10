@@ -26,8 +26,8 @@ const Warehousing = (props) => {
         </div>
         <GridBanner />
       </section>
-      <h2 className='text-[25px] text-center md:hidden leading-[67px] font-bold text-theme-main !mb-0'>Industrial & Energy Sector Supplies</h2>
-      <p className="text-[12px] font-light text-center leading-[26px] py-3 md:hidden px-3 md:px-0">
+      <h2 className='text-[25px] text-center md:hidden mt-4 lg:leading-[67px] font-bold text-theme-main !mb-0'>Industrial & Energy Sector Supplies</h2>
+      <p className="text-[12px] font-light text-center leading-[26px] py-3 md:hidden px-[18px] md:px-0">
         At Adamallys, we offer a comprehensive range of high-quality products essential for the industrial, oil, and gas sectors. Our extensive inventory supports efficient and safe operations across offshore and onshore projects, addressing the specific needs of these demanding industries.
       </p>
       <div
@@ -35,10 +35,10 @@ const Warehousing = (props) => {
           paddingBottom: '72px',
           background: 'linear-gradient(to bottom, #ffffff , #F4F5F7 )'
         }}
-        className='px-3 lg:px-0'
+        className='px-[18px] lg:px-0'
       >
         <section className="mt-6 md:mt-[71px] container mx-auto flex flex-col lg:flex-row gap-5 lg:gap-10 mb-6 lg:mb-20">
-          <div className='lg:w-[30%] min-w-[464px]'>
+          <div className='lg:w-[30%] md:min-w-[464px]'>
             <IndustrialEnergyComp
               video={video?.data?.attributes?.url}
               caption={video_title}
@@ -54,8 +54,8 @@ const Warehousing = (props) => {
           </div>
         </section>
 
-        <section className="mt-[71px] container mx-auto flex flex-col lg:flex-row gap-5 lg:gap-10 ">
-          <div className='lg:w-[30%] bg-[red]'>
+        <section className="mt-6 md:mt-[71px] container mx-auto flex flex-col lg:flex-row gap-5 lg:gap-10 ">
+          <div className='lg:w-[30%]'>
             <VideoPlayer
               loop
               autoPlay

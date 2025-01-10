@@ -6,7 +6,7 @@ const History = ({ data }) => {
   const isMobile = useIsMobile()
 
   return (
-    <section className='bg-white pb-40 lg:pb-[96px] pt-8 sm:pt-0'>
+    <section className='bg-white pb-6 lg:pb-[96px] pt-[21px] md:pt-8 sm:pt-0'>
       <div className='flex flex-col md:my-10 md:flex-row gap-[82px] container mx-auto'>
         <div className="basis-[45%] hidden md:block">
           {
@@ -17,7 +17,7 @@ const History = ({ data }) => {
         </div>
         <div className='basis-[55%] lg:mt-[250px]'>
           <p className="font_franklin text-center md:text-left capitalize text-[25px] font-medium md:text-[59px] leading-[49px] md:pb-[26px]">{data?.history_title}</p>
-          <p className="font_calibri font-bold text-[14px] md:text-[20px] leading-[29px] text-center md:text-left pb-[40px] md:pb-[69px]">{data?.history_subtitle}</p>
+          <p className="font_calibri font-bold text-[14px] md:text-[20px] leading-[29px] text-center md:text-left pb-[37px] md:pb-[69px]">{data?.history_subtitle}</p>
           <div className="flex flex-col gap-[8px] px-[18px]">
             {
               data?.HistoryList?.map((history, index) =>
@@ -32,12 +32,18 @@ const History = ({ data }) => {
                     }}
                     />
                     {(index !== data?.HistoryList?.length - 1) &&
-                      < Image className='mt-[1rem] h-[260px] lg:h-[295px]' src='/images/about/history_line.png' alt='history-line' width={4} height={295} />
+                      < Image
+                        width={4}
+                        height={295}
+                        alt='history-line'
+                        src='/images/about/history_line.png'
+                        className='mt-[1rem] h-[240px] lg:h-[295px]'
+                      />
                     }
                   </div>
                   <div className='flex-1'>
                     <Image src={history?.Image?.data?.attributes?.url} alt='history image' className='md:hidden' width={800} height={308} />
-                    <p className='md:text-base text-xs mt-[13px] sm:mb-10'>{history?.Info}</p>
+                    <p className='font_calibri text-[#3E3E3E] font-light md:text-lg text-xs mt-[13px] md:mt-0 sm:mb-10'>{history?.Info}</p>
                   </div>
                 </div>
               )

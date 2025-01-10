@@ -8,7 +8,7 @@ const CorporateInformation = ({ data }) => {
           <div class="sticky top-20 z-[11]">
             <Image className='basis-[50%] ' src={data?.Images?.data[1]?.attributes?.url} alt='CorporateInformation' width={569} height={557} />
           </div>
-          <div class="sticky top-20 mt-[60px] z-[12]">
+          <div class="sticky top-20 mt-3 md:mt-[60px] z-[12]">
             <Image className='basis-[50%]' src={data?.Images?.data[0]?.attributes?.url} alt='CorporateInformation' width={569} height={557} />
           </div>
         </div>

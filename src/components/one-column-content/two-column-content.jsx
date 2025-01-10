@@ -4,7 +4,7 @@ const OneColumnContent = (props) => {
   const { id, leftTitle, title, caption, image, points } = props;
 
   return (
-    <section id={id} className={`container mx-auto grid mb-4 px-3 lg:px-0`}>
+    <section id={id} className={`container mx-auto grid mb-4 px-[18px] lg:px-0`}>
       <div>
         <figure>
           <Image

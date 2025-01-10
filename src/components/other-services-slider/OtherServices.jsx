@@ -53,27 +53,27 @@ const OtherServices = (props) => {
       className="certification-gradient py-12 md:py-20 mt-10 md:mt-20 px-[18px] lg:px-0"
     >
       <div className="container mx-auto flex flex-col md:flex-row gap-6 xl:gap-24 items-center">
-        <h2 className="other-services-heading md:hidden text-center text-[25px] font_calibri pb-6 text-white font-bold border-b border-gray-500 w-full">
+        <h2 className="other-services-heading md:hidden text-center text-[25px] font_calibri pb-6 text-white font-bold border-b border-gray-500 md:w-full">
           Other Services
         </h2>
-        <div className="md:w-[40%] w-full">
+        <div className="lg:w-[40%] md:w-full">
           <figure>
             <Image
               src={serviceImage?.data?.attributes?.url}
               alt="services-image"
               width={530}
-              className="w-full h-full object-cover"
+              className="md:w-full h-full object-cover"
               height={670}
             />
           </figure>
         </div>
-        <div className="w-full lg:w-[60%]">
+        <div className="md:w-full lg:w-[60%]">
           <h2 className="other-services-heading text-center md:text-left text-[25px] md:text-5xl lg:text-6xl font_calibri text-white font-bold hidden md:block">
             Other Services
           </h2>
-          <div className="w-full h-[1px] bg-gray-500 my-10 hidden md:block" />
-          <div className="flex flex-col md:flex-row gap-8 px-[18px] lg:px-0">
-            <div className="w-full">
+          <div className="md:w-full h-[1px] bg-gray-500 my-10 hidden md:block" />
+          <div style={{ overflowX: 'hidden', width: '100%' }} className="flex flex-col md:flex-row gap-8 px-[18px] lg:px-0">
+            <div className="md:w-full">
               {Services?.map((item, index) => (
                 <div key={index} className="flex items-center service-item mx-1 group text-center  md:text-left">
                   <div className={` ${index + 1 === Services?.length ? "" : "mb-[44px]"}`}>

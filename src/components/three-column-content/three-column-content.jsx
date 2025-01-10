@@ -3,7 +3,7 @@ import Image from 'next/image'
 const ThreeColumnContent = (props) => {
   const { id, image1, image2, title, caption, points, } = props;
   return (
-    <section id={id} className={`container mx-auto grid md:grid-cols-2 lg:grid-cols-3 mb-4 gap-4 px-3 lg:px-0`}>
+    <section id={id} className={`container mx-auto grid md:grid-cols-2 lg:grid-cols-3 mb-4 gap-4 px-[18px] lg:px-0`}>
       <div className=''>
         <figure className='h-full'>
           <Image src={image1} alt='' className='w-full md:h-full h-[243px] object-cover ' width={700} height={800} />

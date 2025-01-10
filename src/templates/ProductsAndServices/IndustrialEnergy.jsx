@@ -24,12 +24,12 @@ const IndustrialEnergy = (props) => {
         </div>
         <GridBanner />
       </section>
-      <h2 className='text-[25px] text-center md:hidden leading-[67px] font-bold text-theme-main !mb-0'>{title}</h2>
-      <p className="text-[12px] font-light text-center leading-[26px] py-3 md:hidden px-3 md:px-0">
+      <h2 className='text-[25px] text-center md:hidden lg:leading-[67px] font-bold text-theme-main !mb-0'>{title}</h2>
+      <p className="text-[12px] font-light text-center leading-[26px] py-3 md:hidden px-[18px] md:px-0">
         {info}
       </p>
-      <section className="mt-6 md:mt-14 container mx-auto flex flex-col lg:flex-row gap-5 lg:gap-10 mb-6 lg:mb-20 px-3 lg:px-0">
-        <div className='lg:w-[30%] min-w-[464px]'>
+      <section className="mt-6 md:mt-14 container mx-auto flex flex-col lg:flex-row gap-5 lg:gap-10 mb-6 lg:mb-20 px-[18px] lg:px-0">
+        <div className='lg:w-[30%] md:min-w-[464px]'>
           <IndustrialEnergyComp
             caption={video_title}
             image={Video?.data?.attributes?.url}

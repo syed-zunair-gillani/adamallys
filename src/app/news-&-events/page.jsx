@@ -22,7 +22,7 @@ export default async function News() {
           </div>
         )}
       </div>
-      <div className="flex justify-center items-center my-[64px]">
+      <div className="flex justify-center items-center my-6 lg:my-[64px]">
         <div className="w-[157px] text-[#2E368F] flex justify-center items-center border py-2 md:px-5 md:py-3 border-[#2E368F]">
           <button className="text-[14px] md:text-[16px] ">
             Load More
