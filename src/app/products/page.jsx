@@ -8,10 +8,11 @@ async function getProducts(searchParams) {
       'Image', "general_category", "specific_category"
     ],
     pagination: {
-      page: 1,
+      page: searchParams?.page ? searchParams?.page : 1,
       pageSize: 20
     }
   })
+
 
   const GCparams = qs.stringify({
     populate: ['general_categories', 'specific_categories'],
@@ -30,13 +31,13 @@ async function getProducts(searchParams) {
     Name: item.attributes.Name,
     Slug: item.attributes.Slug
   }))
-
+  
   return {
     allProducts: responce.data,
     categories,
     specificCategorries,
     baseCategorries,
-    productLength:getProductLengthRes?.data.data.length
+    productLength:getProductLengthRes?.data?.meta?.pagination?.total
   }
 }
 
@@ -50,6 +51,7 @@ const Products = async ({ searchParams }) => {
       specificCategorries={specificCategorries}
       baseCategorries={baseCategorries}
       grandTotal={productLength}
+      currentPageIndex={searchParams?.page}
     />
   )
 }

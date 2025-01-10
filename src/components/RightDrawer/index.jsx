@@ -4,7 +4,7 @@ import Image from 'next/image';
 import qs from "qs";
 import { Axios } from '@/config/Axios';
 
-const RightDrawer = ({ categories, specificCategorries, setProducts }) => {
+const RightDrawer = ({ categories, specificCategorries, setProducts, currentPageIndex }) => {
   const [generalCheckedValues, setGeneralCheckedValues] = useState([]);
   const [specificCheckedValues, setSpecificCheckedValues] = useState([]);
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
@@ -67,8 +67,8 @@ const RightDrawer = ({ categories, specificCategorries, setProducts }) => {
         },
       },
       pagination: {
-        page: 1,
-        pageSize: 5
+        page: currentPageIndex ? currentPageIndex : 1,
+        pageSize: 20
       }
     });
 

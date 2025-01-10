@@ -1,18 +1,21 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Pagination from '@/components/Pagination';
 import RightDrawer from '@/components/RightDrawer';
 import ProductCard from '@/components/ProductCard';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 const itemsPerPage = 20;
 
-const ProductsTemplate = ({ data, categories, specificCategorries, baseCategorries, grandTotal }) => {
-  const [currentPage, setCurrentPage] = useState(1);
+const ProductsTemplate = ({ data, categories, specificCategorries, baseCategorries, grandTotal, currentPageIndex }) => {
+  const [currentPage, setCurrentPage] = useState(currentPageIndex ? currentPageIndex : 1);
   const [products, setProducts] = useState(data)
   const [searchQuery, setSearchQuery] = useState('')
   const [selectBaseCategory, setSelectBaseCategory] = useState()
+
+  const params = useSearchParams()
+  const pageNo = params.get('page')
 
   const router = useRouter()
 
@@ -31,8 +34,16 @@ const ProductsTemplate = ({ data, categories, specificCategorries, baseCategorri
 
   const handleSelectCategory = (e) => {
     setSelectBaseCategory(e.target.value)
-    router?.push(`?baseCategory=${e.target.value}`)
+    const q = pageNo ? 
+    `?baseCategory=${e.target.value}&page=1` : 
+    `?baseCategory=${e.target.value}`
+    router.push(q)
+    window.location.reload();
   }
+
+  useEffect(()=>{
+    setProducts(data)
+  },[data])
 
   return (
     <main className='mt-[4rem] md:mt-[6rem] container mx-auto'>
@@ -112,7 +123,7 @@ const ProductsTemplate = ({ data, categories, specificCategorries, baseCategorri
                   }
                 </select>
               </div>
-              <RightDrawer categories={categories} specificCategorries={specificCategorries} setProducts={setProducts} />
+              <RightDrawer categories={categories} specificCategorries={specificCategorries} setProducts={setProducts} currentPageIndex={currentPageIndex}/>
             </div>
           </div>
         </div>
@@ -125,14 +136,14 @@ const ProductsTemplate = ({ data, categories, specificCategorries, baseCategorri
           )}
         </div>
         <div className="my-[38px]">
-          {(products?.data > 19) &&
+          {/* {(products?.data > 19) && */}
             <Pagination
               currentPage={currentPage}
               itemsPerPage={itemsPerPage}
-              totalItems={products?.length}
+              totalItems={grandTotal}
               onPageChange={setCurrentPage}
             />
-          }
+          {/* } */}
         </div>
       </div>
     </main>
