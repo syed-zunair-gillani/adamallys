@@ -58,7 +58,7 @@ const ContactTemplate = (props) => {
               </p>
             </div>
           </div>
-          <div className="mt-[45px] inline-flex flex-col gap-[9px]">
+          <div className="mt-[45px] inline-flex flex-col items-start gap-[9px]">
             <div className="w-auto border border-white h-[41px] md:h-[46px] pr-[18px] inline-flex items-center gap-[15px] rounded-[30px]">
               <div className='w-[44px] h-[41px] md:w-[50px] md:md:h-[46px] flex items-center justify-center bg-white rounded-[46%]'>
                 <Image src={'/svg/call-icon.svg'} alt='location_on' width={23} height={23} />
