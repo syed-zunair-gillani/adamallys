@@ -26,7 +26,7 @@ const SingleWrapperTwoColumnContent = (props) => {
         <div
           className={`flex-1 flex flex-col justify-between md:w-[50%] p-[18px] md:p-8 lg:p-14 ship_supply_content ${isGradientBg ? "md:mt-[80px] text-white" : "text-theme-main md:mt-[60px]"}`}>
           <div>
-            <h2 className='text-[25px] lg:text-[40px]'>{title}</h2>
+            <h2 className='font_franklin text-[25px] lg:text-[40px]'>{title}</h2>
             <p>{caption}</p>
             {points?.map(({ title: pointTitle, info, lists }, index) =>
               <div key={title + index}>
