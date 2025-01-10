@@ -15,7 +15,7 @@ const History = ({ data }) => {
             )
           }
         </div>
-        <div className='basis-[55%] lg:mt-[250px]'>
+        <div className='basis-[55%] lg:mt-[200px]'>
           <p className="font_franklin text-center md:text-left capitalize text-[25px] font-medium md:text-[59px] leading-[49px] md:pb-[26px]">{data?.history_title}</p>
           <p className="font_calibri font-bold text-[14px] md:text-[20px] leading-[29px] text-center md:text-left pb-[37px] md:pb-[69px]">{data?.history_subtitle}</p>
           <div className="flex flex-col gap-[8px] px-[18px]">

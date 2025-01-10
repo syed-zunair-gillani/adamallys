@@ -8,6 +8,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ToastContainer } from "react-toastify";
 
+export const metadata = {
+  title: "Adamallys LLC",
+  description: "Established in 1972, Adamallys LLC is a leading ship chandler in the UAE and the broader Middle East, specializing in comprehensive technical ship supplies and provisions",
+  icons: {
+    icon: "/svg/logo.svg",
+  },
+};
+
+
 export default function RootLayout({
   children,
 }: Readonly<{

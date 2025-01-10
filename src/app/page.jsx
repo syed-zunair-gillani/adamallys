@@ -8,7 +8,6 @@ import Cards from "@/components/Cards/Cards";
 import News from "@/components/news/News"
 import { getFooter, getHomePage, getMilestones } from "@/services"
 
-
 export default async function Home() {
   const milestones = await getMilestones()
   const page = await getHomePage()
