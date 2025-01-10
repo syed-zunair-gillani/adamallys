@@ -39,7 +39,7 @@ const HeaderOne = ({ data }) => {
                   <li key={idx} className="relative group">
                     <Link
                       href={item?.Link}
-                      className={`uppercase hover:font-bold ${pathname === item?.Link ? 'font-bold' : ''}`}
+                      className={`uppercase ${pathname === item?.Link ? '' : ''}`}
                     >{item?.Label}</Link>
                     <div className={`absolute bottom-[-4px] left-0 mt-2 w-[18px] h-[2px] group-hover:bg-theme-main ${pathname === item?.Link ? 'bg-theme-main' : ''}`} />
                   </li>
@@ -78,7 +78,7 @@ const HeaderOne = ({ data }) => {
                       ]}
                     /> :
                     <li key={idx} className="relative group">
-                      <Link className="uppercase hover:font-bold" href={item?.Link} key={idx}>{item?.Label}</Link>
+                      <Link className="uppercase" href={item?.Link} key={idx}>{item?.Label}</Link>
                       <div className={`absolute bottom-[-4px] left-0 mt-2 w-[18px] h-[2px] group-hover:bg-theme-main ${pathname === item?.Link ? 'bg-theme-main' : ''}`} />
                     </li>
                 ))}
