@@ -4,6 +4,7 @@ import GridBanner from '@/components/hero/grid-banner'
 import IndustrialEnergyComp from '@/components/IndustrialEngery'
 import ChooseAdamallys from '@/components/choose-adamallys/choose-adamallys'
 import OtherServices from "@/components/other-services-slider/OtherServices"
+import { getFullImageURL } from '@/utils'
 
 const Warehousing = (props) => {
   const { title, sub_title, Cards, Warehousing_info, Warehousing_videos, list, video, video_title, OtherServices: otherServicesData } = props;
@@ -44,9 +45,9 @@ const Warehousing = (props) => {
               caption={video_title}
             />
           </div>
-          <div className='lg:w-[70%]'>
+          <div className='lg:w-[70%] mt-[-14px]'>
             <h2 className='text-[25px] text-center md:text-left md:text-[60px] leading-[67px] font-bold text-theme-main !mb-0'>{title}</h2>
-            <p className="mt-5 md:mt-[13px] text-center md:text-left text-lg md:text-[30px] leading-[33px] font-bold text-theme-main">
+            <p className="mb-[26px] lg:mb-0 lg:mt-5 md:mt-[13px] text-center md:text-left text-lg md:text-[30px] leading-[33px] font-bold text-theme-main">
               {sub_title}
             </p>
             <div className='md:mt-[30px] md:mb-[0px] mb-5 w-full h-[1px] bg-[#B2B6E0]' />
@@ -55,19 +56,19 @@ const Warehousing = (props) => {
         </section>
 
         <section className="mt-6 md:mt-[71px] container mx-auto flex flex-col lg:flex-row gap-5 lg:gap-10 ">
-          <div className='lg:w-[30%]'>
+          <div className='lg:w-[30%] md:min-w-[464px]'>
             <VideoPlayer
               loop
               autoPlay
               width={'100%'}
               height={'100%'}
               controls={false}
-              src={Warehousing_videos?.data?.attributes?.url}
+              src={getFullImageURL(Warehousing_videos?.data?.attributes?.url)}
             />
           </div>
-          <div className='lg:w-[70%]'>
+          <div className='lg:w-[70%] mt-[-14px]'>
             <h2 className='text-[25px] text-center md:text-[60px] md:text-left leading-[67px] font-bold text-theme-main !mb-0'>Warehousing</h2>
-            <p className="mt-5 md:mt-[13px] text-center text-lg md:text-left md:text-[30px] leading-[33px] font-bold text-theme-main">
+            <p className="md:mt-[13px] text-center text-lg md:text-left md:text-[30px] leading-[33px] text-theme-main">
               {Warehousing_info}
             </p>
             <div className="flex flex-col sm:flex-row space-y-[17px] sm:space-y-[0] sm:space-x-[17px] mt-[42px]">

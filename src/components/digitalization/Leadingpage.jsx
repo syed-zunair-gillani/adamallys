@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
 
-const LeadingPageBanner = ({ title, content, bgImage, style }) => {
+const LeadingPageBanner = ({ title, content, bgImage, style, isDigitalization }) => {
   useEffect(() => {
     gsap.fromTo(
       ".banner-title",
@@ -20,6 +20,9 @@ const LeadingPageBanner = ({ title, content, bgImage, style }) => {
     <section>
       <div
         style={{
+          display: 'flex',
+          alignItems: 'center',
+          minHeight: isDigitalization ? 449 : 'auto',
           backgroundSize: "cover",
           backgroundPosition: "right",
           backgroundImage: bgImage

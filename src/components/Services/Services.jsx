@@ -104,7 +104,7 @@ const Services = ({ data }) => {
                       className={`${styles.service_image} h-[378px] object-cover w-full`}
                     />
                   </div>
-                  <div className="absolute px-[18px] md:px-9 gap-3 flex justify-between w-full items-center bottom-9">
+                  <div className="absolute px-[18px] md:px-9 gap-3 flex justify-between w-full items-end bottom-9">
                     <Link
                       href={item?.item || "#"}
                       className={`text-white text-[25px] md:text-[30px] font-bold font_calibri ${idx === 3 && "!text-black"

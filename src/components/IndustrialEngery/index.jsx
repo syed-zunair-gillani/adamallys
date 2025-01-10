@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import VideoPlayer from '../VideoPlayer'
+import { getFullImageURL } from '@/utils'
 
 const IndustrialEnergy = ({ image, video, caption }) => {
   return (
@@ -13,9 +14,9 @@ const IndustrialEnergy = ({ image, video, caption }) => {
           height={'529px'}
           controls={false}
         /> :
-        <Image src={image || '/images/products-&-services/industrial-energy-image.png'} alt='industrial-energy-image' width={1646} height={529} />
+        <Image src={getFullImageURL(image) || '/images/products-&-services/industrial-energy-image.png'} alt='industrial-energy-image' width={1646} height={529} />
       }
-      <div className="blue_gradient2 px-[47px] py-[58px]">
+      <div className="blue_gradient2 px-[18px] md:px-[47px] py-[58px]">
         <p className="font_calibri text-[25px] leading-[35px] text-white">
           {caption}
         </p>

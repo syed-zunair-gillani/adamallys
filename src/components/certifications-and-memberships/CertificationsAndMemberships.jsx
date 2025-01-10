@@ -74,16 +74,16 @@ const CertificationsAndMemberships = ({ data }) => {
           {data?.slice(6, 12).map(
             (item, idx) => (
               <React.Fragment key={idx}>
-                <div className="flex flex-col items-center justify-center" ref={(el) => (imageRefs2.current[idx] = el)}>
+                <div className={`h-full flex flex-col items-center ${item?.Caption ? 'justify-end' : 'justify-center'}`} ref={(el) => (imageRefs2.current[idx] = el)}>
                   <img src={getFullImageURL(item?.Icon?.data?.attributes?.url)} alt="" className="" />
-                  {
-                    item?.Caption && <>
+                  {item?.Caption &&
+                    <div>
                       <p className="text-white mt-2 text-[8px] md:text-base !font-light">{item?.Caption}</p>
                       <Link href={item?.link || "#"} target="_blank" className="flex mt-1 items-center font-light text-[8px] md:text-base text-white gap-2">
                         Read More
                         <Image src="/svg/arrow-right.svg" alt="" width={17} height={17} className="w-2 md:w-[17px]" />
                       </Link>
-                    </>
+                    </div>
                   }
                 </div>
               </React.Fragment>

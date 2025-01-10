@@ -13,6 +13,7 @@ export default async function Home() {
       </h1>
       <div className='w-[49px] h-[2px] bg-[#8B8B8B] md:hidden mx-auto mt-2 mb-6' />
       <LeadingPageBanner
+        isDigitalization
         title={data?.Banner_Title}
         content={data?.Banner_Info}
         bgImage={data?.Banner_Image?.data?.attributes?.url}
