@@ -34,9 +34,9 @@ html {
   overflow-x: hidden !important;
 }
 
-body {
+/* body {
   user-select: none;
-}
+} */
 
 h1,
 h2,
