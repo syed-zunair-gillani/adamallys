@@ -1,24 +1,38 @@
+"use client"
 import dayjs from 'dayjs'
 import Image from 'next/image'
 import { getFullImageURL } from '@/utils';
+import Link from 'next/link';
+import { PortableText } from '@portabletext/react'
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
-const texts = [
-	'Adamallys LLC was proud to sponsor and actively participate with a stand at the 66th ISSA Convention in Seville, Spain. It was a pleasure to join fellow members of the International Ship Suppliers Association to discuss issues of global importance to ship suppliers worldwide.',
-	'During the convention, Adamallys took a leading role in emphasizing the critical need for high-quality supplies to ensure safety onboard vessels. We also championed discussions on sustainability, highlighting how our industry can contribute to reducing ocean pollution and lowering CO₂ emissions through environmentally responsible practices.',
-	'The event provided an exceptional platform for collaboration, innovation, and advancing shared goals for a safer, more sustainable maritime industry. We look forward to continuing these important conversations and driving positive change globally.'
-];
+const NewsAndEventDetailsTemplate = ({ data, content }) => {
+	const { id, attributes } = content
+	const [nextNews, setNextNews] = useState()
+	const [prevNews, setPrevNews] = useState()
+	const router = useRouter()
 
-const NewsAndEventDetailsTemplate = ({ data }) => {
+	useEffect(() => {
+		if (data && id) {
+		  const currentIndex = data.findIndex(item => item.id === id);
+		  const previousItem = data[currentIndex - 1] || null;
+		  const nextItem = data[currentIndex + 1] || null;
+	
+		  setPrevNews(previousItem);
+		  setNextNews(nextItem);
+		}
+	  }, [data, id]);
 
 	return (
 		<div>
 			<section className="container mx-auto px-[18px] lg:px-0 md:pt-[30px] mt-14">
 				<div className=" flex flex-col md:gap-0 pt-5">
 					<h1 className="mt-[25px] md:mt-0 mb-3 md:mb-0 text-[25px] md:text-[60px] font-bold text-theme-main">
-						IMPA London Exhibition
+						{attributes?.title}
 					</h1>
 					<p className="text-theme-main">
-						{dayjs(new Date()).format("MMMM DD-DD YYYY")}
+						{dayjs(attributes?.Date).format("MMMM DD-DD YYYY")}
 					</p>
 				</div>
 
@@ -27,28 +41,34 @@ const NewsAndEventDetailsTemplate = ({ data }) => {
 						<Image
 							className='w-full'
 							style={{ objectFit: 'cover', objectPosition: 'center' }}
-							src={'/images/ADAMALLYS - IMPA LONDON 2024.png'} width={1702} height={491}
+							src={attributes?.Banner_Image?.data?.attributes?.url} width={1702} height={491}
 						/>
 					</figure>
 				</div>
 
 				<div className="flex flex-col gap-[18px] md:gap-[30px] pb-6 md:pb-[38px]">
-					{texts?.map((text, index) =>
-						<p key={index} className="text-lg font-light text-[#3E3E3E]">{text}</p>
-					)}
+					{attributes?.Content?.[0]?.children?.map((text, index) =>
+						<p key={index} className="text-lg font-light text-[#3E3E3E]">{text?.text}</p>
+					)}				
 				</div>
 
 				<div className="flex items-center justify-between gap-4 pb-5 md:pb-[32px]">
 					<button
 						type="submit"
+						disabled={!(prevNews?.attributes?.Slug) && true}
+						onClick={()=>router.push(`/news-&-events/${prevNews?.attributes?.Slug}`)}
 						className="w-[96px] md:w-[157px] font_calibri flex items-center justify-center gap-[12px] h-[49px] bg-white text-theme-main border border-theme-main"
 					>
 						Back
 					</button>
+					
+						
 					<button
 						type="submit"
+						disabled={!(nextNews?.attributes?.Slug) && true}
+						onClick={()=>router.push(`/news-&-events/${nextNews?.attributes?.Slug}`)}
 						className="w-[96px] md:w-[157px] font_calibri flex items-center justify-center gap-[12px] h-[49px] bg-white text-theme-main border border-theme-main"
-					>
+						>
 						Next
 					</button>
 				</div>
@@ -63,21 +83,23 @@ const NewsAndEventDetailsTemplate = ({ data }) => {
 							</figure>
 							<div className='flex-1 flex flex-col justify-between bg-[#F5F6F8] p-5 md:px-[43] md:pt-[39px] md:pb-[43px] font_calibri'>
 								<div>
-									<h6 className='text-theme-main'>{dayjs(item?.attributes?.createdAt).format('DD MMM YYYY')}</h6>
+									<h6 className='text-theme-main'>{dayjs(item?.attributes?.Date).format('DD MMM YYYY')}</h6>
 									<p className='text-[#8B8B8B] text-[17px] sm:text-[20px] md:text-[25px] md:leading-[34px] font-light mt-[13px]'>{idx == 1 ? "tt" : item?.attributes?.Excerpt}
 									</p>
 								</div>
-								<button className={`flex items-center gap-10 mt-[13px] text-theme-main`}>
-									Read More
-									<svg width="17" height="17" viewBox="0 0 17 17" fill="none">
-										<mask id="mask0_42_1540" maskUnits="userSpaceOnUse" x="0" y="0" width="17" height="17">
-											<rect width="16.1863" height="16.1863" fill="#D9D9D9" />
-										</mask>
-										<g mask="url(#mask0_42_1540)">
-											<path d="M5.39553 14.2305L4.82227 13.6572L10.3863 8.09313L4.82227 2.52908L5.39553 1.95581L11.5329 8.09313L5.39553 14.2305Z" fill={"#2E368F"} />
-										</g>
-									</svg>
-								</button>
+								<Link href={`/news-&-events/${item?.attributes.Slug}`}>
+									<button className={`flex items-center gap-10 mt-[13px] text-theme-main`}>
+										Read More
+										<svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+											<mask id="mask0_42_1540" maskUnits="userSpaceOnUse" x="0" y="0" width="17" height="17">
+												<rect width="16.1863" height="16.1863" fill="#D9D9D9" />
+											</mask>
+											<g mask="url(#mask0_42_1540)">
+												<path d="M5.39553 14.2305L4.82227 13.6572L10.3863 8.09313L4.82227 2.52908L5.39553 1.95581L11.5329 8.09313L5.39553 14.2305Z" fill={"#2E368F"} />
+											</g>
+										</svg>
+									</button>
+								</Link>
 							</div>
 						</div>
 					))}

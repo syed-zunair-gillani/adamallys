@@ -35,10 +35,10 @@ function Main({ news }) {
             }} className="flex h-full ">
               <div className="w-full bottom-0  inset-x-0 text-white px-4 sm:px-6 md:px-10 py-6 sm:py-8 md:py-10 z-40">
                 <h2 className="text-[20px] text-center md:text-left font_calibri font-light md:font-normal sm:text-[24px] md:text-[30px] font-[300] leading-tight">
-                  {news?.[0]?.title}
+                <Link href={`/news-&-events/${news?.[0]?.slug}`}>{news?.[0]?.title}</Link>
                 </h2>
                 <p className="text-[14px] text-center md:text-left font_calibri font-light md:font-normal sm:text-[16px] md:text-[18px] font-[300] py-3 mb-2">
-                  {news?.[0]?.excerpt}
+                {news?.[0]?.excerpt}
                 </p>
                 <div className="border-[0.8px]"></div>
                 <p className="text-[12px] text-center md:text-left sm:text-[14px] md:text-[16px] font-[300] py-4">
@@ -65,7 +65,7 @@ function Main({ news }) {
               }} className="flex h-full ">
                 <div className="w-full bottom-0 inset-x-0 text-white px-6 sm:px-8 md:px-10 py-4 sm:py-4 md:py-4 z-30">
                   <h2 className="text-[20px] text-center md:text-left font_calibri font-light md:font-normal sm:text-[24px] md:text-[25px] font-[300] leading-tight">
-                    {news?.[1]?.title}
+                  <Link href={`/news-&-events/${news?.[1]?.slug}`}>{news?.[1]?.title}</Link>
                   </h2>
                   <p className="text-[12px] text-center md:text-left font_calibri font-light md:font-normal sm:text-[14px] md:text-[16px] font-[300] py-4">
                     {dayjs(news?.[1]?.date).format('DD MMMM YYYY')}
@@ -89,7 +89,7 @@ function Main({ news }) {
               }} className="flex h-full ">
                 <div className="w-full bottom-0 inset-x-0 text-white px-6 sm:px-8 md:px-10 py-4 sm:py-4 md:py-4 z-30">
                   <h2 className="text-[20px] text-center md:text-left font_calibri font-light md:font-normal sm:text-[24px] md:text-[25px] font-[300] leading-tight">
-                    {news?.[2]?.title}
+                    <Link href={`/news-&-events/${news?.[2]?.slug}`}>{news?.[2]?.title}</Link>
                   </h2>
                   <p className="text-[12px] text-center md:text-left font_calibri font-light md:font-normal sm:text-[14px] md:text-[16px] font-[300] py-4">
                     {dayjs(news?.[2]?.date).format('DD MMMM YYYY')}
