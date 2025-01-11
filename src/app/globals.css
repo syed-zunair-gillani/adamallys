@@ -34,6 +34,10 @@ html {
   overflow-x: hidden !important;
 }
 
+body {
+  user-select: none;
+}
+
 h1,
 h2,
 h3,
@@ -44,7 +48,7 @@ p,
 span {
   font-family: 'calibri';
 }
-  
+
 .container {
   max-width: 1337px !important;
 }

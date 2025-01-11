@@ -5,6 +5,7 @@ import Footer from "@/components/footer/footer";
 import VerticleIcon from "@/components/verticle-icon/verticle-icon";
 
 import ScrollToTopButton from '@/components/ScrollToTopButton'
+import DisableImageRightClick from '@/components/DisableImageRightClick'
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -40,6 +41,7 @@ export default function RootLayout({
         <Footer />
         <VerticleIcon />
         <ScrollToTopButton />
+        <DisableImageRightClick />
       </body>
     </html>
   );
