@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import LiBold from '../LiBold';
 
 const GridContent = (props) => {
   const { id, data, images } = props;
@@ -35,7 +36,7 @@ const GridContent = (props) => {
               {points &&
                 <ul className='flex flex-col gap-3'>
                   {points?.map((point, index) =>
-                    <li className='!text-xs md:!text-lg' key={index}>{point}</li>
+                    <LiBold isGradientBg={!bgGray} className='!text-xs md:!text-lg' key={index}>{point}</LiBold>
                   )}
                 </ul>
               }

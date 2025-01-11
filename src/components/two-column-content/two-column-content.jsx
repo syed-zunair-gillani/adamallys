@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link';
+import LiBold from '../LiBold';
 
 const TwoColumnContent = (props) => {
   const { id, hideButton, invert, bgColor, bgGray = '', image, title, caption, points, isCustomBasis, zeroGap, link = '#', caption2 } = props;
@@ -31,7 +32,9 @@ const TwoColumnContent = (props) => {
           {points &&
             <ul className='flex flex-col gap-3'>
               {points?.map((point, index) =>
-                <li className='!text-xs md:!text-lg' key={index}>{point}</li>
+                <LiBold key={index} className='!text-xs md:!text-lg' isGradientBg={!bgGray}>
+                  {point}
+                </LiBold>
               )}
             </ul>
           }

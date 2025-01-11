@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import LiBold from '../LiBold';
 
 const ThreeColumnContent = (props) => {
   const { id, image1, image2, title, caption, points, } = props;
@@ -14,7 +15,7 @@ const ThreeColumnContent = (props) => {
         <p className='!text-xs md:!text-lg'>{caption}</p>
         <ul className='flex flex-col gap-3'>
           {points?.map((point, index) =>
-            <li className='!text-xs md:!text-lg' key={index}>{point}</li>
+            <LiBold isGradientBg className='!text-xs md:!text-lg' key={index}>{point}</LiBold>
           )}
         </ul>
         <button className='mt-6 flex text-xs justify-between md:text-base items-center gap-6 bg-white py-[13px] px-[24px] text-[#2E368F] font_calibri rounded-full'>
