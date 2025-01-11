@@ -3,12 +3,13 @@ import Main from "@/components/news-events/main";
 import Card from "@/components/news-events/card";
 
 export default async function News() {
-  const data = await getNewsAndEvents()
+  const data = await getNewsAndEvents();
+
   const newsData = data?.data?.map(({ attributes }) => ({
     slug: attributes?.Slug,
     title: attributes?.title,
-    date: attributes?.createdAt,
-    excerpt: attributes?.excerpt,
+    date: attributes?.Date,
+    excerpt: attributes?.Excerpt,
     image: attributes?.Image?.data?.attributes?.url,
   }));
 
