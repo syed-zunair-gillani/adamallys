@@ -57,16 +57,14 @@ const Warehousing = (props) => {
 
         <section className="mt-6 md:mt-[71px] container mx-auto flex flex-col lg:flex-row gap-5 lg:gap-10 ">
           <div className='lg:w-[30%] md:min-w-[464px] '>
-            <figure className="sticky top-20 ">
-              <VideoPlayer
-                loop
-                autoPlay
-                width={'100%'}
-                height={'100%'}
-                controls={false}
-                src={getFullImageURL(Warehousing_videos?.data?.attributes?.url)}
-              />
-            </figure>
+            <VideoPlayer
+              loop
+              autoPlay
+              width={'100%'}
+              height={'100%'}
+              controls={false}
+              src={getFullImageURL(Warehousing_videos?.data?.attributes?.url)}
+            />
           </div>
           <div className='lg:w-[70%] mt-[-14px]'>
             <h2 className='text-[25px] text-center md:text-[60px] md:text-left leading-[67px] font-bold text-theme-main !mb-0'>Warehousing</h2>

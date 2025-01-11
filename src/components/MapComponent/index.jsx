@@ -1,69 +1,20 @@
-// import Image from "next/image";
-
-// const MapComponent = () => {
-//     return (
-//         <section className="min-h-[482px]">
-//             <Image
-//                 style={{
-//                     objectFit: 'cover'
-//                 }}
-//                 src="/svg/contact-us-map.svg" alt="" className="w-full min-h-[482px]" width={1200} height={600} />
-//         </section>
-//     );
-// };
-
-// export default MapComponent;
-
-import React, { useState, useCallback } from 'react';
-import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
-import Logo from '../header/logo';
-
-const containerStyle = {
-  width: '100%',
-  height: '621px',
-};
-
-const center = {
-  lng: 55.36945660323751,
-  lat: 25.22633477584369,
-};
-
 const MapComponent = () => {
-  const [selected, setSelected] = useState(null);
-
-  const onSelect = useCallback(marker => {
-    setSelected(marker);
-  }, []);
-
   return (
-    <LoadScript
-      googleMapsApiKey=""
-    >
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={15}
-      >
-        <Marker
-          position={center}
-          onClick={() => onSelect(center)}
-        />
-        {selected ? (
-          <InfoWindow
-            position={selected}
-            onCloseClick={() => setSelected(null)}
-          >
-            <div>
-              <Logo />
-              <div className="mt-2">
-                <p className='text-theme-main text-[24px] font-bold !m-0'>Adamallys LLC</p>
-                <p className='text-theme-main !m-0'>Leading Ship Chandler & Marine Stores Supply Specialist.</p>
-              </div>
-            </div>
-          </InfoWindow>
-        ) : null}
-      </GoogleMap>
-    </LoadScript>
+    <>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d91984.42907352425!2d55.3694181!3d25.2255585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5d86219e9fb9%3A0x89f0609c4fb8556d!2sAdamallys+LLC!5e0!3m2!1sen!2sus!4v1673460436155"
+        width="100%"
+        height="621"
+        style={{
+          border: 0,
+          width: '100%',
+          height: 621,
+
+        }}
+        allowfullscreen=""
+        loading="lazy"
+      />
+    </>
   );
 };
 
