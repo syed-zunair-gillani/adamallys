@@ -13,11 +13,13 @@ export default async function News() {
     image: attributes?.Image?.data?.attributes?.url,
   }));
 
+  const sortedNewsData = newsData.sort((a, b) => new Date(b.date) - new Date(a.date));
+
   return (
     <>
-      <Main news={newsData.slice(0, 3)} />
+      <Main news={sortedNewsData.slice(0, 3)} />
       <div className="container mx-auto flex flex-wrap gap-[23px] mt-[23px] px-[18px]">
-        {newsData?.slice(3)?.map((news, index) =>
+        {sortedNewsData?.slice(3)?.map((news, index) =>
           <div key={news?.title + index} className="basis-full sm:basis-[40%] flex-1 lg:basis-[30%]">
             <Card {...news} />
           </div>
