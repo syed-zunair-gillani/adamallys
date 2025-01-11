@@ -12,7 +12,7 @@ const HeaderOne = ({ data }) => {
 
   return (
     <header className={`z-[300] absolute top-0 w-full ${pathname !== "/" && "bg-white"}`}>
-      <section className="py-5 hidden md:block text-theme-main header-gradient font_calibri">
+      <section className="py-5 hidden xl:block text-theme-main header-gradient font_calibri">
         <div className="container mx-auto">
           <div className="flex justify-between items-center gap-4">
             <ul className="flex gap-9 items-center">
@@ -52,7 +52,7 @@ const HeaderOne = ({ data }) => {
                     alt="logo"
                     width={126}
                     height={74}
-                    className="w-16 md:w-[126px]"
+                    className="w-16 md:w-[140px]"
                     src={Logo?.data?.attributes.url ?
                       Logo?.data?.attributes.url :
                       `/svg/logo.svg`}

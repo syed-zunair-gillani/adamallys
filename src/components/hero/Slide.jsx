@@ -33,7 +33,9 @@ const Slide = ({ item, Side_Sticky_Links }) => {
                           }
                         >
                           <span className='w-6 h-6 bg-white rounded-full flex flex-col border border-[#EDEDED] justify-center items-center'>
-                            <Image src={getFullImageURL(item?.Icon?.data?.attributes?.url)} alt="" width={20} height={20} className="w-[10px]" />
+                            <Image
+                              style={{ scale: (item?.Caption?.toLowerCase() === "mespas") ? 1.5 : item?.Caption?.toLowerCase() === "procureship" ? 1.3 : 1 }}
+                              src={getFullImageURL(item?.Icon?.data?.attributes?.url)} alt="" width={20} height={20} className="w-[10px]" />
                           </span>
                         </a>
                       </li>

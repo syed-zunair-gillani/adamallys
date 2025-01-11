@@ -160,8 +160,6 @@ body {
   background-color: #fff !important;
 }
 
-
-
 * {
   margin: 0;
   padding: 0;
@@ -226,7 +224,6 @@ p {
 .section:nth-child(3) {
   position: relative;
   z-index: 3;
-  /* Initially, section 3 has higher z-index to overlap */
 }
 
 .left .image {
@@ -236,10 +233,6 @@ p {
 .right .content {
   position: relative;
 }
-
-
-
-
 
 .app {
   width: 100%;

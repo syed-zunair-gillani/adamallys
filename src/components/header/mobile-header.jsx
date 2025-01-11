@@ -53,7 +53,7 @@ const MobileHeader = ({ NavLinks }) => {
 
   return (
     <header
-      className={`${(scrollPosition < 100 && pathname === "/") ? "header-gradient" : "bg-white"} fixed z-[200] top-0 md:hidden top-0 w-full z-[50]`}
+      className={`${(scrollPosition < 100 && pathname === "/") ? "header-gradient" : "bg-white"} fixed z-[200] top-0 xl:hidden top-0 w-full z-[50]`}
     >
       <div>
         <div className="border-b-[1px] pl-[18px] item-center border-[#969cc0] flex justify-between w-full">
