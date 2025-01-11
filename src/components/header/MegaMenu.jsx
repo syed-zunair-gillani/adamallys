@@ -121,16 +121,6 @@ const MegaMenu = ({ title, links = [] }) => {
                           className={`group-hover:bg-theme-main mt-2 w-[18px] h-[2px] ${page?.link === pathname ? 'bg-theme-main' : ''}`} />
                       </li>
                     ))}
-                    <li
-                      className={`mr-5 relative group font-light ${'/products' === pathname && "!font-bold"}`}
-                    >
-                      <Link
-                        href={'/products'} className={`${styles.below_line} whitespace-nowrap text-theme-main hover:font-bold font_calibri`}>
-                        Products
-                      </Link>
-                      <div
-                        className={`group-hover:bg-theme-main mt-2 w-[18px] h-[2px] ${'/products' === pathname ? 'bg-theme-main' : ''}`} />
-                    </li>
                   </ul>
                 </div>
               </div>

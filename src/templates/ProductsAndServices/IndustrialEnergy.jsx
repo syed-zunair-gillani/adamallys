@@ -31,6 +31,7 @@ const IndustrialEnergy = (props) => {
       <section className="mt-6 md:mt-14 container mx-auto flex flex-col lg:flex-row gap-5 lg:gap-10 mb-6 lg:mb-20 px-[18px] lg:px-0">
         <div className='lg:w-[30%] md:min-w-[464px]'>
           <IndustrialEnergyComp
+            isIndustrial
             caption={video_title}
             image={Video?.data?.attributes?.url}
           />
