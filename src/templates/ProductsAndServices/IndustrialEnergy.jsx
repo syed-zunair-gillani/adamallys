@@ -28,7 +28,7 @@ const IndustrialEnergy = (props) => {
       <p className="text-[12px] font-light text-center leading-[26px] py-3 md:hidden px-[18px] md:px-0">
         {info}
       </p>
-      <section className="mt-6 md:mt-14 container mx-auto flex flex-col lg:flex-row gap-5 lg:gap-10 mb-6 lg:mb-20 px-[18px] lg:px-0">
+      <section className="mt-6 md:mt-14 container mx-auto flex flex-col lg:flex-row gap-5 lg:gap-10 mb-6 lg:mb-20 px-[18px] xl:px-0">
         <div className='lg:w-[30%] md:min-w-[464px]'>
           <IndustrialEnergyComp
             isIndustrial

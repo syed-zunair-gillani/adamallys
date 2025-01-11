@@ -5,7 +5,7 @@ const GridContent = (props) => {
   const { id, data, images } = props;
 
   return (
-    <section id={id} className={`container mx-auto flex flex-col mb-4 gap-4 px-3 lg:px-0`}>
+    <section id={id} className={`container mx-auto flex flex-col mb-4 gap-4 px-3 xl:px-0`}>
       <div className="flex flex-col md:flex-row gap-4">
         {images?.map((image, index) =>
           <div

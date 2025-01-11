@@ -27,7 +27,7 @@ const PortsTemplates = ({ ports }) => {
   }
 
   return (
-    <main className='mt-[4rem] mb-[40px] lg:mb-[73px] container mx-auto px-[18px] lg:px-0'>
+    <main className='mt-[4rem] mb-[40px] lg:mb-[73px] container mx-auto px-[18px] xl:px-0'>
       <div className="pt-5 sm:pt-[30px] md:pt-[60px]">
         <h1 className='font_calibri capitalize text-[25px] md:text-[60px] leading-[25px] md:leading-[60px] text-center font-bold text-theme-main md:mb-[46px]'>
           Ports

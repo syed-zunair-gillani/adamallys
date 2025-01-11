@@ -5,7 +5,7 @@ import { MdCalendarMonth } from "react-icons/md";
 function Main({ news }) {
   return (
     <>
-      <section className="container mx-auto px-[18px] lg:px-0 md:pt-[30px] mt-12">
+      <section className="container mx-auto px-[18px] xl:px-0 md:pt-[30px] mt-12">
         <div className=" flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0 py-5">
           <h1 className="mt-[25px] md:mt-0 mb-3 md:mb-0 text-[25px] md:text-[60px] font-[700] text-[#2E368F] text-center md:text-left">
             News & Events

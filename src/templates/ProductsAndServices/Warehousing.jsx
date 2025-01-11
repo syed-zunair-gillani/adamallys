@@ -36,7 +36,7 @@ const Warehousing = (props) => {
           paddingBottom: '72px',
           background: 'linear-gradient(to bottom, #ffffff , #F4F5F7 )'
         }}
-        className='px-[18px] lg:px-0'
+        className='px-[18px] xl:px-0'
       >
         <section className="mt-6 md:mt-[71px] relative container mx-auto flex flex-col lg:flex-row gap-5 lg:gap-10 mb-6 lg:mb-20">
           <div className='lg:w-[30%] md:min-w-[464px]'>

@@ -26,7 +26,7 @@ const NewsAndEventDetailsTemplate = ({ data, content }) => {
 
 	return (
 		<div>
-			<section className="container mx-auto px-[18px] lg:px-0 md:pt-[30px] mt-14">
+			<section className="container mx-auto px-[18px] xl:px-0 md:pt-[30px] mt-14">
 				<div className=" flex flex-col md:gap-0 pt-5">
 					<h1 className="mt-[25px] md:mt-0 mb-3 md:mb-0 text-[25px] md:text-[60px] font-bold text-theme-main">
 						{attributes?.title}

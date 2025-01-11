@@ -6,7 +6,7 @@ const TwoColumnContent = (props) => {
   const { id, hideButton, invert, bgColor, bgGray = '', image, title, caption, points, isCustomBasis, zeroGap, link = '#', caption2 } = props;
 
   return (
-    <section id={id} className={`bg-white container px-[18px] lg:px-0 mx-auto flex flex-col md:flex-row mb-4 ${zeroGap ? 'gap-4 md:gap-0' : 'gap-4'} ${invert && "md:!flex-row-reverse"}`}>
+    <section id={id} className={`bg-white container px-[18px] xl:px-0 mx-auto flex flex-col md:flex-row mb-4 ${zeroGap ? 'gap-4 md:gap-0' : 'gap-4'} ${invert && "md:!flex-row-reverse"}`}>
       <div
         className={`basis-[100%] ${isCustomBasis ? 'md:basis-[65%]' : 'md:basis-[50%]'}`}
       >

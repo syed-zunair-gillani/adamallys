@@ -38,7 +38,7 @@ const DistributorsAndStockistsTemplate = ({ Cards, Banner }) => {
 
   return (
     <main
-      className='mt-[8rem] container mx-auto px-3 lg:px-0'>
+      className='mt-[8rem] container mx-auto px-3 xl:px-0'>
       <section>
         <div className={`relative min-h-[418px] flex flex-col text-white justify-center items-center`}
           style={{
