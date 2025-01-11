@@ -1,5 +1,6 @@
 "use client"
 import { getFullImageURL } from '@/utils';
+import dayjs from 'dayjs';
 import Image from 'next/image'
 import React from 'react'
 import Slider from "react-slick";
@@ -27,7 +28,6 @@ const settings = {
 
 const News = ({ data }) => {
   const slider = React.useRef(null)
-
 
   return (
     <section className='pl-3 md:pl-10 lg:pl-20 bg-[#FFFFFF] py-[35px] md:py-20 centermodeRight z-[50] relative'>
@@ -65,36 +65,28 @@ const News = ({ data }) => {
       <div className="flex justify-end">
         <div className="w-full md:w-[75%]">
           <Slider ref={slider} {...settings}>
-            {
-              data?.data?.map((item, idx) => {
-                const date = new Date(item?.attributes?.createdAt);
-                const options = { day: '2-digit', month: 'long', year: 'numeric' };
-                const formattedDate = date.toLocaleDateString('en-GB', options);
-
-                return (
-                  <div key={idx} className='pr-3 md:pr-6'>
-                    <figure>
-                      <Image src={getFullImageURL(item?.attributes?.Image?.data?.attributes?.url)} alt='' className='w-full' width={434} height={293} />
-                    </figure>
-                    <div className='bg-theme-gray p-5 md:p-10 font_calibri'>
-                      <h6 className='text-theme-main'>{formattedDate}</h6>
-                      <p className='text-[#8B8B8B] text-[17px] sm:text-[20px] md:text-[25px] font-light mt-3'>{item?.attributes?.Excerpt}</p>
-                      <button className={`flex items-center gap-10 mt-5 text-theme-main`}>
-                        Read More
-                        <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
-                          <mask id="mask0_42_1540" maskUnits="userSpaceOnUse" x="0" y="0" width="17" height="17">
-                            <rect width="16.1863" height="16.1863" fill="#D9D9D9" />
-                          </mask>
-                          <g mask="url(#mask0_42_1540)">
-                            <path d="M5.39553 14.2305L4.82227 13.6572L10.3863 8.09313L4.82227 2.52908L5.39553 1.95581L11.5329 8.09313L5.39553 14.2305Z" fill={"#2E368F"} />
-                          </g>
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                )
-              })
-            }
+            {data?.data?.map((item, idx) =>
+              <div key={idx} className='pr-3 md:pr-6'>
+                <figure>
+                  <Image src={getFullImageURL(item?.attributes?.Image?.data?.attributes?.url)} alt='' className='w-full' width={434} height={293} />
+                </figure>
+                <div className='bg-theme-gray p-5 md:p-10 font_calibri'>
+                  <h6 className='text-theme-main'>{dayjs(item?.attributes?.Date).format('DD MMMM YYYY')}</h6>
+                  <p className='text-[#8B8B8B] text-[17px] sm:text-[20px] md:text-[25px] font-light mt-3'>{item?.attributes?.Excerpt}</p>
+                  <button className={`flex items-center gap-10 mt-5 text-theme-main`}>
+                    Read More
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                      <mask id="mask0_42_1540" maskUnits="userSpaceOnUse" x="0" y="0" width="17" height="17">
+                        <rect width="16.1863" height="16.1863" fill="#D9D9D9" />
+                      </mask>
+                      <g mask="url(#mask0_42_1540)">
+                        <path d="M5.39553 14.2305L4.82227 13.6572L10.3863 8.09313L4.82227 2.52908L5.39553 1.95581L11.5329 8.09313L5.39553 14.2305Z" fill={"#2E368F"} />
+                      </g>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            )}
           </Slider>
         </div>
       </div>

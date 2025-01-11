@@ -5,7 +5,7 @@ import { getFullImageURL } from '@/utils'
 const IndustrialEnergy = ({ image, video, caption, isIndustrial }) => {
   return (
     <div style={{ height: '100%' }}>
-      <figure className='sticky top-20'>
+      <figure className='sticky top-[90px]'>
         {video ?
           <VideoPlayer
             loop
