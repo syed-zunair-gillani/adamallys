@@ -47,7 +47,7 @@ const CertificationsAndMemberships = ({ data }) => {
   }, [data]);
 
   return (
-    <section className="certification-gradient -mt-[6px]">
+    <section className="certification-gradient -mt-[7px]">
       <div className="container mx-auto py-[38px] md:py-16 px-3 lg:px-0">
         <h4 className="text-[25px] font-normal text-center md:text-left md:justify-start md:items-start md:text-2xl text-white font_calibri mb-10 flex justify-center flex-col items-center">
           Certifications & Memberships

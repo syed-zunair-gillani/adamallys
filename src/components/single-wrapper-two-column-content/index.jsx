@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import LiBold from '@/components/LiBold'
 
 const SingleWrapperTwoColumnContent = (props) => {
   const { isGradientBg = false, images, title, caption, points } = props;
@@ -30,12 +31,14 @@ const SingleWrapperTwoColumnContent = (props) => {
             <p>{caption}</p>
             {points?.map(({ title: pointTitle, info, lists }, index) =>
               <div key={title + index}>
-                <h3 className='text-[25px] mb-2'>{pointTitle}</h3>
+                <h3 className='text-[25px] mb-2 font-bold'>{pointTitle}</h3>
                 <ul className='flex flex-col gap-2 mb-4'>
                   {lists ? lists?.map((point, idx) =>
-                    <li key={pointTitle + idx}>{point?.list}</li>
+                    <LiBold isGradientBg={isGradientBg} key={pointTitle + idx}>
+                      {point?.list}
+                    </LiBold>
                   ) :
-                    <li>{info}</li>
+                    <LiBold isGradientBg={isGradientBg}>{info}</LiBold>
                   }
                 </ul>
               </div>
