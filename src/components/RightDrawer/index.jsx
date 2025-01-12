@@ -68,37 +68,35 @@ const RightDrawer = ({ categories, specificCategorries, setProducts, currentPage
   };
 
   const handleSwitchCategory = () => {
-    // setGeneralCheckedValues([]);
-    // setSpecificCheckedValues([]);
     setSelectAllChecked(false);
     setIsGeneralCategories((prev) => !prev);
   };
 
   const handleSearch = async () => {
-    //  router.push(queryString)
-    const params = qs.stringify({
-      populate: ['Image', 'general_categories', 'specific_category'],
-      filters: {
-        specific_category: {
-          Slug: {
-            $in: specificCheckedValues,
-          },
-        },
-        general_category: {
-          Slug: {
-            $in: generalCheckedValues
-          },
-        },
-      },
-      pagination: {
-        page: currentPageIndex ? currentPageIndex : 1,
-        pageSize: 20
-      }
-    });
+     router.push(queryString)
+    // const params = qs.stringify({
+    //   populate: ['Image', 'general_categories', 'specific_category'],
+    //   filters: {
+    //     specific_category: {
+    //       Slug: {
+    //         $in: specificCheckedValues,
+    //       },
+    //     },
+    //     general_category: {
+    //       Slug: {
+    //         $in: generalCheckedValues
+    //       },
+    //     },
+    //   },
+    //   pagination: {
+    //     page: currentPageIndex ? currentPageIndex : 1,
+    //     pageSize: 20
+    //   }
+    // });
 
-    const response = await Axios.get(`/products?${params}`);
-    setProducts(response?.data);
-    setTotalProducts(response.data?.meta?.pagination?.total)
+    // const response = await Axios.get(`/products?${params}`);
+    // setProducts(response?.data);
+    // setTotalProducts(response.data?.meta?.pagination?.total)
     toggleDrawer()
   }
 

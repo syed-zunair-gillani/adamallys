@@ -3,25 +3,25 @@ import ProductsTemplate from '@/templates/products'
 import qs from "qs"
 
 async function getProducts(searchParams) {
-  const specificCheckedValues = searchParams?.type === "general" ? searchParams?.categories.split(',') : []
-  const generalCheckedValues = searchParams?.type === "specific" ? searchParams?.categories.split(',') : []
+  const generalCheckedValues = searchParams?.type === "general" ? searchParams?.categories.split(',') : []
+  const specificCheckedValues = searchParams?.type === "specific" ? searchParams?.categories.split(',') : []
   
   const params = qs.stringify({
     populate: [
       'Image', "general_category", "specific_category"
     ],
-    // filters: {
-    //   specific_category: {
-    //     Slug: {
-    //       $in: specificCheckedValues,
-    //     },
-    //   },
-    //   general_category: {
-    //     Slug: {
-    //       $in: generalCheckedValues
-    //     },
-    //   },
-    // },
+    filters: {
+      specific_category: {
+        Slug: {
+          $in: specificCheckedValues,
+        },
+      },
+      general_category: {
+        Slug: {
+          $in: generalCheckedValues
+        },
+      },
+    },
     pagination: {
       page: searchParams?.page ? searchParams?.page : 1,
       pageSize: 20

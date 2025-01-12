@@ -101,7 +101,7 @@ const ProductsTemplate = ({ data, categories, specificCategorries, baseCategorri
           </p>
 
           <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-[24px]">
-            <p className='text-theme-main text-base md:text-lg md:leading-[26px] font_calibri'>{totalProducts} Results</p>
+            <p className='text-theme-main text-base md:text-lg md:leading-[26px] font_calibri'>{data?.meta?.pagination?.total} Results</p>
             <div className="flex gap-2">
               <div className="md:hidden relative flex items-center flex-1 lg:flex-auto min-w-[220px]">
                 <select
@@ -146,7 +146,7 @@ const ProductsTemplate = ({ data, categories, specificCategorries, baseCategorri
             <Pagination
               currentPage={currentPage}
               itemsPerPage={itemsPerPage}
-              totalItems={totalProducts}
+              totalItems={data?.meta?.pagination?.total}
               onPageChange={setCurrentPage}
             />
           {/* } */}
