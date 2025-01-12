@@ -9,7 +9,7 @@ const MobileFooter = async () => {
   const { About, Logo, Adamallys_Group, AdamallysGroup2, AdamallysLLC, AdamallysMarineShipChandlingServices, Buttons, Copyright_Text } = data;
   return (
     <div className='block sm:hidden'>
-      <section className="footer_gradient px-[18px] pt-[25px] lg:pt-[63px] relative px-3 lg:px-0">
+      <section className="footer_gradient px-[18px] pt-[25px] lg:pt-[63px] relative px-3 xl:px-0">
         <section className="grid container mx-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 md:gap-10 lg:gap-[88px]">
           <div>
             <Link href="/">

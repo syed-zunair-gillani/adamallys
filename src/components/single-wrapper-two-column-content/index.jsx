@@ -1,8 +1,9 @@
 import Image from 'next/image'
 import LiBold from '@/components/LiBold'
+import Link from 'next/link';
 
 const SingleWrapperTwoColumnContent = (props) => {
-  const { isGradientBg = false, images, title, caption, points } = props;
+  const { isGradientBg = false, images, title, caption, points, link, isProductButton } = props;
 
   return (
     <div className="mx-[18px] md:mx-0">
@@ -12,7 +13,7 @@ const SingleWrapperTwoColumnContent = (props) => {
         >
           {
             images?.map((image, index) =>
-              <figure key={index} className={`sticky top-20 ${isGradientBg ? 'pt-5 md:pt-10' : ''}`}>
+              <figure key={index} className={`sticky top-[90px] ${isGradientBg ? 'pt-5 md:pt-10' : ''}`}>
                 <Image
                   alt={title}
                   src={image}
@@ -43,6 +44,14 @@ const SingleWrapperTwoColumnContent = (props) => {
                 </ul>
               </div>
             )}
+            {isProductButton &&
+              <div>
+                <Link href={link || "#"} className={`flex max-w-[178px] text-xs justify-between md:text-base items-center gap-6 ${"bg-theme-main text-white"} py-[13px] px-[24px] font_calibri rounded-full`}>
+                  <span className='whitespace-nowrap'>View Products</span>
+                  <Image src={'/svg/arrow_forward.svg'} alt='arrow_next' width={16} height={16} />
+                </Link>
+              </div>
+            }
           </div>
         </div>
       </section>

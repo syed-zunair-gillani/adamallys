@@ -9,7 +9,7 @@ const AboutTemplate = ({ data }) => {
   return (
     <>
       <main
-        className='mt-[4rem] px-[18px] lg:px-0'
+        className='mt-[4rem] px-[18px] xl:px-0'
         style={{ overflowX: 'hidden' }}
       >
         <div

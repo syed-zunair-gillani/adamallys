@@ -12,7 +12,7 @@ const HeaderTwo = ({ data, slideFromTop }) => {
   const scrollPosition = useScrollPosition()
 
   return (
-    <header className={`py-3 w-full fixed z-[200] hidden md:block transition-all duration-500 ease-linear text-theme-main font_calibri bg-white 
+    <header className={`py-3 w-full fixed z-[200] hidden xl:block transition-all duration-500 ease-linear text-theme-main font_calibri bg-white 
       ${slideFromTop ? (scrollPosition > 100 ? "top-0" : "-top-[200px]") : "top-0"}
     `}>
       <div className="container mx-auto">
@@ -20,7 +20,7 @@ const HeaderTwo = ({ data, slideFromTop }) => {
           <div className=" md:w-[10%]">
             <figure>
               <Link href="/" className="">
-                <Image src={Logo?.data?.attributes.url ? Logo?.data?.attributes.url : `/svg/logo.svg`} alt="logo" width={126} height={74} className="w-16 md:w-[110px]" />
+                <Image src={Logo?.data?.attributes.url ? Logo?.data?.attributes.url : `/svg/logo.svg`} alt="logo" width={126} height={74} className="w-16 md:w-[115px]" />
               </Link>
             </figure>
           </div>

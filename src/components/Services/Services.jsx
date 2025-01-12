@@ -65,7 +65,7 @@ const Services = ({ data }) => {
 
   return (
     <section ref={sectionRef} className="">
-      <div className="container pb-[38px] lg:pb-20 pt-5 px-[18px] lg:px-0 mx-auto gap-3 flex md:flex-row flex-col">
+      <div className="container pb-[38px] lg:pb-20 pt-5 px-[18px] xl:px-0 mx-auto gap-3 flex md:flex-row flex-col">
         <div className="md:w-[25%]">
           <h3
             ref={headingRef}

@@ -35,7 +35,7 @@ const Cards = ({ dark, data }) => {
   }, []);
 
   const card1 = <div
-    className={`lg:h-[720px] py-[34px] py-6 px-4 sticky top-20 flex justify-center flex-col items-center bg-black text-white  
+    className={`lg:h-[720px] py-[34px] py-6 px-4 sticky top-[90px] flex justify-center flex-col items-center bg-black text-white  
 }`}
   >
     <div className='max-w-[435px] mx-auto'>
@@ -89,7 +89,7 @@ const Cards = ({ dark, data }) => {
     alt=''
     width={720}
     height={720}
-    className='w-full sticky top-20 object-cover h-[400px] md:h-[720px] mb-5 md:mb-0 -mt-52'
+    className='w-full sticky top-[90px] object-cover h-[400px] md:h-[720px] mb-5 md:mb-0 -mt-52'
   />
 
   const card2 = <div

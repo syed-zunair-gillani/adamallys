@@ -21,6 +21,7 @@ const ProvisionsAndBondedStoresTemplate = (props) => {
       />
       <div className="lg:mt-[66px] ">
         <SingleWrapperTwoColumnContent
+          isProductButton
           points={Cards?.[0]?.List}
           title={Cards?.[0]?.title}
           caption={Cards?.[0]?.info}

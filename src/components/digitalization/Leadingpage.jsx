@@ -37,7 +37,7 @@ const LeadingPageBanner = ({ title, content, bgImage, style, isDigitalization })
         />
         <div className="container relative text-white w-full sm:w-[90%] md:w-[80%] px-6 py-[27px] sm:px-9 sm:py-8 lg:w-[776px] lg:px-[90px] lg:py-[56px]">
           <h1
-            className={`banner-title text-center md:text-left text-[20px] z-[99] sm:text-[32px] ${isDigitalization ? 'font_franklin' : 'font_calibri'} md:text-[40px] lg:text-[40px] font-bold leading-[36px] sm:leading-[44px] md:leading-[49px] mb-3`}
+            className={` font_franklin banner-title text-center md:text-left text-[20px] z-[99] sm:text-[32px] font_calibri md:text-[40px] lg:text-[40px] font-bold leading-[36px] sm:leading-[44px] md:leading-[49px] mb-3`}
           >
             {title}
           </h1>
