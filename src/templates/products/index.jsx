@@ -9,13 +9,14 @@ import { useRouter, useSearchParams } from 'next/navigation';
 const itemsPerPage = 20;
 
 const ProductsTemplate = ({ data, categories, specificCategorries, baseCategorries, grandTotal, currentPageIndex }) => {
-  const [currentPage, setCurrentPage] = useState(currentPageIndex ? currentPageIndex : 1);
-  const [products, setProducts] = useState(data)
-  const [searchQuery, setSearchQuery] = useState('')
-  const [selectBaseCategory, setSelectBaseCategory] = useState()
-
   const params = useSearchParams()
   const pageNo = params.get('page')
+
+  const [currentPage, setCurrentPage] = useState(currentPageIndex ? currentPageIndex : 1);
+  const [products, setProducts] = useState(data)
+  const [totalProducts, setTotalProducts] = useState(grandTotal)
+  const [searchQuery, setSearchQuery] = useState('')
+  const [selectBaseCategory, setSelectBaseCategory] = useState()
 
   const router = useRouter()
 
@@ -38,7 +39,6 @@ const ProductsTemplate = ({ data, categories, specificCategorries, baseCategorri
     `?baseCategory=${e.target.value}&page=1` : 
     `?baseCategory=${e.target.value}`
     router.push(q)
-    window.location.reload();
   }
 
   useEffect(()=>{
@@ -97,11 +97,11 @@ const ProductsTemplate = ({ data, categories, specificCategorries, baseCategorri
 
         <div className="flex flex-col md:flex-row gap-[20px] md:items-center justify-between mt-2 mb:7 md:my-[26px]">
           <p className='hidden sm:block font_calibri text-theme-main text-bold text-[24px] md:text-[40px] leading-[40px] font-bold capitalize'>
-            Provisions
+            {selectBaseCategory ? selectBaseCategory.replace(/-/g, " ") : "All Products"}
           </p>
 
           <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-[24px]">
-            <p className='text-theme-main text-base md:text-lg md:leading-[26px] font_calibri'>Fresh Vegetables {products?.data?.length} Search result</p>
+            <p className='text-theme-main text-base md:text-lg md:leading-[26px] font_calibri'>{totalProducts} Results</p>
             <div className="flex gap-2">
               <div className="md:hidden relative flex items-center flex-1 lg:flex-auto min-w-[220px]">
                 <select
@@ -123,7 +123,13 @@ const ProductsTemplate = ({ data, categories, specificCategorries, baseCategorri
                   }
                 </select>
               </div>
-              <RightDrawer categories={categories} specificCategorries={specificCategorries} setProducts={setProducts} currentPageIndex={currentPageIndex}/>
+              <RightDrawer 
+                categories={categories} 
+                specificCategorries={specificCategorries} 
+                setProducts={setProducts} 
+                currentPageIndex={currentPageIndex}
+                setTotalProducts={setTotalProducts}
+              />
             </div>
           </div>
         </div>
@@ -140,7 +146,7 @@ const ProductsTemplate = ({ data, categories, specificCategorries, baseCategorri
             <Pagination
               currentPage={currentPage}
               itemsPerPage={itemsPerPage}
-              totalItems={grandTotal}
+              totalItems={totalProducts}
               onPageChange={setCurrentPage}
             />
           {/* } */}

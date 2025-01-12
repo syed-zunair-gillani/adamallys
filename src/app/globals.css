@@ -161,7 +161,6 @@ body {
 }
 
 
-
 * {
   margin: 0;
   padding: 0;
@@ -306,5 +305,9 @@ p {
   /* WebKit */
   width: 0;
   height: 0;
+  display: none;
+}
+
+.hideScrollBar::-webkit-scrollbar {
   display: none;
 }
