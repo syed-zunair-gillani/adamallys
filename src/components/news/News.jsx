@@ -34,7 +34,7 @@ const News = ({ data }) => {
     <section className='pl-3 md:pl-10 lg:pl-20 bg-[#FFFFFF] py-[35px] md:py-20 centermodeRight z-[50] relative'>
       <div className='flex flex-col md:flex-row gap-4'>
         <div
-          className='md:w-[25%] flex md:flex-col justify-between'>
+          className='md:w-[25%] flex md:flex-col justify-between pr-3'>
           <h3 className="text-theme-main text-[25px] uppercase font-bold text-center md:text-left md:justify-start md:items-start md:text-[30px] font_calibri flex justify-center flex-col items-center ">
             News
             <div className="w-10 h-[1px] bg-theme-main" />
