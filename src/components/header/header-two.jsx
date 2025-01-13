@@ -5,6 +5,7 @@ import Image from 'next/image'
 import MegaMenu from './MegaMenu'
 import { usePathname } from 'next/navigation'
 import useScrollPosition from "@/hooks/useScrollPosition"
+import RequestAQuoteButton from '@/components/RequestAQuoteButton'
 
 const HeaderTwo = ({ data, slideFromTop }) => {
   const { Button, Secound_Header_Nav, Logo } = data;
@@ -72,11 +73,7 @@ const HeaderTwo = ({ data, slideFromTop }) => {
                             </Link>
                             <div className={`absolute bottom-[-4px] left-0 mt-2 w-[18px] h-[2px] group-hover:bg-theme-main ${pathname === item?.Link ? 'bg-theme-main' : ''}`} />
                           </li>
-                    ) :
-                    <Link href={"/request-a-quote"} className="rounded text-white hidden xl:block bg-theme-main text-left px-[19px] py-[9px]">
-                      <p className="text-xs">Request a Quote</p>
-                      <h6 className="text-[15px]">{Button?.Email}</h6>
-                    </Link>
+                    ) : <RequestAQuoteButton Email={Button?.Email} />
                 ))
               }
             </ul>

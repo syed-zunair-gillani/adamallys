@@ -11,7 +11,9 @@ const NewsAndEventDetailsTemplate = ({ data, content }) => {
   const { id, attributes } = content
   const [nextNews, setNextNews] = useState()
   const [prevNews, setPrevNews] = useState()
-  const router = useRouter()
+  const router = useRouter();
+
+  const otherNews = data?.filter((newsInstance) => id !== newsInstance?.id)?.slice(0, 3);
 
   useEffect(() => {
     if (data && id) {
@@ -75,8 +77,8 @@ const NewsAndEventDetailsTemplate = ({ data, content }) => {
         <p className="text-theme-main pb-6 md:pb-[39px] font_franklin text-[25px] md:text-[40px] leading-[45px] ">Read more</p>
 
         <div className="flex gap-6 mb-[69px] flex-wrap">
-          {data?.map((item, idx) => (
-            <div key={idx} className='basis-full sm:basis-[40%] lg:basis-[30%] flex-1 flex flex-col'>
+          {otherNews?.map((item, idx) => (
+            <div key={idx} className={`${otherNews > 2 && "flex-1"} basis-full sm:basis-[40%] lg:basis-[30%] flex flex-col`}>
               <figure>
                 <Image src={getFullImageURL(item?.attributes?.Image?.data?.attributes?.url)} alt='' className='w-full' width={434} height={293} />
               </figure>

@@ -3,10 +3,14 @@ import Image from 'next/image'
 import PortLabelGroup from '@/components/PortLabelGroup';
 import { useState } from 'react';
 
+const PortIcon = () => <div className='relative'>
+  <div className="absolute top-0 left-0 rounded-full w-[27px] h-[27px] hover:bg-[#2E368E] opacity-75 z-[2]"></div>
+  <Image className='' src={'/images/ports/port_icon.png'} alt='' width={27} height={27} />
+</div>
 
 const PortsTemplates = ({ ports }) => {
   const [activePort, setActivePort] = useState({
-    uae: "Mina Zayed (Abu Dhabi)",
+    uae: "Musaffah Port (Abu Dhabi)",
     oman: ""
   })
 
@@ -42,26 +46,59 @@ const PortsTemplates = ({ ports }) => {
               <Image
                 className='w-[1280px] '
                 style={{ width: '100%', objectFit: 'cover', objectPosition: 'center' }}
-                src={'/images/ports/uaemap.png'} alt='uae_ports'
+                src={'/images/ports/uae_ports.png'} alt='uae_ports'
                 width={1600}
                 height={700}
               />
               {handlePortSelection(activePort?.uae)}
-              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[248.5px] left-[610.5px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Musaffah Port (Abu Dhabi)")} />
-              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[264.5px] left-[655.6px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Mina Zayed (Abu Dhabi)")} />
-              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[296px] left-[720px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Mina Khalifa (Abu Dhabi)")} />
-              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[373.3px] left-[770.5px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Jebel Ali Ports (Dubai)")} />
-              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[390px] left-[811.6px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Mubarak Al Kabeer Port (Dubai)")} />
-              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[424px] left-[816.8px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Dubai DryDocks")} />
-              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[434.5px] left-[846.8px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Port Rashid (Dubai)")} />
-              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[460px] left-[869.6px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Hamriyah Port (Sharjah)")} />
-              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[480.7px] left-[893px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Port Khalid (Sharjah)")} />
-              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[512.7px] left-[892px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Ajman Port")} />
-              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[512.7px] left-[924px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Umm Al Quwain Port")} />
-              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[528.3px] left-[947px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Ras Al Khaimah Port")} />
-              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[557px] left-[968.6px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("MINA SAQR (Ras Al Khaimah Port)")} />
-              <button className='h-[26px] w-[26px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute top-[211px] left-[1016.7px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Khor Fakkan Port")} />
-              <button className='h-[26px] w-[26px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute top-[282px] left-[1009.7px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Fujairah Port")} />
+              {/* <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[248.5px] left-[610.5px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Musaffah Port (Abu Dhabi)")}>
+                <PortIcon />
+              </button> */}
+              {/* <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[264.5px] left-[655.6px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Mina Zayed (Abu Dhabi)")}>
+                <PortIcon />
+              </button> */}
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[296px] left-[720px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Musaffah Port (Abu Dhabi)")}>
+                <PortIcon />
+              </button>
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[336px] left-[750px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Mina Zayed (Abu Dhabi)")}>
+                <PortIcon />
+              </button>
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[373.3px] left-[770.5px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Mina Khalifa (Abu Dhabi)")}>
+                <PortIcon />
+              </button>
+              {/* <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[390px] left-[811.6px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Mubarak Al Kabeer Port (Dubai)")}>
+                <PortIcon />
+              </button> */}
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[424px] left-[816.8px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Jebel Ali Ports (Dubai)")}>
+                <PortIcon />
+              </button>
+              {/* <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[434.5px] left-[846.8px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Port Rashid (Dubai)")}>
+                <PortIcon />
+              </button> */}
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[460px] left-[869.6px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Hamriyah Port (Sharjah)")}>
+                <PortIcon />
+              </button>
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[480.7px] left-[893px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Port Khalid (Sharjah)")}>
+                <PortIcon />
+              </button>
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[512.7px] left-[892px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Ajman Port")}>
+                <PortIcon />
+              </button>
+              {/* <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[512.7px] left-[924px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Umm Al Quwain Port")}>
+                <PortIcon />
+              </button> */}
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[528.3px] left-[947px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Umm Al Quwain Port")}>
+                <PortIcon />
+              </button>
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[557px] left-[968.6px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("MINA SAQR (Ras Al Khaimah Port)")}>
+                <PortIcon />
+              </button>
+              <button className='h-[26px] w-[26px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute top-[211px] left-[1016.7px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Khor Fakkan Port")}>
+                <PortIcon />
+              </button>
+              <button className='h-[26px] w-[26px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute top-[282px] left-[1009.7px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Fujairah Port")}>
+                <PortIcon />
+              </button>
 
             </div>
           </div>
@@ -75,20 +112,33 @@ const PortsTemplates = ({ ports }) => {
           <div className="container mx-auto max-w-[1280px] map overflow-x-auto">
             <div className="w-[1280px] relative">
               <Image
-                className='w-[1280px] '
+                className='relative w-[1280px] '
                 style={{ width: '100%', objectFit: 'cover', objectPosition: 'center' }}
                 src={'/images/ports/oman_port.png'} alt='uae_ports'
                 width={1600}
                 height={700}
               />
               {handlePortOman(activePort?.oman, setActivePort)}
-              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute top-[43.5px] left-[574.5px]' onMouseLeave={() => handleLeavePortOman("none")} onMouseEnter={() => handleActivePortOman("Khasab Port (Musandam)")} />
-              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute top-[211.5px] left-[586.5px]' onMouseLeave={() => handleLeavePortOman("none")} onMouseEnter={() => handleActivePortOman("Sohar Port")} />
-              {/* <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute top-[271.5px] left-[728.5px]' onMouseLeave={() => handleLeavePortOman("none")} onMouseEnter={() => handleActivePortOman("Asyad Dry Dock (Duqm Dry Dock)")} /> */}
-              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute top-[280.5px] left-[762.5px]' onMouseLeave={() => handleLeavePortOman("none")} onMouseEnter={() => handleActivePortOman("Sultan Qaboos Port (Muscat)")} />
-              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute top-[579.1px] left-[706.5px]' onMouseLeave={() => handleLeavePortOman("none")} onMouseEnter={() => handleActivePortOman("Duqm Port")} />
+              <button
+                className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute top-[43.5px] left-[574.5px]' onMouseLeave={() => handleLeavePortOman("none")} onMouseEnter={() => handleActivePortOman("Khasab Port (Musandam)")}>
+                <PortIcon />
+              </button>
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute top-[211.5px] left-[586.5px]' onMouseLeave={() => handleLeavePortOman("none")} onMouseEnter={() => handleActivePortOman("Sohar Port")}>
+                <PortIcon />
+              </button>
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute top-[280.5px] left-[762.5px]' onMouseLeave={() => handleLeavePortOman("none")} onMouseEnter={() => handleActivePortOman("Sultan Qaboos Port (Muscat)")} >
+                <PortIcon />
+              </button>
+              {/* <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute top-[270.5px] left-[732.5px]' onMouseLeave={() => handleLeavePortOman("none")} onMouseEnter={() => handleActivePortOman("Sultan Qaboos Port (Muscat)")} >
+                <PortIcon />
+              </button> */}
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute top-[619.1px] left-[706.5px]' onMouseLeave={() => handleLeavePortOman("none")} onMouseEnter={() => handleActivePortOman("Duqm Port")} >
+                <PortIcon />
+              </button>
               <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[90.5px] left-[507.2px]' onMouseLeave={() => handleLeavePortOman("none")} onMouseEnter={() => handleActivePortOman("Salalah Port")}
-              />
+              >
+                <PortIcon />
+              </button>
             </div>
           </div>
           <div className=" mt-[26px] lg:mt-[45px]">
@@ -131,7 +181,7 @@ function handlePortOman(portName) {
         <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -bottom-3 left-1/2 z-[-1] -translate-x-1/2' />
       </div>
     case "Duqm Port":
-      return <div className='absolute top-[385px] left-[587px] rounded-[15px] z-10 bg-[#D50004]'>
+      return <div className='absolute top-[430px] left-[587px] rounded-[15px] z-10 bg-[#D50004]'>
         <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
         <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
         <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -bottom-3 left-1/2 z-[-1] -translate-x-1/2' />
@@ -151,7 +201,7 @@ function handlePortOman(portName) {
 function handlePortSelection(portName) {
   switch (portName) {
     case "Musaffah Port (Abu Dhabi)":
-      return <div className='absolute top-[258px] left-[491px] rounded-[15px] z-10 bg-[#D50004]'>
+      return <div className='absolute top-[212px] left-[601px] rounded-[15px] z-10 bg-[#D50004]'>
         <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
         <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
         <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -bottom-3 left-1/2 z-[-1] -translate-x-1/2' />
@@ -163,7 +213,7 @@ function handlePortSelection(portName) {
     //     <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -bottom-3 left-1/2 z-[-1] -translate-x-1/2' />
     //   </div>
     case "Mina Khalifa (Abu Dhabi)":
-      return <div className='absolute top-[210px] left-[600px] rounded-[15px] z-10 bg-[#D50004]'>
+      return <div className='absolute top-[136px] left-[650px] rounded-[15px] z-10 bg-[#D50004]'>
         <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
         <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
         <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -bottom-3 left-1/2 z-[-1] -translate-x-1/2' />
@@ -180,14 +230,14 @@ function handlePortSelection(portName) {
     //     <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
     //     <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -bottom-3 left-1/2 z-[-1] -translate-x-1/2' />
     //   </div>
-    case "Mina Khalifa (Abu Dhabi)":
-      return <div className='absolute top-[90px] left-[890px] rounded-[15px] z-10 bg-[#D50004]'>
-        <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
-        <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
-        <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -bottom-3 left-1/2 z-[-1] -translate-x-1/2' />
-      </div>
+    // case "Mina Khalifa (Abu Dhabi)":
+    //   return <div className='absolute top-[90px] left-[890px] rounded-[15px] z-10 bg-[#D50004]'>
+    //     <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
+    //     <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
+    //     <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -bottom-3 left-1/2 z-[-1] -translate-x-1/2' />
+    //   </div>
     case "Mina Zayed (Abu Dhabi)":
-      return <div className='absolute top-[240px] left-[536px] rounded-[15px] z-10 bg-[#D50004]'>
+      return <div className='absolute top-[172px] left-[632px] rounded-[15px] z-10 bg-[#D50004]'>
         <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
         <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
         <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -bottom-3 left-1/2 z-[-1] -translate-x-1/2' />
@@ -198,37 +248,37 @@ function handlePortSelection(portName) {
     //     <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
     //     <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -bottom-3 left-1/2 z-[-1] -translate-x-1/2' />
     //   </div>
-    
-    case "Jebel Ali Ports (Dubai)":
-      return <div className='absolute top-[132px] left-[650px] rounded-[15px] z-10 bg-[#D50004]'>
-        <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
-        <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
-        <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -bottom-3 left-1/2 z-[-1] -translate-x-1/2' />
-      </div>
+
+    // case "Jebel Ali Ports (Dubai)":
+    //   return <div className='absolute top-[132px] left-[650px] rounded-[15px] z-10 bg-[#D50004]'>
+    //     <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
+    //     <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
+    //     <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -bottom-3 left-1/2 z-[-1] -translate-x-1/2' />
+    //   </div>
     // case "Ajman Port":
     //   return <div className='absolute top-[210px] left-[598px] rounded-[15px] z-10 bg-[#D50004]'>
     //     <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
     //     <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
     //     <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -bottom-3 left-1/2 z-[-1] -translate-x-1/2' />
     //   </div>
-    case "Mubarak Al Kabeer Port (Dubai)":
-      return <div className='absolute top-[118px] left-[692px] rounded-[15px] z-10 bg-[#D50004]'>
-        <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
-        <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
-        <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -bottom-3 left-1/2 z-[-1] -translate-x-1/2' />
-      </div>
-    case "Dubai DryDocks":
+    // case "Mubarak Al Kabeer Port (Dubai)":
+    //   return <div className='absolute top-[118px] left-[692px] rounded-[15px] z-10 bg-[#D50004]'>
+    //     <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
+    //     <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
+    //     <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -bottom-3 left-1/2 z-[-1] -translate-x-1/2' />
+    //   </div>
+    case "Jebel Ali Ports (Dubai)":
       return <div className='absolute top-[82px] left-[696px] rounded-[15px] z-10 bg-[#D50004]'>
         <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
         <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
         <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -bottom-3 left-1/2 z-[-1] -translate-x-1/2' />
       </div>
-    case "Port Rashid (Dubai)":
-      return <div className='absolute top-[72px] left-[727px] rounded-[15px] z-10 bg-[#D50004]'>
-        <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
-        <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
-        <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -bottom-3 left-1/2 z-[-1] -translate-x-1/2' />
-      </div>
+    // case "Port Rashid (Dubai)":
+    //   return <div className='absolute top-[72px] left-[727px] rounded-[15px] z-10 bg-[#D50004]'>
+    //     <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
+    //     <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
+    //     <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -bottom-3 left-1/2 z-[-1] -translate-x-1/2' />
+    //   </div>
     case "Hamriyah Port (Sharjah)":
       return <div className='absolute top-[47px] left-[749px] rounded-[15px] z-10 bg-[#D50004]'>
         <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
@@ -241,43 +291,37 @@ function handlePortSelection(portName) {
         <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
         <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -bottom-3 left-1/2 z-[-1] -translate-x-1/2' />
       </div>
-    case "Ajman Port": 
+    case "Ajman Port":
       return <div className='absolute top-[230px] left-[773px] rounded-[15px] z-10 bg-[#D50004]'>
         <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
         <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
         <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -top-3 left-1/2 z-[-1] -translate-x-1/2' />
       </div>
-    case "Umm Al Quwain Port": 
-      return <div className='absolute top-[236px] left-[805px] rounded-[15px] z-10 bg-[#D50004]'>
+    case "Umm Al Quwain Port":
+      return <div className='absolute top-[216px] left-[830px] rounded-[15px] z-10 bg-[#D50004]'>
         <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
         <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
         <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -top-3 left-1/2 z-[-1] -translate-x-1/2' />
       </div>
-    case "Umm Al Quwain Port": 
-    return <div className='absolute top-[236px] left-[805px] rounded-[15px] z-10 bg-[#D50004]'>
-      <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
-      <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
-      <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -top-3 left-1/2 z-[-1] -translate-x-1/2' />
-    </div>
-    case "Ras Al Khaimah Port": 
-    return <div className='absolute top-[216px] left-[828px] rounded-[15px] z-10 bg-[#D50004]'>
-      <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
-      <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
-      <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -top-3 left-1/2 z-[-1] -translate-x-1/2' />
-    </div>
-    case "MINA SAQR (Ras Al Khaimah Port)": 
-    return <div className='absolute top-[188px] left-[849px] rounded-[15px] z-10 bg-[#D50004]'>
-      <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
-      <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
-      <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -top-3 left-1/2 z-[-1] -translate-x-1/2' />
-    </div>
-    case "Khor Fakkan Port": 
-     return <div className='absolute top-[258px] right-[119px] rounded-[15px] z-10 bg-[#D50004]'>
-       <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
-       <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
-       <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -top-3 left-1/2 z-[-1] -translate-x-1/2' />
-     </div>
-    
+    // case "Ras Al Khaimah Port":
+    //   return <div className='absolute top-[216px] left-[828px] rounded-[15px] z-10 bg-[#D50004]'>
+    //     <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
+    //     <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
+    //     <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -top-3 left-1/2 z-[-1] -translate-x-1/2' />
+    //   </div>
+    case "MINA SAQR (Ras Al Khaimah Port)":
+      return <div className='absolute top-[188px] left-[849px] rounded-[15px] z-10 bg-[#D50004]'>
+        <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
+        <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
+        <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -top-3 left-1/2 z-[-1] -translate-x-1/2' />
+      </div>
+    case "Khor Fakkan Port":
+      return <div className='absolute top-[258px] right-[119px] rounded-[15px] z-10 bg-[#D50004]'>
+        <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
+        <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
+        <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -top-3 left-1/2 z-[-1] -translate-x-1/2' />
+      </div>
+
     case "Fujairah Port":
       return <div className='absolute top-[90px] right-[125px] rounded-[15px] z-10 bg-[#D50004]'>
         <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />

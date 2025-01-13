@@ -5,6 +5,7 @@ import Image from "next/image";
 import MegaMenu from "./MegaMenu";
 import MobileHeader from "./mobile-header";
 import { usePathname } from "next/navigation";
+import RequestAQuoteButton from '@/components/RequestAQuoteButton'
 
 const HeaderOne = ({ data }) => {
   const { Button, NavLinks, Logo } = data
@@ -83,10 +84,7 @@ const HeaderOne = ({ data }) => {
                     </li>
                 ))}
               </ul>
-              <Link href={"/request-a-quote"} className="rounded text-white hidden xl:block bg-theme-main text-left px-[19px] py-[9px]">
-                <p className="text-xs">Request a Quote</p>
-                <h6 className="text-[15px]">{Button?.Email}</h6>
-              </Link>
+              <RequestAQuoteButton Email={Button?.Email} />
             </div>
           </div>
         </div>
