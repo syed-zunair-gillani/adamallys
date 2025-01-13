@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 const HeaderLayout = ({ data }) => {
   const path = usePathname()
   return (
-    <div className={`${path === "/" ? '' : 'pb-4'}`}>
+    <div className={`${path === "/" ? '' : 'pb-4'} z-[99999] relative`}>
       {
         path === "/" ?
           <>
