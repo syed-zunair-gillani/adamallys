@@ -74,7 +74,7 @@ const CertificationsAndMemberships = ({ data }) => {
           {data?.slice(6, 12).map(
             (item, idx) => (
               <React.Fragment key={idx}>
-                <div className={`h-full flex flex-col items-center ${item?.Caption ? 'justify-end' : 'justify-center'}`} ref={(el) => (imageRefs2.current[idx] = el)}>
+                <div className={`h-full flex flex-col items-center ${item?.Caption ? 'justify-center lg:justify-end' : 'justify-center'}`} ref={(el) => (imageRefs2.current[idx] = el)}>
                   <img src={getFullImageURL(item?.Icon?.data?.attributes?.url)} alt="" className="" />
                   {item?.Caption &&
                     <div>
