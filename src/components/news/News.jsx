@@ -86,7 +86,17 @@ const News = ({ data }) => {
                     </figure>
                     <div className='bg-theme-gray p-5 md:p-10 font_calibri'>
                       <h6 className='text-theme-main'>{dayjs(item?.attributes?.Date).format('DD MMMM YYYY')}</h6>
-                      <p className='text-[#8B8B8B] text-[17px] sm:text-[20px] md:text-[25px] font-light mt-3'>{item?.attributes?.Excerpt}</p>
+                      <p
+                        className='text-[#8B8B8B] text-[17px] sm:text-[20px] md:text-[25px] font-light mt-3'
+                        style={{
+                          whiteSpace: 'wrap',
+                          maxHeight: '140px',
+                          overflow: 'hidden',
+                          display: '-webkit-box',
+                          WebkitLineClamp: 3,
+                          WebkitBoxOrient: 'vertical',
+                        }}
+                      >{item?.attributes?.Excerpt}</p>
                       <Link href={`/news-&-events/${item?.attributes?.Slug}`} className={`flex items-center gap-10 mt-5 text-theme-main`}>
                         Read More
                         <svg width="17" height="17" viewBox="0 0 17 17" fill="none">

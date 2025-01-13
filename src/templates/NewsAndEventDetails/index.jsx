@@ -83,7 +83,7 @@ const NewsAndEventDetailsTemplate = ({ data, content }) => {
               <div className='flex-1 flex flex-col justify-between bg-[#F5F6F8] p-5 md:px-[43] md:pt-[39px] md:pb-[43px] font_calibri'>
                 <div>
                   <h6 className='text-theme-main'>{dayjs(item?.attributes?.Date).format('DD MMM YYYY')}</h6>
-                  <p className='text-[#8B8B8B] text-[17px] sm:text-[20px] md:text-[25px] md:leading-[34px] font-light mt-[13px]'>{idx == 1 ? "tt" : item?.attributes?.Excerpt}
+                  <p className='text-[#8B8B8B] text-[17px] sm:text-[20px] md:text-[25px] md:leading-[34px] font-light mt-[13px]'>{item?.attributes?.Excerpt}
                   </p>
                 </div>
                 <Link href={`/news-&-events/${item?.attributes.Slug}`}>
