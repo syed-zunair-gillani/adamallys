@@ -15,8 +15,8 @@ const ProductsTemplate = ({ data, categories, specificCategorries, baseCategorri
   const [currentPage, setCurrentPage] = useState(currentPageIndex ? currentPageIndex : 1);
   const [products, setProducts] = useState(data)
   const [totalProducts, setTotalProducts] = useState(grandTotal)
-  const [searchQuery, setSearchQuery] = useState('')
-  const [selectBaseCategory, setSelectBaseCategory] = useState()
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectBaseCategory, setSelectBaseCategory] = useState();
 
   const router = useRouter()
 
@@ -35,19 +35,19 @@ const ProductsTemplate = ({ data, categories, specificCategorries, baseCategorri
 
   const handleSelectCategory = (e) => {
     setSelectBaseCategory(e.target.value)
-    const q = pageNo ? 
-    `?baseCategory=${e.target.value}&page=1` : 
-    `?baseCategory=${e.target.value}`
+    const q = pageNo ?
+      `?baseCategory=${e.target.value}&page=1` :
+      `?baseCategory=${e.target.value}`
     router.push(q)
   }
 
-  useEffect(()=>{
-    setProducts(data)
-  },[data])
+  useEffect(() => {
+    setProducts(data);
+  }, [data]);
 
   return (
     <main className='mt-[4rem] md:mt-[6rem] container mx-auto'>
-      <div className='md:py-[60px] px-[18px] xl:px-0'>
+      <div className='md:pt-[20px] md:pb-[60px] px-[18px] xl:px-0'>
         <h1 className='font_calibri capitalize text-[25px] md:text-[60px] leading-[60px] text-center font-bold text-theme-main'>Products</h1>
         <div className='w-[49px] h-[2px] bg-[#8B8B8B] md:hidden mx-auto' />
         <div className="flex flex-wrap lg:flex-nowrap items-center gap-[12px] mt-3 md:mt-[42px]">
@@ -123,10 +123,10 @@ const ProductsTemplate = ({ data, categories, specificCategorries, baseCategorri
                   }
                 </select>
               </div>
-              <RightDrawer 
-                categories={categories} 
-                specificCategorries={specificCategorries} 
-                setProducts={setProducts} 
+              <RightDrawer
+                categories={categories}
+                specificCategorries={specificCategorries}
+                setProducts={setProducts}
                 currentPageIndex={currentPageIndex}
                 setTotalProducts={setTotalProducts}
               />
@@ -143,12 +143,12 @@ const ProductsTemplate = ({ data, categories, specificCategorries, baseCategorri
         </div>
         <div className="my-[38px]">
           {/* {(products?.data > 19) && */}
-            <Pagination
-              currentPage={currentPage}
-              itemsPerPage={itemsPerPage}
-              totalItems={data?.meta?.pagination?.total}
-              onPageChange={setCurrentPage}
-            />
+          <Pagination
+            currentPage={currentPage}
+            itemsPerPage={itemsPerPage}
+            totalItems={data?.meta?.pagination?.total}
+            onPageChange={setCurrentPage}
+          />
           {/* } */}
         </div>
       </div>
