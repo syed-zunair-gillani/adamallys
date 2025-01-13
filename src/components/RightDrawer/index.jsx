@@ -1,9 +1,8 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import qs from "qs";
-import { Axios } from '@/config/Axios';
 import { useRouter, useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 
 const RightDrawer = ({ categories, specificCategorries, setProducts, currentPageIndex, setTotalProducts }) => {
   const params = useSearchParams()
@@ -16,7 +15,7 @@ const RightDrawer = ({ categories, specificCategorries, setProducts, currentPage
   const [selectAllChecked, setSelectAllChecked] = useState(false);
   const [isGeneralCategories, setIsGeneralCategories] = useState(true);
   const [queryParams, setQueryParams] = useState({});
-  
+
   const router = useRouter()
   const searchParams = useSearchParams();
 
@@ -26,9 +25,9 @@ const RightDrawer = ({ categories, specificCategorries, setProducts, currentPage
   }, []);
 
   const queryString = '?' + Object.entries(queryParams)
-  .map(([key, value]) => `${key}=${value}`)
-  .join('&');
-    
+    .map(([key, value]) => `${key}=${value}`)
+    .join('&');
+
   const toggleDrawer = () => setIsDrawerVisible(!isDrawerVisible);
 
   const handleCheckboxChange = async (e) => {
@@ -73,7 +72,7 @@ const RightDrawer = ({ categories, specificCategorries, setProducts, currentPage
   };
 
   const handleSearch = async () => {
-     router.push(queryString)
+    router.push(queryString)
     // const params = qs.stringify({
     //   populate: ['Image', 'general_categories', 'specific_category'],
     //   filters: {
@@ -102,6 +101,11 @@ const RightDrawer = ({ categories, specificCategorries, setProducts, currentPage
 
   const options = isGeneralCategories ? categories : specificCategorries;
 
+  const handleClear = () => {
+    setGeneralCheckedValues([]);
+    setSpecificCheckedValues([])
+  }
+
   return (
     <div className='relative'>
       <button
@@ -122,7 +126,7 @@ const RightDrawer = ({ categories, specificCategorries, setProducts, currentPage
         <div className="absolute right-0 w-full min-w-[355px] md:w-[402px] md:w-[390px] bg-[#EBEDFF] shadow-lg py-[30px] z-[9999]">
           <div className="flex gap-[30px] justify-between items-center pb-[30px] px-[30px]">
             <p className="flex-1 text-[25px] md:text-[30px] leading-[30px] md:font-bold text-theme-main font_calibri">Filter</p>
-            <button className='text-lg leading-[18px] text-theme-main font_calibri'>Clear</button>
+            <Link onClick={handleClear} href={'/products'} className='text-lg leading-[18px] text-theme-main font_calibri'>Clear</Link>
             <button
               onClick={toggleDrawer}
               className="text-theme-main text-lg hover:text-gray-700"
