@@ -34,6 +34,7 @@ const HeaderTwo = ({ data, slideFromTop }) => {
                     (
                       item?.Label?.toLowerCase() === 'who we are' ?
                         <MegaMenu
+                          key={idx}
                           title='who are we'
                           links={[
                             {
@@ -73,7 +74,7 @@ const HeaderTwo = ({ data, slideFromTop }) => {
                             </Link>
                             <div className={`absolute bottom-[-4px] left-0 mt-2 w-[18px] h-[2px] group-hover:bg-theme-main ${pathname === item?.Link ? 'bg-theme-main' : ''}`} />
                           </li>
-                    ) : <RequestAQuoteButton Email={Button?.Email} />
+                    ) : <RequestAQuoteButton key={idx} Email={Button?.Email} />
                 ))
               }
             </ul>

@@ -12,11 +12,11 @@ const VerticleIcon = async () => {
         <li key={idx}>
           <Tooltip content={item?.Caption || "Tooltip"}>
             <a
-              target={'_blank'}
+              target={((item?.Caption?.toLowerCase() === 'phone') || (item?.Caption?.toLowerCase() === 'email')) ? '_self' : '_blank'}
               href={
-                (item?.Caption === 'phone') ?
+                (item?.Caption?.toLowerCase() === 'phone') ?
                   `tel:${item?.link}` :
-                  (item?.Caption === 'email')
+                  (item?.Caption?.toLowerCase() === 'email')
                     ? `mailto:${item?.link}` :
                     item?.link
               }

@@ -42,6 +42,7 @@ const NewsAndEventDetailsTemplate = ({ data, content }) => {
           <figure>
             <Image
               className='w-full'
+              alt={attributes?.title}
               style={{ objectFit: 'cover', objectPosition: 'center' }}
               src={attributes?.Banner_Image?.data?.attributes?.url} width={1702} height={491}
             />
@@ -80,7 +81,7 @@ const NewsAndEventDetailsTemplate = ({ data, content }) => {
           {otherNews?.map((item, idx) => (
             <div key={idx} className={`${otherNews > 2 && "flex-1"} basis-full sm:basis-[40%] lg:basis-[30%] flex flex-col`}>
               <figure>
-                <Image src={getFullImageURL(item?.attributes?.Image?.data?.attributes?.url)} alt='' className='w-full' width={434} height={293} />
+                <Image src={getFullImageURL(item?.attributes?.Image?.data?.attributes?.url)} alt={item?.attributes.Slug} className='w-full' width={434} height={293} />
               </figure>
               <div className='flex-1 flex flex-col justify-between bg-[#F5F6F8] p-5 md:px-[43] md:pt-[39px] md:pb-[43px] font_calibri'>
                 <div>
