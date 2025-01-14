@@ -72,7 +72,7 @@ const PortsTemplates = ({ ports }) => {
               <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[424px] left-[816.8px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Jebel Ali Ports (Dubai)")}>
                 <PortIcon />
               </button>
-              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[434.5px] left-[846.8px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Dubai DryDocks")}>
+              <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[434.5px] left-[846.8px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Dubai Dry Docks")}>
                 <PortIcon />
               </button>
               <button className='h-[26px] w-[25px] hover:bg-[#2E368E]/40 rounded-full cursor-pointer absolute bottom-[460px] left-[869.6px]' onMouseLeave={() => handleLeavePortUAE("none")} onMouseEnter={() => handleActivePortUAE("Hamriyah Port (Sharjah)")}>
@@ -218,7 +218,7 @@ function handlePortSelection(portName) {
         <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
         <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -bottom-3 left-1/2 z-[-1] -translate-x-1/2' />
       </div>
-    // case "Dubai DryDocks":
+    // case "Dubai Dry Docks":
     //   return <div className='absolute top-[20px] left-[897px] rounded-[15px] z-10 bg-[#D50004]'>
     //     <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
     //     <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
@@ -273,7 +273,7 @@ function handlePortSelection(portName) {
         <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
         <div className='bg-[#D50004] h-7 w-7 absolute -rotate-45 -bottom-3 left-1/2 z-[-1] -translate-x-1/2' />
       </div>
-    case "Dubai DryDocks":
+    case "Dubai Dry Docks":
       return <div className='absolute top-[74px] left-[722px] rounded-[15px] z-10 bg-[#D50004]'>
         <Image src="/images/ports/port-sample.png" alt="" className='h-[132px] rounded-[15px] w-[264px] object-cover' width={264} height={132} />
         <h6 className='font-bold font_calibri px-4 pt-1 pb-1.5 text-white'>{portName}</h6>
