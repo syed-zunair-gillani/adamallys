@@ -80,7 +80,7 @@ const OurBrands = ({ data, content }) => {
   return (
     <section ref={sectionRef} className="my-[38px] md:my-[54px]">
       <div className="container mx-auto ">
-        <div className="flex px-3 lg:px-0 justify-center md:justify-between items-center">
+        <div className="flex px-3 xl:px-0 justify-center md:justify-between items-center">
           <h3
             ref={headingRef}
             className="text-theme-main text-[25px] uppercase font-bold text-center md:text-left md:justify-start md:items-start md:text-[30px] font_calibri flex justify-center flex-col items-center "
@@ -107,10 +107,10 @@ const OurBrands = ({ data, content }) => {
             />
           </div>
         </div>
-        <p ref={contentRef} className="font-light px-[18px] mt-3 mb-[30px] lg:px-0 lg:mb-[37px] text-center md:text-left text-xs md:text-base font_calibri">
+        <p ref={contentRef} className="font-light px-[18px] mt-3 mb-[30px] xl:px-0 lg:mb-[37px] text-center md:text-left text-xs md:text-base font_calibri">
           {content}
         </p>
-        <div className="px-[18px] lg:px-0">
+        <div className="px-[18px] xl:px-0">
           <Slider ref={slider} {...settings}>
             {data?.map((icon, id) => (
               <div

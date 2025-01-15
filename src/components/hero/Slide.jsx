@@ -10,9 +10,9 @@ const Slide = ({ item, Side_Sticky_Links }) => {
         </video>
 
         <section className="fullscreen-video-content absolute inset-0">
-          <div className="container flex flex-col justify-between mx-auto h-full pb-12 px-3 lg:px-0">
+          <div className="container flex flex-col justify-between mx-auto h-full pb-12 px-3 xl:px-0">
             <div className="opacity-0"></div>
-            <h2 className="text-[30px] text-center md:text-left slideFade md:leading-[48px] lg:leading-[66px] md:text-[40px] font_franklin lg:text-[50px] text-white max-w-[1028px] uppercase font-normal">
+            <h2 className="md:-mt-[90px] text-[30px] text-center md:text-left slideFade md:leading-[48px] lg:leading-[66px] md:text-[40px] font_franklin lg:text-[50px] text-white max-w-[1028px] uppercase font-normal">
               {item?.title}
             </h2>
             <div className="">
@@ -33,7 +33,9 @@ const Slide = ({ item, Side_Sticky_Links }) => {
                           }
                         >
                           <span className='w-6 h-6 bg-white rounded-full flex flex-col border border-[#EDEDED] justify-center items-center'>
-                            <Image src={getFullImageURL(item?.Icon?.data?.attributes?.url)} alt="" width={20} height={20} className="w-[10px]" />
+                            <Image
+                              style={{ scale: (item?.Caption?.toLowerCase() === "mespas") ? 1.5 : item?.Caption?.toLowerCase() === "procureship" ? 1.3 : 1 }}
+                              src={getFullImageURL(item?.Icon?.data?.attributes?.url)} alt="" width={20} height={20} className="w-[10px]" />
                           </span>
                         </a>
                       </li>

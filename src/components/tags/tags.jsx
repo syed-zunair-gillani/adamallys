@@ -3,7 +3,7 @@ import ScrollTo from '@/components/ScrollTo'
 
 const Tags = ({ tags }) => {
   return (
-    <section className='py-4 md:sticky top-[71px] bg-white z-[9] px-[18px] lg:px-0'>
+    <section className='py-4 md:sticky top-[91px] bg-white z-[9] px-[18px] xl:px-0'>
       <div className="container mx-auto">
         <ul className='flex gap-2 items-center md:justify-center md:flex-wrap overflow-x-auto tags'>
           {tags?.map((tag, idx) => (

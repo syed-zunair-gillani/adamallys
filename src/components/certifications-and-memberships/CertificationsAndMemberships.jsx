@@ -48,7 +48,7 @@ const CertificationsAndMemberships = ({ data }) => {
 
   return (
     <section className="certification-gradient -mt-[7px]">
-      <div className="container mx-auto py-[38px] md:py-16 px-3 lg:px-0">
+      <div className="container mx-auto py-[38px] md:py-16 px-3 xl:px-0">
         <h4 className="text-[25px] font-normal text-center md:text-left md:justify-start md:items-start md:text-2xl text-white font_calibri mb-10 flex justify-center flex-col items-center">
           Certifications & Memberships
           <div className="h-[2px] w-[34px] bg-white mt-2" />
@@ -74,7 +74,7 @@ const CertificationsAndMemberships = ({ data }) => {
           {data?.slice(6, 12).map(
             (item, idx) => (
               <React.Fragment key={idx}>
-                <div className={`h-full flex flex-col items-center ${item?.Caption ? 'justify-end' : 'justify-center'}`} ref={(el) => (imageRefs2.current[idx] = el)}>
+                <div className={`h-full flex flex-col items-center ${item?.Caption ? 'justify-center lg:justify-end' : 'justify-center'}`} ref={(el) => (imageRefs2.current[idx] = el)}>
                   <img src={getFullImageURL(item?.Icon?.data?.attributes?.url)} alt="" className="" />
                   {item?.Caption &&
                     <div>

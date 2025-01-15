@@ -26,8 +26,8 @@ const SustainabilityTemplate = (props) => {
         />
         <div
           style={{ background: 'rgba(23, 31, 124, 1)' }}
-          className="relative text-white w-full px-6 py-5 sm:px-9 sm:py-8 lg:px-[53px] lg:py-[53px]">
-          <p className=" text-[16px] mx-auto max-w-[815px] text-center sm:text-[18px] font_calibri font-light">
+          className="relative text-white w-full px-6 py-5 sm:px-9 sm:py-8 lg:px-[53px] lg:pb-[80px]">
+          <p className="text-[16px] mx-auto max-w-[815px] text-center sm:text-[18px] font_calibri font-light">
             {BannerContent}
           </p>
         </div>

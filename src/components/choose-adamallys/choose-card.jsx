@@ -32,7 +32,7 @@ const ChooseCard = ({ data, description }) => {
   ) : (
     <div
       ref={containerRef}
-      className="grid grid-cols-1 sm:grid-cols-2 gap-7 font_calibri px-[18px] lg:px-0"
+      className="grid grid-cols-1 sm:grid-cols-2 gap-7 font_calibri px-[18px] xl:px-0"
     >
       {data?.WhyChoose?.map((item, idx) => (
         <div key={idx} className="grid-item gap-4 flex md:flex-col border-b border-dashed md:border-b-0 border-theme-main">

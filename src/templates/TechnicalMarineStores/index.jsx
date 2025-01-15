@@ -104,7 +104,7 @@ const TechnicalMarineStoresTemplate = (props) => {
         caption={Card?.[9]?.info}
         image1={Card?.[9]?.image?.data?.attributes?.url}
         points={Card?.[9]?.lists?.map(({ list }) => list)}
-        image2={Card?.[9]?.image2?.data?.attributes?.url || "/images/ship-supply/stationary-two.png"}
+        image2={Card?.[9]?.Secound_Image?.data?.attributes?.url || "/images/ship-supply/stationary-two.png"}
       />
       <OneColumnContent
         id={tagList[10]}

@@ -65,6 +65,19 @@ async function getNewsAndEvents() {
 }
 
 
+async function getSingleNewsAndEvents(slug) {
+  const params = qs.stringify({
+    populate: [
+      'Image', "Banner_Image"
+    ],
+    filters: {
+      Slug: { $eq: slug }
+    }
+  })
+  const responce = await Axios.get(`/news-and-events?${params}`);
+  return responce.data.data
+}
+
 async function getFooter() {
   const params = qs.stringify({
     populate: [
@@ -257,5 +270,6 @@ export {
   getTechnicalMarineStores,
   getWhyChoose,
   getPrivacyPolicy,
-  getPorts
+  getPorts,
+  getSingleNewsAndEvents
 }

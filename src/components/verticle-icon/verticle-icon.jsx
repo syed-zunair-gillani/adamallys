@@ -12,17 +12,19 @@ const VerticleIcon = async () => {
         <li key={idx}>
           <Tooltip content={item?.Caption || "Tooltip"}>
             <a
-              target={'_blank'}
+              target={((item?.Caption?.toLowerCase() === 'phone') || (item?.Caption?.toLowerCase() === 'email')) ? '_self' : '_blank'}
               href={
-                (item?.Caption === 'phone') ?
+                (item?.Caption?.toLowerCase() === 'phone') ?
                   `tel:${item?.link}` :
-                  (item?.Caption === 'email')
+                  (item?.Caption?.toLowerCase() === 'email')
                     ? `mailto:${item?.link}` :
                     item?.link
               }
             >
               <span className='w-12 h-12 bg-white rounded-full flex flex-col border border-[#EDEDED] justify-center items-center'>
-                <Image src={item?.Icon?.data?.attributes?.url} alt="" width={20} height={20} />
+                <Image
+                  style={{ scale: (item?.Caption?.toLowerCase() === "mespas") ? 1.5 : item?.Caption?.toLowerCase() === "procureship" ? 1.3 : 1 }}
+                  src={item?.Icon?.data?.attributes?.url} alt="" width={20} height={20} />
               </span>
             </a>
           </Tooltip>

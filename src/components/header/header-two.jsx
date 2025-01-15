@@ -5,6 +5,7 @@ import Image from 'next/image'
 import MegaMenu from './MegaMenu'
 import { usePathname } from 'next/navigation'
 import useScrollPosition from "@/hooks/useScrollPosition"
+import RequestAQuoteButton from '@/components/RequestAQuoteButton'
 
 const HeaderTwo = ({ data, slideFromTop }) => {
   const { Button, Secound_Header_Nav, Logo } = data;
@@ -12,7 +13,7 @@ const HeaderTwo = ({ data, slideFromTop }) => {
   const scrollPosition = useScrollPosition()
 
   return (
-    <header className={`py-3 w-full fixed z-[200] hidden md:block transition-all duration-500 ease-linear text-theme-main font_calibri bg-white 
+    <header className={`py-3 w-full fixed z-[200] hidden xl:block transition-all duration-500 ease-linear text-theme-main font_calibri bg-white 
       ${slideFromTop ? (scrollPosition > 100 ? "top-0" : "-top-[200px]") : "top-0"}
     `}>
       <div className="container mx-auto">
@@ -20,7 +21,7 @@ const HeaderTwo = ({ data, slideFromTop }) => {
           <div className=" md:w-[10%]">
             <figure>
               <Link href="/" className="">
-                <Image src={Logo?.data?.attributes.url ? Logo?.data?.attributes.url : `/svg/logo.svg`} alt="logo" width={126} height={74} className="w-16 md:w-[110px]" />
+                <Image src={Logo?.data?.attributes.url ? Logo?.data?.attributes.url : `/svg/logo.svg`} alt="logo" width={126} height={74} className="w-16 md:w-[115px]" />
               </Link>
             </figure>
           </div>
@@ -33,6 +34,7 @@ const HeaderTwo = ({ data, slideFromTop }) => {
                     (
                       item?.Label?.toLowerCase() === 'who we are' ?
                         <MegaMenu
+                          key={idx}
                           title='who are we'
                           links={[
                             {
@@ -72,11 +74,7 @@ const HeaderTwo = ({ data, slideFromTop }) => {
                             </Link>
                             <div className={`absolute bottom-[-4px] left-0 mt-2 w-[18px] h-[2px] group-hover:bg-theme-main ${pathname === item?.Link ? 'bg-theme-main' : ''}`} />
                           </li>
-                    ) :
-                    <Link href={"/request-a-quote"} className="rounded text-white hidden xl:block bg-theme-main text-left px-[19px] py-[9px]">
-                      <p className="text-xs">Request a Quote</p>
-                      <h6 className="text-[15px]">{Button?.Email}</h6>
-                    </Link>
+                    ) : <RequestAQuoteButton key={idx} Email={Button?.Email} />
                 ))
               }
             </ul>

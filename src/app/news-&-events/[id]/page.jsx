@@ -1,12 +1,13 @@
-import { getNewsAndEvents } from '@/services'
+import { getNewsAndEvents, getSingleNewsAndEvents } from '@/services'
 import NewsAndEventDetailsTemplate from '@/templates/NewsAndEventDetails'
 
-const NewsAndEventDetails = async () => {
+const NewsAndEventDetails = async ({params}) => {
     const data = await getNewsAndEvents()
+    const content = await getSingleNewsAndEvents(params?.id)
 
     return (
         <>
-            <NewsAndEventDetailsTemplate data={data?.data} />
+            <NewsAndEventDetailsTemplate data={data?.data} content={content?.[0]}/>
         </>
     )
 }

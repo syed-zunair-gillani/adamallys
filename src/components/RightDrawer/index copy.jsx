@@ -1,34 +1,28 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import qs from "qs";
+import { Axios } from '@/config/Axios';
 import { useRouter, useSearchParams } from 'next/navigation';
-import Link from 'next/link';
 
-const RightDrawer = ({ categories, specificCategorries, setProducts, currentPageIndex, setTotalProducts }) => {
-  const params = useSearchParams()
-  const categoriesParams = params.get('categories')
-  const type = params.get('type')
-
-  const [generalCheckedValues, setGeneralCheckedValues] = useState(type === "general" ? categoriesParams.split(",") : []);
-  const [specificCheckedValues, setSpecificCheckedValues] = useState(type === "specific" ? categoriesParams.split(",") : []);
+const RightDrawer = ({ categories, specificCategorries, setProducts, currentPageIndex }) => {
+  const [generalCheckedValues, setGeneralCheckedValues] = useState([]);
+  const [specificCheckedValues, setSpecificCheckedValues] = useState([]);
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
   const [selectAllChecked, setSelectAllChecked] = useState(false);
   const [isGeneralCategories, setIsGeneralCategories] = useState(true);
-  const [queryParams, setQueryParams] = useState({});
-
   const router = useRouter()
+  const [queryParams, setQueryParams] = useState({});
+  
   const searchParams = useSearchParams();
-
   useEffect(() => {
     const params = Object.fromEntries(searchParams.entries());
     setQueryParams(params);
-  }, []);
-
-  const queryString = '?' + Object.entries(queryParams)
-    .map(([key, value]) => `${key}=${value}`)
-    .join('&');
-
+  }, [searchParams]);
+  
   const toggleDrawer = () => setIsDrawerVisible(!isDrawerVisible);
+
+  const queryParam = new URLSearchParams(queryParams).toString();
 
   const handleCheckboxChange = async (e) => {
     const value = e.target.value;
@@ -37,8 +31,8 @@ const RightDrawer = ({ categories, specificCategorries, setProducts, currentPage
         const updatedGValues = e.target.checked
           ? [...prev, value]
           : prev.filter((item) => item !== value);
-        const gcaterories = updatedGValues.join(',')
-        setQueryParams({ ...queryParams, "categories": gcaterories, type: 'general' })
+          const gcaterories = updatedGValues.join(',')
+          setQueryParams({...queryParams, "categories" : gcaterories, type: 'general' })
         return updatedGValues;
       });
 
@@ -47,8 +41,8 @@ const RightDrawer = ({ categories, specificCategorries, setProducts, currentPage
         const updatedSValues = e.target.checked
           ? [...prev, value]
           : prev.filter((item) => item !== value);
-        const gcaterories = updatedSValues.join(',')
-        setQueryParams({ ...queryParams, "categories": gcaterories, type: 'specific' })
+        const scaterories = updatedSValues.join(',')
+        setQueryParams({...queryParams, "categories" : scaterories, type: 'specific' })
         return updatedSValues;
       });
     }
@@ -67,44 +61,39 @@ const RightDrawer = ({ categories, specificCategorries, setProducts, currentPage
   };
 
   const handleSwitchCategory = () => {
+    setGeneralCheckedValues([]);
+    setSpecificCheckedValues([]);
     setSelectAllChecked(false);
     setIsGeneralCategories((prev) => !prev);
   };
 
   const handleSearch = async () => {
-    router.push(queryString)
-    // const params = qs.stringify({
-    //   populate: ['Image', 'general_categories', 'specific_category'],
-    //   filters: {
-    //     specific_category: {
-    //       Slug: {
-    //         $in: specificCheckedValues,
-    //       },
-    //     },
-    //     general_category: {
-    //       Slug: {
-    //         $in: generalCheckedValues
-    //       },
-    //     },
-    //   },
-    //   pagination: {
-    //     page: currentPageIndex ? currentPageIndex : 1,
-    //     pageSize: 20
-    //   }
-    // });
+    router.push(`?${queryParam}`)
+    const params = qs.stringify({
+      populate: ['Image', 'general_categories', 'specific_category'],
+      filters: {
+        specific_category: {
+          Slug: {
+            $in: specificCheckedValues,
+          },
+        },
+        general_category: {
+          Slug: {
+            $in: generalCheckedValues
+          },
+        },
+      },
+      pagination: {
+        page: currentPageIndex ? currentPageIndex : 1,
+        pageSize: 20
+      }
+    });
 
-    // const response = await Axios.get(`/products?${params}`);
-    // setProducts(response?.data);
-    // setTotalProducts(response.data?.meta?.pagination?.total)
-    toggleDrawer()
+    const response = await Axios.get(`/products?${params}`);
+    setProducts(response?.data);
   }
 
   const options = isGeneralCategories ? categories : specificCategorries;
-
-  const handleClear = () => {
-    setGeneralCheckedValues([]);
-    setSpecificCheckedValues([])
-  }
 
   return (
     <div className='relative'>
@@ -126,7 +115,7 @@ const RightDrawer = ({ categories, specificCategorries, setProducts, currentPage
         <div className="absolute right-0 w-full min-w-[355px] md:w-[402px] md:w-[390px] bg-[#EBEDFF] shadow-lg py-[30px] z-[9999]">
           <div className="flex gap-[30px] justify-between items-center pb-[30px] px-[30px]">
             <p className="flex-1 text-[25px] md:text-[30px] leading-[30px] md:font-bold text-theme-main font_calibri">Filter</p>
-            <Link onClick={handleClear} href={'/products'} className='text-lg leading-[18px] text-theme-main font_calibri'>Clear</Link>
+            <button className='text-lg leading-[18px] text-theme-main font_calibri'>Clear</button>
             <button
               onClick={toggleDrawer}
               className="text-theme-main text-lg hover:text-gray-700"
@@ -139,7 +128,7 @@ const RightDrawer = ({ categories, specificCategorries, setProducts, currentPage
           <p className="p-[30px] flex-1 text-[30px] leading-[30px] font-bold text-theme-main font_calibri">
             {isGeneralCategories ? 'General' : 'Specific'} Category
           </p>
-          <div className="space-y-[12px] px-[30px] hideScrollBar h-[315px] overflow-y-auto">
+          <div className="space-y-[12px] hideScrollBar h-[315px] overflow-y-auto px-[30px]">
             {isGeneralCategories && (
               <div className="flex items-center">
                 <input
@@ -172,8 +161,8 @@ const RightDrawer = ({ categories, specificCategorries, setProducts, currentPage
                     value={option?.attributes?.Slug}
                     checked={
                       isGeneralCategories
-                        ? generalCheckedValues?.includes(option?.attributes?.Slug)
-                        : specificCheckedValues?.includes(option?.attributes?.Slug)
+                        ? generalCheckedValues.includes(option?.attributes?.Slug)
+                        : specificCheckedValues.includes(option?.attributes?.Slug)
                     }
                     onChange={handleCheckboxChange}
                     className="hidden peer"
