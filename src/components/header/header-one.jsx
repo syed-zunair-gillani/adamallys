@@ -21,6 +21,7 @@ const HeaderOne = ({ data }) => {
               {NavLinks?.slice(0, 2).map((item, idx) => (
                 item?.Label?.toLowerCase() === 'standards & innovation' ?
                   <MegaMenu
+                    key={idx}
                     title='Standards & Innovation'
                     links={[
                       {
@@ -66,6 +67,7 @@ const HeaderOne = ({ data }) => {
                 {NavLinks?.slice(2).map((item, idx) => (
                   item?.Label?.toLowerCase() === 'who we are' ?
                     <MegaMenu
+                      key={idx}
                       title='who are we'
                       links={[
                         {
